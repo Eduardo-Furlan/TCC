@@ -1,7 +1,76 @@
 % REVISÃO DE LITERATURA--------------------------------------------------------
 
-\chapter{REVISÃO DE LITERATURA}
+\chapter{FUNDAMENTAÇÃO TEÓRICA}
 \label{chap:fundamentacaoTeorica}
 
-É uma boa prática iniciar cada novo capítulo com um breve texto introdutório (tipicamente, dois ou três parágrafos) que deve deixar claro o quê será discutido no capítulo, bem como a organização do capítulo.
-Também servirá ao propósito de "amarrar"{} o conteúdo deste capítulo com o conteúdo do capítulo imediatamente anterior.
+Neste capítulo, serão apresentados os conceitos fundamentais que servem de sustentação para este trabalho. Iniciaremos com uma breve revisão da Teoria dos Conjuntos como base da matemática. Em seguida, definiremos formalmente o conceito de cardinalidade através de funções bijetoras, diferenciando conjuntos finitos e infinitos. A seção central abordará a descoberta revolucionária de Georg Cantor sobre a existência de diferentes "tamanhos" de infinito, introduzindo os conceitos de conjuntos enumeráveis e não enumeráveis. Por fim, apresentaremos a hierarquia dos números cardinais e formularemos a Hipótese do Contínuo.
+
+\section{Fundamentos da Teoria dos Conjuntos}
+
+\subsection{Axiomas da Teoria dos Conjuntos}
+A base de toda a matemática moderna pode ser construída sobre o conceito de "conjunto" \ (que também chamaremos de "coleção", ou "família"). Um conjunto é determinado unicamente por seus elementos, um princípio formalizado no Axioma da Extensão:
+
+\begin{axioma}[Axioma da Extensão]
+Dois conjuntos são iguais se, e somente se, ambos possuem os mesmos elementos.
+\label{ax:extensao}
+\end{axioma}
+
+Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\) dizemos que \(A\) é um subconjunto de \(B\), \(A\) está contido em \(B\), ou que \(B\) contém \(A\), e escrevemos \(A \subseteq B\) e \(B \supseteq A\), respectivamente.
+
+\begin{axioma}[Axioma da Especificação]
+    Para todo conjunto \(A\) e toda condição \(S(x)\), existe um conjunto \(B\) em que seus elementos são todos os \(x \in A\) tal que a condição \(S(x)\) é verdadeira. Escrevemos \(B\) como 
+    \[
+    B = \{x \in A: S(x)\}.
+    \]
+    \label{ax:especificacao}
+\end{axioma}
+
+\begin{axioma}[Axioma do Par]
+    Para quaisquer dois conjuntos \(A\) e \(B\), existe um conjunto \(C\) tal que \(A \in C\) e \(B \in C.\)
+    \label{ax:par}
+\end{axioma}
+
+\begin{axioma}[Axioma das Uniões]
+    Para qualquer coleção de conjuntos, existe um conjunto que contem todos os elementos que pertencem a pelo menos um conjunto da coleção dada.
+    \label{ax:unioes}
+\end{axioma}
+
+Seja \(C\) essa coleção de conjuntos, e \(U\) o conjunto referido no Axioma \ref{ax:unioes}, chamamos \(U\) de união da coleção \(C\) de conjuntos e escrevemos como
+\[
+\bigcup C, \quad \bigcup \{X: X \in C\} \quad \text{ou} \quad \bigcup_{X \in C} C.
+\]
+
+\begin{definicao}[Interseção]
+    Se \(A\) e \(B\) são conjuntos a interseção de \(A\) e \(B\) é o conjunto \(A \cap B\) definido por \(A \cap B = \{x: x\in A \text{ e } x\in B \}.\)
+    \label{def:intersecao}
+\end{definicao}
+
+De forma análoga à união, chamamos um conjunto \(V\) de interseção de \(C\) e escrevemos como
+\[
+\bigcap C, \quad \bigcap \{X: X \in C\} \quad \text{ou} \quad \bigcap_{X \in C} C.
+\]
+
+\begin{axioma}[Axioma da Potência]
+    Para todo conjunto existe uma coleção de conjuntos que contém (como elementos) todos os subconjuntos do conjunto dado.
+    \label{ax:potencia}
+\end{axioma}
+
+\subsection{Conjunto dos Números Naturais}
+
+O ponto de partida para a construção dos números é o conjunto dos números naturais, \(\mathbb{N} = \{1, 2, 3, ...\}\), caracterizado pelos axiomas de Peano:
+
+\begin{axioma}[Primeiro Axioma de Peano]
+    Existe uma função injetiva \(s: \ \mathbb{N} \to \mathbb{N}.\) Chamamos a imagem de \(s(n)\) de sucessor de \(n\).
+    \label{ax:peano1}    
+\end{axioma}
+
+\begin{axioma}[Segundo Axioma de Peano]
+    Existe um único número natural \(1 \in \mathbb{N}\) tal que \(1 \neq s(n)\) para qualquer \(n \in \mathbb{N}\).
+    \label{ax:peano2}
+\end{axioma}
+
+\begin{axioma}[Terceiro Axioma de Peano]
+    Se em um conjunto \(X \subseteq \mathbb{N}\), \(1 \in X\) e \(s(X) \subseteq X\)\footnote{\(n \in X \implies s(n) \in X.\)}, então \(X = \mathbb{N}\)  
+    \label{ax:peano3}
+\end{axioma}
+Esses axiomas estabelecem a existência de um primeiro elemento (que chamamos de \(1\)), uma função "sucessor" \ injetiva, e o princípio da indução, que garante que qualquer número natural pode ser alcançado a partir do \(1\) por sucessivas aplicações da função sucessor.

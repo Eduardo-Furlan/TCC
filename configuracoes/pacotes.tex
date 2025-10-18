@@ -1,6 +1,5 @@
 % REFERÊNCIAS------------------------------------------------------------------
 \usepackage[%
-    alf,
     abnt-emphasize=bf,
     bibjustif,
     recuo=0cm,
@@ -39,6 +38,29 @@
 %\usepackage{scalefnt}                                      % Permite redimensionar tamanho da fonte
 %\usepackage{subfig}                                        % Posicionamento de figuras
 %\usepackage{upgreek}                                       % Fonte letras gregas
+\usepackage{amsthm}
 
 % Redefine a fonte para uma fonte similar a Arial (fonte Helvetica)
 \renewcommand*\familydefault{\sfdefault}
+
+% Define o estilo "theorem" (negrito, itálico)
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}
+\newtheorem{axioma}[teorema]{Axioma}     % Numerado junto com teorema
+\newtheorem{lema}[teorema]{Lema}         % Numerado junto com teorema
+\newtheorem{corolario}[teorema]{Corolário} % Numerado junto com teorema
+
+% Define o estilo "definition" (negrito, reto)
+\theoremstyle{definition}
+\newtheorem{definicao}[teorema]{Definição} % Numerado junto com teorema
+\newtheorem{exemplo}[teorema]{Exemplo}     % Numerado junto com teorema
+
+% Define o estilo "remark" (itálico, reto)
+\theoremstyle{remark}
+\newtheorem{remark}{Nota} % Numerado separadamente
+
+% Altera o nome padrão "Proof" do ambiente 'proof' para "Prova"
+\renewcommand{\proofname}{Prova}
+
+\definecolor{DarkModeBG}{gray}{0.15}    % Fundo (Cinza bem escuro)
+\definecolor{DarkModeText}{gray}{0.95}  % Texto (Cinza bem claro)

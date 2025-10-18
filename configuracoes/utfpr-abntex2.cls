@@ -38,7 +38,7 @@
 % Opções da classe memoir
     12pt,                     % Tamanho da fonte
     a4paper,                  % Tamanho do papel.
-    sumario=tradicional,      % Seleciona o sumário tradicional
+    sumario=abnt-6027-2012,      % Seleciona o sumário tradicional
 % Opções do pacote babel
     brazil,                   % Idioma do documento
 }{abntex2}
@@ -228,10 +228,14 @@
 % -----------------------------------------------------------------------------
 
 % Travessão no sumário para apêndices e anexos
-\renewcommand{\cftchapteraftersnum}{\hfill\textendash\hfill}
+\renewcommand{\cftchapteraftersnum}{\quad}
 
 % Insere espaço entre os itens do sumário de diferentes capítulos
 \setlength{\cftbeforechapterskip}{1.0em \@plus\p@}
+
+\renewcommand{\cftchapterfont}{\bfseries\MakeUppercase}
+\renewcommand{\cftsectionfont}{\bfseries}
+\renewcommand{\cftsubsectionfont}{\normalfont}
 
 % -----------------------------------------------------------------------------
 % Listas
