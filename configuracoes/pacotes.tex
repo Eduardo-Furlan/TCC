@@ -1,6 +1,8 @@
 % REFERÊNCIAS------------------------------------------------------------------
 \usepackage[%
-    abnt-emphasize=bf,
+    alf,                      
+    abnt-cite-str=lower,
+    abnt-cite-style=lower,      
     bibjustif,
     recuo=0cm,
     abnt-url-package=url,       % Utiliza o pacote url
@@ -64,3 +66,16 @@
 
 \definecolor{DarkModeBG}{gray}{0.15}    % Fundo (Cinza bem escuro)
 \definecolor{DarkModeText}{gray}{0.95}  % Texto (Cinza bem claro)
+\definecolor{DarkModeLink}{rgb}{0.345, 0.651, 1.0} % Link (Azul claro)
+
+% Comando \linkcite{<texto>}{<chave-bib>}
+% Cria links separados para o texto e o ano, deixando a pontuação de fora.
+% Formato de saída: (<texto>, <ano>)
+\makeatletter
+\newcommand{\linkcite}[2]{%
+  (%
+  \hyper@natlinkstart{#2}#1\hyper@natlinkend, % Cria o link apenas para o texto
+  ~\hyper@natlinkstart{#2}\citeyear{#2}\hyper@natlinkend% Cria o link apenas para o ano
+  )%
+}
+\makeatother

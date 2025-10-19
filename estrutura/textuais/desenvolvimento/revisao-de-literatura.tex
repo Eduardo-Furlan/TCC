@@ -8,14 +8,15 @@ Neste capítulo, serão apresentados os conceitos fundamentais que servem de sus
 \section{Fundamentos da Teoria dos Conjuntos}
 
 \subsection{Axiomas da Teoria dos Conjuntos}
-A base de toda a matemática moderna pode ser construída sobre o conceito de "conjunto" \ (que também chamaremos de "coleção", ou "família"). Um conjunto é determinado unicamente por seus elementos, um princípio formalizado no Axioma da Extensão:
+
+A base de toda a matemática moderna pode ser construída sobre o conceito de "conjunto" \ (que também chamaremos de "coleção", ou "família"). \citeonline{halmos2014} menciona os axiomas a seguir.
 
 \begin{axioma}[Axioma da Extensão]
 Dois conjuntos são iguais se, e somente se, ambos possuem os mesmos elementos.
 \label{ax:extensao}
 \end{axioma}
 
-Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\) dizemos que \(A\) é um subconjunto de \(B\), \(A\) está contido em \(B\), ou que \(B\) contém \(A\), e escrevemos \(A \subseteq B\) e \(B \supseteq A\), respectivamente.
+Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\) dizemos que \(A\) é um subconjunto de \(B\), \(A\) está contido em \(B\), ou que \(B\) contém \(A\), e escrevemos \(A \subseteq B\) e \(B \supseteq A\), respectivamente. Disso temos que \(A = B \iff A \subseteq B \text{ e } B \subseteq A.\). Quando temos \(A \subseteq B\) e \(A \neq B\) escrevemos \(A \subsetneq B\) e dizemos que \(A\) é um subconjunto próprio de \(B\).
 
 \begin{axioma}[Axioma da Especificação]
     Para todo conjunto \(A\) e toda condição \(S(x)\), existe um conjunto \(B\) em que seus elementos são todos os \(x \in A\) tal que a condição \(S(x)\) é verdadeira. Escrevemos \(B\) como 
@@ -74,3 +75,27 @@ O ponto de partida para a construção dos números é o conjunto dos números n
     \label{ax:peano3}
 \end{axioma}
 Esses axiomas estabelecem a existência de um primeiro elemento (que chamamos de \(1\)), uma função "sucessor" \ injetiva, e o princípio da indução, que garante que qualquer número natural pode ser alcançado a partir do \(1\) por sucessivas aplicações da função sucessor.
+
+\section{O Conceito de Cardinalidade}
+
+A noção intuitiva de "tamanho" \ de um conjunto é formalizada matematicamente pelo conceito de cardinalidade. \citeonline{lima2006} define um conjunto \(X\) como finito quando \(X\) é vazio, ou existem um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\) onde \(I_n = \{p \in \mathbb{N}: p \leq n \}\). Já \citeonline{halmos2014} define um conjunto finito como um conjunto equivalente a um número\footnote{Na Teoria de Conjuntos números são conjuntos} natural, onde equivalência significa uma bijeção. Uma propriedade fundamental dos conjuntos finitos é que não existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
+
+Um conjunto é dito infinito quando não é finito. De forma equivalente, um conjunto é infinito se, e somente se, existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
+
+Para qualquer conjunto \(X\) escrevemos a cardinalidade de \(X\) como \(|X|\). Dados dois conjuntos \(X\) e \(Y\) dizemos que \(|X| \leq |Y|\) quando existe uma função injetiva de \(X\) em \(Y\). Dizemos que \(|X| = |Y|\) quando existe uma bijeção entre \(X\) e \(Y\).
+
+\section{A Descoberta dos Infinitos}
+
+A aplicação do critério de bijeção a conjuntos infinitos levou à descoberta de que nem todos os infinitos são do mesmo tamanho. 
+
+Um conjunto é dito enumerável se for finito ou se existir uma bijeção com o conjunto dos números naturais. A cardinalidade dos conjuntos enumeráveis infinitos é o menor núemro cardinal infinito, denotamos por \(\aleph_0\). De forma surpreendente, conjuntos que parecem maiores que \(\mathbb{N}\), como o conjunto dos inteiros \((\mathbb{Z})\) e o dos racionais (\(\mathbb{Q}\)), também são enumeráveis.
+
+Cantor provou que o conjunto dos números reais não é enumerável. A prova clássica utiliza o método da diagonalização \linkcite{Bertato}{bertato2023}, que constrói um número real que não pode estar em nenhuma lista pré-definida de reais, mostrando assim que nenhuma enumeração de \(\mathbb{R}\) pode ser completa. A cardinalidade dos números reais é chamada de "cardinalidade do contínuo" \ e denotada por \(\mathfrak{c}\).
+
+\section{A Hipótese do Contínuo}
+
+O fato de existirem infinitos de tamanhos diferentes (\(\aleph_0 < \mathfrak{c}\)) levanta a questão de como esses infinitos se organizam. O Teorema de Cantor estabelece que, para qualquer conjunto \(X\), sua cardinalidade é estritamente menor que a cardinalidade de seu conjunto das partes \(\mathcal{P}(x)\) \linkcite{Aigner; Ziegler}{aigner2018}. Isso garante a existência de uma hierarquia infinita de "infinitos", pois sempre podemos formar um conjunto maior tomando o conjunto das partes.
+
+Com a existência de dois infinitos distintos, \(\aleph_0\) e \(\mathfrak{c}\), surge uma nova pergunta: existe algum conjunto cuja cardinalidade esteja estritamente entre a dos naturais e a dos reais? Ou seja, existe \(S\) tal que \(\aleph_0 < |S| < \mathfrak{c}\)?
+
+A Hipótese do Contínuo (HC) é a conjectura de que a resposta é não. Ela postula que \(\mathfrak{c}\) é o próximo cardinal infinito depois de \(\aleph_0\), que é denotado por \(\aleph_1\). Essa conjectura pode ser escrita como \(\aleph_1 = \mathfrak{c}\).
