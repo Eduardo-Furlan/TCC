@@ -149,13 +149,14 @@ Quando o trecho citado é curto (3 ou menos linhas) ele deve inserido diretament
 \label{chap:referUtilizadas}
 
 Outros exemplos de comandos para as chamadas de referências e o resultado produzido por estes:\\
-\\\citeonline{lima2006} \ \ \  \verb|\citeonline{Maturana2003}|\\
-\citeonline{aigner2018} \ \ \   \verb|\citeonline{Barbosa2004}|\\
-\cite[p.~28]{halmos2014} \ \ \  \verb|\cite[p.~28]{Silva2000}|\\
-\citeonline[p.~33]{Silva2000} \ \ \   \verb|\citeonline[p.~33]{v}|\\
-\cite[p.~35]{Maturana2003} \ \ \   \verb|\cite[p.~35]{Maturana2003}|\\
+\\\citeonline{lima2006} \ \ \  \verb|\citeonline{lima2006}|\\
+\citeonline{aigner2018} \ \ \   \verb|\citeonline{aigner2018}|\\
+\linkcite[28]{Halmos}{halmos2014} \ \ \  \verb|\linkcite[28]{Halmos}{halmos2014}|\\
+\citeonline[p.~33]{Silva2000} \ \ \   \verb|\citeonline[p.~33]{Silva2000}|\\
+\linkcite[]{Halmos}{halmos2014} \ \ \   \verb|\linkcite[]{Halmos}{halmos2014}|\\
 \citeonline[p.~35]{Maturana2003} \ \ \   \verb|\citeonline[p.~35]{Maturana2003}|\\
-\cite{Barbosa2004,Maturana2003} \ \ \   \verb|\cite{Barbosa2004,Maturana2003}|\\
+\linkcite{Halmos}{halmos2014}{Lima}{lima2006} \ \ \   \verb|\linkcite{Halmos}{halmos2014}{Lima}{lima2006}|\\
+\linkcite{Halmos}{halmos2014}{Lima}{lima2006}{Aigner; Ziegler}{aigner2018} \ \ \   \verb|\linkcite{Halmos}{halmos2014}{Lima}{lima2006}{Aigner; Ziegler}{aigner2018}|\\
 
 % SOBRE AS REFERÊNCIAS BIBLIOGRÁFICAS-------------------------------------------------------
 \chapter{SOBRE AS REFERÊNCIAS BIBLIOGRÁFICAS}

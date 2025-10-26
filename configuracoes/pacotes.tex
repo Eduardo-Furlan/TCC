@@ -71,11 +71,69 @@
 % Comando \linkcite{<texto>}{<chave-bib>}
 % Cria links separados para o texto e o ano, deixando a pontuação de fora.
 % Formato de saída: (<texto>, <ano>)
+% \makeatletter
+% \newcommand{\linkcite}[3][]{%
+%   (%
+%   \hyper@natlinkstart{#3}#2\hyper@natlinkend,%
+%   ~\hyper@natlinkstart{#3}\citeyear{#3}\hyper@natlinkend%
+%   \@ifnotempty{#1}{, p.~#1}
+%   )%
+% }
+% \makeatother
+
 \makeatletter
-\newcommand{\linkcite}[2]{%
+
+% 1. Comando principal: verifica o argumento opcional [pagina]
+\def\linkcite{\@ifnextchar[{\@linkciteopt}{\@linkcitenormal}}
+
+% 2. Chamado se [pagina] for fornecido: \linkcite[pagina]{texto1}{bibitem1}...
+\def\@linkciteopt[#1]#2#3{%
   (%
-  \hyper@natlinkstart{#2}#1\hyper@natlinkend, % Cria o link apenas para o texto
-  ~\hyper@natlinkstart{#2}\citeyear{#2}\hyper@natlinkend% Cria o link apenas para o ano
+  \hyper@natlinkstart{#3}#2\hyper@natlinkend,%
+  ~\hyper@natlinkstart{#3}\citeyear{#3}\hyper@natlinkend%
+  % Inicia o loop, passando a página (#1)
+  \@linkciteloop{#1}%
+}
+
+% 3. Chamado se [pagina] NÃO for fornecido: \linkcite{texto1}{bibitem1}...
+\def\@linkcitenormal#1#2{%
+  (%
+  \hyper@natlinkstart{#2}#1\hyper@natlinkend,%
+  ~\hyper@natlinkstart{#2}\citeyear{#2}\hyper@natlinkend%
+  % Inicia o loop, passando uma página vazia ({})
+  \@linkciteloop{}%
+}
+
+% 4. A MACRO RECURSIVA (LOOP)
+%    #1 = a página (pode estar vazia)
+\def\@linkciteloop#1{%
+  % Verifica se o próximo token é um '{' (início de um novo par)
+  \@ifnextchar\bgroup{%
+    % Se SIM, chama a macro de processo
+    \@linkciteprocess{#1}%
+  }{%
+    % Se NÃO, chama a macro final
+    \@linkciteend{#1}%
+  }%
+}
+
+% 5. Macro de processo (imprime o próximo par e continua o loop)
+%    #1 = a página, #2 = textoN, #3 = bibitemN
+\def\@linkciteprocess#1#2#3{%
+  ; % Imprime o separador
+  ~\hyper@natlinkstart{#3}#2\hyper@natlinkend,%
+  ~\hyper@natlinkstart{#3}\citeyear{#3}\hyper@natlinkend%
+  % Chama o loop novamente para verificar se há mais
+  \@linkciteloop{#1}%
+}
+
+% 6. Macro final (termina o comando)
+%    #1 = a página
+\def\@linkciteend#1{%
+  % Imprime a página se ela foi fornecida
+  \@ifnotempty{#1}{, p.~#1}%
+  % Fecha o parêntese
   )%
 }
+
 \makeatother
