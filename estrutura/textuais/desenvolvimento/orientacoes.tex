@@ -1,3 +1,4 @@
+%!TEX root = main.tex
 % ORIENTAÇÕES GERAIS------------------------------------------------------------
 
 
@@ -13,7 +14,7 @@ Referências cruzadas são obtidas através dos comandos \verb|\label{}| e \verb
 \chapter{FIGURAS}
 \label{chap:figuras}
 
-Exemplo de como inserir uma figura. A \autoref{fig:figura-exemplo1} aparece automaticamente na lista de figuras. Para saber mais sobre o uso de imagens no \LaTeX{} consulte literatura especializada \cite{Goossens2007}.
+Exemplo de como inserir uma figura. A \autoref{fig:figura-exemplo1} aparece automaticamente na lista de figuras. Para saber mais sobre o uso de imagens no \LaTeX{} consulte literatura especializada \cite{lima2006}.
 
 Os arquivos das figuras devem ser armazenados no diretório de "/dados".
 
@@ -21,7 +22,7 @@ Os arquivos das figuras devem ser armazenados no diretório de "/dados".
     \centering
     \caption{Exemplo de Figura}
     \includegraphics[width=0.5\textwidth]{./dados/figuras/figura1}
-    \fonte{\citeonline{IRL2014}}
+    \fonte{\citeonline{lima2006}}
     \label{fig:figura-exemplo1}
 \end{figure}
 
@@ -29,7 +30,7 @@ Os arquivos das figuras devem ser armazenados no diretório de "/dados".
 \chapter{QUADROS E TABELAS}
 \label{chap:tabelas}
 
-Exemplo de como inserir o \autoref{qua:quadro-exemplo1} e a \autoref{tab:tabela-exemplo1}. Ambos aparecem automaticamente nas suas respectivas listas. Para saber mais informações sobre a construção de tabelas no \LaTeX{} consulte literatura especializada \cite{Mittelbach2004}.
+Exemplo de como inserir o \autoref{qua:quadro-exemplo1} e a \autoref{tab:tabela-exemplo1}. Ambos aparecem automaticamente nas suas respectivas listas. Para saber mais informações sobre a construção de tabelas no \LaTeX{} consulte literatura especializada \cite{lima2006}.
 
 Ambos os elementos (Quadros e Tabelas) devem ser criados em arquivos separados para facilitar manutenção e armazenados no diretório de "/dados".
 
@@ -109,12 +110,12 @@ Citações são trechos de texto ou informações obtidas de materiais consultad
 \label{chap:citacoesLivres}
 
 É a transcrição, com suas próprias palavras, das idéias de um autor, mantendo-se o sentido original. A citação indireta é a maneira que o pesquisador tem de ler, compreender e gerar conhecimento a partir do conhecimento de outros autores. Quanto à chamada da referência, ela pode ser feita de duas maneiras distintas, conforme o nome do(s) autor(es) façam parte do seu texto ou não. Exemplo de chamada fazendo parte do texto:\\
-\\Enquanto \citeonline{Maturana2003} defendem uma epistemologia baseada na biologia. Para os autores, é necessário rever \ldots.\\
+\\Enquanto \citeonline{lima2006} defendem uma epistemologia baseada na biologia. Para os autores, é necessário rever \ldots.\\
 
 A chamada de referência foi feita com o comando \verb|\citeonline{chave}|, que produzirá a formatação correta.
 
 A segunda forma de fazer uma chamada de referência deve ser utilizada quando se quer evitar uma interrupção na sequência do texto, o que poderia, eventualmente, prejudicar a leitura. Assim, a citação é feita e imediatamente após a obra referenciada deve ser colocada entre parênteses. Porém, neste caso específico, o nome do autor deve vir em caixa alta, seguido do ano da publicação. Exemplo de chamada não fazendo parte do texto:\\
-\\Há defensores da epistemologia baseada na biologia que argumentam em favor da necessidade de \ldots \cite{Maturana2003}.\\
+\\Há defensores da epistemologia baseada na biologia que argumentam em favor da necessidade de \ldots \cite{lima2006}.\\
 
 Nesse caso a chamada de referência deve ser feita com o comando \verb|\cite{chave}|, que produzirá a formatação correta.
 
@@ -128,7 +129,7 @@ Quanto à chamada da referência, ela pode ser feita de qualquer das duas maneir
 
 Quando o trecho citado é longo (4 ou mais linhas) deve-se usar um parágrafo específico para a citação, na forma de um texto recuado (4 cm da margem esquerda), com tamanho de letra menor e espaçamento entrelinhas simples. Exemplo de citação longa:
 \\\begin{citacao}
-    Desse modo, opera-se uma ruptura decisiva entre a reflexividade filosófica, isto é a possibilidade do sujeito de pensar e de refletir, e a objetividade científica. Encontramo-nos num ponto em que o conhecimento científico está sem consciência. Sem consciência moral, sem consciência reflexiva e também subjetiva. Cada vez mais o desenvolvimento extraordinário do conhecimento científico vai tornar menos praticável a própria possibilidade de reflexão do sujeito sobre a sua pesquisa \cite[p.~28]{Silva2000}.
+    Desse modo, opera-se uma ruptura decisiva entre a reflexividade filosófica, isto é a possibilidade do sujeito de pensar e de refletir, e a objetividade científica. Encontramo-nos num ponto em que o conhecimento científico está sem consciência. Sem consciência moral, sem consciência reflexiva e também subjetiva. Cada vez mais o desenvolvimento extraordinário do conhecimento científico vai tornar menos praticável a própria possibilidade de reflexão do sujeito sobre a sua pesquisa \cite[p.~28]{lima2006}.
 \end{citacao}
 
 Para fazer a citação longa deve-se utilizar os seguintes comandos:
@@ -141,8 +142,8 @@ Para fazer a citação longa deve-se utilizar os seguintes comandos:
 No exemplo acima, para a chamada da referência o comando \verb|\cite[p.~28]{Silva2000}| foi utilizado, visto que os nomes dos autores não são parte do trecho citado. É necessário também indicar o número da página da obra citada que contém o trecho citado.
 
 Quando o trecho citado é curto (3 ou menos linhas) ele deve inserido diretamente no texto entre aspas. Exemplos de citação curta:\\
-\\A epistemologia baseada na biologia parte do princípio de que "assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar" \cite[p.~35]{Maturana2003}.\\
-\\A epistemologia baseada na biologia de \citeonline[p.~35]{Maturana2003} parte do princípio de que "assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar".
+\\A epistemologia baseada na biologia parte do princípio de que "assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar" \cite[p.~35]{lima2006}.\\
+\\A epistemologia baseada na biologia de \citeonline[p.~35]{lima2006} parte do princípio de que "assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar".
 
 % DETALHES SOBRE AS CHAMADAS DE REFERÊNCIAS---------------------------------------------------------
 \chapter{DETALHES SOBRE AS CHAMADAS DE REFERÊNCIAS}
@@ -152,9 +153,9 @@ Outros exemplos de comandos para as chamadas de referências e o resultado produ
 \\\citeonline{lima2006} \ \ \  \verb|\citeonline{lima2006}|\\
 \citeonline{aigner2018} \ \ \   \verb|\citeonline{aigner2018}|\\
 \linkcite[28]{Halmos}{halmos2014} \ \ \  \verb|\linkcite[28]{Halmos}{halmos2014}|\\
-\citeonline[p.~33]{Silva2000} \ \ \   \verb|\citeonline[p.~33]{Silva2000}|\\
+\citeonline[p.~33]{lima2006} \ \ \   \verb|\citeonline[p.~33]{Silva2000}|\\
 \linkcite[]{Halmos}{halmos2014} \ \ \   \verb|\linkcite[]{Halmos}{halmos2014}|\\
-\citeonline[p.~35]{Maturana2003} \ \ \   \verb|\citeonline[p.~35]{Maturana2003}|\\
+\citeonline[p.~35]{lima2006} \ \ \   \verb|\citeonline[p.~35]{Maturana2003}|\\
 \linkcite{Halmos}{halmos2014}{Lima}{lima2006} \ \ \   \verb|\linkcite{Halmos}{halmos2014}{Lima}{lima2006}|\\
 \linkcite{Halmos}{halmos2014}{Lima}{lima2006}{Aigner; Ziegler}{aigner2018} \ \ \   \verb|\linkcite{Halmos}{halmos2014}{Lima}{lima2006}{Aigner; Ziegler}{aigner2018}|\\
 
@@ -184,7 +185,7 @@ Existem diversas categorias documentos e materiais componentes da bibliografia. 
 @misc
 \end{verbatim}
 
-Cada categoria (entrada) é formatada pelo pacote \citeonline{abnTeX22014d} de uma forma específica. Algumas entradas foram introduzidas especificamente para atender à norma \citeonline{NBR6023:2002}, são elas: \verb|@monography|, \verb|@journalpart|,\verb|@patent|. As demais entradas são padrão \textsc{Bib}\TeX{}. Para maiores detalhes, refira-se a \citeonline{abnTeX22014d}, \citeonline{abnTeX22014b}, \citeonline{abnTeX22014c}.
+Cada categoria (entrada) é formatada pelo pacote \citeonline{lima2006} de uma forma específica. Algumas entradas foram introduzidas especificamente para atender à norma \citeonline{lima2006}, são elas: \verb|@monography|, \verb|@journalpart|,\verb|@patent|. As demais entradas são padrão \textsc{Bib}\TeX{}. Para maiores detalhes, refira-se a \citeonline{lima2006}, \citeonline{lima2006}, \citeonline{lima2006}.
 
 % NOTAS DE RODAPÉ--------------------------------------------------------------------------
 \chapter{NOTAS DE RODAPÉ}

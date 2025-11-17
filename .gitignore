@@ -24,6 +24,7 @@
 *.ind
 *.loa
 *.loq
+exemplo.bib
 .vscode/
 slides/
 books/

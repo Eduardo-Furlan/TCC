@@ -1,3 +1,4 @@
+%!TEX root = main.tex
 % REVISÃO DE LITERATURA--------------------------------------------------------
 
 \chapter{FUNDAMENTAÇÃO TEÓRICA}
@@ -48,11 +49,11 @@ Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\) dizemos 
 \end{definicao}
 
 \begin{axioma}[Axioma das Uniões]
-    Para qualquer coleção de conjuntos, existe um conjunto que contem todos os elementos que pertencem a pelo menos um conjunto da coleção dada.
+    Para qualquer coleção de conjuntos, existe um conjunto que contém todos os elementos que pertencem a pelo menos um conjunto da coleção dada.
     \label{ax:unioes}
 \end{axioma}
 
-Seja \(C\) essa coleção de conjuntos, e \(U\) o conjunto referido no Axioma \ref{ax:unioes}, chamamos \(U\) de união da coleção \(C\) de conjuntos e escrevemos como
+Seja \(C\) essa coleção de conjuntos, e \(U\) o conjunto referido no Axioma \ref{ax:unioes}, chamamos \(U\) de \textbf{união} da coleção \(C\) de conjuntos e escrevemos como
 \[
 \bigcup C, \quad \bigcup \{X: X \in C\} \quad \text{ou} \quad \bigcup_{X \in C} C.
 \]
@@ -62,7 +63,7 @@ Seja \(C\) essa coleção de conjuntos, e \(U\) o conjunto referido no Axioma \r
     \label{def:intersecao}
 \end{definicao}
 
-De forma análoga à união, chamamos um conjunto \(V\) de interseção de \(C\) e escrevemos como
+De forma análoga à união, chamamos um conjunto \(V\) de \textbf{interseção} de \(C\) e escrevemos como
 \[
 \bigcap C, \quad \bigcap \{X: X \in C\} \quad \text{ou} \quad \bigcap_{X \in C} C.
 \]
@@ -72,7 +73,7 @@ De forma análoga à união, chamamos um conjunto \(V\) de interseção de \(C\)
     \label{ax:potencia}
 \end{axioma}
 
-Em outras palavras, se \(A\) é um conjunto então existe um conjunto \(\mathcal{P}(A)\) tal que se \(X \subseteq A\) então \(X \in \mathcal{P}(A)\). Note que o conjunto estipulado pode conter mais elementos que apenas os subconjuntos de \(A\), para remediar isso, usamos o Axioma da Especificação e definimos \(\mathcal{P}(A)\) como \(\{X: X \subseteq A \}\), e chamamos de "conjunto das partes de A".
+Em outras palavras, se \(A\) é um conjunto então existe um conjunto \(\mathcal{P}(A)\) tal que se \(X \subseteq A\) então \(X \in \mathcal{P}(A)\). Note que o conjunto estipulado pode conter mais elementos que apenas os subconjuntos de \(A\), para remediar isso, usamos o Axioma da Especificação e definimos \(\mathcal{P}(A)\) como \(\{X: X \subseteq A \}\), e chamamos de "\textbf{conjunto das partes} de A".
 
 \subsection{Conjunto dos Números Naturais}
 
@@ -89,26 +90,26 @@ O ponto de partida para a construção dos números é o conjunto dos números n
 \end{axioma}
 
 \begin{axioma}[Terceiro Axioma de Peano]
-    Se em um conjunto \(X \subseteq \mathbb{N}\), \(1 \in X\) e \(s(X) \subseteq X\)\footnote{\(n \in X \implies s(n) \in X.\)}, então \(X = \mathbb{N}\)  
+    Se em um conjunto \(X \subseteq \mathbb{N}\), \(1 \in X\) e \(s(X) \subseteq X\)\footnote{\(n \in X \implies s(n) \in X.\)}, então \(X = \mathbb{N}\).  
     \label{ax:peano3}
 \end{axioma}
-Esses axiomas estabelecem a existência de um primeiro elemento (que chamamos de \(1\)), uma função "sucessor" \ injetiva, e o princípio da indução, que garante que qualquer número natural pode ser alcançado a partir do \(1\) por sucessivas aplicações da função sucessor.
+Esses axiomas estabelecem a existência de um \textbf{primeiro elemento} (que chamamos de \(1\)), uma função "\textbf{sucessor}" \ injetiva, e o \textbf{princípio da indução}, que garante que qualquer número natural pode ser alcançado a partir do \(1\) por sucessivas aplicações da função sucessor.
 
 \section{O Conceito de Cardinalidade}
 
-A noção intuitiva de tamanho \ de um conjunto é formalizada matematicamente pelo conceito de cardinalidade. \citeonline{lima2006} define um conjunto \(X\) como finito quando \(X\) é vazio, ou existem um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\) onde \(I_n = \{p \in \mathbb{N}: p \leq n \}\). Já \citeonline{halmos2014} define um conjunto finito como um conjunto equivalente a um número\footnote{Na Teoria de Conjuntos números são conjuntos. \(0 = \varnothing, 1 = \varnothing \cup 0, n = \varnothing \cup (n-1).\)} natural, onde equivalência significa uma bijeção. Uma propriedade fundamental dos conjuntos finitos é que não existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
+A noção intuitiva de tamanho de um conjunto é formalizada matematicamente pelo conceito de cardinalidade. \citeonline[p.~3]{lima2006} define um conjunto \(X\) como \textbf{finito} quando \(X\) é vazio, ou existem um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\) onde \(I_n = \{p \in \mathbb{N}: p \leq n \}\). Já \citeonline[p.~53]{halmos2014} define um conjunto finito como um conjunto equivalente a um número\footnote{Na Teoria de Conjuntos números são conjuntos. \(0 = \varnothing, 1 = \varnothing \cup 0, n = \varnothing \cup (n-1).\)} natural, onde equivalência significa uma bijeção. Uma propriedade fundamental dos conjuntos finitos é que não existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
 
-Um conjunto é dito infinito quando não é finito. De forma equivalente, um conjunto é infinito se, e somente se, existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
+Um conjunto é dito \textbf{infinito} quando não é finito. De forma equivalente, um conjunto é infinito se, e somente se, existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
 
 Para qualquer conjunto \(X\) escrevemos a cardinalidade de \(X\) como \(|X|\). Dados dois conjuntos \(X\) e \(Y\) dizemos que \(|X| \leq |Y|\) quando existe uma função injetiva de \(X\) em \(Y\). Dizemos que \(|X| = |Y|\) quando existe uma bijeção entre \(X\) e \(Y\).
 
 \section{A Descoberta dos Infinitos}
 
-A aplicação do critério de bijeção a conjuntos infinitos levou à descoberta de que nem todos os infinitos são do mesmo tamanho. 
+A aplicação do critério de bijeção em conjuntos infinitos levou à descoberta de que nem todos os infinitos são do mesmo tamanho. 
 
-Um conjunto é dito enumerável se for finito ou se existir uma bijeção com o conjunto dos números naturais. A cardinalidade dos conjuntos enumeráveis infinitos é o menor número cardinal infinito, denotamos por \(\aleph_0\). De forma surpreendente, conjuntos que parecem maiores que \(\mathbb{N}\), como o conjunto dos inteiros \((\mathbb{Z})\) e o dos racionais (\(\mathbb{Q}\)), também são enumeráveis.
+Um conjunto é dito \textbf{enumerável} se for finito ou se existir uma bijeção com o conjunto dos números naturais. A cardinalidade dos conjuntos enumeráveis infinitos é o menor número cardinal infinito, denotamos por \(\aleph_0\). De forma surpreendente, conjuntos que parecem maiores que \(\mathbb{N}\), como o conjunto dos inteiros \((\mathbb{Z})\) e o dos racionais (\(\mathbb{Q}\)), também são enumeráveis.
 
-Cantor provou que o conjunto dos números reais \(\mathbb{R}\) não é enumerável. A prova clássica utiliza o método da diagonalização \linkcite{Bertato}{bertato2023}, que constrói um número real que não pode estar em nenhuma lista pré-definida de reais, mostrando assim que nenhuma enumeração de \(\mathbb{R}\) pode ser completa. A cardinalidade dos números reais é chamada de "cardinalidade do contínuo" \ e denotada por \(\mathfrak{c}\).
+Cantor provou que o conjunto dos números reais \(\mathbb{R}\) não é enumerável. A prova clássica utiliza o método da diagonalização \linkcite[p.~429]{Bertato}{bertato2023}, que constrói um número real que não pode estar em nenhuma lista pré-definida de reais, mostrando assim que nenhuma enumeração de \(\mathbb{R}\) pode ser completa. A cardinalidade dos números reais é chamada de "\textbf{cardinalidade do contínuo}" \ e denotada por \(\mathfrak{c}\).
 
 \section{A Hipótese do Contínuo}
 
@@ -116,4 +117,4 @@ O fato de existirem infinitos de tamanhos diferentes (\(\aleph_0 < \mathfrak{c}\
 
 Com a existência de dois infinitos distintos, \(\aleph_0\) e \(\mathfrak{c}\), surge uma nova pergunta: existe algum conjunto cuja cardinalidade esteja estritamente entre a dos naturais e a dos reais? Ou seja, existe \(S\) tal que \(\aleph_0 < |S| < \mathfrak{c}\)?
 
-A Hipótese do Contínuo é a conjectura de que a resposta é não. Ela postula que \(\mathfrak{c}\) é o próximo cardinal infinito depois de \(\aleph_0\), que é denotado por \(\aleph_1\). Essa conjectura pode ser escrita como \(\aleph_1 = \mathfrak{c}\).
+A \textbf{Hipótese do Contínuo} é a conjectura de que a resposta é não. Ela postula que \(\mathfrak{c}\) é o próximo cardinal infinito depois de \(\aleph_0\), que é denotado por \(\aleph_1\). Essa conjectura pode ser escrita como \(\aleph_1 = \mathfrak{c}\).

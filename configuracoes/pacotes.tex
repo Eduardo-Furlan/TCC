@@ -43,6 +43,7 @@
 %\usepackage{subfig}                                        % Posicionamento de figuras
 %\usepackage{upgreek}                                       % Fonte letras gregas
 \usepackage{amsthm}
+\usepackage{bm}
 
 % Redefine a fonte para uma fonte similar a Arial (fonte Helvetica)
 % \renewcommand*\familydefault{\sfdefault}
@@ -50,21 +51,21 @@
 % Define o estilo "theorem" (negrito, itálico)
 \theoremstyle{plain}
 \newtheorem{teorema}{Teorema}
-\newtheorem{axioma}[teorema]{Axioma}     % Numerado junto com teorema
-\newtheorem{lema}[teorema]{Lema}         % Numerado junto com teorema
-\newtheorem{corolario}[teorema]{Corolário} % Numerado junto com teorema
+\newtheorem{axioma}{Axioma}     
+\newtheorem{lema}{Lema}         
+\newtheorem{corolario}{Corolário} 
 
 % Define o estilo "definition" (negrito, reto)
 \theoremstyle{definition}
-\newtheorem{definicao}[teorema]{Definição} % Numerado junto com teorema
-\newtheorem{exemplo}[teorema]{Exemplo}     % Numerado junto com teorema
+\newtheorem{definicao}{Definição} 
+\newtheorem{exemplo}{Exemplo}     
 
 % Define o estilo "remark" (itálico, reto)
 \theoremstyle{remark}
-\newtheorem{remark}{Nota} % Numerado separadamente
+\newtheorem{remark}{Nota} 
 
-% Altera o nome padrão "Proof" do ambiente 'proof' para "Prova"
-\renewcommand{\proofname}{Prova}
+% Altera o nome padrão "Proof" do ambiente 'proof' para "Demonstração"
+\renewcommand{\proofname}{Demonstração}
 
 \definecolor{DarkModeBG}{gray}{0.15}    % Fundo (Cinza bem escuro)
 \definecolor{DarkModeText}{gray}{0.95}  % Texto (Cinza bem claro)
@@ -133,7 +134,7 @@
 %    #1 = a página
 \def\@linkciteend#1{%
   % Imprime a página se ela foi fornecida
-  \@ifnotempty{#1}{, p.~#1}%
+  \@ifnotempty{#1}{, #1}%
   % Fecha o parêntese
   )%
 }
