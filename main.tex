@@ -37,6 +37,16 @@
 \color{DarkModeText}
 % ------------------------------------------
 
+\makeatletter
+\renewcommand*{\backrefalt}[4]{}
+\makeatother
+
+\makeatletter
+\DeclareRobustCommand{\htmladdnormallink}[2]{%
+  \hyper@normalise\hyper@linkurl{#2}{#2}%
+}
+\makeatother
+
 \pretextual
 \imprimircapa                                               	           % Comando para imprimir Capa
 \imprimirfolhaderosto{}                                     		   % Comando para imprimir Folha de rosto

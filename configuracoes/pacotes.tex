@@ -1,11 +1,13 @@
 % REFERÊNCIAS------------------------------------------------------------------
 \usepackage[%
-    alf,                      
+    alf,
+    abnt-emphasize=bf,                      
     abnt-cite-str=lower,
     abnt-cite-style=lower,      
     bibjustif,
     recuo=0cm,
-    abnt-url-package=url,       % Utiliza o pacote url
+    abnt-url-style=plain,
+    abnt-url-package=hyperref,       % Utiliza o pacote url
     abnt-refinfo=yes,           % Utiliza o estilo bibliográfico abnt-refinfo
     abnt-etal-cite=3,
     abnt-etal-list=3,
@@ -43,7 +45,7 @@
 \usepackage{amsthm}
 
 % Redefine a fonte para uma fonte similar a Arial (fonte Helvetica)
-\renewcommand*\familydefault{\sfdefault}
+% \renewcommand*\familydefault{\sfdefault}
 
 % Define o estilo "theorem" (negrito, itálico)
 \theoremstyle{plain}
