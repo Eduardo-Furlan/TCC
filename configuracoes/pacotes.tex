@@ -30,12 +30,12 @@
 \usepackage{verbatim}                                       % Permite apresentar texto tal como escrito no documento, ainda que sejam comandos Latex
 \usepackage{amsfonts, amssymb, amsmath}                     % Fontes e símbolos matemáticos
 \usepackage[algoruled, portuguese]{algorithm2e}             % Permite escrever algoritmos em português
-%\usepackage[scaled]{helvet}                                % Usa a fonte Helvetica
-\usepackage{times}                                          % Usa a fonte Times
-%\usepackage{palatino}                                      % Usa a fonte Palatino
-%\usepackage{lmodern}                                       % Usa a fonte Latin Modern
+% \usepackage[scaled]{helvet}                                % Usa a fonte Helvetica
+% \usepackage{times}                                          % Usa a fonte Times
+\usepackage{palatino}                                      % Usa a fonte Palatino
+% \usepackage{lmodern}                                       % Usa a fonte Latin Modern
 \usepackage[bottom]{footmisc}                               % Mantém as notas de rodapé sempre na mesma posição
-\usepackage{ae, aecompl}                                    % Fontes de alta qualidade
+% \usepackage{ae, aecompl}                                    % Fontes de alta qualidade
 \usepackage{latexsym}                                       % Símbolos matemáticos
 \usepackage{lscape}                                         % Permite páginas em modo "paisagem"
 %\usepackage{picinpar}                                      % Dispor imagens em parágrafos
@@ -44,6 +44,44 @@
 %\usepackage{upgreek}                                       % Fonte letras gregas
 \usepackage{amsthm}
 \usepackage{bm}
+
+% ---
+% CONTROLE DE LEGENDAS E ESPAÇAMENTOS (TABELAS vs FIGURAS)
+% ---
+\usepackage{etoolbox} % Pacote para modificar ambientes
+\usepackage{caption}  % Pacote para controlar legendas
+
+% 1. Configuração Global (aplica o negrito no rótulo para todos)
+\captionsetup{
+    labelfont=bf,        % Rótulo em negrito (Ex: Tabela 1, Figura 1)
+    textfont=normalfont, % Texto da legenda normal
+    skip=10pt            % Espaço padrão (bom para figuras)
+}
+
+% 2. Configuração Específica para TABELAS
+% Deixa o caption mais perto da tabela
+\captionsetup[table]{skip=2pt} 
+
+% Quando entrar no ambiente 'table', redefine o comando \fonte para ser mais "apertado"
+\AtBeginEnvironment{table}{%
+  \renewcommand{\fonte}[1]{%
+    \vspace{-5pt} % Espaço negativo para aproximar a fonte da tabela
+    \centering\small{\textbf{Fonte:} #1}%
+  }%
+}
+
+% 3. Configuração Específica para QUADROS
+% Deixa o caption mais perto do quadro
+\captionsetup[quadro]{skip=2pt}
+
+% Quando entrar no ambiente 'quadro', redefine o comando \fonte para ser mais "apertado"
+\AtBeginEnvironment{quadro}{%
+  \renewcommand{\fonte}[1]{%
+    \vspace{-5pt} % Espaço negativo para aproximar a fonte do quadro
+    \centering\small{\textbf{Fonte:} #1}%
+  }%
+}
+% ---
 
 % Redefine a fonte para uma fonte similar a Arial (fonte Helvetica)
 % \renewcommand*\familydefault{\sfdefault}

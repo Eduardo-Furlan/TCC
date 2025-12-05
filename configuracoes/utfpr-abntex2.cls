@@ -178,7 +178,7 @@
 \renewcommand{\fonte}[1]
 {%
     \begin{SingleSpacing}\par\end{SingleSpacing}
-    \centering\small{Fonte: #1}
+    \centering\small{\textbf{Fonte:} #1}
 }
 
 % Comando que trata as notas nos objetos flutuantes

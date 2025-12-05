@@ -1,0 +1,150 @@
+%!TEX root = main.tex
+
+\chapter{FUNDAMENTOS DA TEORIA DOS CONJUNTOS}
+\label{chap:fundamentos_teoria_conjuntos}
+
+Neste capítulo, estabelecem-se as bases formais sobre as quais todo o trabalho se sustenta. A Teoria dos Conjuntos fornece a linguagem universal da matemática moderna, mas sua construção requer rigor para evitar contradições. Serão apresentados os axiomas essenciais que definem o comportamento dos conjuntos e suas operações elementares, além da construção axiomática dos números naturais via Axiomas de Peano, que servirá de ponto de partida para a aritmética cardinal.
+
+\section{Axiomas da Teoria dos Conjuntos}
+\label{sec:axioams_conjuntos}
+
+A base de toda a matemática moderna pode ser construída sobre o conceito de "conjunto" \ (que também chamaremos de "coleção", ou "família"). \citeonline{halmos2014} menciona os axiomas a seguir.
+
+\begin{axioma}[Axioma da Extensão]
+Dois conjuntos são iguais se, e somente se, ambos possuem os mesmos elementos.
+\label{ax:extensao}
+\end{axioma}
+
+Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\) dizemos que \(A\) é um subconjunto de \(B\), \(A\) está contido em \(B\), ou que \(B\) contém \(A\), e escrevemos \(A \subseteq B\) e \(B \supseteq A\), respectivamente. Disso temos que \(A = B \iff A \subseteq B \text{ e } B \subseteq A\). Quando temos \(A \subseteq B\) e \(A \neq B\) escrevemos \(A \subsetneq B\) e dizemos que \(A\) é um subconjunto próprio de \(B\).
+
+\begin{exemplo}
+    Os conjuntos \(A = \{1,2\}\) e \(B = \{2,1\}\) são iguais, pois \(1 \in B\) e \(2 \in B\), logo \(A \subseteq B\) e \(2 \in A\) e \(1 \in A\), logo \(B \subseteq A\).
+    \label{ex:extensao}
+\end{exemplo}
+
+\begin{axioma}[Axioma da Especificação]
+    Para todo conjunto \(A\) e toda condição \(S(x)\), existe um conjunto \(B\) em que seus elementos são todos os \(x \in A\) tal que a condição \(S(x)\) é verdadeira. Escrevemos \(B\) como 
+    \[
+    B = \{x \in A: S(x)\}.
+    \]
+    \label{ax:especificacao}
+\end{axioma}
+
+\begin{exemplo}
+    Seja \(A = \{1,2,3,4,5\}\) e \(S(x)\) a condição "\(x\) é um número ímpar"\footnote{Note que, neste momento, um número "ímpar" \ não está definido, mas para fins de simplicidade trataremos como se estivesse.}, então o conjunto \(B\) é: 
+    \[
+    B = \{x \in \{1,2,3,4,5\}: x \text{ é um número ímpar.}\} = \{1,3,5\}.
+    \]
+    \label{ex:especificacao}
+\end{exemplo}
+
+\begin{axioma}[Axioma do Par]
+    Para quaisquer dois conjuntos \(A\) e \(B\), existe um conjunto \(C\) tal que \(A \in C\) e \(B \in C.\)
+    \label{ax:par}
+\end{axioma}
+
+\begin{exemplo}
+    Sejam \(A = \varphi \text{ e } B = \{\varphi\}\) então podemos ter \(C\) como \(C = \{\varphi, \{\varphi\}\}\), ou também, \(C = \{\varphi, \{\varphi\},\varnothing\}\).
+    \label{ex:par}
+\end{exemplo}
+
+\begin{definicao}[Par Ordenado]
+    O par ordenado de \(a\) e \(b\) onde a primeira coordenada é \(a\) e a segunda coordenada é \(b\) é o conjunto \((a,b)\) definido por:
+    \[
+    (a,b) = \{\{a\}, \{a,b\}\}.
+    \]
+    \label{def:parordenado}
+\end{definicao}
+
+\begin{exemplo}
+    O par ordenado \((7,3)\) é o conjunto \(\{\{3,7\}, \{7\}\}\).
+    \label{ex:parordenado}    
+\end{exemplo}
+
+\begin{definicao}[Produto Cartesiano]
+    O produto cartesiano de \(A\) e \(B\) é o conjunto \(A \times B\) onde
+    \[
+    A \times B = \{x: x = (a,b) \text{ para algum } a \in A \text{ e para algum } b \in B\}.
+    \]
+    \label{def:produtocartesiano}
+\end{definicao}
+
+\begin{exemplo}
+    O produto cartesiano de \(A = \{4,8\}\) com \(B = \{6\}\) é o conjunto
+    \[
+    A \times B = \{(4,6),(8,6)\} = \{\{\{4\}, \{4,6\}\}, \{\{8\}, \{8,6\}\}\}.
+    \]    
+    \label{ex:produtocartesiano}
+\end{exemplo}
+
+\begin{axioma}[Axioma das Uniões]
+    Para qualquer coleção de conjuntos, existe um conjunto que contém todos os elementos que pertencem a pelo menos um conjunto da coleção dada.
+    \label{ax:unioes}
+\end{axioma}
+
+Seja \(C\) essa coleção de conjuntos, e \(U\) o conjunto referido no Axioma \ref{ax:unioes}, chamamos \(U\) de \textbf{união} da coleção \(C\) de conjuntos e escrevemos como
+\[
+\bigcup C, \quad \bigcup \{X: X \in C\} \quad \text{ou} \quad \bigcup_{X \in C} C.
+\]
+
+\begin{exemplo}
+    Seja \(C = \{\{1,2\}, \{\{2\},3,4\}, \{4,5\}\}\) então 
+    \[
+    \bigcup_{x \in C}C = \{1,2,\{2\},3,4,5\}.
+    \]
+    \label{ex:unioes}
+\end{exemplo}
+
+\begin{definicao}[Interseção]
+    Se \(A\) e \(B\) são conjuntos a interseção de \(A\) e \(B\) é o conjunto \(A \cap B\) definido por \(A \cap B = \{x: x\in A \text{ e } x\in B \}.\)
+    \label{def:intersecao}
+\end{definicao}
+
+De forma análoga à união, chamamos um conjunto \(V\) de \textbf{interseção} de \(C\) e escrevemos como
+\[
+\bigcap C, \quad \bigcap \{X: X \in C\} \quad \text{ou} \quad \bigcap_{X \in C} C.
+\]
+
+\begin{exemplo}
+    Seja \(C\) o mesmo conjunto do Exemplo \ref{ex:unioes} então 
+    \[
+    \bigcap_{x \in C}C = \{4\}.
+    \]
+    \label{ex:intersecao}
+\end{exemplo}
+
+\begin{axioma}[Axioma da Potência]
+    Para todo conjunto existe uma coleção de conjuntos que contém (como elementos) todos os subconjuntos do conjunto dado.
+    \label{ax:potencia}
+\end{axioma}
+
+Em outras palavras, se \(A\) é um conjunto então existe um conjunto \(\mathcal{P}(A)\) tal que se \(X \subseteq A\) então \(X \in \mathcal{P}(A)\). Note que o conjunto estipulado pode conter mais elementos que apenas os subconjuntos de \(A\), para remediar isso, usamos o Axioma da Especificação e definimos \(\mathcal{P}(A)\) como \(\{X: X \subseteq A \}\), e chamamos de "\textbf{conjunto das partes} de A".
+
+\begin{exemplo}
+    Seja \(A = \{1,2,3\}\) então 
+    \[
+    \mathcal{P}(A) = \{\varnothing, \{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}
+    \]
+    \label{ex:potencia}
+\end{exemplo}
+
+\section{Conjunto dos Números Naturais}
+\label{sec:numeros_naturais}
+
+O ponto de partida para a construção dos números é o conjunto dos números naturais, \(\mathbb{N} = \{1, 2, 3, ...\}\), caracterizado pelos axiomas de Peano:
+
+\begin{axioma}[Primeiro Axioma de Peano]
+    Existe uma função injetiva \(s: \ \mathbb{N} \to \mathbb{N}.\) Chamamos a imagem de \(s(n)\) de sucessor de \(n\).
+    \label{ax:peano1}    
+\end{axioma}
+
+\begin{axioma}[Segundo Axioma de Peano]
+    Existe um único número natural \(1 \in \mathbb{N}\) tal que \(1 \neq s(n)\) para qualquer \(n \in \mathbb{N}\).
+    \label{ax:peano2}
+\end{axioma}
+
+\begin{axioma}[Terceiro Axioma de Peano]
+    Se em um conjunto \(X \subseteq \mathbb{N}\), \(1 \in X\) e \(s(X) \subseteq X\)\footnote{\(n \in X \implies s(n) \in X.\)}, então \(X = \mathbb{N}\).  
+    \label{ax:peano3}
+\end{axioma}
+Esses axiomas estabelecem a existência de um \textbf{primeiro elemento} (que chamamos de \(1\)), uma função "\textbf{sucessor}" \ injetiva, e o \textbf{princípio da indução}, que garante que qualquer número natural pode ser alcançado a partir do \(1\) por sucessivas aplicações da função sucessor.
