@@ -178,3 +178,46 @@
 }
 
 \makeatother
+
+% ---
+% LÓGICA DO MODO ESCURO (DARK MODE)
+% ---
+\usepackage{xcolor}
+
+% 1. Definição das Cores (Semânticas)
+\definecolor{DarkModeBG}{gray}{0.15}     % Fundo Cinza Escuro
+\definecolor{DarkModeText}{gray}{0.95}   % Texto Claro
+\definecolor{DarkModeLink}{rgb}{0.6, 0.8, 1.0} % Azul Ciano (bom contraste no escuro)
+\definecolor{LightModeLink}{RGB}{41,5,195}     % Azul Padrão (bom contraste no claro)
+
+% 2. Aplicação Condicional
+\ifbool{darkmode}{
+    % --- ATIVAR MODO ESCURO ---
+    
+    % Define cor de fundo e texto global
+    \pagecolor{DarkModeBG}
+    \color{DarkModeText}
+    
+    % Força a cor do texto em TABELAS (tabular/longtable geralmente resetam a cor)
+    \AtBeginEnvironment{tabular}{\color{DarkModeText}}
+    \AtBeginEnvironment{longtable}{\color{DarkModeText}}
+    
+    % Força a cor do texto em QUADROS e ALGORITMOS
+    \AtBeginEnvironment{quadro}{\color{DarkModeText}}
+    \AtBeginEnvironment{algorithm}{\color{DarkModeText}}
+    
+    % Força a cor do texto nas NOTAS DE RODAPÉ (requer pacote footmisc)
+    \renewcommand{\footnotelayout}{\color{DarkModeText}}
+    
+    % Ajusta a cor da linha de separação do rodapé
+    \renewcommand{\footnoterule}{%
+        \kern -3pt
+        {\color{DarkModeText}\hrule width 2in height 0.4pt}
+        \kern 2.6pt
+    }
+}{
+    % --- MODO CLARO (PADRÃO) ---
+    \pagecolor{white}
+    \color{black}
+}
+% ---

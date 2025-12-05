@@ -2,12 +2,13 @@
 \makeatletter
 \hypersetup{%
     portuguese,
-    colorlinks=true,   % true: "links" coloridos; false: "links" em caixas de texto
-    linkcolor=DarkModeLink,    % Define cor dos "links" internos
-    citecolor=DarkModeLink,    % Define cor dos "links" para as referências bibliográficas
-    filecolor=DarkModeLink,    % Define cor dos "links" para arquivos
-    urlcolor=DarkModeLink,     % Define a cor dos "hiperlinks"
+    colorlinks=true,
     breaklinks=true,
+    % Seleção dinâmica de cores baseada no boolean 'darkmode'
+    linkcolor=\ifbool{darkmode}{DarkModeLink}{LightModeLink},
+    citecolor=\ifbool{darkmode}{DarkModeLink}{LightModeLink},
+    filecolor=\ifbool{darkmode}{DarkModeLink}{LightModeLink},
+    urlcolor=\ifbool{darkmode}{DarkModeLink}{LightModeLink},
     pdftitle={\@title},
     pdfauthor={\@author},
     pdfkeywords={abnt, latex, abntex, abntex2}

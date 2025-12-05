@@ -18,6 +18,13 @@
     	        oneside,                   % Impressão apenas frente
 ]{configuracoes/utfpr-abntex2}
 
+% --- CONFIGURAÇÃO DO MODO ESCURO ---
+\usepackage{etoolbox}          % Garante que o pacote esteja carregado
+\newbool{darkmode}             % Cria a variável booleana
+\setbool{darkmode}{true}       % 'true' / 'false' 
+% -----------------------------------
+
+
 
 % INCLUI ARQUIVOS DE CONFIGURAÇÕES-------------------------------------------------------------------------------
 \include{configuracoes/pacotes}
@@ -31,11 +38,6 @@
 \include{estrutura/pre-textuais/folha-rosto}
 
 \begin{document}
-
-% --- MODO ESCURO (COMENTE PARA DESATIVAR) ---
-% \pagecolor{DarkModeBG}
-% \color{DarkModeText}
-% ------------------------------------------
 
 \makeatletter
 \renewcommand*{\backrefalt}[4]{}
