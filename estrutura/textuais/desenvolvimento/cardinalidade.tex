@@ -11,15 +11,27 @@ A partir das definições elementares de conjunto, este capítulo formaliza o co
 A noção intuitiva de tamanho de um conjunto é formalizada matematicamente pelo conceito de cardinalidade. \citeonline[p.~3]{lima2006} define um conjunto \(X\) como \textbf{finito} quando \(X\) é vazio, ou existem um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\) onde \(I_n = \{p \in \mathbb{N}: p \leq n \}\). Já \citeonline[p.~53]{halmos2014} define um conjunto finito como um conjunto equivalente a um número\footnote{Na Teoria de Conjuntos números são conjuntos. \(0 = \varnothing, 1 = \{\varnothing\}, n = \{0,1,2,\dots,n-1\}.\)} natural, onde equivalência significa uma bijeção. Uma propriedade fundamental dos conjuntos finitos é que não existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
 
 \begin{exemplo}
-    O conjunto \(X = \{\text{primeiro}, \text{segundo}, \text{terceiro}\}\) é finito. Para verificar basta encontrar um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\), de fato, tome \(n = 3\), e \(f: \ \{1,2,3\} \to \{\text{primeiro}, \text{segundo}, \text{terceiro}\}\) tal que 
+    O conjunto \(X = \{\text{primeiro}, \text{segundo}, \text{terceiro}\}\) é finito. Para verificar basta encontrar um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\), de fato, tome \(n = 3\), e \(f: \ \{1,2,3\} \to X\) tal que 
 
     \begin{align*}
-    &f(1) \longrightarrow \text{primeiro} \\
-    &f(2) \longrightarrow \text{segundo} \\
-    &f(3) \longrightarrow \text{terceiro} \\    
+    &f(1) \longleftrightarrow \text{primeiro} \\
+    &f(2) \longleftrightarrow \text{segundo} \\
+    &f(3) \longleftrightarrow \text{terceiro} \\    
     \end{align*}
     
     \label{ex:finito-elon}
+\end{exemplo}
+
+\begin{exemplo}
+    Utilizando a definição de \citeonline{halmos2014}, considere o conjunto das vogais \(V = \{a, e, i, o, u\}\). Este conjunto é finito, pois é equivalente ao número natural \(5\) (que, como conjunto, é \(5 = \{0, 1, 2, 3, 4\}\)). A bijeção \(g: 5 \to V\) é dada por:
+    \begin{align*}
+    &g(0) \longleftrightarrow a \\
+    &g(1) \longleftrightarrow e \\
+    &g(2) \longleftrightarrow i \\    
+    &g(3) \longleftrightarrow o \\
+    &g(4) \longleftrightarrow u \\
+    \end{align*}
+    \label{ex:finito-halmos}
 \end{exemplo}
 
 \section{Conjuntos infinitos}

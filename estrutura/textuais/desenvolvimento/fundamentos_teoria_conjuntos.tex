@@ -31,12 +31,47 @@ Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\) dizemos 
 \end{axioma}
 
 \begin{exemplo}
-    Seja \(A = \{1,2,3,4,5\}\) e \(S(x)\) a condição "\(x\) é um número ímpar"\footnote{Note que, neste momento, um número "ímpar" \ não está definido, mas para fins de simplicidade trataremos como se estivesse.}, então o conjunto \(B\) é: 
+    Seja \(A = \{1,2,3,4,5\}\) e \(S(x)\) a condição "\(x\) é um número ímpar"\footnote{Note que, neste momento, um número "ímpar" \ não está definido, mas para fins de simplicidade trataremos como se estivesse. O mesmo se aplica para todos os exemplos, para não quebrar a fluidez do texto, conceitos, mesmo que ainda não definidos, poderão ser usados em exemplos.}, então o conjunto \(B\) é: 
     \[
     B = \{x \in \{1,2,3,4,5\}: x \text{ é um número ímpar.}\} = \{1,3,5\}.
     \]
     \label{ex:especificacao}
 \end{exemplo}
+
+\begin{remark}
+    Este axioma não está escrito com a rigorosidade necessária, isso se dá, pois a teoria de Halmos, \emph{"Naive Set Theory"}, é uma abordagem "não axiomática"\footnote{Apesar de ser uma abordagem não axiomática, Halmos ainda trabalha com alguns axiomas. \emph{"The present treatment might best be described as axiomatic set theory from the naive point of view. It is axiomatic in that some axioms for set theory are stated and used as the basis of all subsequent proofs. It is naive in that the language and notation are those of ordinary informal (but formalizable) mathematics."} \linkcite[p.~v]{Halmos}{halmos2014}.} \ da teoria de conjuntos, \citeonline[p.~5]{enderton1977} tras dois paradoxos interessantes advindos de tal abordagem.
+
+    \vspace{1em}
+
+    \begin{enumerate}
+    \item Considere o conjunto 
+    \[
+    A = \{x: x \text{ é um inteiro positivo definível em uma linha de texto}\}
+    \]
+    O problema aqui é a palavra "definível." \ Conseguimos definir muitos números em uma linha de texto
+    {\small
+    \begin{center}
+        \(118\), \\
+        O menor número primo maior que 13, \\
+        O 3\textsuperscript{o} número triangular\footnote{O \(n\)-ésimo número triangular é \(a_n = 0 + 1 + 2 + \dots + n\). Para mais informações, consulte a sequência A000217 na \citeonline{oeisA000217}.}, \\
+        O menor número maior que qualquer número designado com menos de  \(10^{100}\) símbolos\footnote{O "número de Rayo". Número ganhador do \emph{Big Number Duel}, um duelo organizado pelo Instituto de Tecnologia de Massachusetts (MIT) entre Adam Elga e Agustín Rayo. Sua definição formal pode ser encontrada em \citeonline{rayo2007}.}, \\
+        A raíz inteira do polinômio \(x^3 - 554 x^2 + 65530 x - 3885000\).
+    \end{center}}
+
+    \vspace{1em}
+
+    Observe que o conjunto \(A\) é um conjunto finito de inteiros (pois há uma quantidade finita de símbolos que podem ser usados, e apenas uma quantidade finita de símbolos cabem em uma linha). Assim, existe um número \(x\) tal que
+    \[x \text{ é o menor número inteiro que não é definível em uma linha de texto.}\]
+    Porém, a linha anterior é, precisamente, uma definição em uma linha de tal número, que é, por construção, não definível em uma linha.
+
+    \item O clássico paradoxo de Russell. Considere o conjunto
+    \[B = \{x: x \notin x\}.\]
+    Este é o conjunto de todos os conjuntos que não são elementos de si mesmos. Vem em mente a seguinte pergunta \(B \in B\)? Se \(B \notin B\), então \(B\) satisfaz a condição de entrada, logo \(B \in B\). Agora, se \(B \in B\), então \(B\) não satisfaz a condição de entrada, logo \(B \notin B\). Assim temos que ambos \(B \in B\) e \(B \notin B\) são impossíveis de acontecer.
+    \end{enumerate}
+
+\end{remark}
+
+
 
 \begin{axioma}[Axioma do Par]
     Para quaisquer dois conjuntos \(A\) e \(B\), existe um conjunto \(C\) tal que \(A \in C\) e \(B \in C.\)
@@ -49,7 +84,7 @@ Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\) dizemos 
 \end{exemplo}
 
 \begin{definicao}[Par Ordenado]
-    O par ordenado de \(a\) e \(b\) onde a primeira coordenada é \(a\) e a segunda coordenada é \(b\) é o conjunto \((a,b)\) definido por:
+    O par ordenado de \(a\) e \(b\) onde a primeira coordenada é \(a\) e a segunda coordenada é \(b\), é o conjunto \((a,b)\) definido por:
     \[
     (a,b) = \{\{a\}, \{a,b\}\}.
     \]
@@ -131,7 +166,7 @@ Em outras palavras, se \(A\) é um conjunto então existe um conjunto \(\mathcal
 \section{Conjunto dos Números Naturais}
 \label{sec:numeros_naturais}
 
-O ponto de partida para a construção dos números é o conjunto dos números naturais, \(\mathbb{N} = \{1, 2, 3, ...\}\), caracterizado pelos axiomas de Peano:
+O ponto de partida para a construção dos números é o conjunto dos números naturais, \(\mathbb{N} = \{0, 1, 2, 3, ...\}\), caracterizado pelos axiomas de Peano:
 
 \begin{axioma}[Primeiro Axioma de Peano]
     Existe uma função injetiva \(s: \ \mathbb{N} \to \mathbb{N}.\) Chamamos a imagem de \(s(n)\) de sucessor de \(n\).
@@ -139,12 +174,29 @@ O ponto de partida para a construção dos números é o conjunto dos números n
 \end{axioma}
 
 \begin{axioma}[Segundo Axioma de Peano]
-    Existe um único número natural \(1 \in \mathbb{N}\) tal que \(1 \neq s(n)\) para qualquer \(n \in \mathbb{N}\).
+    Existe um único número natural \(0 \in \mathbb{N}\) tal que \(0 \neq s(n)\) para qualquer \(n \in \mathbb{N}\).
     \label{ax:peano2}
 \end{axioma}
 
 \begin{axioma}[Terceiro Axioma de Peano]
-    Se em um conjunto \(X \subseteq \mathbb{N}\), \(1 \in X\) e \(s(X) \subseteq X\)\footnote{\(n \in X \implies s(n) \in X.\)}, então \(X = \mathbb{N}\).  
+    Se em um conjunto \(X \subseteq \mathbb{N}\), \(0 \in X\) e \(s(X) \subseteq X\)\footnote{\(n \in X \implies s(n) \in X.\)}, então \(X = \mathbb{N}\).  
     \label{ax:peano3}
 \end{axioma}
 Esses axiomas estabelecem a existência de um \textbf{primeiro elemento} (que chamamos de \(1\)), uma função "\textbf{sucessor}" \ injetiva, e o \textbf{princípio da indução}, que garante que qualquer número natural pode ser alcançado a partir do \(1\) por sucessivas aplicações da função sucessor.
+
+\begin{definicao}[Sucessor]
+    Definimos o sucessor de um número \(x\) como 
+    \[
+    x^+ = x \cup \{x\}
+    \]
+    \label{def:funcao-sucessor}
+\end{definicao}
+
+Definida a função sucessor nós podemos falar sobre o Axioma \ref{ax:infinidade}: 
+
+\begin{axioma}[Axioma da Infinidade]
+    Existe um conjunto que contém \(0\), e os sucessores de cada um seus elementos.
+    \label{ax:infinidade}
+\end{axioma}
+
+Intuitivamente, esse conjunto é \(\mathbb{N} = \{0,1,2,3,\dots\}\)
