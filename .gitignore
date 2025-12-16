@@ -25,6 +25,7 @@
 *.loa
 *.loq
 exemplo.bib
+mudancas.txt
 .vscode/
 slides/
 books/

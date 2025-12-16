@@ -6,3 +6,14 @@
 % - Tópicos 4 e 5 do referencial teórico.
 % - Mostrar as estranhezas do infinito.
 O Axioma da Escolha é independente dos demais axiomas da teoria ZF, mas é essencial para muitos resultados modernos. Sua aceitação, contudo, leva a consequências paradoxais, como o Paradoxo de Banach-Tarski \linkcite{Wapner}{wapner2007}, que demonstra ser possível decompor uma esfera sólida em um número finito de pedaços e remontá-los em duas esferas idênticas à original, violando a intuição física de conservação de volume.
+
+Para introduzir as consequências contraintuitivas do infinito na geometria, é elucidativo analisar primeiramente paradoxos em conjuntos enumeráveis. \citeonline[p.~135]{wapner2007} apresenta a analogia do \textit{"Hiper-Webster"}\footnote{Derivado do nome \textit{Merriam-Webster}, um dicionário estadunidense.} \ (originalmente proposta por Ian Stewart), um dicionário infinito contendo todas as palavras possíveis formadas pelas 26 letras do alfabeto inglês. Neste dicionário hipotético, as palavras são listadas em ordem alfabética: A, AA, AAA, AAAA, e assim por diante, seguidas eventualmente por AB, ABA, ABAA, etc. O dicionário contém todas as sequências finitas de letras, independentemente de terem significado ou não.
+
+A propriedade paradoxal deste conjunto revela-se quando tentamos decompor o \textit{Hiper-Webster} em 26 volumes separados, organizados pela letra inicial de cada palavra. O Volume A conteria todas as palavras começando com 'A', o Volume B todas as que começam com 'B', e assim sucessivamente. 
+
+\input{./dados/figuras/hiperwebster.tex}
+
+
+Se tomarmos apenas o Volume A e removermos a primeira letra ('A') de cada palavra nele contida, o resultado é surpreendente: a lista de palavras restante é idêntica ao conteúdo do \textit{Hiper-Webster} original completo. Por exemplo, a palavra 'AA' torna-se 'A', 'AB' torna-se 'B', recuperando assim todas as sequências possíveis.
+
+Este processo demonstra que o \textit{Hiper-Webster} possui a propriedade de ser decomponível em 26 cópias de si mesmo. A distinção crucial, no entanto, reside na natureza do infinito envolvido: enquanto o dicionário lida com um infinito enumerável (palavras discretas), o Teorema de Banach-Tarski opera no contínuo ($\mathbb{R}^3$). A decomposição da esfera não envolve apenas a remoção de um "caractere" \ inicial, mas sim o uso do Axioma da Escolha para particionar o sólido em conjuntos de pontos não mensuráveis, que são então rotacionados para recompor duas esferas sólidas completas.

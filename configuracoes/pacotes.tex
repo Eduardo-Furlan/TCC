@@ -45,15 +45,20 @@
 \usepackage{amsthm}
 \usepackage{bm}
 
+\usepackage{tabularx}
+
 % ---
 % CONTROLE DE LEGENDAS E ESPAÇAMENTOS (TABELAS vs FIGURAS)
 % ---
 \usepackage{etoolbox} % Pacote para modificar ambientes
 \usepackage{caption}  % Pacote para controlar legendas
 
+\DeclareCaptionLabelSeparator{hifen_abnt}{\space\textmd{\textendash}\space}
+
 % 1. Configuração Global (aplica o negrito no rótulo para todos)
 \captionsetup{
     labelfont=bf,        % Rótulo em negrito (Ex: Tabela 1, Figura 1)
+    labelsep=hifen_abnt,    % Usa o separador definido acima (não negrito)
     textfont=normalfont, % Texto da legenda normal
     skip=10pt            % Espaço padrão (bom para figuras)
 }
