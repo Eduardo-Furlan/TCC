@@ -1,0 +1,28 @@
+\addvspace {10\p@ }
+\contentsline {axioma}{\ifthmt@listswap Axioma~1\else \numberline {1}Axioma\fi \thmtformatoptarg {Axioma da Extensão}}{3}{axioma.1}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~1\else \numberline {1}Exemplo\fi }{3}{exemplo.1}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~2\else \numberline {2}Axioma\fi \thmtformatoptarg {Axioma da Especificação}}{3}{axioma.2}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~2\else \numberline {2}Exemplo\fi }{3}{exemplo.2}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~3\else \numberline {3}Axioma\fi \thmtformatoptarg {Axioma do Par}}{4}{axioma.3}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~3\else \numberline {3}Exemplo\fi }{5}{exemplo.3}%
+\contentsline {definicao}{\ifthmt@listswap Definição~1\else \numberline {1}Definição\fi \thmtformatoptarg {Par Ordenado}}{5}{definicao.1}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~4\else \numberline {4}Exemplo\fi }{5}{exemplo.4}%
+\contentsline {definicao}{\ifthmt@listswap Definição~2\else \numberline {2}Definição\fi \thmtformatoptarg {Produto Cartesiano}}{5}{definicao.2}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~5\else \numberline {5}Exemplo\fi }{5}{exemplo.5}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~4\else \numberline {4}Axioma\fi \thmtformatoptarg {Axioma das Uniões}}{5}{axioma.4}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~6\else \numberline {6}Exemplo\fi }{5}{exemplo.6}%
+\contentsline {definicao}{\ifthmt@listswap Definição~3\else \numberline {3}Definição\fi \thmtformatoptarg {Interseção}}{5}{definicao.3}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~7\else \numberline {7}Exemplo\fi }{6}{exemplo.7}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~5\else \numberline {5}Axioma\fi \thmtformatoptarg {Axioma da Potência}}{6}{axioma.5}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~8\else \numberline {8}Exemplo\fi }{6}{exemplo.8}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~6\else \numberline {6}Axioma\fi \thmtformatoptarg {Primeiro Axioma de Peano}}{6}{axioma.6}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~7\else \numberline {7}Axioma\fi \thmtformatoptarg {Segundo Axioma de Peano}}{6}{axioma.7}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~8\else \numberline {8}Axioma\fi \thmtformatoptarg {Terceiro Axioma de Peano}}{6}{axioma.8}%
+\contentsline {definicao}{\ifthmt@listswap Definição~4\else \numberline {4}Definição\fi \thmtformatoptarg {Sucessor}}{6}{definicao.4}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~9\else \numberline {9}Axioma\fi \thmtformatoptarg {Axioma da Infinidade}}{7}{axioma.9}%
+\addvspace {10\p@ }
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~9\else \numberline {9}Exemplo\fi }{8}{exemplo.9}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~10\else \numberline {10}Exemplo\fi }{8}{exemplo.10}%
+\addvspace {10\p@ }
+\contentsline {teorema}{\ifthmt@listswap Teorema~1\else \numberline {1}Teorema\fi }{12}{teorema.1}%
+\contentsline {corolario}{\ifthmt@listswap Corolário~1\else \numberline {1}Corolário\fi }{12}{corolario.1}%

@@ -43,6 +43,7 @@
 %\usepackage{subfig}                                        % Posicionamento de figuras
 %\usepackage{upgreek}                                       % Fonte letras gregas
 \usepackage{amsthm}
+\usepackage{thmtools}
 \usepackage{bm}
 
 \usepackage{tabularx}
@@ -90,48 +91,64 @@
   }%
 }
 % ---
+% ---
+% ---
+% ---
+% ---
 
 % Redefine a fonte para uma fonte similar a Arial (fonte Helvetica)
 % \renewcommand*\familydefault{\sfdefault}
 
+% ---
+% ---
+% ---
+% ---
+% ---
+% REDEFINIÇÃO DOS TEOREMAS COM THMTOOLS
+% ---
+
 % Define o estilo "theorem" (negrito, itálico)
-\theoremstyle{plain}
-\newtheorem{teorema}{Teorema}
-\newtheorem{axioma}{Axioma}     
-\newtheorem{lema}{Lema}         
-\newtheorem{corolario}{Corolário} 
+\declaretheorem[style=plain, name=Teorema]{teorema}
+\declaretheorem[style=plain, name=Axioma]{axioma}
+\declaretheorem[style=plain, name=Lema]{lema}
+\declaretheorem[style=plain, name=Corolário]{corolario}
 
 % Define o estilo "definition" (negrito, reto)
-\theoremstyle{definition}
-\newtheorem{definicao}{Definição} 
-\newtheorem{exemplo}{Exemplo}     
+\declaretheorem[style=definition, name=Definição]{definicao}
+\declaretheorem[style=definition, name=Exemplo]{exemplo}
 
-% Define o estilo "remark" (itálico, reto)
-\theoremstyle{remark}
-\newtheorem*{remark}{Nota} 
+% Define o estilo "remark" (itálico, reto) - Nota sem número
+\declaretheorem[style=remark, name=Nota, numbered=no]{remark}
 
 % Altera o nome padrão "Proof" do ambiente 'proof' para "Demonstração"
 \renewcommand{\proofname}{Demonstração}
+
+% ---
+% ---
+% ---
+% ---
+% ---
 
 \definecolor{DarkModeBG}{gray}{0.15}    % Fundo (Cinza bem escuro)
 \definecolor{DarkModeText}{gray}{0.95}  % Texto (Cinza bem claro)
 \definecolor{DarkModeLink}{rgb}{0.345, 0.651, 1.0} % Link (Azul claro)
 
+% ---
+% ---
+% ---
+% ---
+% ---
+
 % Torna a numeração das notas de rodapé contínua (não reinicia por capítulo)
 \counterwithout{footnote}{chapter}
 
+% ---
+% ---
+% ---
+% ---
+% ---
 
-% ---
-% ---
-% ---
-% ---
-% ---
 % ATALHOS MATEMÁTICOS PERSONALIZADOS
-% ---
-% ---
-% ---
-% ---
-% ---
 
 % Nível 1: Blackboard Bold (\mathbb) - Conjuntos Numéricos
 % O comando \providecommand garante que se o comando já existir, ele não dá erro,
@@ -167,11 +184,6 @@
 % ---
 % ---
 
-% ---
-% ---
-% ---
-% ---
-% ---
 % Comando \linkcite{<texto>}{<chave-bib>}
 % Cria links separados para o texto e o ano, deixando a pontuação de fora.
 % Formato de saída: (<texto>, <ano>)
@@ -184,6 +196,7 @@
 %   )%
 % }
 % \makeatother
+
 % ---
 % ---
 % ---
@@ -252,13 +265,8 @@
 % ---
 % ---
 % ---
+
 % LÓGICA DO MODO ESCURO (DARK MODE)
-% ---
-% ---
-% ---
-% ---
-% ---
-% ---
 
 \usepackage{xcolor}
 

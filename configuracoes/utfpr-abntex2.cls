@@ -233,7 +233,7 @@
 % Insere espaço entre os itens do sumário de diferentes capítulos
 \setlength{\cftbeforechapterskip}{1.0em \@plus\p@}
 
-\renewcommand{\cftchapterfont}{\bfseries\MakeUppercase}
+\renewcommand{\cftchapterfont}{\bfseries}
 \renewcommand{\cftsectionfont}{\bfseries}
 \renewcommand{\cftsubsectionfont}{\normalfont}
 

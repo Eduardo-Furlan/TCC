@@ -1,0 +1,30 @@
+\pretextualchapter{LISTA DE TEOREMAS}
+\pdfbookmark[0]{Lista de Teoremas}{loe}
+
+\begingroup
+    % Ajuste Visual: Transforma títulos de capítulos em seções
+    \let\chapter\section
+    \renewcommand{\addcontentsline}[3]{}
+
+    % --- AXIOMAS ---
+    \renewcommand{\listtheoremname}{Axiomas}
+    \listoftheorems[ignoreall, show={axioma}]
+
+    % --- DEFINIÇÕES ---
+    \renewcommand{\listtheoremname}{Definições}
+    \listoftheorems[ignoreall, show={definicao}]
+
+    % --- TEOREMAS ---
+    \renewcommand{\listtheoremname}{Teoremas}
+    \listoftheorems[ignoreall, show={teorema}]
+
+    % --- COROLÁRIOS ---
+    \renewcommand{\listtheoremname}{Corolários}
+    \listoftheorems[ignoreall, show={corolario}]
+
+    % --- LEMAS ---
+    \renewcommand{\listtheoremname}{Lemas}
+    \listoftheorems[ignoreall, show={lema}]
+
+\endgroup
+\cleardoublepage
