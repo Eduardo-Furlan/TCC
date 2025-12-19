@@ -28,7 +28,7 @@
 \usepackage{subeqnarray}                                    % Permite subnumeração de equações
 \usepackage{lastpage}                                       % Para encontrar última página do documento
 \usepackage{verbatim}                                       % Permite apresentar texto tal como escrito no documento, ainda que sejam comandos Latex
-\usepackage{amsfonts, amssymb, amsmath}                     % Fontes e símbolos matemáticos
+\usepackage{amsfonts, amssymb, amsmath, mathrsfs}                     % Fontes e símbolos matemáticos
 \usepackage[algoruled, portuguese]{algorithm2e}             % Permite escrever algoritmos em português
 % \usepackage[scaled]{helvet}                                % Usa a fonte Helvetica
 % \usepackage{times}                                          % Usa a fonte Times
@@ -46,6 +46,9 @@
 \usepackage{bm}
 
 \usepackage{tabularx}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, shadows, calc, shapes.geometric}
 
 % ---
 % CONTROLE DE LEGENDAS E ESPAÇAMENTOS (TABELAS vs FIGURAS)
@@ -114,6 +117,61 @@
 \definecolor{DarkModeText}{gray}{0.95}  % Texto (Cinza bem claro)
 \definecolor{DarkModeLink}{rgb}{0.345, 0.651, 1.0} % Link (Azul claro)
 
+% Torna a numeração das notas de rodapé contínua (não reinicia por capítulo)
+\counterwithout{footnote}{chapter}
+
+
+% ---
+% ---
+% ---
+% ---
+% ---
+% ATALHOS MATEMÁTICOS PERSONALIZADOS
+% ---
+% ---
+% ---
+% ---
+% ---
+
+% Nível 1: Blackboard Bold (\mathbb) - Conjuntos Numéricos
+% O comando \providecommand garante que se o comando já existir, ele não dá erro,
+% mas \renewcommand força a sua definição (use com cuidado).
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+% Adicione outros conforme necessário, ex: \newcommand{\K}{\mathbb{K}}
+
+% Nível 2: Caligráfico (\mathcal)
+% Nota: \mathcal padrão só funciona bem com letras MAIÚSCULAS.
+\newcommand{\NN}{\mathcal{N}}
+\newcommand{\AAa}{\mathcal{A}} % \AA já existe (Ångström), use \AAa ou outro nome
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\PP}{\mathcal{P}} % Utíl para conjunto das partes
+
+% Nível 3: Script (\mathscr) - Requer pacote mathrsfs
+\newcommand{\NNN}{\mathscr{N}}
+\newcommand{\AAA}{\mathscr{A}}
+\newcommand{\BBB}{\mathscr{B}}
+
+% Nível 4: Textos
+\newcommand{\com}{\text{ com }}
+\newcommand{\tq}{\text{ t.q. }}
+
+% ---
+% ---
+% ---
+% ---
+% ---
+
+% ---
+% ---
+% ---
+% ---
+% ---
 % Comando \linkcite{<texto>}{<chave-bib>}
 % Cria links separados para o texto e o ano, deixando a pontuação de fora.
 % Formato de saída: (<texto>, <ano>)
@@ -126,6 +184,11 @@
 %   )%
 % }
 % \makeatother
+% ---
+% ---
+% ---
+% ---
+% ---
 
 \makeatletter
 
@@ -185,8 +248,18 @@
 \makeatother
 
 % ---
+% ---
+% ---
+% ---
+% ---
 % LÓGICA DO MODO ESCURO (DARK MODE)
 % ---
+% ---
+% ---
+% ---
+% ---
+% ---
+
 \usepackage{xcolor}
 
 % 1. Definição das Cores (Semânticas)
@@ -225,4 +298,10 @@
     \pagecolor{white}
     \color{black}
 }
+
+% ---
+% ---
+% ---
+% ---
+% ---
 % ---

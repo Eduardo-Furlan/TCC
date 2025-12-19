@@ -38,38 +38,36 @@ Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\) dizemos 
     \label{ex:especificacao}
 \end{exemplo}
 
-\begin{remark}
-    Este axioma não está escrito com a rigorosidade necessária, isso se dá, pois a teoria de Halmos, \emph{"Naive Set Theory"}, é uma abordagem "não axiomática"\footnote{Apesar de ser uma abordagem não axiomática, Halmos ainda trabalha com alguns axiomas. \emph{"The present treatment might best be described as axiomatic set theory from the naive point of view. It is axiomatic in that some axioms for set theory are stated and used as the basis of all subsequent proofs. It is naive in that the language and notation are those of ordinary informal (but formalizable) mathematics."} \linkcite[p.~v]{Halmos}{halmos2014}.} \ da teoria de conjuntos, \citeonline[p.~5]{enderton1977} tras dois paradoxos interessantes advindos de tal abordagem.
+É interessante destacar que esse axioma não está escrito com a rigorosidade necessária, isso se dá, pois a teoria de Halmos, \emph{"Naive Set Theory"}, é uma abordagem "não axiomática"\footnote{Apesar de ser uma abordagem não axiomática, Halmos ainda trabalha com alguns axiomas. \emph{"The present treatment might best be described as axiomatic set theory from the naive point of view. It is axiomatic in that some axioms for set theory are stated and used as the basis of all subsequent proofs. It is naive in that the language and notation are those of ordinary informal (but formalizable) mathematics."} \linkcite[p.~v]{Halmos}{halmos2014}.} \ da teoria de conjuntos. \citeonline[p.~5]{enderton1977} apresenta dois paradoxos interessantes advindos de tal abordagem.
 
-    \vspace{1em}
+\vspace{1em}
 
-    \begin{enumerate}
-    \item Considere o conjunto 
-    \[
-    A = \{x: x \text{ é um inteiro positivo definível em uma linha de texto}\}
-    \]
-    O problema aqui é a palavra "definível." \ Conseguimos definir muitos números em uma linha de texto
-    {\small
-    \begin{center}
-        \(118\), \\
-        O menor número primo maior que 13, \\
-        O 3\textsuperscript{o} número triangular\footnote{O \(n\)-ésimo número triangular é \(a_n = 0 + 1 + 2 + \dots + n\). Para mais informações, consulte a sequência A000217 na \citeonline{oeisA000217}.}, \\
-        O menor número maior que qualquer número designado com menos de  \(10^{100}\) símbolos\footnote{O "número de Rayo". Número ganhador do \emph{Big Number Duel}, um duelo organizado pelo Instituto de Tecnologia de Massachusetts (MIT) entre Adam Elga e Agustín Rayo. Sua definição formal pode ser encontrada em \citeonline{rayo2007}.}, \\
-        A raíz inteira do polinômio \(x^3 - 554 x^2 + 65530 x - 3885000\).
-    \end{center}}
+\begin{enumerate}
+\item Considere o conjunto 
+\[
+A = \{x: x \text{ é um inteiro positivo definível em uma linha de texto}\}
+\]
+O problema aqui é a palavra "definível." \ Conseguimos definir muitos números em uma linha de texto
+{\small
+\begin{center}
+    \(118\), \\
+    O menor número primo maior que 13, \\
+    O 3\textsuperscript{o} número triangular\footnote{O \(n\)-ésimo número triangular é \(a_n = 0 + 1 + 2 + \dots + n\). Para mais informações, consulte a sequência A000217 na \citeonline{oeisA000217}.}, \\
+    O menor número maior que qualquer número designado com menos de  \(10^{100}\) símbolos\footnote{O "número de Rayo". Número ganhador do \emph{Big Number Duel}, um duelo organizado pelo Instituto de Tecnologia de Massachusetts (MIT) entre Adam Elga e Agustín Rayo. Sua definição formal pode ser encontrada em \citeonline{rayo2007}.}, \\
+    A raíz inteira do polinômio \(x^3 - 554 x^2 + 65530 x - 3885000\).
+\end{center}}
 
-    \vspace{1em}
+\vspace{1em}
 
-    Observe que o conjunto \(A\) é um conjunto finito de inteiros (pois há uma quantidade finita de símbolos que podem ser usados, e apenas uma quantidade finita de símbolos cabem em uma linha). Assim, existe um número \(x\) tal que
-    \[x \text{ é o menor número inteiro que não é definível em uma linha de texto.}\]
-    Porém, a linha anterior é, precisamente, uma definição em uma linha de tal número, que é, por construção, não definível em uma linha.
+Observe que o conjunto \(A\) é um conjunto finito de inteiros (pois há uma quantidade finita de símbolos que podem ser usados, e apenas uma quantidade finita de símbolos cabem em uma linha). Assim, existe um número \(x\) tal que
+\[x \text{ é o menor número inteiro que não é definível em uma linha de texto.}\]
+Porém, a linha anterior é, precisamente, uma definição em uma linha de tal número, que é, por construção, não definível em uma linha.
 
-    \item O clássico paradoxo de Russell. Considere o conjunto
-    \[B = \{x: x \notin x\}.\]
-    Este é o conjunto de todos os conjuntos que não são elementos de si mesmos. Vem em mente a seguinte pergunta \(B \in B\)? Se \(B \notin B\), então \(B\) satisfaz a condição de entrada, logo \(B \in B\). Agora, se \(B \in B\), então \(B\) não satisfaz a condição de entrada, logo \(B \notin B\). Assim temos que ambos \(B \in B\) e \(B \notin B\) são impossíveis de acontecer.
-    \end{enumerate}
+\item O clássico paradoxo de Russell. Considere o conjunto
+\[B = \{x: x \notin x\}.\]
+Este é o conjunto de todos os conjuntos que não são elementos de si mesmos, o que nos faz questionar: \(B \in B\)? Se \(B \notin B\), então \(B\) satisfaz a condição de entrada, logo \(B \in B\). Agora, se \(B \in B\), então \(B\) não satisfaz a condição de entrada, logo \(B \notin B\). Assim temos que ambos \(B \in B\) e \(B \notin B\) são impossíveis de acontecer.
+\end{enumerate}
 
-\end{remark}
 
 
 
@@ -97,7 +95,7 @@ Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\) dizemos 
 \end{exemplo}
 
 \begin{definicao}[Produto Cartesiano]
-    O produto cartesiano de \(A\) e \(B\) é o conjunto \(A \times B\) onde
+    O produto cartesiano de \(A\) e \(B\) é o conjunto \(A \times B\) em que
     \[
     A \times B = \{x: x = (a,b) \text{ para algum } a \in A \text{ e para algum } b \in B\}.
     \]
@@ -192,11 +190,11 @@ Esses axiomas estabelecem a existência de um \textbf{primeiro elemento} (que ch
     \label{def:funcao-sucessor}
 \end{definicao}
 
-Definida a função sucessor nós podemos falar sobre o Axioma \ref{ax:infinidade}: 
+Definida a função sucessor nós podemos abordar o Axioma \ref{ax:infinidade}: 
 
 \begin{axioma}[Axioma da Infinidade]
     Existe um conjunto que contém \(0\), e os sucessores de cada um seus elementos.
     \label{ax:infinidade}
 \end{axioma}
 
-Intuitivamente, esse conjunto é \(\mathbb{N} = \{0,1,2,3,\dots\}\)
+Intuitivamente, esse conjunto é \(\mathbb{N} = \{0,1,2,3,\dots\}\).

@@ -1,18 +1,93 @@
+% \begin{figure}[H]
+%     \centering
+%     \caption{Os vinte e seis volumes do \textit{Hiper-Webster}}
+%     \label{fig:hyperwebster}
+    
+%     % Aumenta o espaçamento entre as linhas apenas nesta tabela (padrão é 1.0)
+%     \renewcommand{\arraystretch}{1.5} 
+    
+%     \begin{tabular}{l l}
+%         \textbf{Volume A:} & A, AA, AAA, \dots, AB, ABA, ABAA, \dots, ABB, \dots \\
+%         \textbf{Volume B:} & B, BA, BAA, \dots, BB, BBA, BBAA, \dots, BBB, \dots \\
+%         \textbf{Volume C:} & C, CA, CAA, \dots, CB, CBA, CBAA, \dots, CBB, \dots \\
+%         & \hfill \vdots \\
+%         \textbf{Volume Z:} & Z, ZA, ZAA, \dots, ZB, ZBA, ZBAA, \dots, ZBB, \dots \\
+%     \end{tabular}
+    
+%     \fonte{\citeonline[p.~137]{wapner2007}.}
+% \end{figure}
+
 \begin{figure}[H]
     \centering
-    \caption{Os vinte e seis volumes do \textit{Hiper-Webster}}
-    \label{fig:hyperwebster}
+    \caption{Representação visual dos volumes do \textit{Hiper-Webster}}
+    \label{fig:hyperwebster_visual_fixed}
+
+    % scale=0.9 e transform shape para reduzir o tamanho mantendo proporção
+    \begin{tikzpicture}[
+        scale=0.9, transform shape, 
+        node distance=0.3cm and 0cm,
+        font=\sffamily,
+        % Estilos mantidos originais
+        spine/.style={
+            rectangle, 
+            draw=none, 
+            text=white, 
+            font=\bfseries\Large,
+            minimum height=1.2cm, 
+            minimum width=2.5cm,
+            anchor=east,
+            rounded corners=3pt
+        },
+        pages/.style={
+            rectangle, 
+            draw=gray!30, 
+            fill=gray!5, 
+            text=black!80, 
+            align=left, 
+            minimum height=1.2cm, 
+            minimum width=9cm,
+            anchor=west,
+            text width=8.5cm,
+            rounded corners=3pt,
+            drop shadow={opacity=0.15, shadow xshift=2pt, shadow yshift=-2pt}
+        }
+    ]
     
-    % Aumenta o espaçamento entre as linhas apenas nesta tabela (padrão é 1.0)
-    \renewcommand{\arraystretch}{1.5} 
+    % --- Volume A ---
+    \node[spine, fill=blue!70!black] (spineA) {Volume A};
+    \node[pages] (contentA) at (spineA.east) {
+        % A: Negrito E Azul
+        \textbf{\textcolor{blue!70!black}{A}}, \textcolor{blue!70!black}{A}A, \textcolor{blue!70!black}{A}AA, \dots, \textcolor{blue!70!black}{A}B, \textcolor{blue!70!black}{A}BA, \dots, \textcolor{blue!70!black}{A}Z \dots
+    };
+
+    % --- Volume B ---
+    \node[spine, below=of spineA, fill=red!70!black] (spineB) {Volume B};
+    \node[pages] (contentB) at (spineB.east) {
+        % B: Negrito E Vermelho
+        \textbf{\textcolor{red!70!black}{B}}, \textcolor{red!70!black}{B}A, \textcolor{red!70!black}{B}AA, \dots, \textcolor{red!70!black}{B}B, \textcolor{red!70!black}{B}BA, \dots, \textcolor{red!70!black}{B}Z \dots
+    };
+
+    % --- Volume C ---
+    \node[spine, below=of spineB, fill=green!60!black] (spineC) {Volume C};
+    \node[pages] (contentC) at (spineC.east) {
+        % C: Negrito E Verde
+        \textbf{\textcolor{green!60!black}{C}}, \textcolor{green!60!black}{C}A, \textcolor{green!60!black}{C}AA, \dots, \textcolor{green!60!black}{C}B, \textcolor{green!60!black}{C}BA, \dots, \textcolor{green!60!black}{C}Z \dots
+    };
+
+    % --- Reticências Verticais ---
+    \node[below=0.2cm of contentC, text=gray!80] (dots) {\Huge $\vdots$};
+
+    % --- Volume Z ---
+    \node[spine, below=1.3cm of spineC, fill=violet!70!black] (spineZ) {Volume Z};
+    \node[pages] (contentZ) at (spineZ.east) {
+        % Z: Negrito E Roxo
+        \textbf{\textcolor{violet!70!black}{Z}}, \textcolor{violet!70!black}{Z}A, \textcolor{violet!70!black}{Z}AA, \dots, \textcolor{violet!70!black}{Z}B, \textcolor{violet!70!black}{Z}BA, \dots, \textcolor{violet!70!black}{Z}Z \dots
+    };
+
+    % --- Texto Explicativo Original ---
+    \node[above=0.1cm of contentA, font=\footnotesize\itshape, text=gray] {Prefixo fixo + Sequência Infinita};
     
-    \begin{tabular}{l l}
-        \textbf{Volume A:} & A, AA, AAA, \dots, AB, ABA, ABAA, \dots, ABB, \dots \\
-        \textbf{Volume B:} & B, BA, BAA, \dots, BB, BBA, BBAA, \dots, BBB, \dots \\
-        \textbf{Volume C:} & C, CA, CAA, \dots, CB, CBA, CBAA, \dots, CBB, \dots \\
-        & \hfill \vdots \\
-        \textbf{Volume Z:} & Z, ZA, ZAA, \dots, ZB, ZBA, ZBAA, \dots, ZBB, \dots \\
-    \end{tabular}
+    \end{tikzpicture}
     
-    \fonte{\citeonline[p.~137]{wapner2007}.}
+    \fonte{Elaborado pelo autor (2025), baseado em \citeonline[p.~137]{wapner2007}.}
 \end{figure}
