@@ -1,0 +1,79 @@
+\begin{figure}[H]
+    \centering
+    \caption{\( \varphi(x) \) atua como um filtro lógico sobre o conjunto \( c \)}
+    \label{fig:esquema_separacao_intersecao}
+
+    \begin{tikzpicture}[
+        scale=0.9, 
+        transform shape,
+        font=\sffamily,
+        node distance=2cm,
+        shaded/.style={
+            pattern=north west lines, 
+            pattern color=gray!30
+        },
+        shaded2/.style={
+            pattern=north east lines, 
+            pattern color=gray!30
+        }        
+    ]
+
+    % Definição de Cores
+    \def\ColorSetOne{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}   % Cor para B1 (Azul)
+    \def\ColorSetTwo{\ifbool{darkmode}{DarkModeRed}{LightModeRed}}     % Cor para B2 (Vermelho)
+    \def\ColorInter{\ifbool{darkmode}{DarkModeViolet}{LightModeViolet}} % Cor para Interseção (Violeta)
+    \def\ColorC{\ifbool{darkmode}{gray!60}{gray!60}}                   % Cor para c
+    \def\ColorText{\ifbool{darkmode}{DarkModeText}{black}}
+
+    % Formas 
+    % Conjunto c
+    \def\blobC{plot [smooth cycle, tension=0.7] coordinates {(-3.5, -2) (3.5, -2) (4, 2) (0, 2.5) (-4, 1.5)}}
+    
+    % Subconjunto B1 
+    \def\blobOne{plot [smooth cycle, tension=0.8] coordinates {(-2, -0.5) (-0.5, -0.8) (0.5, 1) (-1.8, 1.2)}}
+
+    % Subconjunto B2 
+    \def\blobTwo{plot [smooth cycle, tension=0.8] coordinates {(-0.5, -1) (1.5, -0.5) (1.2, 1.2) (-0.8, 0.5)}}
+
+    % 1. Desenho do Conjunto c
+    \draw[thick, \ColorC, dashed] \blobC;
+    \node[\ColorC] at (3.5, 2.8) {\Large \( c \)};
+
+    % 3. Desenho de B1 (Azul)
+    \fill[shaded] \blobOne;
+    \draw[very thick, \ColorSetOne] \blobOne;
+    \node[\ColorSetOne] at (-2.7, 0.8) {\Large \( B_1 \)};
+    
+    % Rótulo da Fórmula 1
+    \node[align=center, font=\footnotesize, text=\ColorSetOne] (form1) at (-4, -3) {
+        \textbf{Fórmula } \( \varphi_1 \)\\
+        (Ex: \( x \) é par)
+    };
+    \draw[->, \ColorSetOne, dashed] (form1) to[out=45, in=200] (-1.5, -0.2);
+
+
+    % 4. Desenho de B2 (Vermelho)
+    \fill[shaded2] \blobTwo;
+    \draw[very thick, \ColorSetTwo] \blobTwo;
+    \node[\ColorSetTwo] at (2.3, 0.9) {\Large \( B_2 \)};
+
+    % Rótulo da Fórmula 2
+    \node[align=center, font=\footnotesize, text=\ColorSetTwo] (form2) at (4, -3) {
+        \textbf{Fórmula } \( \varphi_2 \)\\
+        (Ex: \( x \) é primo)
+    };
+    \draw[->, \ColorSetTwo, dashed] (form2) to[out=135, in=-20] (1.2, -0.2);
+
+
+    % 5. Destaque da Interseção (A Lógica Conjutiva)
+    \node[align=center, font=\footnotesize, text=\ColorInter] (form3) at (0, -3.5) {
+        \textbf{Interseção } \( B_3 \)\\
+        Gerada por \( \varphi_3 = \varphi_1 \e \varphi_2 \)\\
+        (Ex: \(x\) é par \& \(x\) é primo)
+    };
+    \draw[->, \ColorInter, thick] (form3) -- (0, -0.2);
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2025).}
+\end{figure}

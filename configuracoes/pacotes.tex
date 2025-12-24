@@ -46,10 +46,14 @@
 \usepackage{thmtools}
 \usepackage{bm}
 
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{changepage}
+
 \usepackage{tabularx}
 
 \usepackage{tikz}
-\usetikzlibrary{positioning, shadows, calc, shapes.geometric}
+\usetikzlibrary{positioning, shadows, calc, shapes.geometric, arrows.meta, patterns, decorations.pathreplacing}
 
 % ---
 % CONTROLE DE LEGENDAS E ESPAÇAMENTOS (TABELAS vs FIGURAS)
@@ -112,6 +116,7 @@
 \declaretheorem[style=plain, name=Axioma]{axioma}
 \declaretheorem[style=plain, name=Lema]{lema}
 \declaretheorem[style=plain, name=Corolário]{corolario}
+\declaretheorem[style=plain, name=Proposição]{proposicao}
 
 % Define o estilo "definition" (negrito, reto)
 \declaretheorem[style=definition, name=Definição]{definicao}
@@ -122,6 +127,21 @@
 
 % Altera o nome padrão "Proof" do ambiente 'proof' para "Demonstração"
 \renewcommand{\proofname}{Demonstração}
+% ---
+% REDEFINIÇÃO DO AMBIENTE PROOF (Quebra de linha)
+% ---
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    #1\@addpunct{.}]\mbox{}\\*\indent % O \mbox{} cria uma caixa vazia e o \\ quebra a linha
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
 
 % ---
 % ---
@@ -150,7 +170,7 @@
 
 % ATALHOS MATEMÁTICOS PERSONALIZADOS
 
-% Nível 1: Blackboard Bold (\mathbb) - Conjuntos Numéricos
+% 1: Blackboard Bold (\mathbb) - Conjuntos Numéricos
 % O comando \providecommand garante que se o comando já existir, ele não dá erro,
 % mas \renewcommand força a sua definição (use com cuidado).
 \newcommand{\N}{\mathbb{N}}
@@ -160,23 +180,37 @@
 \newcommand{\C}{\mathbb{C}}
 % Adicione outros conforme necessário, ex: \newcommand{\K}{\mathbb{K}}
 
-% Nível 2: Caligráfico (\mathcal)
+% 2: Caligráfico (\mathcal)
 % Nota: \mathcal padrão só funciona bem com letras MAIÚSCULAS.
 \newcommand{\NN}{\mathcal{N}}
-\newcommand{\AAa}{\mathcal{A}} % \AA já existe (Ångström), use \AAa ou outro nome
+\renewcommand{\AA}{\mathcal{A}} % \AA já existe (Ångström), use \AAa ou outro nome
 \newcommand{\BB}{\mathcal{B}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\FF}{\mathcal{F}}
 \newcommand{\PP}{\mathcal{P}} % Utíl para conjunto das partes
 
-% Nível 3: Script (\mathscr) - Requer pacote mathrsfs
+% 3: Script (\mathscr) - Requer pacote mathrsfs
 \newcommand{\NNN}{\mathscr{N}}
 \newcommand{\AAA}{\mathscr{A}}
 \newcommand{\BBB}{\mathscr{B}}
 
-% Nível 4: Textos
-\newcommand{\com}{\text{ com }}
-\newcommand{\tq}{\text{ t.q. }}
+% 4: Textos
+\newcommand{\com}{ \ \text{ com } \ }
+\newcommand{\tq}{ \ \text{ t.q. } \ }
+\newcommand{\e}{ \ \ \& \ \ }
+\newcommand{\ou}{ \ \text{ ou } \ }
+
+% 5: Outros
+\newcommand{\teref}[2]{\hyperref[#1]{#2}}
+\newcommand{\sub}{\subseteq}
+
+% 6: Renewcommands
+% Melhora o espaçamento dos quantificadores automaticamente
+\let\oldforall\forall
+\renewcommand{\forall}{\,\oldforall}
+
+\let\oldexists\exists
+\renewcommand{\exists}{\,\oldexists}
 
 % ---
 % ---
@@ -273,8 +307,18 @@
 % 1. Definição das Cores (Semânticas)
 \definecolor{DarkModeBG}{gray}{0.15}     % Fundo Cinza Escuro
 \definecolor{DarkModeText}{gray}{0.80}   % Texto Claro
+
 \definecolor{DarkModeLink}{rgb}{0.6, 0.8, 1.0} % Azul Ciano (bom contraste no escuro)
 \definecolor{LightModeLink}{RGB}{41,5,195}     % Azul Padrão (bom contraste no claro)
+
+\definecolor{LightModeRed}{RGB}{178, 0, 0}
+\definecolor{DarkModeRed}{RGB}{255, 102, 102}
+
+\definecolor{LightModeGreen}{RGB}{0, 128, 0}
+\definecolor{DarkModeGreen}{RGB}{144, 238, 144}
+
+\definecolor{LightModeViolet}{RGB}{128, 0, 128}
+\definecolor{DarkModeViolet}{RGB}{221, 160, 221}
 
 % 2. Aplicação Condicional
 \ifbool{darkmode}{

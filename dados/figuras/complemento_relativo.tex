@@ -1,0 +1,38 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual do Complemento Relativo}
+    \label{fig:complemeto_relativo}
+    \begin{tikzpicture}[
+        scale=0.9,
+        transform shape,
+        font=\sffamily,
+        shaded/.style={
+            pattern=crosshatch, 
+            pattern color=gray
+        }
+    ]
+
+    % Definição das formas
+    \def\blobC{plot [smooth cycle, tension=0.9] coordinates {(-2,0) (-1, 2.2) (1.5, 1) (0.5, -2) (-1.5, -1)}}
+    \def\blobD{plot [smooth cycle, tension=0.7] coordinates {(0,0) (1, 2) (3.5, 1) (2.5, -2) (0.5, -1.5)}}
+
+    % Diferença (A - B)
+    \begin{scope}[xshift=-8cm]
+        
+        \begin{scope}[even odd rule]
+            \clip \blobD (-3.5,-2.2) rectangle (3.5,2.2);
+            \clip \blobC;
+            \fill[shaded] (-3.5,-2.2) rectangle (3.5,2.2);
+        \end{scope}
+
+        \draw[thick] \blobC;
+        \draw[thick] \blobD;
+
+        \node at (-2, 2) {\( A \)};
+        \node at (3, 2) {\( B \)};
+        \node[below, align=center] at (0.75, -2.5) {\( A - B \)};
+    \end{scope}
+
+    \end{tikzpicture}
+    \fonte{Elaborado pelo autor (2025).}
+\end{figure}

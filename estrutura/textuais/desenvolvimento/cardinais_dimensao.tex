@@ -6,28 +6,20 @@ Neste capítulo, expande-se a teoria desenvolvida na fundamentação para estabe
 
 \section{Teoremas de Comparação e Aritmética Cardinal}
 \label{sec:aritmetica}
-% TODO:
-% - Apresentar o Teorema de Cantor-Bernstein-Schroeder.
-% - Definir operações básicas: Soma e Produto de Cardinais.
-% - Introduzir os números transfinitos cardinais (os Alephs: \aleph_0, \mathfrak{c}).
 Aritmética de cardinais difere substancialmente da aritmética finita. Nesta seção, definem-se as operações de soma, produto e exponenciação para números transfinitos e demonstra-se o Teorema de Cantor (\(|A| < 2^{|A|}\)), que garante a existência de uma infinidade de cardinais transfinitos distintos.
 
 \section{A Independência entre Dimensão e Cardinalidade}
 \label{sec:dimensao}
-% TODO:
-% - Objetivo Específico 2.
-% - Mostrar a bijeção entre a reta R e o plano R^2.
-% - Citar a frase de Cantor: "Je le vois, mais je ne le crois pas".
 Um dos resultados mais contraintuitivos da Teoria dos Conjuntos é a independência entre a dimensão de um espaço e sua cardinalidade. Demonstra-se aqui que a reta real \(\mathbb{R}\) possui a mesma quantidade de pontos que o plano \(\mathbb{R}^2\) ou qualquer espaço \(\mathbb{R}^n\). Discute-se como a Curva de Peano preenche o espaço, rompendo com a noção tradicional de dimensão como medida de quantidade.
 
 Um resultado central na aritmética dos cardinais infinitos diz respeito à união de uma família de conjuntos. Consideremos uma família $\{A_\alpha\}_{\alpha < \aleph_n}, \text{ com } n \in \N$, indexada por $\aleph_n$, onde cada conjunto $A_\alpha$ possui cardinalidade igual a $\aleph_n$. O teorema estabelece que a cardinalidade da união $\bigcup_{\alpha < \aleph_n} A_\alpha$ é exatamente $\aleph_n$. Para fundamentar tal afirmação, demonstraremos um resultado mais profundo e generalista: para qualquer cardinal infinito $\kappa$, vale a igualdade $\kappa \cdot \kappa = \kappa$. Provar que o produto cartesiano de um conjunto infinito por ele mesmo não altera sua magnitude (idempotência multiplicativa) é a condição suficiente para garantir que a união de $\kappa$ conjuntos de tamanho $\kappa$ permaneça com tamanho $\kappa$.
 
-\begin{teorema}
+\begin{teorema}[Idempotência da Multiplicação de Cardinais Infinitos]
     Para todo cardinal infinito $\kappa$, vale a igualdade $\kappa \cdot \kappa = \kappa$.
     \label{teo:kappa_quadrado}
 \end{teorema}
 
-\begin{corolario}
+\begin{corolario}[União de $\aleph_n$ Conjuntos]
     Seja $\{A_\alpha\}_{\alpha < \aleph_n} \com n \in \N$ uma família de conjuntos indexada por $\aleph_n$, tal que $|A_\alpha| = \aleph_n$ para todo $\alpha < \aleph_n$. Então, a cardinalidade da união é:
     \[
     \left| \bigcup_{\alpha < \aleph_n} A_\alpha \right| = \aleph_n.

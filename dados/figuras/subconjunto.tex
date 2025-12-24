@@ -1,0 +1,52 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual de Subconjunto}
+    \label{fig:subconjunto}
+
+    \begin{tikzpicture}[
+        scale=0.9,
+        transform shape,
+        font=\sffamily,
+        shaded/.style={
+            pattern=north west lines, 
+            pattern color=gray!50
+        }
+    ]
+
+    % Definição das Formas
+    
+    % Conjunto B (O "Continente")
+    \def\blobB{plot [smooth cycle, tension=0.7] coordinates {(-2, -1.5) (-2, 2) (1, 2.5) (3, 1) (2.5, -2) (0, -2.5)}}
+
+    % Conjunto A (O "Conteúdo")
+    \def\blobA{plot [smooth cycle, tension=0.7] coordinates {(-0.5, -0.5) (-0.8, 1) (0.5, 1.2) (1.2, 0) (0.5, -1)}}
+
+    % Preenchimento do Subconjunto A
+    \fill[shaded] \blobA;
+
+    % Desenho dos Contornos
+    \draw[thick] \blobB;
+    \draw[thick] \blobA;
+
+    % Rótulos dos Conjuntos
+    \node at (3, 2) {\Large \( B \)};
+    \node at (1, 1.5) {\Large \( A \)};
+
+    % Elemento x genérico dentro de A
+    \node[circle, fill=\ifbool{darkmode}{DarkModeLink}{LightModeLink}, inner sep=1.5pt, label={below:\textcolor{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}{\( x \)}}] (x) at (0.2, 0) {};
+
+    % Rótulo Explicativo (Opcional, reforçando a definição)
+    \node[right, font=\footnotesize, color=gray] at (3.5, 0) {
+        \begin{tabular}{l}
+             Se \( x \in A \), \\
+             então \( x \in B \).
+        \end{tabular}
+    };
+
+    % Seta indicativa do rótulo para o elemento
+    \draw[->, dashed, gray, thin] (3.5, 0) to[out=180, in=0] (0.5, 0);
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2025).}
+\end{figure}

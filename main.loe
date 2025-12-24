@@ -1,28 +1,86 @@
 \addvspace {10\p@ }
 \contentsline {axioma}{\ifthmt@listswap Axioma~1\else \numberline {1}Axioma\fi \thmtformatoptarg {Axioma da Extensão}}{3}{axioma.1}%
-\contentsline {exemplo}{\ifthmt@listswap Exemplo~1\else \numberline {1}Exemplo\fi }{3}{exemplo.1}%
-\contentsline {axioma}{\ifthmt@listswap Axioma~2\else \numberline {2}Axioma\fi \thmtformatoptarg {Axioma da Especificação}}{3}{axioma.2}%
-\contentsline {exemplo}{\ifthmt@listswap Exemplo~2\else \numberline {2}Exemplo\fi }{3}{exemplo.2}%
-\contentsline {axioma}{\ifthmt@listswap Axioma~3\else \numberline {3}Axioma\fi \thmtformatoptarg {Axioma do Par}}{4}{axioma.3}%
-\contentsline {exemplo}{\ifthmt@listswap Exemplo~3\else \numberline {3}Exemplo\fi }{5}{exemplo.3}%
-\contentsline {definicao}{\ifthmt@listswap Definição~1\else \numberline {1}Definição\fi \thmtformatoptarg {Par Ordenado}}{5}{definicao.1}%
-\contentsline {exemplo}{\ifthmt@listswap Exemplo~4\else \numberline {4}Exemplo\fi }{5}{exemplo.4}%
-\contentsline {definicao}{\ifthmt@listswap Definição~2\else \numberline {2}Definição\fi \thmtformatoptarg {Produto Cartesiano}}{5}{definicao.2}%
-\contentsline {exemplo}{\ifthmt@listswap Exemplo~5\else \numberline {5}Exemplo\fi }{5}{exemplo.5}%
-\contentsline {axioma}{\ifthmt@listswap Axioma~4\else \numberline {4}Axioma\fi \thmtformatoptarg {Axioma das Uniões}}{5}{axioma.4}%
+\contentsline {definicao}{\ifthmt@listswap Definição~1\else \numberline {1}Definição\fi \thmtformatoptarg {Subconjunto}}{3}{definicao.1}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~1\else \numberline {1}Exemplo\fi \thmtformatoptarg {Biblioteca de Babel}}{3}{exemplo.1}%
+\contentsline {definicao}{\ifthmt@listswap Definição~2\else \numberline {2}Definição\fi \thmtformatoptarg {Igualdade de Conjuntos}}{4}{definicao.2}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~2\else \numberline {2}Exemplo\fi }{4}{exemplo.2}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~3\else \numberline {3}Exemplo\fi }{4}{exemplo.3}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~4\else \numberline {4}Exemplo\fi }{4}{exemplo.4}%
+\contentsline {definicao}{\ifthmt@listswap Definição~3\else \numberline {3}Definição\fi \thmtformatoptarg {Subconjunto Próprio}}{5}{definicao.3}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~5\else \numberline {5}Exemplo\fi \thmtformatoptarg {Números Surreais e Jogos}}{5}{exemplo.5}%
+\contentsline {definicao}{\ifthmt@listswap Definição~4\else \numberline {4}Definição\fi \thmtformatoptarg {Notação de Construção de Conjuntos}}{5}{definicao.4}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Nota}{5}{thmt@dummyctr.dummy.11}%
 \contentsline {exemplo}{\ifthmt@listswap Exemplo~6\else \numberline {6}Exemplo\fi }{5}{exemplo.6}%
-\contentsline {definicao}{\ifthmt@listswap Definição~3\else \numberline {3}Definição\fi \thmtformatoptarg {Interseção}}{5}{definicao.3}%
 \contentsline {exemplo}{\ifthmt@listswap Exemplo~7\else \numberline {7}Exemplo\fi }{6}{exemplo.7}%
-\contentsline {axioma}{\ifthmt@listswap Axioma~5\else \numberline {5}Axioma\fi \thmtformatoptarg {Axioma da Potência}}{6}{axioma.5}%
-\contentsline {exemplo}{\ifthmt@listswap Exemplo~8\else \numberline {8}Exemplo\fi }{6}{exemplo.8}%
-\contentsline {axioma}{\ifthmt@listswap Axioma~6\else \numberline {6}Axioma\fi \thmtformatoptarg {Primeiro Axioma de Peano}}{6}{axioma.6}%
-\contentsline {axioma}{\ifthmt@listswap Axioma~7\else \numberline {7}Axioma\fi \thmtformatoptarg {Segundo Axioma de Peano}}{6}{axioma.7}%
-\contentsline {axioma}{\ifthmt@listswap Axioma~8\else \numberline {8}Axioma\fi \thmtformatoptarg {Terceiro Axioma de Peano}}{6}{axioma.8}%
-\contentsline {definicao}{\ifthmt@listswap Definição~4\else \numberline {4}Definição\fi \thmtformatoptarg {Sucessor}}{6}{definicao.4}%
-\contentsline {axioma}{\ifthmt@listswap Axioma~9\else \numberline {9}Axioma\fi \thmtformatoptarg {Axioma da Infinidade}}{7}{axioma.9}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~8\else \numberline {8}Exemplo\fi \thmtformatoptarg {Corte de Dedekind}}{6}{exemplo.8}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~9\else \numberline {9}Exemplo\fi \thmtformatoptarg {Números Primos}}{6}{exemplo.9}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~2\else \numberline {2}Axioma\fi \thmtformatoptarg {Axioma do Vazio}}{7}{axioma.2}%
+\contentsline {definicao}{\ifthmt@listswap Definição~5\else \numberline {5}Definição\fi \thmtformatoptarg {Conjunto Vazio}}{7}{definicao.5}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~3\else \numberline {3}Axioma\fi \thmtformatoptarg {Axioma do Par}}{7}{axioma.3}%
+\contentsline {definicao}{\ifthmt@listswap Definição~6\else \numberline {6}Definição\fi \thmtformatoptarg {Conjunto Par}}{7}{definicao.6}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~10\else \numberline {10}Exemplo\fi }{7}{exemplo.10}%
+\contentsline {definicao}{\ifthmt@listswap Definição~7\else \numberline {7}Definição\fi \thmtformatoptarg {\emph {Singleton}; Conjunto Unitário}}{7}{definicao.7}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~4\else \numberline {4}Axioma\fi \thmtformatoptarg {Axioma da União}}{8}{axioma.4}%
+\contentsline {definicao}{\ifthmt@listswap Definição~8\else \numberline {8}Definição\fi \thmtformatoptarg {União Finita de Conjuntos}}{8}{definicao.8}%
+\contentsline {definicao}{\ifthmt@listswap Definição~9\else \numberline {9}Definição\fi \thmtformatoptarg {Conjuntos Finitos}}{8}{definicao.9}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~5\else \numberline {5}Axioma\fi \thmtformatoptarg {Axioma da Potência}}{8}{axioma.5}%
+\contentsline {definicao}{\ifthmt@listswap Definição~10\else \numberline {10}Definição\fi \thmtformatoptarg {Conjunto das Partes}}{8}{definicao.10}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~11\else \numberline {11}Exemplo\fi }{9}{exemplo.11}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~1\else \numberline {1}Proposição\fi }{9}{proposicao.1}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~2\else \numberline {2}Proposição\fi }{9}{proposicao.2}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~3\else \numberline {3}Proposição\fi }{9}{proposicao.3}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~4\else \numberline {4}Proposição\fi }{10}{proposicao.4}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~6\else \numberline {6}Axioma\fi \thmtformatoptarg {Axiomas de Subconjunto}}{10}{axioma.6}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Nota}{10}{thmt@dummyctr.dummy.33}%
+\contentsline {definicao}{\ifthmt@listswap Definição~11\else \numberline {11}Definição\fi \thmtformatoptarg {Interseção Finita de Conjuntos}}{11}{definicao.11}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~12\else \numberline {12}Exemplo\fi \thmtformatoptarg {Existência da Interseção}}{12}{exemplo.12}%
+\contentsline {definicao}{\ifthmt@listswap Definição~12\else \numberline {12}Definição\fi \thmtformatoptarg {Complemento Relativo; Diferença}}{12}{definicao.12}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~13\else \numberline {13}Exemplo\fi \thmtformatoptarg {Existência do Complementar Relativo}}{12}{exemplo.13}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~14\else \numberline {14}Exemplo\fi \thmtformatoptarg {O Conjunto de Russell Relativizado}}{13}{exemplo.14}%
+\contentsline {teorema}{\ifthmt@listswap Teorema~1\else \numberline {1}Teorema\fi }{13}{teorema.1}%
+\contentsline {definicao}{\ifthmt@listswap Definição~13\else \numberline {13}Definição\fi \thmtformatoptarg {União de Conjuntos}}{14}{definicao.13}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~15\else \numberline {15}Exemplo\fi }{14}{exemplo.15}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~16\else \numberline {16}Exemplo\fi }{14}{exemplo.16}%
+\contentsline {definicao}{\ifthmt@listswap Definição~14\else \numberline {14}Definição\fi \thmtformatoptarg {Interseção de Conjuntos}}{14}{definicao.14}%
+\contentsline {teorema}{\ifthmt@listswap Teorema~2\else \numberline {2}Teorema\fi }{15}{teorema.2}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~5\else \numberline {5}Proposição\fi }{15}{proposicao.5}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~6\else \numberline {6}Proposição\fi }{15}{proposicao.6}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~7\else \numberline {7}Proposição\fi }{15}{proposicao.7}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~8\else \numberline {8}Proposição\fi }{16}{proposicao.8}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~9\else \numberline {9}Proposição\fi }{16}{proposicao.9}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~10\else \numberline {10}Proposição\fi }{16}{proposicao.10}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~11\else \numberline {11}Proposição\fi }{17}{proposicao.11}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~12\else \numberline {12}Proposição\fi }{17}{proposicao.12}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~13\else \numberline {13}Proposição\fi }{17}{proposicao.13}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~14\else \numberline {14}Proposição\fi }{18}{proposicao.14}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~15\else \numberline {15}Proposição\fi }{18}{proposicao.15}%
+\contentsline {definicao}{\ifthmt@listswap Definição~15\else \numberline {15}Definição\fi \thmtformatoptarg {Diferença Simétrica}}{18}{definicao.15}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~16\else \numberline {16}Proposição\fi }{18}{proposicao.16}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~17\else \numberline {17}Proposição\fi }{19}{proposicao.17}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~18\else \numberline {18}Proposição\fi }{19}{proposicao.18}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~19\else \numberline {19}Proposição\fi }{19}{proposicao.19}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~20\else \numberline {20}Proposição\fi }{19}{proposicao.20}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~21\else \numberline {21}Proposição\fi }{19}{proposicao.21}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~22\else \numberline {22}Proposição\fi }{19}{proposicao.22}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~23\else \numberline {23}Proposição\fi }{19}{proposicao.23}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~24\else \numberline {24}Proposição\fi }{19}{proposicao.24}%
+\contentsline {proposicao}{\ifthmt@listswap Proposição~25\else \numberline {25}Proposição\fi }{20}{proposicao.25}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~7\else \numberline {7}Axioma\fi \thmtformatoptarg {Esquema de Axiomas de Substituição}}{20}{axioma.7}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~8\else \numberline {8}Axioma\fi \thmtformatoptarg {Axioma do Infinito}}{20}{axioma.8}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~9\else \numberline {9}Axioma\fi \thmtformatoptarg {Axioma da Regularidade}}{20}{axioma.9}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Nota}{21}{thmt@dummyctr.dummy.70}%
+\contentsline {definicao}{\ifthmt@listswap Definição~16\else \numberline {16}Definição\fi \thmtformatoptarg {Par Ordenado}}{22}{definicao.16}%
+\contentsline {teorema}{\ifthmt@listswap Teorema~3\else \numberline {3}Teorema\fi }{22}{teorema.3}%
+\contentsline {definicao}{\ifthmt@listswap Definição~17\else \numberline {17}Definição\fi \thmtformatoptarg {Produto Cartesiano}}{23}{definicao.17}%
+\contentsline {lema}{\ifthmt@listswap Lema~1\else \numberline {1}Lema\fi }{23}{lema.1}%
+\contentsline {corolario}{\ifthmt@listswap Corolário~1\else \numberline {1}Corolário\fi }{24}{corolario.1}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~10\else \numberline {10}Axioma\fi \thmtformatoptarg {Primeiro Axioma de Peano}}{24}{axioma.10}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~11\else \numberline {11}Axioma\fi \thmtformatoptarg {Segundo Axioma de Peano}}{24}{axioma.11}%
+\contentsline {axioma}{\ifthmt@listswap Axioma~12\else \numberline {12}Axioma\fi \thmtformatoptarg {Terceiro Axioma de Peano}}{24}{axioma.12}%
+\contentsline {definicao}{\ifthmt@listswap Definição~18\else \numberline {18}Definição\fi \thmtformatoptarg {Sucessor}}{25}{definicao.18}%
 \addvspace {10\p@ }
-\contentsline {exemplo}{\ifthmt@listswap Exemplo~9\else \numberline {9}Exemplo\fi }{8}{exemplo.9}%
-\contentsline {exemplo}{\ifthmt@listswap Exemplo~10\else \numberline {10}Exemplo\fi }{8}{exemplo.10}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~17\else \numberline {17}Exemplo\fi }{26}{exemplo.17}%
+\contentsline {exemplo}{\ifthmt@listswap Exemplo~18\else \numberline {18}Exemplo\fi }{26}{exemplo.18}%
 \addvspace {10\p@ }
-\contentsline {teorema}{\ifthmt@listswap Teorema~1\else \numberline {1}Teorema\fi }{12}{teorema.1}%
-\contentsline {corolario}{\ifthmt@listswap Corolário~1\else \numberline {1}Corolário\fi }{12}{corolario.1}%
+\contentsline {teorema}{\ifthmt@listswap Teorema~4\else \numberline {4}Teorema\fi \thmtformatoptarg {Idempotência da Multiplicação de Cardinais Infinitos}}{30}{teorema.4}%
+\contentsline {corolario}{\ifthmt@listswap Corolário~2\else \numberline {2}Corolário\fi \thmtformatoptarg {União de $\aleph _n$ Conjuntos}}{30}{corolario.2}%

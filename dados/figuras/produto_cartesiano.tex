@@ -1,0 +1,64 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual do Produto Cartesiano \( A \times B \)}
+    \label{fig:produto_cartesiano}
+
+    \begin{tikzpicture}[
+        scale=0.9,
+        transform shape,
+        font=\sffamily,
+        shaded/.style={
+            pattern=north west lines, 
+            pattern color=gray!50
+        }
+    ]
+
+    \usetikzlibrary{patterns, positioning}
+
+    % Definição das Formas
+    
+    % Conjunto A (Horizontal)
+    \def\blobA{plot [smooth cycle, tension=0.7] coordinates {(0,-0.5) (4,-0.5) (4.2,-1.5) (2,-1.8) (-0.2,-1.5)}}
+    
+    % Conjunto B (Vertical)
+    \def\blobB{plot [smooth cycle, tension=0.7] coordinates {(-0.5,0) (-1.5,0) (-1.8,2) (-1.5,3.5) (-0.5,3.5)}}
+
+    % Área do Produto (AxB)    
+    \def\blobProduct{plot [smooth cycle, tension=0.8] coordinates {(0.2, 0.2) (3.8, 0.5) (3.5, 3.2) (0.5, 3.5) (-0.2, 1.8)}}
+
+    % Desenho da Área do Produto
+    \begin{scope}[xshift=0.5cm]
+    \fill[shaded] \blobProduct;    
+    \draw[gray, dashed, thick] \blobProduct;   
+    \node[gray!80] at (4.8, 3) {\( A \times B \)};      
+    \end{scope}
+
+    % Desenho dos Conjuntos Origem
+    
+    % Conjunto A (Embaixo)
+    \draw[thick] \blobA;
+    \node at (2, -1.2) {\Large \( A \)};
+    
+    % Conjunto B (Na esquerda)
+    \draw[thick] \blobB;
+    \node at (-1, 1.75) {\Large \( B \)};
+
+    % Elementos e Projeções
+    
+    % Elemento x em A
+    \node[circle, fill=\ifbool{darkmode}{DarkModeLink}{LightModeLink}, inner sep=1.5pt, label={below:\textcolor{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}{\( x \)}}] (x) at (1.5, -0.9) {};
+    
+    % Elemento y em B
+    \node[circle, fill=\ifbool{darkmode}{DarkModeRed}{LightModeRed}, inner sep=1.5pt, label={left:\textcolor{\ifbool{darkmode}{DarkModeRed}{LightModeRed}}{\( y \)}}] (y) at (-1, 3) {};
+
+    % O Par Ordenado (x,y) dentro da área do produto
+    \node[circle, fill=black, inner sep=1.5pt, label={right:\( (x,y) \)}] (pair) at (1.8, 2.2) {};
+
+    % Linhas de projeção curvas
+    \draw[dashed, thin, \ifbool{darkmode}{DarkModeLink}{LightModeLink}, ->, >=latex] (x) to[out=90, in=-90] (pair);
+    \draw[dashed, thin, \ifbool{darkmode}{DarkModeRed}{LightModeRed}, ->, >=latex] (y) to[out=0, in=180] (pair);
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2025).}
+\end{figure}

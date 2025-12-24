@@ -22,12 +22,10 @@
     \caption{Representação visual dos volumes do \textit{Hiper-Webster}}
     \label{fig:hyperwebster_visual_fixed}
 
-    % scale=0.9 e transform shape para reduzir o tamanho mantendo proporção
     \begin{tikzpicture}[
         scale=0.9, transform shape, 
         node distance=0.3cm and 0cm,
         font=\sffamily,
-        % Estilos mantidos originais
         spine/.style={
             rectangle, 
             draw=none, 
@@ -53,38 +51,38 @@
         }
     ]
     
-    % --- Volume A ---
+    % Volume A
     \node[spine, fill=blue!70!black] (spineA) {Volume A};
     \node[pages] (contentA) at (spineA.east) {
         % A: Negrito E Azul
         \textbf{\textcolor{blue!70!black}{A}}, \textcolor{blue!70!black}{A}A, \textcolor{blue!70!black}{A}AA, \dots, \textcolor{blue!70!black}{A}B, \textcolor{blue!70!black}{A}BA, \dots, \textcolor{blue!70!black}{A}Z \dots
     };
 
-    % --- Volume B ---
+    % Volume B
     \node[spine, below=of spineA, fill=red!70!black] (spineB) {Volume B};
     \node[pages] (contentB) at (spineB.east) {
         % B: Negrito E Vermelho
         \textbf{\textcolor{red!70!black}{B}}, \textcolor{red!70!black}{B}A, \textcolor{red!70!black}{B}AA, \dots, \textcolor{red!70!black}{B}B, \textcolor{red!70!black}{B}BA, \dots, \textcolor{red!70!black}{B}Z \dots
     };
 
-    % --- Volume C ---
+    % Volume C
     \node[spine, below=of spineB, fill=green!60!black] (spineC) {Volume C};
     \node[pages] (contentC) at (spineC.east) {
         % C: Negrito E Verde
         \textbf{\textcolor{green!60!black}{C}}, \textcolor{green!60!black}{C}A, \textcolor{green!60!black}{C}AA, \dots, \textcolor{green!60!black}{C}B, \textcolor{green!60!black}{C}BA, \dots, \textcolor{green!60!black}{C}Z \dots
     };
 
-    % --- Reticências Verticais ---
+    % Reticências Verticais
     \node[below=0.2cm of contentC, text=gray!80] (dots) {\Huge $\vdots$};
 
-    % --- Volume Z ---
+    % Volume Z
     \node[spine, below=1.3cm of spineC, fill=violet!70!black] (spineZ) {Volume Z};
     \node[pages] (contentZ) at (spineZ.east) {
         % Z: Negrito E Roxo
         \textbf{\textcolor{violet!70!black}{Z}}, \textcolor{violet!70!black}{Z}A, \textcolor{violet!70!black}{Z}AA, \dots, \textcolor{violet!70!black}{Z}B, \textcolor{violet!70!black}{Z}BA, \dots, \textcolor{violet!70!black}{Z}Z \dots
     };
 
-    % --- Texto Explicativo Original ---
+    % Texto Explicativo
     \node[above=0.1cm of contentA, font=\footnotesize\itshape, text=gray] {Prefixo fixo + Sequência Infinita};
     
     \end{tikzpicture}

@@ -1,0 +1,79 @@
+\begin{figure}[H]
+    \centering
+    \caption{A Igualdade de Conjuntos como consequência da dupla inclusão}
+    \label{fig:igualdade_conjuntos}
+
+    \begin{tikzpicture}[
+        scale=0.9, 
+        transform shape,
+        font=\sffamily,
+        node distance=2cm
+    ]
+
+    \usetikzlibrary{arrows.meta, positioning, calc}
+
+    % Definição de Cores Condicionais
+    \def\ColorA{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+    \def\ColorB{\ifbool{darkmode}{DarkModeRed}{LightModeRed}}
+    \def\ColorMix{\ifbool{darkmode}{DarkModeViolet}{LightModeViolet}}
+
+    % Formas (Blobs)
+    % Forma Maior (Continente)
+    \def\blobBig{plot [smooth cycle, tension=0.7] coordinates {(-1.2,-1.2) (1.2,-1.2) (1.4,1.2) (-1.4,1.2)}}
+    % Forma Menor (Conteúdo)
+    \def\blobSmall{plot [smooth cycle, tension=0.7] coordinates {(-0.7,-0.6) (0.7,-0.6) (0.8,0.6) (-0.8,0.6)}}
+
+    % --- PASSO 1: A contido em B ---
+    \begin{scope}[local bounding box=step1]
+        % B (Grande)
+        \draw[thick, \ColorB] \blobBig;
+        \node[\ColorB] at (0, 2) {\( B \)};
+        
+        % A (Pequeno dentro)
+        \fill[\ColorA, opacity=0.15] \blobSmall;
+        \draw[thick, \ColorA] \blobSmall;
+        \node[\ColorA] at (0, 0) {\( A \)};
+        
+        \node[below=0.3cm, font=\footnotesize, text=gray] at (0, -1.5) {1. \( A \subseteq B \)};
+    \end{scope}
+
+    % Símbolo "E"
+    \node at (2.2, 0) {\large \textbf{\&}};
+
+    % --- PASSO 2: B contido em A ---
+    \begin{scope}[xshift=4.5cm, local bounding box=step2]
+        % A (Grande)
+        \draw[thick, \ColorA] \blobBig;
+        \node[\ColorA] at (0, 2) {\( A \)};
+        
+        % B (Pequeno dentro)
+        \fill[\ColorB, opacity=0.15] \blobSmall;
+        \draw[thick, \ColorB] \blobSmall;
+        \node[\ColorB] at (0, 0) {\( B \)};
+        
+        \node[below=0.3cm, font=\footnotesize, text=gray] at (0, -1.5) {2. \( B \subseteq A \)};
+    \end{scope}
+
+    % Seta de Implicação
+    \draw[->, >={Latex[length=2.5mm]}, thick, gray!70] (6.5, 0) -- (7.5, 0);
+
+    % --- CONCLUSÃO: A = B ---
+    \begin{scope}[xshift=9.5cm]
+        % Desenha A e B quase sobrepostos para mostrar que são o mesmo contorno
+        % A (Tracejado deslocado levemente)
+        \draw[thick, \ColorA, dashed] (-0.05, 0.05) \blobBig;
+        % B (Tracejado deslocado inversamente)
+        \draw[thick, \ColorB, dashed] (0.05, -0.05) \blobBig;
+        
+        % Preenchimento misto indicando fusão
+        \fill[\ColorMix, opacity=0.2] \blobBig;
+        
+        \node[\ColorMix] at (0, 0) {\Large \( A = B \)};
+        
+        \node[below=0.3cm, font=\footnotesize, text=gray] at (0, -1.5) {Logo, são iguais};
+    \end{scope}
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2025).}
+\end{figure}
