@@ -1,0 +1,62 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual do \textit{field} de \(R\) (\(\fld(R)\)) no plano}
+    \label{fig:field_relacao}
+
+    \begin{tikzpicture}[
+        scale=1, 
+        transform shape,
+        font=\sffamily,
+        node distance=2cm
+    ]
+
+
+    % Cores Condicionais
+    \def\ColorNode{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+    \def\ColorEdge{\ifbool{darkmode}{DarkModeViolet}{LightModeViolet}}
+    \def\ColorField{\ifbool{darkmode}{teal}{teal}} % Cor para o Field
+    \def\ColorText{\ifbool{darkmode}{DarkModeText}{black}}
+
+    % --- 1. Nós Ativos (Dentro do Field) ---
+    % Nó Origem (Domínio)
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (n1) at (0, 0) {\(a\)};
+    
+    % Nó Misto (Domínio e Imagem - A "ponte")
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (n2) at (3, 1) {\(b\)};
+    
+    % Nó Destino (Imagem)
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (n3) at (3, -1) {\(c\)};
+
+    % --- 2. Nó Inativo (Fora do Field) ---
+    \node[circle, draw, dashed, gray, inner sep=3pt] (n4) at (5, 0) {\(d\)};
+    \node[below, font=\footnotesize, gray] at (n4.south) {Isolado};
+
+    % --- 3. Arestas (A Relação) ---
+    \draw[->, >={Latex[length=3mm]}, thick, \ColorEdge] (n1) -- (n2);
+    \draw[->, >={Latex[length=3mm]}, thick, \ColorEdge] (n1) -- (n3);
+    \draw[->, >={Latex[length=3mm]}, thick, \ColorEdge] (n2) to[bend left] (n3);
+
+    % --- 4. O Destaque do Field ---
+    % Camada de fundo para não cobrir as setas
+    \begin{scope}[on background layer]
+        \node[
+            fit=(n1)(n2)(n3),      % Engloba os nós ativos
+            draw=\ColorField,      % Cor da borda
+            dashed, thick,         % Estilo da borda
+            fill=\ColorField!10,   % Cor de fundo suave
+            rounded corners=15pt,  % Arredondamento
+            inner sep=15pt,
+            label={[text=\ColorField, font=\bfseries]above:\(\operatorname{fld}(R) = \operatorname{dom} \cup \operatorname{im}\)}
+        ] (fieldBox) {};
+    \end{scope}
+
+    % --- 5. Anotações Explicativas ---
+    \node[below left, text=gray, font=\footnotesize, align=right] at (fieldBox.south west) {
+        Contém \(a\) (origem),\\
+        \(b\) (ambos) e\\
+        \(c\) (destino).
+    };
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

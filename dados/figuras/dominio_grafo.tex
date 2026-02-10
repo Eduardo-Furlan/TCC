@@ -1,0 +1,59 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual do domínio de \(R\) (\(\dom(R)\)) com grafo}
+    \label{fig:dominio_grafo}
+
+    \begin{tikzpicture}[
+        scale=1, 
+        transform shape,
+        font=\sffamily,
+        node distance=2cm
+    ]
+
+    % Cores Condicionais
+    \def\ColorNode{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+    \def\ColorEdge{\ifbool{darkmode}{DarkModeViolet}{LightModeViolet}}
+    \def\ColorDom{\ifbool{darkmode}{DarkModeRed}{LightModeRed}}
+    \def\ColorText{\ifbool{darkmode}{DarkModeText}{black}}
+
+    % --- 1. Nós do Conjunto de Partida (Esquerda) ---
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (x1) at (0, 1.5) {\(x_1\)};
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (x2) at (0, 0) {\(x_2\)};
+    
+    % x3 NÃO faz parte do domínio (sem aresta)
+    \node[circle, draw, thick, gray!50, inner sep=3pt] (x3) at (0, -1.5) {\(x_3\)};
+
+    % --- 2. Nós do Conjunto de Chegada (Direita) ---
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (y1) at (4, 1) {\(y_1\)};
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (y2) at (4, -0.5) {\(y_2\)};
+
+    % --- 3. Arestas (A Relação R) ---
+    \draw[->, >={Latex[length=3mm]}, thick, \ColorEdge] (x1) -- (y1);
+    \draw[->, >={Latex[length=3mm]}, thick, \ColorEdge] (x1) -- (y2);
+    \draw[->, >={Latex[length=3mm]}, thick, \ColorEdge] (x2) -- (y2);
+
+    % --- 4. Destaque do Domínio ---
+    % Requer \usetikzlibrary{decorations.pathreplacing}
+    \draw[decorate, decoration={brace, amplitude=10pt}, thick, \ColorDom]
+        ($(x2.south west) + (-0.25, 0)$) -- ($(x1.north west) + (-0.25, 0)$)
+        node[midway, left=15pt, align=right, font=\bfseries\large] (domLabel) {
+            \(\operatorname{dom}(R)\)
+        };
+
+    % Nota explicativa
+    % align=right é fundamental aqui para evitar erro de LR mode em textos multilinhas
+    \node[left=0.2cm of domLabel, text=gray, font=\footnotesize, align=right] {
+        Conjunto dos \(x\)\\
+        tais que \(\exists y, xRy\)
+    };
+
+    % Destaque visual para x3 (excluído)
+    \node[left, font=\footnotesize, gray, align=right] at (x3.west) {
+        Não pertence\\
+        (sem setas)
+    };
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

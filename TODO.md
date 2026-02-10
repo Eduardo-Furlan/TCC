@@ -42,7 +42,7 @@
       - [ ] 4
       - [ ] 5
 
-## FUNDAMENTOS DA TEORIA DOS CONJUNTOS
+## Livros
 
 ### Ler Enderton
 
@@ -60,6 +60,12 @@
       - [ ] 7
       - [ ] 8
 
+### Ler Halmos
+
+  - defaultExpanded: false
+
+## FUNDAMENTOS DA TEORIA DOS CONJUNTOS
+
 ## Done
 
 ## O INFINITO CARDINAL E A DIMENSÃO
@@ -71,3 +77,4 @@
       - [ ] Apresentar o Teorema de Cantor-Bernstein-Schroeder
       - [ ] Definir operações básicas: Soma e Produto de Cardinais
       - [ ] Introduzir os números transfinitos cardinais
+

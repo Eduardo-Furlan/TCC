@@ -1,0 +1,68 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual de uma Relação \(R\)}
+    \label{fig:relacao_grafo_chave}
+
+    \begin{tikzpicture}[
+        scale=1, 
+        transform shape,
+        font=\sffamily,
+        node distance=2cm
+    ]
+
+    % Cores Condicionais
+    \def\ColorNode{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+    \def\ColorEdge{\ifbool{darkmode}{DarkModeViolet}{LightModeViolet}}
+    \def\ColorGreen{\ifbool{darkmode}{DarkModeGreen}{LightModeGreen}}
+    \def\ColorText{\ifbool{darkmode}{DarkModeText}{black}}
+
+    % --- 1. O Grafo (Visualização) ---
+    % Nós do Domínio
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (n1) at (0, 1.5) {1};
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (n2) at (0, 0) {2};
+    \node[circle, draw, thick, \ColorNode, inner sep=3pt] (n3) at (0, -1.5) {3};
+
+    % Nós do Contradomínio
+    \node[circle, draw, thick, \ColorNode, inner sep=2pt] (n10) at (4, 1.5) {10};
+    \node[circle, draw, thick, \ColorNode, inner sep=2pt] (n20) at (4, 0) {20};
+
+    % Arestas
+    % Aresta alvo (Nomeada para referência)
+    \draw[->, >={Latex[length=3mm]}, very thick, \ColorGreen] (n1) -- (n10) coordinate[midway] (edgeCenter);
+    
+    % Outras arestas
+    \draw[->, >={Latex[length=3mm]}, thick, \ColorEdge] (n1) -- (n20);
+    \draw[->, >={Latex[length=3mm]}, thick, \ColorEdge] (n2) -- (n20);
+
+    % --- 2. O Conjunto (Montado em partes para alinhamento preciso) ---
+    
+    % Parte inicial do texto
+    \node[anchor=east, text=\ColorText] (part1) at (1.2, -3) { \( R = \{ \) };
+    
+    % O PAR ALVO (Nó separado para ancorar a chave)
+    \node[right=0cm of part1, text=\ColorGreen] (pairNode) { \( (1, 10) \) };
+    
+    % Resto do conjunto
+    \node[right=0cm of pairNode, text=\ColorText] (part2) { \( , (1, 20), (2, 20) \} \) };
+
+    % --- 3. A Chave e a Notação ---
+    
+    % Desenha a chave espelhada (mirror) embaixo do nó do par
+    \draw[decorate, decoration={brace, mirror, amplitude=5pt}, thick, \ColorGreen] 
+        (pairNode.south west) -- (pairNode.south east)
+        node[midway, below=7pt, font=\bfseries] (notation) {\( 1 R 10 \)};
+
+    % --- 4. Conexão Visual com o Grafo ---
+    % Seta tracejada ligando a notação 1R10 à aresta no grafo
+    % \draw[->, gray, dashed] (notation.east) to[out=0, in=-90] (edgeCenter);
+
+    % Nota explicativa lateral
+    \node[right, font=\footnotesize, gray, align=left] at (notation.east) {
+        A presença do par\\
+        gera a aresta.
+    };
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

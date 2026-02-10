@@ -1,0 +1,63 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual do domínio de \(R\) (\(\dom(R)\)) no plano}
+    \label{fig:dominio_plano_cartesiano}
+
+    \begin{tikzpicture}[
+        scale=1, 
+        transform shape,
+        font=\sffamily,
+        >=stealth
+    ]
+
+    % Cores Condicionais
+    \def\ColorSet{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+    \def\ColorDom{\ifbool{darkmode}{DarkModeRed}{LightModeRed}}
+    \def\ColorAxis{\ifbool{darkmode}{gray!50}{black}}
+
+    % --- 1. Eixos Cartesianos ---
+    \draw[->, \ColorAxis, thick] (-0.5, 0) -- (5.5, 0) node[right] {\(x\)};
+    \draw[->, \ColorAxis, thick] (0, -0.5) -- (0, 4.5) node[above] {\(y\)};
+
+    % --- 2. A Relação R ---
+    % Ajustei as coordenadas e a tensão para alinhar perfeitamente com as linhas
+    % Pontos extremos em x: 1.0 e 4.8
+    \def\shapeR{plot [smooth cycle, tension=0.6] coordinates {(1.0, 1.5) (2.5, 3.5) (4.8, 2.2) (3.0, 0.8)}}
+
+    % Desenho da Relação
+    \fill[\ColorSet, opacity=0.3] \shapeR;
+    \draw[thick, \ColorSet] \shapeR;
+    \node[\ColorSet] at (2.8, 2.0) {\Large \(R\)};
+
+    % --- 3. Projeção no Eixo X (O Domínio) ---
+    
+    % Linhas pontilhadas (Limites exatos)
+    % Extremo esquerdo (x=1.0)
+    \draw[dashed, gray] (1.0, 1.5) -- (1.0, 0);
+    
+    % Extremo direito (x=4.8) - Agora alinhado com a ponta da forma
+    \draw[dashed, gray] (4.8, 2.2) -- (4.8, 0);
+
+    % O Intervalo do Domínio no Eixo X
+    \draw[ultra thick, \ColorDom] (1.0, 0) -- (4.8, 0);
+    
+    % Bolinhas nas pontas
+    \fill[\ColorDom] (1.0, 0) circle (2pt);
+    \fill[\ColorDom] (4.8, 0) circle (2pt);
+
+    % --- 4. Chave e Rótulo ---
+    \draw[decorate, decoration={brace, mirror, amplitude=8pt}, thick, \ColorDom] 
+        (1.0, -0.2) -- (4.8, -0.2)
+        node[midway, below=10pt, font=\bfseries] {\(\operatorname{dom}(R)\)};
+
+    % Nota explicativa
+    \node[align=left, font=\footnotesize, text=gray, anchor=west] at (5, 2) {
+        Para todo \(x\) aqui,\\
+        existe uma altura \(y\).
+    };
+    \draw[->, gray, dashed, bend right] (5, 1.8) to (3.5, 0.1);
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

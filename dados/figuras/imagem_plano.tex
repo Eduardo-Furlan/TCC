@@ -1,0 +1,65 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual da imagem de \(R\) (\(\im(R)\)) no plano}
+    \label{fig:imagem_plano_cartesiano}
+
+    \begin{tikzpicture}[
+        scale=1, 
+        transform shape,
+        font=\sffamily,
+        >=stealth
+    ]
+
+    % Cores Condicionais
+    \def\ColorSet{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+    \def\ColorIm{\ifbool{darkmode}{DarkModeViolet}{LightModeViolet}} % Usando violeta para diferenciar do vermelho do domínio
+    \def\ColorAxis{\ifbool{darkmode}{gray!50}{black}}
+
+    % --- 1. Eixos Cartesianos ---
+    \draw[->, \ColorAxis, thick] (-0.5, 0) -- (5.5, 0) node[right] {\(t\) (Domínio)};
+    \draw[->, \ColorAxis, thick] (0, -0.5) -- (0, 4.5) node[above] {\(x\)};
+
+    % --- 2. A Relação R ---
+    % Coordenadas ajustadas para ter extremos claros em Y
+    % Y_min = 1.0, Y_max = 3.8
+    \def\shapeR{plot [smooth cycle, tension=0.6] coordinates {(1.5, 1.0) (4.0, 2.0) (3.0, 3.8) (1.2, 2.5)}}
+
+    % Desenho da Relação
+    \fill[\ColorSet, opacity=0.3] \shapeR;
+    \draw[thick, \ColorSet] \shapeR;
+    \node[\ColorSet] at (2.5, 2.2) {\Large \(R\)};
+
+    % --- 3. Projeção no Eixo Y (A Imagem) ---
+    
+    % Linhas pontilhadas (Projeção horizontal)
+    % Extremo Inferior (y=1.0)
+    \draw[dashed, gray] (1.5, 1.0) -- (0, 1.0);
+    
+    % Extremo Superior (y=3.8) - Alinhado com o pico da forma
+    \draw[dashed, gray] (3.0, 3.8) -- (0, 3.8);
+
+    % O Intervalo da Imagem no Eixo Y
+    \draw[ultra thick, \ColorIm] (0, 1.0) -- (0, 3.8);
+    
+    % Bolinhas nas pontas
+    \fill[\ColorIm] (0, 1.0) circle (2pt);
+    \fill[\ColorIm] (0, 3.8) circle (2pt);
+
+    % --- 4. Chave e Rótulo ---
+    % Brace no lado esquerdo do eixo Y
+    \draw[decorate, decoration={brace, amplitude=8pt}, thick, \ColorIm] 
+        (-0.2, 1.0) -- (-0.2, 3.8)
+        node[midway, left=10pt, font=\bfseries] {\(\operatorname{im}(R)\)};
+
+    % Nota explicativa
+    \node[align=left, font=\footnotesize, text=gray, anchor=west] at (4.2, 4.5) {
+        Conjunto dos \(x\)\\
+        alcançados por \(R\).
+    };
+    % Seta curva apontando para o eixo Y
+    \draw[->, gray, dashed, bend right] (4.2, 4.2) to (0.2, 2.5);
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

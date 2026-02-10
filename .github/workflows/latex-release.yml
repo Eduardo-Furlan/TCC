@@ -1,0 +1,48 @@
+name: Build and Release PDF
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Generate Variables
+        id: vars
+        run: |
+          echo "TAG_DATE=$(date +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
+          
+          echo "SHOW_DATE=$(date +'%d/%m/%Y %H:%M')" >> $GITHUB_OUTPUT
+
+      - name: Rename PDF
+        run: mv main.pdf ${{ steps.vars.outputs.TAG_DATE }}.pdf
+
+      - name: Get Commit Message
+        run: |
+          echo "## Mudanças" > release_notes.md
+          echo "" >> release_notes.md
+          git log -1 --pretty=%B >> release_notes.md
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.vars.outputs.TAG_DATE }}
+          name: ${{ steps.vars.outputs.SHOW_DATE }}
+          body_path: release_notes.md
+          files: ${{ steps.vars.outputs.TAG_DATE }}.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

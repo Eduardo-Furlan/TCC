@@ -35,7 +35,7 @@ Dois conjuntos são iguais se, e somente se, ambos possuem os mesmos elementos.
 \end{exemplo}
 
 \begin{definicao}[Igualdade de Conjuntos]
-    \(A = B \iff A \subseteq B \text{ e } B \subseteq A\). 
+    \[A = B \iff A \subseteq B \text{ e } B \subseteq A.\] 
     \label{def:igualdade_conjuntos}
 \end{definicao}
 
@@ -76,7 +76,7 @@ Dois conjuntos são iguais se, e somente se, ambos possuem os mesmos elementos.
 \end{definicao}
 
 \begin{exemplo}[Números Surreais e Jogos]
-    Em sua obra \emph{On Numbers and Games}, \citeonline{conway2001} define um universo vasto de "Jogos" \ construídos recursivamente a partir do conjunto vazio.
+    Em sua obra \emph{On Numbers and Games}, \citeonline{conway2001} define a classe de "Jogos" \ construídos recursivamente a partir do conjunto vazio.
     Um jogo \( G \) é definido por dois conjuntos de jogos anteriores, \( G = \{ L \mid R \} \), representando as opções do jogador da Esquerda e da Direita.
     
     Seja \( \mathcal{G} \) a classe de todos os jogos possíveis.
@@ -87,6 +87,27 @@ Dois conjuntos são iguais se, e somente se, ambos possuem os mesmos elementos.
     Considere o jogo "\emph{Star}" \ (\( * \)), definido como \( * = \{ 0 \mid 0 \} \).
     Em \( * \), o jogador da esquerda pode mover para 0 e o da direita também. Como \( 0 \not< 0 \), a condição fundamental é violada.
     Portanto, \( * \) é um elemento de \( \mathcal{G} \) que existe perfeitamente como jogo (o primeiro jogador ganha), mas não é um número: \( \N\mathbf{o} \subsetneq \mathcal{G} \).
+\end{exemplo}
+
+\begin{exemplo}[Classes de Diferenciabilidade]
+    Na Análise Real, um teorema clássico afirma que toda função derivável é contínua, estabelecendo uma relação de inclusão entre suas classes.
+    Seja \(C^0(\mathbb{R})\) o conjunto de todas as funções contínuas de \(\mathbb{R}\) em \(\mathbb{R}\), e \(C^1(\mathbb{R})\) o conjunto das funções deriváveis com derivada contínua.
+    Sabemos que \(C^1(\mathbb{R}) \subseteq C^0(\mathbb{R})\).
+    Entretanto, a função valor absoluto, \(f(x) = |x|\), é um elemento de \(C^0(\mathbb{R})\) que não pertence a \(C^1(\mathbb{R})\), pois não possui derivada na origem.
+    A existência de tais funções garante que a inclusão é estrita:
+    \[
+    C^1(\mathbb{R}) \subsetneq C^0(\mathbb{R}).
+    \]
+\end{exemplo}
+
+\begin{exemplo}[Números Algébricos e Transcendentais]
+    Defina \(\mathbb{A}\) como o conjunto dos Números Algébricos, ou seja, o conjunto de todos os \(z \in \mathbb{C}\) que são raízes de algum polinômio não nulo com coeficientes inteiros.
+    Naturalmente, \(\mathbb{A} \subseteq \mathbb{C}\).
+    A questão histórica sobre se \(\mathbb{A} = \mathbb{C}\) foi resolvida com a descoberta dos números transcendentais (números que não são algébricos).
+    Visto que \(\pi\) e \(e\) são comprovadamente transcendentais (não pertencem a \(\mathbb{A}\)), concluímos que os algébricos são apenas uma parte estrita do plano complexo:
+    \[
+    \mathbb{A} \subsetneq \mathbb{C}.
+    \]
 \end{exemplo}
 
 \begin{definicao}[Notação de Construção de Conjuntos]
@@ -209,6 +230,22 @@ Este é o conjunto de todos os conjuntos que não são elementos de si mesmos, o
 
 \input{dados/figuras/uniao_finita.tex}
 
+\begin{exemplo}[Zeros de Polinômios]
+    Sejam \(P(x)\) e \(Q(x)\) dois polinômios. Se definirmos \(Z(P)\) como o conjunto de todas as raízes de \(P\), e \(Z(Q)\) como o conjunto das raízes de \(Q\), a união desses conjuntos descreve exatamente as raízes do polinômio produto \(P(x) \cdot Q(x)\).
+    \[
+    Z(P) \cup Z(Q) = \{x : P(x) = 0 \ou Q(x) = 0\} = Z(P \cdot Q).
+    \]
+    Neste caso, o conectivo lógico "ou" \ da teoria dos conjuntos é algebricamente representado pela multiplicação.
+\end{exemplo}
+
+\begin{exemplo}[Decomposição da Reta Real]
+    A continuidade da reta real \(\mathbb{R}\) é formado pela união de dois conjuntos com propriedades de cardinalidade fundamentalmente opostas: os Racionais (\(\mathbb{Q}\)) e os Irracionais (\(\mathbb{I}\)).
+    \[
+    \mathbb{R} = \mathbb{Q} \cup \mathbb{I}.
+    \]
+    Este é um exemplo clássico onde a união de um conjunto contável (\(\mathbb{Q}\)) com um não contável (\(\mathbb{I}\)) resulta em um conjunto não contável, ilustrando que a "tamanho" \ da união é dominado pelo conjunto de maior cardinalidade.
+\end{exemplo}
+
 \begin{definicao}[Conjuntos Finitos]
     Dados quaisquer \(x_1, x_2, x_3\) nós definimos 
     \[
@@ -234,12 +271,15 @@ Este é o conjunto de todos os conjuntos que não são elementos de si mesmos, o
     \label{def:conjunto_das_partes}
 \end{definicao}
 
-
-\begin{exemplo}
+\begin{exemplo}[\(\PP(\{1,2,3\})\)]
     Seja \(A = \{1,2,3\}\) então 
     \[
     \mathcal{P}(A) = \{\varnothing, \{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}
     \]
+\end{exemplo}
+
+\begin{exemplo}[Estrutura da Álgebra Booleana]
+    O conjunto das partes \(\PP(A)\) não é apenas uma coleção de subconjuntos, ele carrega naturalmente uma estrutura algébrica. Quando equipado com as operações de união (\(\cup\)), interseção (\(\cap\)) e complemento, \(\PP(A)\) satisfaz todos os axiomas de uma Álgebra Booleana. Neste sistema, o conjunto vazio \(\varnothing\) comporta-se como o zero lógico (Falso) e o conjunto total \(A\) comporta-se como o um lógico (Verdadeiro). Para qualquer conjunto finito com \(n\) elementos, essa álgebra gera exatamente \(2^n\) elementos distintos, correspondendo a todas as combinações lógicas possíveis \linkcite{Givant; Halmos}{givant2009}.
 \end{exemplo}
 
 \begin{proposicao}
@@ -432,6 +472,10 @@ Assim, a notação de construção de conjuntos que definimos anteriormente:
     \label{def:uniao}
 \end{definicao}
 
+\begin{remark}
+    Embora a notação indexada \(b_i\) e a listagem explícita \(\{b_0, b_1, \dots\}\) possam sugerir uma coleção enumerável, a operação de união é definida para famílias de qualquer tamanho. A cardinalidade de \(A\) é arbitrária, podendo ser não enumerável.
+\end{remark}
+
 \begin{exemplo}
     \begin{align*}
         \bigcup\{a,b\} &= \{x: x \text{ é elemento de algum membro de } \{a,b\}\} \\
@@ -442,7 +486,14 @@ Assim, a notação de construção de conjuntos que definimos anteriormente:
 
 \begin{exemplo}
     Em casos extremos nós temos
-    \[\cup \{a\} = a \qquad \text{ e } \qquad \cup \varnothing = \varnothing.\]
+    \[\cup \{A\} = A \qquad \text{ e } \qquad \cup \varnothing = \varnothing.\]
+\end{exemplo}
+
+\begin{exemplo}[Exaustão de Abertos por Compactos]
+    Uma propriedade crucial das uniões infinitas é que elas não preservam necessariamente a "fechadura" \ dos conjuntos. Considere a coleção de intervalos fechados na reta real definidos por \(A_n = [1/n, 1 - 1/n]\) para todo \(n \geq 3\). Embora cada \(A_n\) seja um conjunto fechado, a união infinita de todos eles resulta no intervalo aberto unitário:
+    \[
+    \bigcup_{n=3}^{\infty} A_n = \bigcup_{n=3}^{\infty} \left[\frac{1}{n}, 1 - \frac{1}{n}\right] = (0, 1).
+    \]
 \end{exemplo}
 
 \begin{definicao}[Interseção de Conjuntos]
@@ -454,6 +505,14 @@ Assim, a notação de construção de conjuntos que definimos anteriormente:
 \end{definicao}
 
 \input{dados/figuras/intersecao_infinita.tex}
+
+\begin{exemplo}[Colapso de Intervalos Abertos]
+    Considere a família de intervalos abertos reais \(A_n = (0, \frac{1}{n})\) para cada \(n \in \mathbb{N} - \{0\}\). A interseção infinita desta família é o conjunto vazio:
+    \[
+    \bigcap_{n=1}^{\infty} A_n = \bigcap_{n=1}^{\infty} \left(0, \frac{1}{n}\right) = \varnothing.
+    \]
+    Para qualquer suposto elemento \(x > 0\) que estivesse na interseção, existe sempre um natural \(n\) tal que \(\frac{1}{n} < x\), o que implica que \(x \notin A_n\). Logo, nenhum elemento sobrevive à interseção infinita.
+\end{exemplo}
 
 \begin{teorema}
     Para qualquer conjunto não vazio \(A\), existe um único conjunto \(B\) t.q. para qualquer \(x\),
@@ -652,6 +711,14 @@ B = \{x: (\forall b \in A)x \in b\}.
 \end{definicao}
 
 \input{dados/figuras/diferenca_simetrica.tex}
+
+\begin{exemplo}[Ou Exclusivo]
+    Em Lógica Digital e Ciência da Computação, a diferença simétrica \(A + B\) é a manifestação da porta lógica \textsc{xor} (Ou Exclusivo). Se considerarmos \(A\) e \(B\) como conjuntos de bits ligados (1), a operação \(A + B\) resulta exatamente nos bits onde os valores diferem (um é 0 e o outro é 1). Esta propriedade faz da diferença simétrica a base da aritmética binária.
+\end{exemplo}
+
+\begin{exemplo}[Distância entre Conjuntos]
+    A diferença simétrica induz uma noção natural de "distância" \ entre dois conjuntos. Em Teoria da Medida, define-se a distância entre \(A\) e \(B\) como a medida (tamanho) de sua diferença simétrica: \(d(A,B) = \mu(A + B)\). Esta função satisfaz a desigualdade triangular, \(A + C \subseteq (A + B) \cup (B + C)\), o que significa intuitivamente que a diferença entre \(A\) e \(C\) não pode ser maior que a soma das diferenças intermediárias passando por um terceiro conjunto \(B\).
+\end{exemplo}
 
 \begin{proposicao}
     Para quaisquer conjuntos \(A\), \(B\) e \(C\), a interseção é distributiva em relação à diferença simétrica:
@@ -920,7 +987,91 @@ e as propriedades antimonótonas\footnote{Refere-se a operações que não prese
     ou seja, \(w\) está em \(\AAA\) se, e somente se é um par ordenado com \(x \in A\) e \(y \in B\).
 \end{proof}
 
+\begin{definicao}[Relação]
+    Uma relação \(R\) é um conjunto de pares ordenados. Quando \(x\) se relaciona com \(y\), escrevemos \((x,y) \in R\) ou \(xRy\).
+    \label{def:relacao}
+\end{definicao}
 
+\input{dados/figuras/relacao.tex}
+
+\begin{exemplo}[Congruência Modular]
+    Uma das relações mais fecundas na matemática é a congruência módulo \(n\). Fixado um inteiro \(n > 0\), dizemos que dois inteiros \(x\) e \(y\) se relacionam, \(x \equiv y \pmod{n}\), se a diferença \(x - y\) for divisível por \(n\).
+    \[
+    R_n = \{(x,y) \in \mathbb{Z}^2 : \exists k \in \mathbb{Z} (x - y = k \cdot n)\}.
+    \]
+    Esta relação divide o conjunto dos inteiros em \(n\) classes distintas (os restos da divisão), permitindo a construção da aritmética finita "do relógio".
+\end{exemplo}
+
+\begin{exemplo}[A Ordem de Inclusão]
+    No conjunto das partes \(\PP(S)\) de um conjunto \(S\), a inclusão de subconjuntos define uma relação fundamental.
+    \[
+    R_{\subseteq} = \{(A,B) \in \PP(S) \times \PP(S) : A \subseteq B\}.
+    \]
+    Diferente da congruência, esta relação não é simétrica (se \(A \subseteq B\) e \(A \neq B\), então \(B \not\subseteq A\)). Ela transforma \(\PP(S)\) em uma malha (\textit{lattice}), uma estrutura onde quaisquer dois elementos possuem um supremo (a união) e um ínfimo (a interseção) bem definidos.
+\end{exemplo}
+
+\begin{definicao}[Domínio]
+    Nós definimos o domínio de uma relação \(R\) (\(\dom (R)\)) como
+    \[
+    x \in \dom (R) \iff \exists y \tq xRy.
+    \]
+    \label{def:dominio}
+\end{definicao}
+
+\input{dados/figuras/dominio_grafo.tex}
+
+\input{dados/figuras/dominio_plano.tex}
+
+\begin{exemplo}[Domínio de Convergência]
+    Considere a relação \(S\) definida entre números reais \(x\) e \(y\) tal que \(y\) é a soma da série geométrica de razão \(x\):
+    \[
+    S = \left\{(x, y) \in \mathbb{R}^2 : \sum_{n=0}^{\infty} x^n = y\right\}.
+    \]
+    Embora a expressão da soma \(\frac{1}{1-x}\) possa ser calculada para qualquer \(x \neq 1\), a relação \(S\) (que exige a convergência da soma infinita) é muito mais restritiva. O domínio desta relação é limitado estritamente ao intervalo aberto:
+    \[
+    \dom(S) = \{x \in \mathbb{R} : |x| < 1\} = (-1, 1).
+    \]
+\end{exemplo}
+
+\begin{definicao}[Imagem]
+    Definimos a imagem de uma relação \(R\) (\(\im (R)\)) como
+    \[
+    x \in \im (R) \iff \exists t \tq tRx.
+    \]
+    \label{def:imagem}
+\end{definicao}
+
+\input{dados/figuras/imagem_plano.tex}
+
+\begin{exemplo}[Espaço Coluna e Transformações Lineares]
+    Na Álgebra Linear, uma transformação linear \(T: \mathbb{R}^n \to \mathbb{R}^m\) pode ser vista como uma relação funcional \(R = \{(v, w) : w = T(v)\}\). A imagem desta relação, \(\im(R)\), corresponde exatamente ao \textbf{Espaço Coluna} da matriz que representa \(T\).
+    Este conjunto contém todos os vetores "alcançáveis" \ pela transformação. Se \(\im(R) = \mathbb{R}^m\), dizemos que a transformação é sobrejetora, garantindo que o sistema linear \(Ax = b\) tenha solução para qualquer \(b\).
+\end{exemplo}
+
+\begin{exemplo}[Resíduos Quadráticos]
+    Considere a relação de "quadrado perfeito" \ na aritmética modular. Seja \(n\) um inteiro positivo e a relação \(Q \subseteq \mathbb{Z}_n \times \mathbb{Z}_n\) definida por \(xQy \iff x^2 \equiv y \pmod{n}\).
+    A imagem desta relação, \(\im(Q)\), é o conjunto dos \textbf{Resíduos Quadráticos} módulo \(n\).
+    Por exemplo, para \(n=7\), temos os quadrados: \(0^2 \equiv 0\), \(1^2 \equiv 1\), \(2^2 \equiv 4\), \(3^2 \equiv 2\), etc.
+    Logo, \(\im(Q) = \{0, 1, 2, 4\}\). Os elementos fora da imagem (\(\{3, 5, 6\}\)) são chamados de não-resíduos, uma distinção fundamental para a Lei da Reciprocidade Quadrática.
+\end{exemplo}
+
+\begin{definicao}[\textit{Field}]
+    O \textit{field} de uma relação \(R\) (\(\fld (R)\)) é definido como
+    \[
+    \fld (R) = \dom(R) \cup \im(R).
+    \]
+    \label{def:field}
+\end{definicao}
+
+\begin{exemplo}[Infinito de Dedekind]
+    Considere a função sucessor \(s\) nos números naturais como uma relação \(S = \{(n, n^+) : n \in \mathbb{N}\}\).
+    O domínio desta relação é todo o conjunto \(\mathbb{N}\). Entretanto, pelo Segundo Axioma de Peano, o zero não é sucessor de ninguém, logo \(\im(S) = \mathbb{N} - \{0\}\).
+    Calculando o \textit{field}:
+    \[
+    \fld(S) = \dom(S) \cup \im(S) = \mathbb{N} \cup (\mathbb{N} - \{0\}) = \mathbb{N}.
+    \]
+    Este exemplo ilustra uma propriedade exclusiva de conjuntos infinitos (no sentido de Dedekind): é possível que o \textit{field} seja igual ao domínio, mesmo que a imagem seja um subconjunto próprio desse domínio.
+\end{exemplo}
 
 \section{Conjunto dos Números Naturais}
 \label{sec:numeros_naturais}

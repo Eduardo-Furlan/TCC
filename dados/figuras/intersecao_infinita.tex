@@ -1,6 +1,6 @@
 \begin{figure}[H]
     \centering
-    \caption{Interseção Infinita}
+    \caption{Representação visual da Interseção Infinita}
     \label{fig:intersecao_infinita}
 
     \begin{tikzpicture}[
@@ -53,11 +53,11 @@
     \node[above right, text=\ColorInter, font=\bfseries] at (0,0) {\( x \)};
 
     % Elemento y fora (pertence a alguns, mas não a todos)
-    \node[circle, fill=gray, inner sep=1.2pt] (y) at (2.65, 1) {};
-    \node[right, text=gray, font=\footnotesize] at (y) {\( y \notin \bigcap A \)};
+    \node[circle, inner sep=1.2pt] (y) at (2.65, 1) {};
+    \node[right, font=\footnotesize] at (y) {\( y \notin \bigcap A \)};
 
     % Rótulo Explicativo
-    \node[text=\ColorInter, align=center, font=\small] at (0, -3.7) {
+    \node[align=center, font=\small] at (0, -3.7) {
         \textbf{Interseção Total} \\
         \( \bigcap A = \{x: (\forall b \in A) x \in b\} \)
     };
