@@ -24,6 +24,7 @@
 *.ind
 *.loa
 *.loq
+*.pdf
 exemplo.bib
 mudancas.txt
 .vscode/
