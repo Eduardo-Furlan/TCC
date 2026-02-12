@@ -7,6 +7,7 @@
 *.out
 *.toc
 *.fls
+*.loe
 *.fdb_latexmk
 *.synctex.gz
 *.run.xml

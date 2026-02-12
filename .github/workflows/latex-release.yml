@@ -16,20 +16,30 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: main.tex
-
       - name: Generate Variables
         id: vars
         run: |
           echo "TAG_DATE=$(date +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
-          
           echo "SHOW_DATE=$(date +'%d/%m/%Y %H:%M')" >> $GITHUB_OUTPUT
 
-      - name: Rename PDF
-        run: mv main.pdf ${{ steps.vars.outputs.TAG_DATE }}.pdf
+      - name: Compile LaTeX (Dark Mode)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Rename Dark PDF
+        run: mv main.pdf ${{ steps.vars.outputs.TAG_DATE }}-Dark.pdf
+
+      - name: Switch to Light Mode
+        run: sed -i 's/\\setbool{darkmode}{true}/\\setbool{darkmode}{false}/' main.tex
+
+      - name: Compile LaTeX (Light Mode)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Rename Light PDF
+        run: mv main.pdf ${{ steps.vars.outputs.TAG_DATE }}-Light.pdf
 
       - name: Get Commit Message
         run: |
@@ -43,6 +53,8 @@ jobs:
           tag_name: v${{ steps.vars.outputs.TAG_DATE }}
           name: ${{ steps.vars.outputs.SHOW_DATE }}
           body_path: release_notes.md
-          files: ${{ steps.vars.outputs.TAG_DATE }}.pdf
+          files: |
+            ${{ steps.vars.outputs.TAG_DATE }}-Dark.pdf
+            ${{ steps.vars.outputs.TAG_DATE }}-Light.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
