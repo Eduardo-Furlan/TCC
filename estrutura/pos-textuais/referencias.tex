@@ -1,9 +1,12 @@
-%!TEX root = main.tex
-% REFERÊNCIAS------------------------------------------------------------------
+%!TEX root = ../../main.tex
+% ============================================================
+% estrutura/pos-textuais/referencias.tex
+%
+% Impressão das referências bibliográficas.
+% Com biblatex não há mais \bibliography{} nem \bibliographystyle{}.
+% ============================================================
 
-% Carrega o arquivo "base-referencias.bib" e extrai automaticamente as referências citadas
-
-\bibliography{./base-referencias}
-\bibliographystyle{abntex2-alf} % Define o estilo ABNT para formatar a lista de referências
-% OBSERVAÇÕES------------------------------------------------------------------
-% Este arquivo não precisa ser alterado.
+\printbibliography[%
+    title={REFER\^ENCIAS},
+    heading=bibintoc,           % adiciona ao sumário
+]

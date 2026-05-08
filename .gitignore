@@ -1,5 +1,7 @@
+# LaTeX auxiliary files
 *.aux
 *.bbl
+*.bcf
 *.blg
 *.lof
 *.log
@@ -25,9 +27,14 @@
 *.ind
 *.loa
 *.loq
+*.xdv
+
+# Output PDF (artefatos de build local)
 *.pdf
 exemplo.bib
 mudancas.txt
+
+# Editor
 .vscode/
 slides/
 books/

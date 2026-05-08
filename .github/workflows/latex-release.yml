@@ -1,8 +1,11 @@
 name: Build and Release PDF
+
 on:
   push:
     branches:
       - master
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -10,6 +13,7 @@ permissions:
 jobs:
   build_and_release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -26,29 +30,74 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
+          latexmk_use_lualatex: true
 
       - name: Rename Dark PDF
         run: mv main.pdf ${{ steps.vars.outputs.TAG_DATE }}-Dark.pdf
 
       - name: Switch to Light Mode
-        run: sed -i 's/\\setbool{darkmode}{true}/\\setbool{darkmode}{false}/' main.tex
+        run: |
+          sed -i 's/\\setbool{darkmode}{true}/\\setbool{darkmode}{false}/' main.tex
 
       - name: Compile LaTeX (Light Mode)
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
+          latexmk_use_lualatex: true
 
       - name: Rename Light PDF
         run: mv main.pdf ${{ steps.vars.outputs.TAG_DATE }}-Light.pdf
 
-      - name: Get Commit Message
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Download TeXtidote
+        run: |
+          curl -sLo textidote.jar \
+            https://github.com/sylvainhalle/textidote/releases/latest/download/textidote.jar
+          echo "Downloaded $(wc -c < textidote.jar) bytes"
+
+      - name: Run TeXtidote
+        run: |
+          sed \
+            -e '/lista-figuras/s/^/%/'  \
+            -e '/lista-quadros/s/^/%/'  \
+            -e '/lista-tabelas/s/^/%/'  \
+            -e '/lista-teoremas/s/^/%/' \
+            -e '/lista-siglas/s/^/%/'   \
+            -e '/lista-simbolos/s/^/%/' \
+            -e '/sumario/s/^/%/'        \
+            -e '/referencias/s/^/%/'    \
+            main.tex > main-spell.tex
+          java -jar textidote.jar \
+            --check pt \
+            --output html \
+            --encoding utf-8 \
+            --ignore sh:seclen,sh:capperiod,sh:nsubdiv \
+            --root "$GITHUB_WORKSPACE/main-spell.tex" \
+            --ci \
+            main-spell.tex \
+            > ${{ steps.vars.outputs.TAG_DATE }}-Spell-Report.html
+          echo "Report size: $(wc -c < ${{ steps.vars.outputs.TAG_DATE }}-Spell-Report.html) bytes"
+
+      - name: Get Commit Messages
         run: |
           echo "## Mudanças" > release_notes.md
           echo "" >> release_notes.md
-          git log -1 --pretty=%B >> release_notes.md
+
+          PREV_TAG=$(git tag --sort=-version:refname | head -n 1)
+
+          if [ -z "$PREV_TAG" ]; then
+            git log --pretty="- %s (%h)" >> release_notes.md
+          else
+            git log "${PREV_TAG}..HEAD" --pretty="- %s (%h)" >> release_notes.md
+          fi
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.vars.outputs.TAG_DATE }}
           name: ${{ steps.vars.outputs.SHOW_DATE }}
@@ -56,5 +105,6 @@ jobs:
           files: |
             ${{ steps.vars.outputs.TAG_DATE }}-Dark.pdf
             ${{ steps.vars.outputs.TAG_DATE }}-Light.pdf
+            ${{ steps.vars.outputs.TAG_DATE }}-Spell-Report.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

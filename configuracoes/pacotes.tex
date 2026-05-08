@@ -1,363 +1,287 @@
-% REFERÊNCIAS------------------------------------------------------------------
+% ============================================================
+% configuracoes/pacotes.tex
+%
+% Pacotes e configurações para LuaLaTeX.
+% Principais mudanças em relação à versão pdfLaTeX:
+%   • inputenc / fontenc removidos (LuaLaTeX é nativo UTF-8)
+%   • fontspec + unicode-math no lugar de palatino/latexsym/…
+%   • biblatex-abnt + biber no lugar de abntex2cite + bibtex
+%   • bm removido (use \symbf{} ou \mathbf{} de unicode-math)
+%   • subeqnarray removido (use subequations de amsmath)
+% ============================================================
+
+% ── Fontes (LuaLaTeX / fontspec) ─────────────────────────────
+% Texto: TeX Gyre Pagella (equivalente OpenType do Palatino)
+% Matemática: TeX Gyre Pagella Math
+% Ambos incluídos em qualquer distribuição TeX padrão.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\setmainfont{TeX Gyre Pagella}
+\setmathfont{XITS Math}
+
+% Substituto para \bm (bold-math do antigo pacote bm):
+%   use \symbf{x} para itálico-negrito ou \mathbf{x} para reto-negrito.
+\newcommand{\bm}[1]{\symbf{#1}}   % retro-compatibilidade
+
+% ── Referências bibliográficas (biblatex-abnt + biber) ───────
+%
+% Equivalências de comandos:
+%   abntex2cite          →  biblatex-abnt
+%   \cite{key}           →  \parencite{key}   (Autor, ano)
+%   \citeonline{key}     →  \textcite{key}    Autor (ano)   ← também disponível como alias
+%   \citeyear{key}       →  \citeyear{key}    (igual)
+%   \bibliographystyle   →  não usado (o estilo fica em \usepackage[style=...]{biblatex})
+%   \bibliography{file}  →  \addbibresource{file.bib}
+%   \printbibliography   →  novo comando de impressão
+%
+% Campos do .bib:
+%   Urlaccessdate = {DD de mês de AAAA}  ainda funciona com biblatex-abnt.
+%   Para biblatex puro use urldate = {AAAA-MM-DD}.
+%
 \usepackage[%
-    alf,
-    abnt-emphasize=bf,                      
-    abnt-cite-str=lower,
-    abnt-cite-style=lower,      
-    bibjustif,
-    recuo=0cm,
-    abnt-url-style=plain,
-    abnt-url-package=hyperref,       % Utiliza o pacote url
-    abnt-refinfo=yes,           % Utiliza o estilo bibliográfico abnt-refinfo
-    abnt-etal-cite=3,
-    abnt-etal-list=3,
-    abnt-thesis-year=final
-]{abntex2cite}                  % Configura as citações bibliográficas conforme a norma ABNT
+    backend    = biber,
+    style      = abnt,          % estilo autor-data ABNT (biblatex-abnt)
+    backref    = false,          % "Citado na(s) página(s): X" na bibliografia
+    backrefstyle = three,
+    doi        = true,
+    url        = true,
+    isbn       = false,
+    maxcitenames  = 3,
+    maxbibnames   = 3,
+]{biblatex}
 
-% PACOTES----------------------------------------------------------------------
-\usepackage[utf8]{inputenc}                                 % Codificação do documento
-\usepackage[T1]{fontenc}                                    % Seleção de código de fonte
-\usepackage{booktabs}                                       % Réguas horizontais em tabelas
-\usepackage{color, colortbl}                                % Controle das cores
-\usepackage{float}                                          % Necessário para tabelas/figuras em ambiente multi-colunas
-\usepackage{graphicx}                                       % Inclusão de gráficos e figuras
-\usepackage{icomma}                                         % Uso de vírgulas em expressões matemáticas
-\usepackage{indentfirst}                                    % Indenta o primeiro parágrafo de cada seção
-\usepackage{microtype}                                      % Melhora a justificação do documento
-\usepackage{multirow, array}                                % Permite tabelas com múltiplas linhas e colunas
-\usepackage{subeqnarray}                                    % Permite subnumeração de equações
-\usepackage{lastpage}                                       % Para encontrar última página do documento
-\usepackage{verbatim}                                       % Permite apresentar texto tal como escrito no documento, ainda que sejam comandos Latex
-\usepackage{amsfonts, amssymb, amsmath, mathrsfs}                     % Fontes e símbolos matemáticos
-\usepackage[algoruled, portuguese]{algorithm2e}             % Permite escrever algoritmos em português
-% \usepackage[scaled]{helvet}                                % Usa a fonte Helvetica
-% \usepackage{times}                                          % Usa a fonte Times
-\usepackage{palatino}                                      % Usa a fonte Palatino
-% \usepackage{lmodern}                                       % Usa a fonte Latin Modern
-\usepackage[bottom]{footmisc}                               % Mantém as notas de rodapé sempre na mesma posição
-% \usepackage{ae, aecompl}                                    % Fontes de alta qualidade
-\usepackage{latexsym}                                       % Símbolos matemáticos
-\usepackage{lscape}                                         % Permite páginas em modo "paisagem"
-%\usepackage{picinpar}                                      % Dispor imagens em parágrafos
-%\usepackage{scalefnt}                                      % Permite redimensionar tamanho da fonte
-%\usepackage{subfig}                                        % Posicionamento de figuras
-%\usepackage{upgreek}                                       % Fonte letras gregas
-\usepackage{amsthm}
-\usepackage{thmtools}
-\usepackage{bm}
+\addbibresource{base-referencias.bib}
 
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{changepage}
+% Texto de backref em português
+\DefineBibliographyStrings{brazil}{%
+    backrefpage  = {Citado na p\'agina},
+    backrefpages = {Citado nas p\'aginas},
+}
 
-\usepackage{tabularx}
+% ── Pacotes gerais ───────────────────────────────────────────
+\usepackage{booktabs}           % réguas horizontais em tabelas
+\usepackage{xcolor}             % cores (já carregado, mas explícito)
+\usepackage{colortbl}           % células coloridas em tabelas
+\usepackage{float}              % [H] para flutuantes em multicolunas
+\usepackage{graphicx}           % inclusão de figuras
+\usepackage{icomma}             % vírgula como separador decimal
+\usepackage{indentfirst}        % indenta o 1.º parágrafo de cada seção
+\usepackage{microtype}          % justificação de alta qualidade
+\usepackage{multirow, array}    % tabelas com múltiplas linhas/colunas
+\usepackage{lastpage}           % referência à última página (\pageref{LastPage})
+\usepackage{verbatim}           % texto literal
+\usepackage{amsmath}            % matemática (carregar ANTES de unicode-math)
+\usepackage{lscape}             % páginas em modo paisagem
+\usepackage{amsthm}             % ambientes de teorema (base)
+\usepackage{thmtools}           % extensão de teoremas (listoftheorems, etc.)
+\usepackage{hyperref}           % hiperlinks (carregado antes de geometry-ajustes)
+\usepackage{enumitem}           % controle fino de listas
+\usepackage{changepage}         % ambiente adjustwidth
+\usepackage{tabularx}           % tabelas com colunas de largura automática
+\usepackage[bottom]{footmisc}   % notas de rodapé sempre ao pé da página
+\usepackage{caption}            % controle de legendas
+\usepackage{etoolbox}           % já carregado em main.tex; aqui por clareza
+\usepackage{csquotes}
+\usepackage[normalem]{ulem}     % sublinhado no sumário (\uline); normalem preserva \emph
 
+% Algoritmos
+\usepackage[algoruled, portuguese]{algorithm2e}
+
+% TikZ
 \usepackage{tikz}
-\usetikzlibrary{positioning, shadows, calc, shapes.geometric, arrows.meta, patterns, patterns.meta, decorations.pathreplacing, fit, backgrounds}
+\usetikzlibrary{%
+    positioning, shadows, calc,
+    shapes.geometric, arrows.meta,
+    patterns, patterns.meta,
+    decorations.pathreplacing,
+    fit, backgrounds%
+}
 
-% ---
-% CONTROLE DE LEGENDAS E ESPAÇAMENTOS (TABELAS vs FIGURAS)
-% ---
-\usepackage{etoolbox} % Pacote para modificar ambientes
-\usepackage{caption}  % Pacote para controlar legendas
-
+% ── Legendas (caption) ───────────────────────────────────────
 \DeclareCaptionLabelSeparator{hifen_abnt}{\space\textmd{\textendash}\space}
 
-% 1. Configuração Global (aplica o negrito no rótulo para todos)
-\captionsetup{
-    labelfont=bf,        % Rótulo em negrito (Ex: Tabela 1, Figura 1)
-    labelsep=hifen_abnt,    % Usa o separador definido acima (não negrito)
-    textfont=normalfont, % Texto da legenda normal
-    skip=10pt            % Espaço padrão (bom para figuras)
+\captionsetup{%
+    labelfont  = bf,
+    labelsep   = hifen_abnt,
+    textfont   = normalfont,
+    skip       = 10pt,
 }
-
-% 2. Configuração Específica para TABELAS
-% Deixa o caption mais perto da tabela
-\captionsetup[table]{skip=2pt} 
-
-% Quando entrar no ambiente 'table', redefine o comando \fonte para ser mais "apertado"
-\AtBeginEnvironment{table}{%
-  \renewcommand{\fonte}[1]{%
-    \vspace{-5pt} % Espaço negativo para aproximar a fonte da tabela
-    \centering\small{\textbf{Fonte:} #1}%
-  }%
-}
-
-% 3. Configuração Específica para QUADROS
-% Deixa o caption mais perto do quadro
+\captionsetup[table]{skip=2pt}
 \captionsetup[quadro]{skip=2pt}
 
-% Quando entrar no ambiente 'quadro', redefine o comando \fonte para ser mais "apertado"
-\AtBeginEnvironment{quadro}{%
-  \renewcommand{\fonte}[1]{%
-    \vspace{-5pt} % Espaço negativo para aproximar a fonte do quadro
-    \centering\small{\textbf{Fonte:} #1}%
-  }%
+% Fonte mais próxima da tabela/quadro quando dentro desses ambientes
+\AtBeginEnvironment{table}{%
+    \renewcommand{\fonte}[1]{%
+        \par
+        {\small \textbf{Fonte:} #1\par}%
+    }%
 }
-% ---
-% ---
-% ---
-% ---
-% ---
+\AtBeginEnvironment{quadro}{%
+    \renewcommand{\fonte}[1]{%
+        \par
+        {\small \textbf{Fonte:} #1\par}%
+    }%
+}
 
-% Redefine a fonte para uma fonte similar a Arial (fonte Helvetica)
-% \renewcommand*\familydefault{\sfdefault}
+% ── Teoremas (thmtools) ──────────────────────────────────────
 
-% ---
-% ---
-% ---
-% ---
-% ---
-% REDEFINIÇÃO DOS TEOREMAS COM THMTOOLS
-% ---
+\declaretheorem[style=plain,      name=Teorema   ]{teorema}
+\declaretheorem[style=plain,      name=Axioma    ]{axioma}
+\declaretheorem[style=plain,      name=Lema      ]{lema}
+\declaretheorem[style=plain,      name=Corol\'ario]{corolario}
+\declaretheorem[style=plain,      name=Proposi\c{c}\~ao]{proposicao}
+\declaretheorem[style=definition, name=Defini\c{c}\~ao]{definicao}
+\declaretheorem[style=definition, name=Exemplo   ]{exemplo}
+\declaretheorem[style=remark,     name=Nota, numbered=no]{remark}
 
-% Define o estilo "theorem" (negrito, itálico)
-\declaretheorem[style=plain, name=Teorema]{teorema}
-\declaretheorem[style=plain, name=Axioma]{axioma}
-\declaretheorem[style=plain, name=Lema]{lema}
-\declaretheorem[style=plain, name=Corolário]{corolario}
-\declaretheorem[style=plain, name=Proposição]{proposicao}
+\renewcommand{\proofname}{Demonstra\c{c}\~ao}
 
-% Define o estilo "definition" (negrito, reto)
-\declaretheorem[style=definition, name=Definição]{definicao}
-\declaretheorem[style=definition, name=Exemplo]{exemplo}
-
-% Define o estilo "remark" (itálico, reto) - Nota sem número
-\declaretheorem[style=remark, name=Nota, numbered=no]{remark}
-
-% Altera o nome padrão "Proof" do ambiente 'proof' para "Demonstração"
-\renewcommand{\proofname}{Demonstração}
-% ---
-% REDEFINIÇÃO DO AMBIENTE PROOF (Quebra de linha)
-% ---
+% Proof com quebra de linha após o label
 \makeatletter
 \renewenvironment{proof}[1][\proofname]{\par
-  \pushQED{\qed}%
-  \normalfont \topsep6\p@\@plus6\p@\relax
-  \trivlist
-  \item[\hskip\labelsep
-        \itshape
-    #1\@addpunct{.}]\mbox{}\\*\indent % O \mbox{} cria uma caixa vazia e o \\ quebra a linha
+    \pushQED{\qed}%
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \item[\hskip\labelsep\itshape #1\@addpunct{.}]\mbox{}\\*\indent
 }{%
-  \popQED\endtrivlist\@endpefalse
+    \popQED\endtrivlist\@endpefalse
 }
 \makeatother
 
-% ---
-% ---
-% ---
-% ---
-% ---
+% ── Cores semânticas ─────────────────────────────────────────
+\definecolor{DarkModeBG}    {gray}{0.15}
+\definecolor{DarkModeText}  {gray}{0.80}
+\definecolor{DarkModeLink}  {rgb} {0.6, 0.8, 1.0}
+\definecolor{LightModeLink} {RGB} {41,  5,   195}
+\definecolor{LightModeRed}  {RGB} {178, 0,   0}
+\definecolor{DarkModeRed}   {RGB} {255, 102, 102}
+\definecolor{LightModeGreen}{RGB} {0,   128, 0}
+\definecolor{DarkModeGreen} {RGB} {144, 238, 144}
+\definecolor{LightModeViolet}{RGB}{128, 0,   128}
+\definecolor{DarkModeViolet}{RGB} {221, 160, 221}
 
-\definecolor{DarkModeBG}{gray}{0.15}    % Fundo (Cinza bem escuro)
-\definecolor{DarkModeText}{gray}{0.95}  % Texto (Cinza bem claro)
-\definecolor{DarkModeLink}{rgb}{0.345, 0.651, 1.0} % Link (Azul claro)
+% ── Modo escuro / claro ──────────────────────────────────────
+\ifbool{darkmode}{%
+% ── ESCURO ──────────────────────────────────────────────
+\pagecolor{DarkModeBG}
+\color{DarkModeText}
 
-% ---
-% ---
-% ---
-% ---
-% ---
+\AtBeginEnvironment{tabular}  {\color{DarkModeText}}
+\AtBeginEnvironment{longtable}{\color{DarkModeText}}
+\AtBeginEnvironment{quadro}   {\color{DarkModeText}}
+\AtBeginEnvironment{algorithm}{\color{DarkModeText}}
 
-% Torna a numeração das notas de rodapé contínua (não reinicia por capítulo)
-\counterwithout{footnote}{chapter}
+\renewcommand{\footnotelayout}{\color{DarkModeText}}
+\renewcommand{\footnoterule}{%
+\kern-3pt
+{\color{DarkModeText}\hrule width 2in height 0.4pt}%
+\kern 2.6pt
+}
+}{%
+% ── CLARO ───────────────────────────────────────────────
+\pagecolor{white}
+\color{black}
+}
 
-% ---
-% ---
-% ---
-% ---
-% ---
-
+% ─────────────────────────────────────────────────────────────
 % ATALHOS MATEMÁTICOS PERSONALIZADOS
+% ─────────────────────────────────────────────────────────────
 
-% 1: Blackboard Bold (\mathbb) - Conjuntos Numéricos
-% O comando \providecommand garante que se o comando já existir, ele não dá erro,
-% mas \renewcommand força a sua definição (use com cuidado).
+% 1. Blackboard Bold — Conjuntos Numéricos
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
-% Adicione outros conforme necessário, ex: \newcommand{\K}{\mathbb{K}}
 
-% 2: Caligráfico (\mathcal)
-% Nota: \mathcal padrão só funciona bem com letras MAIÚSCULAS.
+% 2. Caligráfico (apenas MAIÚSCULAS)
 \newcommand{\NN}{\mathcal{N}}
-\renewcommand{\AA}{\mathcal{A}} % \AA já existe (Ångström), use \AAa ou outro nome
+\renewcommand{\AA}{\mathcal{A}}   % \AA nativo = Ångström; substituímos
 \newcommand{\BB}{\mathcal{B}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\FF}{\mathcal{F}}
-\newcommand{\PP}{\mathcal{P}} % Utíl para conjunto das partes
+\newcommand{\PP}{\mathcal{P}}     % conjunto das partes
 
-% 3: Script (\mathscr) - Requer pacote mathrsfs
+% 3. Script — requer unicode-math com fonte que suporte \mathscr
 \newcommand{\NNN}{\mathscr{N}}
 \newcommand{\AAA}{\mathscr{A}}
 \newcommand{\BBB}{\mathscr{B}}
 
-% 4: Textos
-\newcommand{\com}{ \ \text{ com } \ }
-\newcommand{\tq}{ \ \text{ t.q. } \ }
-\newcommand{\e}{ \ \ \& \ \ }
-\newcommand{\ou}{ \ \text{ ou } \ }
-\newcommand{\xor}{ \ \textsc{ xor } \ }
-\newcommand{\dom}{ \text{dom} }
-\newcommand{\im}{ \text{im} }
-\newcommand{\fld}{ \text{fld} }
+% 4. Textos inline
+\newcommand{\com}{\ \text{ com }\ }
+\newcommand{\tq} {\ \text{ t.q. }\ }
+\newcommand{\e}  {\ \ \& \ \ }
+\newcommand{\ou} {\ \text{ ou }\ }
+\newcommand{\xor}{\ \textsc{ xor }\ }
+\newcommand{\dom}{\text{dom}}
+\newcommand{\im} {\text{im}}
+\newcommand{\fld}{\text{fld}}
 
-% 5: Outros
+% 5. Outros
 \newcommand{\teref}[2]{\hyperref[#1]{#2}}
 \newcommand{\sub}{\subseteq}
 
-% 6: Renewcommands
-% Melhora o espaçamento dos quantificadores automaticamente
+% 6. Quantificadores com espaço automático
 \let\oldforall\forall
 \renewcommand{\forall}{\,\oldforall}
 
 \let\oldexists\exists
 \renewcommand{\exists}{\,\oldexists}
 
-% ---
-% ---
-% ---
-% ---
-% ---
-
-% Comando \linkcite{<texto>}{<chave-bib>}
-% Cria links separados para o texto e o ano, deixando a pontuação de fora.
-% Formato de saída: (<texto>, <ano>)
-% \makeatletter
-% \newcommand{\linkcite}[3][]{%
-%   (%
-%   \hyper@natlinkstart{#3}#2\hyper@natlinkend,%
-%   ~\hyper@natlinkstart{#3}\citeyear{#3}\hyper@natlinkend%
-%   \@ifnotempty{#1}{, p.~#1}
-%   )%
-% }
-% \makeatother
-
-% ---
-% ---
-% ---
-% ---
-% ---
-
+% ─────────────────────────────────────────────────────────────
+% COMANDO \linkcite — citação inline com hiperlink e ano
+%
+% Uso:
+%   \linkcite{Cantor}{cantor1891}
+%   → (Cantor, 1891) com link para a bibliografia
+%
+%   \linkcite[p.~42]{Cantor}{cantor1891}
+%   → (Cantor, 1891, p. 42)
+%
+%   \linkcite{Autor1}{chave1}{Autor2}{chave2}
+%   → (Autor1, ano1; Autor2, ano2)
+%
+% Com biblatex, \parencite{key} e \textcite{key} são os
+% comandos canônicos. O \linkcite é mantido para
+% compatibilidade com textos já escritos.
+% ─────────────────────────────────────────────────────────────
 \makeatletter
 
-% 1. Comando principal: verifica o argumento opcional [pagina]
 \def\linkcite{\@ifnextchar[{\@linkciteopt}{\@linkcitenormal}}
 
-% 2. Chamado se [pagina] for fornecido: \linkcite[pagina]{texto1}{bibitem1}...
 \def\@linkciteopt[#1]#2#3{%
-  (%
-  \hyper@natlinkstart{#3}#2\hyper@natlinkend,%
-  ~\hyper@natlinkstart{#3}\citeyear{#3}\hyper@natlinkend%
-  % Inicia o loop, passando a página (#1)
-  \@linkciteloop{#1}%
+    (%
+    \hyperlink{cite.#3}{#2},%
+    ~\hyperlink{cite.#3}{\citeyear{#3}}%
+    \@linkciteloop{#1}%
 }
 
-% 3. Chamado se [pagina] NÃO for fornecido: \linkcite{texto1}{bibitem1}...
 \def\@linkcitenormal#1#2{%
-  (%
-  \hyper@natlinkstart{#2}#1\hyper@natlinkend,%
-  ~\hyper@natlinkstart{#2}\citeyear{#2}\hyper@natlinkend%
-  % Inicia o loop, passando uma página vazia ({})
-  \@linkciteloop{}%
+    (%
+    \hyperlink{cite.#2}{#1},%
+    ~\hyperlink{cite.#2}{\citeyear{#2}}%
+    \@linkciteloop{}%
 }
 
-% 4. A MACRO RECURSIVA (LOOP)
-%    #1 = a página (pode estar vazia)
 \def\@linkciteloop#1{%
-  % Verifica se o próximo token é um '{' (início de um novo par)
-  \@ifnextchar\bgroup{%
-    % Se SIM, chama a macro de processo
-    \@linkciteprocess{#1}%
-  }{%
-    % Se NÃO, chama a macro final
-    \@linkciteend{#1}%
-  }%
+    \@ifnextchar\bgroup{%
+        \@linkciteprocess{#1}%
+    }{%
+        \@linkciteend{#1}%
+    }%
 }
 
-% 5. Macro de processo (imprime o próximo par e continua o loop)
-%    #1 = a página, #2 = textoN, #3 = bibitemN
 \def\@linkciteprocess#1#2#3{%
-  ; % Imprime o separador
-  ~\hyper@natlinkstart{#3}#2\hyper@natlinkend,%
-  ~\hyper@natlinkstart{#3}\citeyear{#3}\hyper@natlinkend%
-  % Chama o loop novamente para verificar se há mais
-  \@linkciteloop{#1}%
+    ;%
+    ~\hyperlink{cite.#3}{#2},%
+    ~\hyperlink{cite.#3}{\citeyear{#3}}%
+    \@linkciteloop{#1}%
 }
 
-% 6. Macro final (termina o comando)
-%    #1 = a página
 \def\@linkciteend#1{%
-  % Imprime a página se ela foi fornecida
-  \@ifnotempty{#1}{, #1}%
-  % Fecha o parêntese
-  )%
+    \ifblank{#1}{}{, #1}%
+    )%
 }
 
 \makeatother
-
-% ---
-% ---
-% ---
-% ---
-% ---
-
-% LÓGICA DO MODO ESCURO (DARK MODE)
-
-\usepackage{xcolor}
-
-% 1. Definição das Cores (Semânticas)
-\definecolor{DarkModeBG}{gray}{0.15}     % Fundo Cinza Escuro
-\definecolor{DarkModeText}{gray}{0.80}   % Texto Claro
-
-\definecolor{DarkModeLink}{rgb}{0.6, 0.8, 1.0} % Azul Ciano (bom contraste no escuro)
-\definecolor{LightModeLink}{RGB}{41,5,195}     % Azul Padrão (bom contraste no claro)
-
-\definecolor{LightModeRed}{RGB}{178, 0, 0}
-\definecolor{DarkModeRed}{RGB}{255, 102, 102}
-
-\definecolor{LightModeGreen}{RGB}{0, 128, 0}
-\definecolor{DarkModeGreen}{RGB}{144, 238, 144}
-
-\definecolor{LightModeViolet}{RGB}{128, 0, 128}
-\definecolor{DarkModeViolet}{RGB}{221, 160, 221}
-
-% 2. Aplicação Condicional
-\ifbool{darkmode}{
-    % --- ATIVAR MODO ESCURO ---
-    
-    % Define cor de fundo e texto global
-    \pagecolor{DarkModeBG}
-    \color{DarkModeText}
-    
-    % Força a cor do texto em TABELAS (tabular/longtable geralmente resetam a cor)
-    \AtBeginEnvironment{tabular}{\color{DarkModeText}}
-    \AtBeginEnvironment{longtable}{\color{DarkModeText}}
-    
-    % Força a cor do texto em QUADROS e ALGORITMOS
-    \AtBeginEnvironment{quadro}{\color{DarkModeText}}
-    \AtBeginEnvironment{algorithm}{\color{DarkModeText}}
-    
-    % Força a cor do texto nas NOTAS DE RODAPÉ (requer pacote footmisc)
-    \renewcommand{\footnotelayout}{\color{DarkModeText}}
-    
-    % Ajusta a cor da linha de separação do rodapé
-    \renewcommand{\footnoterule}{%
-        \kern -3pt
-        {\color{DarkModeText}\hrule width 2in height 0.4pt}
-        \kern 2.6pt
-    }
-}{
-    % --- MODO CLARO (PADRÃO) ---
-    \pagecolor{white}
-    \color{black}
-}
-
-% ---
-% ---
-% ---
-% ---
-% ---
-% ---

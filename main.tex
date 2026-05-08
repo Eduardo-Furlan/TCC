@@ -1,83 +1,79 @@
-% ---------------------------------------------------------------------------------------------------------------
+% LTeX: enabled=false
+% ============================================================
 % TEMPLATE PARA TRABALHO DE CONCLUSÃO DE CURSO
-% Universidade Tecnológica Federal do Paraná - UTFPR
-% Customização da classe abnTeX2 (http://www.abntex.net.br/) para as normas da UTFPR
+% Universidade Tecnológica Federal do Paraná – UTFPR
+% Customização da classe abntex2 para as normas da UTFPR
 %
-% Projeto hospedado em: <link git>
-% Autores: Diego Marczal  <>
-% 	   Michael Vornes <https://github.com/mvornes>
-%
-%----------------------------------------------------------------------------------------------------------------
-% Codificação: UTF-8
-% LaTeX:  abnTeX2          
-% ---------------------------------------------------------------------------------------------------------------
+% Motor recomendado : LuaLaTeX
+% Bibliografia      : Biber + biblatex-abnt
+% ============================================================
 
+\documentclass[%
+%   twoside,          % impressão frente-e-verso
+    oneside,          % impressão só frente
+    12pt,
+    a4paper,
+    sumario=abnt-6027-2012,
+    brazil,
+]{abntex2}
 
-% CARREGA CLASSE PERSONALIZADA DA UTFPR--------------------------------------------------------------------------
-\documentclass[%twoside,                   % Impressão em frente e verso
-    	        oneside,                   % Impressão apenas frente
-]{configuracoes/utfpr-abntex2}
+% ── Modo escuro ─────────────────────────────────────────────
+% Defina ANTES dos outros \input para que pacotes.tex possa
+% ler o booleano ao ser carregado.
+\usepackage{etoolbox}
+\newbool{darkmode}
+\setbool{darkmode}{true}   % true = escuro | false = claro
+% ─────────────────────────────────────────────────────────────
 
-% --- CONFIGURAÇÃO DO MODO ESCURO ---
-\usepackage{etoolbox}          % Garante que o pacote esteja carregado
-\newbool{darkmode}             % Cria a variável booleana
-\setbool{darkmode}{true}       % 'true' / 'false' 
-% -----------------------------------
+% Customizações UTFPR (substitui utfpr-abntex2.cls)
+\input{configuracoes/utfpr-setup}
 
-
-
-% INCLUI ARQUIVOS DE CONFIGURAÇÕES-------------------------------------------------------------------------------
+% Pacotes
 \input{configuracoes/pacotes}
+
+% Configurações do PDF/hyperref
 \input{configuracoes/configuracoes-pdf}
 
-
-% INCLUI ARQUIVOS DO TRABALHO DE CONCLUSÃO DE CURSO (PRÉ-TEXTUAIS, TEXTUAIS, PÓS-TEXTUAIS)-----------------------
-
-% INSERE CAPA E FOLHA DE ROSTO
+% ── Dados e capa ─────────────────────────────────────────────
 \input{estrutura/pre-textuais/capa}
 \input{estrutura/pre-textuais/folha-rosto}
+% ─────────────────────────────────────────────────────────────
 
 \begin{document}
 
-\makeatletter
-\renewcommand*{\backrefalt}[4]{}
-\makeatother
-
-\makeatletter
-\DeclareRobustCommand{\htmladdnormallink}[2]{%
-  \hyper@normalise\hyper@linkurl{#2}{#2}%
-}
-\makeatother
-
+% ── Elementos pré-textuais ───────────────────────────────────
 \pretextual
-\imprimircapa                                               	           % Comando para imprimir Capa
-\imprimirfolhaderosto{}                                     		   % Comando para imprimir Folha de rosto
-% INSERE ELEMENTOS PRÉ-TEXTUAIS
-\include{estrutura/pre-textuais/dedicatoria}          			   % Dedicatória
-\include{estrutura/pre-textuais/agradecimentos}        			   % Agradecimentos
-\include{estrutura/pre-textuais/epigrafe}              			   % Epígrafe
-\include{estrutura/pre-textuais/resumo}             			   % Resumo em Português
-\include{estrutura/pre-textuais/abstract}             		           % Resumo em Inglês
-\include{estrutura/pre-textuais/listas/listas-ilustracoes/lista-figuras}   % Lista de Figuras
-\include{estrutura/pre-textuais/listas/listas-ilustracoes/lista-quadros}   % Lista de Quadros
-\include{estrutura/pre-textuais/listas/lista-tabelas}         		   % Lista de Tabelas
+\imprimircapa
+\imprimirfolhaderosto{}
+
+\include{estrutura/pre-textuais/dedicatoria}
+\include{estrutura/pre-textuais/agradecimentos}
+\include{estrutura/pre-textuais/epigrafe}
+\include{estrutura/pre-textuais/resumo}
+\include{estrutura/pre-textuais/abstract}
+
+\include{estrutura/pre-textuais/listas/listas-ilustracoes/lista-figuras}
+\include{estrutura/pre-textuais/listas/listas-ilustracoes/lista-quadros}
+\include{estrutura/pre-textuais/listas/lista-tabelas}
 \include{estrutura/pre-textuais/listas/lista-teoremas}
-\include{estrutura/pre-textuais/listas/lista-siglas}          		   % Lista de Abreviaturas e Siglas
-\include{estrutura/pre-textuais/listas/lista-simbolos}        		   % Lista de Símbolos
-% \include{estrutura/pre-textuais/listas/listas-diversas/lista-algoritmos}   % Lista de Algoritmos
-\include{estrutura/pre-textuais/sumario}               			   % Sumário
+\include{estrutura/pre-textuais/listas/lista-siglas}
+\include{estrutura/pre-textuais/listas/lista-simbolos}
+% \include{estrutura/pre-textuais/listas/listas-diversas/lista-algoritmos}
 
+\include{estrutura/pre-textuais/sumario}
+
+% ── Elementos textuais ───────────────────────────────────────
 \textual
-% INSERE ELEMENTOS TEXTUAIS
-\include{estrutura/textuais/introducao} % Introdução
 
-\include{estrutura/textuais/desenvolvimento/fundamentos_teoria_conjuntos} % Revisão de Literatura
+\include{estrutura/textuais/introducao}
 
-\include{estrutura/textuais/desenvolvimento/cardinalidade} % Revisão de Literatura
+\include{estrutura/textuais/desenvolvimento/fundamentos_teoria_conjuntos}
 
-\include{estrutura/textuais/desenvolvimento/infinitos} % Revisão de Literatura
+\include{estrutura/textuais/desenvolvimento/cardinalidade}
 
-\include{estrutura/textuais/desenvolvimento/hipotese_continuo} % Revisão de Literatura
+\include{estrutura/textuais/desenvolvimento/infinitos}
+
+\include{estrutura/textuais/desenvolvimento/hipotese_continuo}
 
 \include{estrutura/textuais/desenvolvimento/cardinais_dimensao}
 
@@ -85,18 +81,19 @@
 
 \include{estrutura/textuais/desenvolvimento/escolha}
 
-\include{estrutura/textuais/desenvolvimento/metodologia} % Metodologia
+\include{estrutura/textuais/desenvolvimento/metodologia}
 
-% \include{estrutura/textuais/desenvolvimento/resultados} % Resultados
+% \include{estrutura/textuais/desenvolvimento/resultados}
 
 % \include{estrutura/textuais/desenvolvimento/orientacoes} % Capítulo com Orientações de uso do Template
 
-% \include{estrutura/textuais/conclusao} % Conclusão
+% \include{estrutura/textuais/conclusao}
 
+% ── Elementos pós-textuais ───────────────────────────────────
 \postextual
-% INSERE ELEMENTOS PÓS-TEXTUAIS
-\include{estrutura/pos-textuais/referencias}           			   % Referências
-% \include{estrutura/pos-textuais/apendices}             			   % Apêndices
-% \include{estrutura/pos-textuais/anexos}               			   % Anexos
+
+\include{estrutura/pos-textuais/referencias}
+% \include{estrutura/pos-textuais/apendices}
+% \include{estrutura/pos-textuais/anexos}
 
 \end{document}

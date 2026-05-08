@@ -1,0 +1,354 @@
+% ============================================================
+% configuracoes/utfpr-setup.tex
+%
+% Customizações da UTFPR sobre a classe abntex2.
+% Este arquivo substitui o antigo utfpr-abntex2.cls:
+% todas as opções que antes exigiam uma classe própria são
+% declaradas aqui, no preâmbulo, mantendo o projeto livre de
+% qualquer .cls customizado.
+% ============================================================
+
+\RequirePackage{makeidx}    % índice remissivo
+\RequirePackage{chngcntr}   % counterwithout / counterwith
+
+% ── Espaçamento ──────────────────────────────────────────────
+\frenchspacing
+
+% Sem espaço extra entre parágrafos; indentação de 1,5 cm
+\setlength{\parindent}{1.5cm}
+\setlength{\parskip}{0pt}
+
+% ── Itens de listas compactos ────────────────────────────────
+% (requer enumitem, carregado em pacotes.tex)
+\AtBeginDocument{%
+    \setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}%
+}
+
+% ── Equações numeradas sequencialmente (sem prefixo de cap.) ─
+\AtBeginDocument{\counterwithout{equation}{chapter}}
+
+% ── Notas de rodapé: numeração contínua ─────────────────────
+\AtBeginDocument{\counterwithout{footnote}{chapter}}
+
+% ─────────────────────────────────────────────────────────────
+% COMANDOS DE DADOS
+% ─────────────────────────────────────────────────────────────
+
+\providecommand{\imprimirdepartamento}{}
+\newcommand{\departamento}[1]{\renewcommand{\imprimirdepartamento}{#1}}
+
+\providecommand{\imprimirprograma}{}
+\newcommand{\programa}[1]{\renewcommand{\imprimirprograma}{#1}}
+
+\providecommand{\imprimirsubtitulo}{}
+\newcommand{\subtitulo}[1]{\renewcommand{\imprimirsubtitulo}{#1}}
+
+\providecommand{\imprimirinstOrientador}{}
+\newcommand{\instOrientador}[1]{\renewcommand{\imprimirinstOrientador}{#1}}
+
+\providecommand{\imprimirinstCoorientador}{}
+\newcommand{\instCoorientador}[1]{\renewcommand{\imprimirinstCoorientador}{#1}}
+
+\providecommand{\imprimirprojeto}{}
+\newcommand{\projeto}[1]{\renewcommand{\imprimirprojeto}{#1}}
+
+\providecommand{\imprimirtituloAcademico}{}
+\newcommand{\tituloAcademico}[1]{\renewcommand{\imprimirtituloAcademico}{#1}}
+
+\providecommand{\imprimirautorcitacao}{}
+\newcommand{\autorcitacao}[1]{\renewcommand{\imprimirautorcitacao}{#1}}
+
+\providecommand{\imprimirtitleabstract}{}
+\newcommand{\titleabstract}[1]{\renewcommand{\imprimirtitleabstract}{#1}}
+
+\newcommand{\imprimirareaconcentracaoRotulo}{Área de concentração: }
+\providecommand{\imprimirareaconcentracao}{}
+\newcommand{\areaconcentracao}[1]{\renewcommand{\imprimirareaconcentracao}{#1}}
+
+\newcommand{\imprimirlinhapesquisaRotulo}{Linha de pesquisa: }
+\providecommand{\imprimirlinhapesquisa}{}
+\newcommand{\linhapesquisa}[1]{\renewcommand{\imprimirlinhapesquisa}{#1}}
+
+\providecommand{\imprimirtextopadraofolhadeaprovacao}{}
+\newcommand{\textopadraofolhadeaprovacao}[1]{%
+    \renewcommand{\imprimirtextopadraofolhadeaprovacao}{#1}}
+
+% \logoinstituicao{<escala>}{<caminho>}
+\providecommand{\imprimirlogoinstituicao}{}
+\newcommand{\logoinstituicao}[2]{%
+    \renewcommand{\imprimirlogoinstituicao}{%
+        \includegraphics[width={#1}\textwidth]{#2}}}
+
+% ─────────────────────────────────────────────────────────────
+% ESTILO DE PÁGINAS
+% ─────────────────────────────────────────────────────────────
+
+\renewcommand{\pretextual}{%
+    \pagenumbering{gobble}
+    \aliaspagestyle{chapter}{empty}
+    \pagestyle{empty}
+    \aliaspagestyle{cleared}{empty}
+    \aliaspagestyle{part}{empty}
+}
+
+\renewcommand{\textual}{%
+    \pagenumbering{arabic}
+    \pagestyle{abntheadings}
+    \aliaspagestyle{chapter}{abntchapfirst}
+    \nouppercaseheads
+    \bookmarksetup{startatroot}
+}
+
+\renewcommand{\postextual}{%
+    \chapterstyle{abnt}
+    \phantompart
+}
+
+% ─────────────────────────────────────────────────────────────
+% FONTES DOS TÍTULOS (norma ABNT/UTFPR)
+% ─────────────────────────────────────────────────────────────
+
+\renewcommand{\ABNTEXchapterfont}{\normalfont\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXpartfont}{\normalfont}
+\renewcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
+
+\renewcommand{\ABNTEXsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+
+% ─────────────────────────────────────────────────────────────
+% SUMÁRIO
+% ─────────────────────────────────────────────────────────────
+
+\makeatletter
+\renewcommand{\cftchapteraftersnum}{\quad}
+\setlength{\cftbeforechapterskip}{1.0em \@plus\p@}
+\makeatother
+
+% Nível 1   — NEGRITO E MAIÚSCULAS (abntex2 já aplica \MakeUppercase nas entradas de capítulo)
+\renewcommand{\cftchapterfont}{\bfseries}
+% Nível 1.1 — Negrito, Misto
+\renewcommand{\cftsectionfont}{\bfseries}
+% Nível 1.1.1 — Itálico, Misto
+\renewcommand{\cftsubsectionfont}{\normalfont\itshape}
+% Nível 1.1.1.1 — Itálico + Sublinhado, Misto  (requer ulem, carregado em pacotes.tex)
+\renewcommand{\cftsubsubsectionfont}{\normalfont\itshape}
+\makeatletter
+\let\UTFPR@old@l@subsubsection\l@subsubsection
+\renewcommand*{\l@subsubsection}[2]{%
+  \UTFPR@old@l@subsubsection{\uline{#1}}{#2}%
+}
+\makeatother
+
+% ─────────────────────────────────────────────────────────────
+% LISTAS (nomes e rótulos)
+% ─────────────────────────────────────────────────────────────
+
+\addto\captionsbrazil{%
+    \renewcommand{\listadesiglasname}{LISTA DE ABREVIATURAS E SIGLAS}
+    \renewcommand{\listadesimbolosname}{LISTA DE S\'IMBOLOS}
+    \renewcommand{\listfigurename}{LISTA DE FIGURAS}
+    \renewcommand{\listtablename}{LISTA DE TABELAS}
+    \renewcommand{\indexname}{\'INDICE REMISSIVO}
+    % autoref
+    \renewcommand{\pageautorefname}{p\'agina}
+    \renewcommand{\sectionautorefname}{Se\c{c}\~ao}
+    \renewcommand{\subsectionautorefname}{Subse\c{c}\~ao}
+    \renewcommand{\subsubsectionautorefname}{Subsubse\c{c}\~ao}
+    \renewcommand{\paragraphautorefname}{Subse\c{c}\~ao}
+}
+
+% Lista de Quadros
+\newcommand{\listofquadrosname}{Lista de Quadros}
+\newcommand{\quadroname}{Quadro}
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space}
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+% ─────────────────────────────────────────────────────────────
+% OBJETOS FLUTUANTES — fonte e nota
+% ─────────────────────────────────────────────────────────────
+
+\renewcommand{\fonte}[1]{%
+    \begin{SingleSpacing}\par\end{SingleSpacing}
+    \centering\small{\textbf{Fonte:} #1}%
+}
+
+\renewcommand{\nota}[1]{%
+    \begin{SingleSpacing}\par\end{SingleSpacing}
+    \begin{tabular}{l p{.85\textwidth}}%
+        Nota: & #1
+    \end{tabular}%
+}
+
+% ─────────────────────────────────────────────────────────────
+% CAPA
+% ─────────────────────────────────────────────────────────────
+
+\makeatletter
+\renewcommand{\imprimircapa}{%
+    \begin{capa}
+        \begin{center}
+            \begin{SingleSpacing}
+                \large\MakeUppercase{\imprimirinstituicao}\\
+                \abntex@ifnotempty{\imprimirdepartamento}{%
+                    \MakeUppercase{\imprimirdepartamento}\\
+                }%
+                \large\MakeUppercase{\imprimirprograma}\\
+            \end{SingleSpacing}
+        \end{center}
+        \vspace{60pt}
+        \begin{center}
+            \large\MakeUppercase{\imprimirautor}\\
+        \end{center}
+        \vspace{120pt}
+        \begin{center}
+            \ABNTEXchapterfont\large\MakeUppercase{\imprimirtitulo}
+            \abntex@ifnotempty{\imprimirsubtitulo}{%
+                {\ABNTEXchapterfont: }{\large{\imprimirsubtitulo}}%
+            }
+        \end{center}
+        \vspace{120pt}
+        \begin{center}
+            \large\MakeUppercase{\imprimirprojeto}
+        \end{center}
+        \vfill
+        \begin{center}
+            \begin{SingleSpacing}
+                \large\MakeUppercase{\imprimirlocal}\\
+                \large\MakeUppercase{\imprimirdata}
+            \end{SingleSpacing}
+        \end{center}
+    \end{capa}
+}
+\makeatother
+
+% ─────────────────────────────────────────────────────────────
+% FOLHA DE ROSTO
+% ─────────────────────────────────────────────────────────────
+
+\makeatletter
+\renewcommand{\folhaderostocontent}{%
+    \setcounter{page}{2}
+    \begin{center}
+        \large\MakeUppercase{\imprimirautor}\\
+    \end{center}
+
+    \vspace*{96pt}
+
+    \begin{center}
+        \ABNTEXchapterfont\large\MakeUppercase{\imprimirtitulo}
+        \abntex@ifnotempty{\imprimirsubtitulo}{%
+            {\ABNTEXchapterfont: }{\large{\imprimirsubtitulo}}%
+        }
+    \end{center}
+
+    \vspace*{60pt}
+
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+        \SingleSpacing
+        \begin{tabular}{p{.25\textwidth}p{.13\textwidth}p{.44\textwidth}}
+             & \multicolumn{2}{p{.6\textwidth}}{                                   %
+            \small\hyphenpenalty=10000{\imprimirpreambulo}}                        \\ & & \\
+            \abntex@ifnotempty{\imprimirareaconcentracao}{%
+             & \multicolumn{2}{p{.6\textwidth}}{                                   %
+            \small\hyphenpenalty=10000{%
+            \imprimirareaconcentracaoRotulo\imprimirareaconcentracao}%
+            }                                                                      \\ & & \\
+            }%
+            \abntex@ifnotempty{\imprimirlinhapesquisa}{%
+             & \multicolumn{2}{p{.6\textwidth}}{                                   %
+            \small\hyphenpenalty=10000{%
+            \imprimirlinhapesquisaRotulo\imprimirlinhapesquisa}%
+            }                                                                      \\ & & \\
+            }%
+            \abntex@ifnotempty{\imprimirorientador}{%
+             & \small\imprimirorientadorRotulo   & \imprimirorientador             \\
+             &                                   & \small\imprimirinstOrientador   \\ & & \\
+            }%
+            \abntex@ifnotempty{\imprimircoorientador}{%
+             & \small\imprimircoorientadorRotulo & \imprimircoorientador           \\
+             &                                   & \small\imprimirinstCoorientador
+            }%
+        \end{tabular}
+    }
+
+    \vspace*{\fill}
+
+    \begin{center}
+        \begin{SingleSpacing}
+            \large\MakeUppercase{\imprimirlocal}\\
+            \large\MakeUppercase{\imprimirdata}
+        \end{SingleSpacing}
+    \end{center}
+}
+\makeatother
+
+% ─────────────────────────────────────────────────────────────
+% FOLHA DE APROVAÇÃO
+% ─────────────────────────────────────────────────────────────
+
+\makeatletter
+\newcommand{\imprimirfolhadeaprovacao}{%
+    \begin{folhadeaprovacao}
+        \vspace*{\fill}
+        \begin{tabular}{p{.45\textwidth}p{.45\textwidth}}
+             & \imprimirtextopadraofolhadeaprovacao \\
+        \end{tabular}
+        \vspace*{\fill}
+    \end{folhadeaprovacao}
+}
+\makeatother
+
+% ─────────────────────────────────────────────────────────────
+% DEDICATÓRIA
+% ─────────────────────────────────────────────────────────────
+
+\renewenvironment{dedicatoria}[1][]{%
+    \ifthenelse{\equal{#1}{}}{%
+        \PRIVATEbookmarkthis{\dedicatorianame}%
+    }{\pretextualchapter{#1}}%
+    \vspace*{\fill}
+    \begin{flushright}
+        \begin{minipage}{.5\textwidth}
+            \begin{SingleSpacing}
+                \setlength\parindent{0pt}
+                \setlength\parskip{12pt}
+                }{%
+            \end{SingleSpacing}
+        \end{minipage}
+    \end{flushright}
+}
+
+% ─────────────────────────────────────────────────────────────
+% EPÍGRAFE
+% ─────────────────────────────────────────────────────────────
+
+\renewenvironment{epigrafe}[1][]{%
+    \ifthenelse{\equal{#1}{}}{%
+        \PRIVATEbookmarkthis{\epigraphname}%
+    }{\pretextualchapter{#1}}%
+    \vspace*{\fill}
+    \begin{flushright}
+        \begin{minipage}{.5\textwidth}
+            \begin{SingleSpacing}
+                \setlength\parindent{0pt}
+                \setlength\parskip{12pt}
+                }{%
+            \end{SingleSpacing}
+        \end{minipage}
+    \end{flushright}
+}

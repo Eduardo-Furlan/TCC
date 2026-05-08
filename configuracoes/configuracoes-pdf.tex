@@ -1,31 +1,46 @@
-% CONFIGURAÇÕES DE APARÊNCIA DO PDF FINAL--------------------------------------
+% LTeX: enabled=false
+% ============================================================
+% configuracoes/configuracoes-pdf.tex
+%
+% Configurações finais do PDF (hyperref, índice, hifenização).
+% Carregado APÓS pacotes.tex (hyperref já foi carregado lá).
+% ============================================================
+
+% ── hyperref ─────────────────────────────────────────────────
 \makeatletter
 \hypersetup{%
     portuguese,
-    colorlinks=true,
-    breaklinks=true,
-    % Seleção dinâmica de cores baseada no boolean 'darkmode'
-    linkcolor=\ifbool{darkmode}{DarkModeLink}{LightModeLink},
-    citecolor=\ifbool{darkmode}{DarkModeLink}{LightModeLink},
-    filecolor=\ifbool{darkmode}{DarkModeLink}{LightModeLink},
-    urlcolor=\ifbool{darkmode}{DarkModeLink}{LightModeLink},
-    pdftitle={\@title},
-    pdfauthor={\@author},
-    pdfkeywords={abnt, latex, abntex, abntex2}
+    hidelinks,          % sem cor e sem caixa; o negrito abaixo diferencia os links
+    %    colorlinks  = true,
+    breaklinks  = true,
+    %    linkcolor   = \ifbool{darkmode}{DarkModeLink}{LightModeLink},
+    %    citecolor   = \ifbool{darkmode}{DarkModeLink}{LightModeLink},
+    %    filecolor   = \ifbool{darkmode}{DarkModeLink}{LightModeLink},
+    %    urlcolor    = \ifbool{darkmode}{DarkModeLink}{LightModeLink},
+    pdftitle    = {\@title},
+    pdfauthor   = {\@author},
+    pdfkeywords = {abnt, latex, abntex, abntex2, utfpr},
 }
 \makeatother
 
-% ALTERA O ASPECTO DA COR AZUL--------------------------------------------------
-\definecolor{blue}{RGB}{41,5,195} % SUBSTITUIR QUANDO TIRAR DARKMODE
+% ── Links em negrito (substituição de \hyperref colorido) ────
+% Redefine o hook interno do hyperref para injetar \bfseries
+% no início de cada link. Afeta \ref, \cite, \url, \href, etc.
+\makeatletter
+\let\UTFPR@hyper@linkstart\hyper@linkstart
+\renewcommand{\hyper@linkstart}[2]{%
+    \UTFPR@hyper@linkstart{#1}{#2}\bfseries
+}
+\makeatother
 
-% REDEFINIÇÃO DE LABELS---------------------------------------------------------
+% ── Rótulos de \autoref ──────────────────────────────────────
 \renewcommand{\algorithmautorefname}{Algoritmo}
-\def\equationautorefname~#1\null{Equa\c c\~ao~(#1)\null}
+\def\equationautorefname~#1\null{Equa\c{c}\~ao~(#1)\null}
 
-% CRIA ÍNDICE REMISSIVO---------------------------------------------------------
+% ── Índice remissivo ─────────────────────────────────────────
 \makeindex
 
-% HIFENIZAÇÃO DE PALAVRAS QUE NÃO ESTÃO NO DICIONÁRIO---------------------------
+% ── Hifenização de palavras não reconhecidas ─────────────────
 \hyphenation{%
     qua-dros-cha-ve
     Kat-sa-gge-los

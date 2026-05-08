@@ -1,34 +1,37 @@
-\pretextualchapter{LISTA DE TEOREMAS}
+\pretextualchapter{LISTA DE ENUNCIADOS}
 \pdfbookmark[0]{Lista de Teoremas}{loe}
 
 \begingroup
-    % Ajuste Visual: Transforma títulos de capítulos em seções
-    \let\chapter\section
-    \renewcommand{\addcontentsline}[3]{}
+% Ajuste Visual: Transforma títulos de capítulos em seções
+\let\chapter\section
+\renewcommand{\addcontentsline}[3]{}
 
-    % --- AXIOMAS ---
-    \renewcommand{\listtheoremname}{Axiomas}
-    \listoftheorems[ignoreall, show={axioma}]
+% Formata o nome opcional como " - nome" em vez de " (nome)"
+\renewcommand{\thmtformatoptarg}[1]{ - #1}
 
-    % --- DEFINIÇÕES ---
-    \renewcommand{\listtheoremname}{Definições}
-    \listoftheorems[ignoreall, show={definicao}]
+% --- AXIOMAS ---
+\renewcommand{\listtheoremname}{Axiomas}
+\listoftheorems[swapnumber, ignoreall, show={axioma}]
 
-    % --- TEOREMAS ---
-    \renewcommand{\listtheoremname}{Teoremas}
-    \listoftheorems[ignoreall, show={teorema}]
+% --- DEFINIÇÕES ---
+\renewcommand{\listtheoremname}{Definições}
+\listoftheorems[swapnumber, ignoreall, show={definicao}]
 
-    % --- COROLÁRIOS ---
-    \renewcommand{\listtheoremname}{Corolários}
-    \listoftheorems[ignoreall, show={corolario}]
+% --- TEOREMAS ---
+\renewcommand{\listtheoremname}{Teoremas}
+\listoftheorems[swapnumber, ignoreall, show={teorema}]
 
-    % --- LEMAS ---
-    \renewcommand{\listtheoremname}{Lemas}
-    \listoftheorems[ignoreall, show={lema}]
+% --- COROLÁRIOS ---
+\renewcommand{\listtheoremname}{Corolários}
+\listoftheorems[swapnumber, ignoreall, show={corolario}]
 
-    % --- PROPOSIÇÕES ---
-    \renewcommand{\listtheoremname}{Proposições}
-    \listoftheorems[ignoreall, show={proposicao}]
+% --- LEMAS ---
+\renewcommand{\listtheoremname}{Lemas}
+\listoftheorems[swapnumber, ignoreall, show={lema}]
+
+% --- PROPOSIÇÕES ---
+\renewcommand{\listtheoremname}{Proposições}
+\listoftheorems[swapnumber, ignoreall, show={proposicao}]
 
 \endgroup
 \cleardoublepage
