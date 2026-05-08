@@ -91,7 +91,7 @@ jobs:
           PREV_TAG=$(git tag --sort=-version:refname | head -n 1)
 
           if [ -z "$PREV_TAG" ]; then
-            git log --pretty="- %s (%h)" >> release_notes.md
+            git log --pretty="- %s (%h)%n%n%b" >> release_notes.md
           else
             git log "${PREV_TAG}..HEAD" --pretty="- %s (%h)" >> release_notes.md
           fi
