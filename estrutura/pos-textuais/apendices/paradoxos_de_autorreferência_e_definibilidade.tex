@@ -1,0 +1,90 @@
+\chapter{Paradoxos de Autorreferência e Definibilidade}
+\label{chap:apendiceAutorreferenciaDefinibilidade}
+
+Uma linha une todos os paradoxos deste apêndice: a autorreferência. Quando uma linguagem ou sistema é expressivo o suficiente para falar sobre si mesmo, surgem inevitavelmente afirmações que subvertem sua própria lógica. Veremos que a mesma técnica da diagonal utilizada por Cantor para provar a não enumerabilidade de \(\mathbb{R}\) no \autoref{chap:infinitos} reaparece, sob diferentes formas, em cada um dos paradoxos a seguir.
+
+\section{O Barbeiro de Russell (versão popular)}
+
+Apresentar a versão informal: o barbeiro que barbeia exatamente quem
+não se barbeia. Usar como porta de entrada acessível antes da versão
+formal, alinhado com o objetivo declarado de escrever para graduandos.
+
+% Fontes:
+%   - Russell, Introduction to Mathematical Philosophy, Allen & Unwin, 1919
+%     (disponível gratuitamente no Project Gutenberg)
+
+\section{O Paradoxo de Russell (versão formal, 1901)}
+
+Retomar o conjunto \(B = \{x : x \not\in x\}\) já apresentado no Capítulo 2,
+agora sob a perspectiva histórica e suas consequências para os
+fundamentos da matemática. Discutir a resposta de Zermelo via
+Axioma de Separação (Axioma 6 do trabalho).
+
+% Fontes:
+%   - Enderton, Elements of Set Theory, Academic Press, 1977
+%   - van Heijenoort, From Frege to Gödel, Harvard University Press, 1967
+
+\section{O Paradoxo de Richard (1905)}
+
+Apresentar a construção de Richard: lista de todas as descrições finitas
+de números reais em língua francesa, seguida de diagonalização.
+Conectar explicitamente com o Argumento da Diagonal do Capítulo 4.
+
+% Fontes:
+%   - van Heijenoort, From Frege to Gödel, Harvard University Press, 1967
+%     (contém tradução do artigo original de 1905)
+
+\section{O Paradoxo de Berry (1906)}
+
+Apresentar: "o menor inteiro positivo que não pode ser descrito com
+menos de quinze palavras", frase com 14 palavras.
+Conectar com o Exemplo do conjunto A (p. 7 do trabalho), do qual
+este paradoxo é uma versão simplificada e ainda mais direta.
+Mencionar a formalização moderna via complexidade de Kolmogorov.
+
+% Fontes:
+%   - Chaitin, Algorithmic Information Theory, Cambridge University Press, 1987
+%   - Russell & Whitehead, Principia Mathematica, 1910 (menção histórica original)
+
+\section{O Paradoxo de Grelling-Nelson (1908)}
+
+Apresentar adjetivos autológicos e heterológicos.
+Mostrar que o problema da autorreferência não é exclusivo da teoria
+dos conjuntos, mas emerge em qualquer sistema suficientemente expressivo.
+
+% Fontes:
+%   - Grelling & Nelson, Bemerkungen zu den Paradoxien von Russell 
+%     und Burali-Forti, 1908
+%   - van Heijenoort, From Frege to Gödel, Harvard University Press, 1967
+
+\section{O Paradoxo de Curry (1942)}
+
+Apresentar a sentença autorreferente \(C_Q\) que, sem uso de negação,
+deriva qualquer proposição \(Q\) arbitrária via \textit{modus ponens}.
+Conectar com o Axioma de Separação (Axioma~6): mostrar que a
+variante conjuntista do paradoxo, \(C_Q = \{x \mid x \in x
+    \rightarrow Q\}\), é bloqueada pela exigência de separar a partir
+de um conjunto preexistente. Discutir o fenômeno de explosão
+lógica (\textit{ex contradictione quodlibet}) e contrastar com
+Russell: enquanto Russell exige negação, Curry exige apenas
+implicação, tornando o colapso lógico ainda mais geral.
+
+% Fontes:
+%   - Curry, H. B. The inconsistency of certain formal logics.
+%     Journal of Symbolic Logic, v. 7, n. 3, p. 115–117, 1942.
+%   - Beall, J. C.; Murzi, J. Two flavors of Curry's paradox.
+%     Journal of Philosophy, v. 110, n. 3, p. 143–165, 2013.
+%   - Restall, G. An Introduction to Substructural Logics.
+%     Routledge, 2000.
+
+\section{O Teorema da Incompletude de Gödel (1931)}
+
+Apresentar como o mesmo método diagonal de Cantor é usado para
+construir uma afirmação que diz ``esta afirmação não é demonstrável''.
+Enfatizar a conexão técnica com o Capítulo 4: diagonalização como
+ferramenta unificadora. Tratar com cuidado a distinção entre
+paradoxo e teorema.
+
+% Fontes:
+%   - Nagel & Newman, Gödel's Proof, NYU Press, 1958
+%   - Smullyan, Gödel's Incompleteness Theorems, Oxford University Press, 1992

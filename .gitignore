@@ -28,6 +28,7 @@
 *.loa
 *.loq
 *.xdv
+main.bbl-SAVE-ERROR
 
 # Output PDF (artefatos de build local)
 *.pdf
