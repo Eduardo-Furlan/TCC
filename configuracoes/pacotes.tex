@@ -51,6 +51,9 @@
     maxbibnames   = 3,
 ]{biblatex}
 
+\DeclareBibliographyCategory{cited}
+\AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
+
 \addbibresource{base-referencias.bib}
 
 % Texto de backref em português

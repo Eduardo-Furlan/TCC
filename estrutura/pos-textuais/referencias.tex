@@ -5,8 +5,16 @@
 % Impressão das referências bibliográficas.
 % Com biblatex não há mais \bibliography{} nem \bibliographystyle{}.
 % ============================================================
+\nocite{*}
 
 \printbibliography[%
-    title={REFER\^ENCIAS},
-    heading=bibintoc,           % adiciona ao sumário
+  title={REFER\^ENCIAS},
+  heading=bibintoc,
+  category=cited
+]
+
+\newpage
+\printbibliography[
+  notcategory=cited,
+  title={REFER\^ENCIAS AINDA NÃO CITADAS}
 ]
