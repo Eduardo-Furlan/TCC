@@ -1,0 +1,58 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual da não-comutatividade de rotações no \(\mathbb{R}^3\)}
+    \label{fig:rotacao_nao_comuta}
+
+    \begin{tikzpicture}[
+            scale=1.1,
+            transform shape,
+            font=\sffamily,
+            >=stealth,
+            x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}
+        ]
+
+        \usetikzlibrary{arrows.meta, calc}
+
+        \def\ColorAxis{\ifbool{darkmode}{gray!50}{black}}
+        \def\ColorInitial{\ifbool{darkmode}{gray!70}{gray!80}}
+        \def\ColorMid{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+        \def\ColorFinal{\ifbool{darkmode}{DarkModeRed}{LightModeRed}}
+
+        \begin{scope}
+            \node[anchor=south, font=\bfseries\large] at (0, 4.0, 0) {\(\rho_x \circ \rho_y\)};
+
+            \draw[->, \ColorAxis, thick] (0,0,0) -- (3,0,0) node[anchor=north east]{\(x\)};
+            \draw[->, \ColorAxis, thick] (0,0,0) -- (0,3.5,0) node[anchor=north west]{\(y\)};
+            \draw[->, \ColorAxis, thick] (0,0,0) -- (0,0,3) node[anchor=south]{\(z\)};
+
+            \draw[->, >={Latex[length=3mm]}, ultra thick, \ColorInitial] (0,0,0) -- (0,2,0) node[anchor=south east] {\((0,1,0)\)};
+
+            \node[text=\ColorInitial, font=\footnotesize, align=left] at (0, 2.3, -0.5) {\(\rho_y\) (inalterado)};
+
+            \draw[->, >={Latex[length=2.5mm]}, \ColorFinal, thick, dashed] (0,2,0) to[bend right=30] node[midway, above right] {\(\rho_x\)} (0,0,2);
+
+            \draw[->, >={Latex[length=3mm]}, ultra thick, \ColorFinal] (0,0,0) -- (0,0,2) node[anchor=south west] {\((0,0,1)\)};
+        \end{scope}
+
+        \begin{scope}[xshift=7cm]
+            \node[anchor=south, font=\bfseries\large] at (0, 4.0, 0) {\(\rho_y \circ \rho_x\)};
+
+            \draw[->, \ColorAxis, thick] (0,0,0) -- (3,0,0) node[anchor=north east]{\(x\)};
+            \draw[->, \ColorAxis, thick] (0,0,0) -- (0,3.5,0) node[anchor=north west]{\(y\)};
+            \draw[->, \ColorAxis, thick] (0,0,0) -- (0,0,3) node[anchor=south]{\(z\)};
+
+            \draw[->, >={Latex[length=3mm]}, ultra thick, \ColorInitial] (0,0,0) -- (0,2,0) node[anchor=south east] {\((0,1,0)\)};
+
+            \draw[->, >={Latex[length=2.5mm]}, \ColorMid, thick, dashed] (0,2,0) to[bend right=30] node[midway, above right] {\(\rho_x\)} (0,0,2);
+
+            \draw[->, >={Latex[length=3mm]}, ultra thick, \ColorMid] (0,0,0) -- (0,0,2) node[anchor=south west] {\((0,0,1)\)};
+
+            \draw[->, >={Latex[length=2.5mm]}, \ColorFinal, thick, dashed] (0,0,2) to[bend right=30] node[midway, left] {\(\rho_y\)} (2,0,0);
+
+            \draw[->, >={Latex[length=3mm]}, ultra thick, \ColorFinal] (0,0,0) -- (2,0,0) node[anchor=north west] {\((1,0,0)\)};
+        \end{scope}
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

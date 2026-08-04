@@ -7,6 +7,7 @@
 % Motor recomendado : LuaLaTeX
 % Bibliografia      : Biber + biblatex-abnt
 % ============================================================
+% Mudar latex-workshop.view.pdf.viewer nas settings (ctrl + ,). Se estiver em remote access usar browser, se estiver localmente usar tab.
 
 \documentclass[%
 %   twoside,          % impressão frente-e-verso
@@ -16,6 +17,13 @@
     sumario=abnt-6027-2012,
     brazil,
 ]{abntex2}
+
+% ── PDF/A ────────────────────────────────────────────────────
+% pdfx carrega hyperref e xcolor internamente: NÃO os carregue de
+% novo em outro lugar.
+% Requer o arquivo main.xmpdata na raiz do projeto (metadados XMP).
+\usepackage[a-3u]{pdfx}
+% ─────────────────────────────────────────────────────────────
 
 % ── Modo escuro ─────────────────────────────────────────────
 % Defina ANTES dos outros \input para que pacotes.tex possa

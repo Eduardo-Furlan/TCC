@@ -1,0 +1,15 @@
+% ============================================================
+% main.xmpdata
+%
+% Metadados XMP exigidos pelo pdfx para a conformidade PDF/A.
+% O nome do arquivo DEVE coincidir com o nome do .tex raiz
+% (main.tex -> main.xmpdata). Mantenha os campos abaixo em
+% sincronia com \titulo{} e \autor{} em capa.tex.
+% ============================================================
+
+\Title{Infinitos de Cantor: Cardinalidade, Dimensão e a Estrutura dos Números Ordinais}
+\Author{Eduardo Furlan}
+\Language{pt-BR}
+\Keywords{abnt\sep latex\sep abntex\sep abntex2\sep utfpr}
+\Subject{Trabalho de Conclusão de Curso}
+\Publisher{Universidade Tecnológica Federal do Paraná}

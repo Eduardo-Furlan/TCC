@@ -5,17 +5,304 @@
 
 O Axioma da Escolha é independente dos demais axiomas da teoria ZF, mas é essencial para muitos resultados modernos. Sua aceitação, contudo, leva a consequências paradoxais, como o Paradoxo de Banach-Tarski \parencite{wapner2007}, que demonstra ser possível decompor uma esfera sólida em um número finito de pedaços e remontá-los em duas esferas idênticas à original, violando a intuição física de conservação de volume.
 
-\section{Analogia do \textit{Hiper-Webster}}
-\label{sec:hiper_webster}
+% \section{O Axioma da Escolha}
+% \label{sec:escolha}
 
-Para introduzir as consequências contraintuitivas do infinito na geometria, é elucidativo analisar primeiramente paradoxos em conjuntos enumeráveis. \textcite[p.~135]{wapner2007} apresenta a analogia do \textit{``Hiper-Webster''}\footnote{Derivado do nome \textit{Merriam-Webster}, um dicionário estadunidense.} \ (originalmente proposta por Ian Stewart), um dicionário infinito contendo todas as palavras possíveis formadas pelas 26 letras do alfabeto inglês. Neste dicionário hipotético, as palavras são listadas em ordem alfabética: A, AA, AAA, AAAA, e assim por diante, seguidas eventualmente por AB, ABA, ABAA, etc. O dicionário contém todas as sequências finitas de letras, independentemente de terem significado ou não.
+% \begin{axioma}[Axioma da Escolha]
+%     Para qualquer conjunto \(A\) existe uma função \(f\) (chamada ``função escolha'') tal que o domínio de \(f\) é o conjunto dos subconjuntos não vazios de \(A\), e para cada \(B \subseteq A\) não vazio, \(f(B) \in B\).
+%     \label{ax:escolhaI}
+% \end{axioma}
 
-A propriedade paradoxal deste conjunto é revelada quando tentamos decompor o \textit{Hiper-Webster} em 26 volumes separados, organizados pela letra inicial de cada palavra. O Volume A conteria todas as palavras começando com 'A', o Volume B todas as que começam com 'B', e assim sucessivamente.
+% \begin{definicao}[Cadeia]
+%     Um conjunto \(A\) é chamado de cadeia se, e somente se para cada \(B\) e \(C\) em \(A\), \(B \subseteq C\) ou \(C \subseteq B\).
+%     \label{def:cadeia}
+% \end{definicao}
 
-\input{./dados/figuras/hiperwebster.tex}
+% \begin{teorema}
+%     As seguintes afirmações são equivalentes:
+%     \begin{enumerate}[label=(\arabic*)]
+%         \item \autoref{ax:escolhaI}.
+%         \item Axioma da Escolha II. Para qualquer relação \(R\), existe uma função \(f \subseteq R\) com \(\dom(F) = \dom(R)\).
+%         \item Axioma da Escolha III. O produto cartesiano de dois conjuntos não vazios é sempre não vazio.
+%         \item Axioma da Escolha IV. Seja \(\mathscr{A}\) um conjunto tal que todo membro de \(\mathscr{A}\) é um conjunto não vazio e quaisquer dois membros diferentes de \(\mathscr{A}\) são disjuntos. Então existe um conjunto \(C\) contendo exatamente um elemento de cada membro de \(\mathscr{A}\).
+%         \item Lema de Zorn. Seja \(\mathscr{A}\) um conjunto tal que para qualquer cadeia \(B \in \mathscr{A}\) tem-se que \(\bigcup B \in \mathscr{A}\). Então \(\mathscr{A}\) contém  um elemento \(M\) tal que \(M\) não é um subconjunto de qualquer outro conjunto em \(\mathscr{A}\).
+%     \end{enumerate}
+%     \label{teo:equiv_axioma_escolha}
+% \end{teorema}
 
-Se tomarmos apenas o Volume A e removermos a primeira letra ('A') de cada palavra nele contida, o resultado é surpreendente: a lista de palavras restante é idêntica ao conteúdo do \textit{Hiper-Webster} original completo. Por exemplo, a palavra 'AA' torna-se 'A', 'AB' torna-se 'B', recuperando assim todas as sequências possíveis.
+% Muitas pessoas acreditam que qualquer escolha infinita necessita do Axioma da Escolha, no entanto, isso está errado, é possível fazer escolhas infinitas sem necessitar do Axioma da Escolha:
 
-Este processo demonstra que o \textit{Hiper-Webster} possui a propriedade de ser decomponível em 26 cópias de si mesmo. A distinção crucial, no entanto, reside na natureza do infinito envolvido: enquanto o dicionário lida com um infinito enumerável (palavras discretas), o Teorema de Banach-Tarski opera no contínuo (\(\mathbb{R}^3\)). A decomposição da esfera não envolve apenas a remoção de um ``caractere'' \ inicial, mas sim o uso do Axioma da Escolha para particionar o sólido em conjuntos de pontos não mensuráveis, que são então rotacionados para recompor duas esferas sólidas completas.
+% \begin{exemplo}[Sapatos e Meias]
+%     A analogia de Bertrand Russell ilustra a essência do Axioma da Escolha. Se você possui uma coleção infinita de pares de sapatos, pode formar um novo conjunto escolhendo um sapato de cada par através de uma regra explícita: escolha sempre o sapato esquerdo. Como a regra é construtiva, o axioma não é necessário.
+
+%     Por outro lado, se você possui uma coleção infinita de pares de meias idênticas, não há meia esquerda ou direita. Sem uma propriedade que distinga os elementos dentro de cada par, é impossível formular uma regra matemática para a seleção. O Axioma da Escolha é a ferramenta que garante a existência desse conjunto resultante, mesmo sem uma regra construtiva.
+% \end{exemplo}
+
+% \section{Analogia do \textit{Hiper-Webster}}
+% \label{sec:hiper_webster}
+
+% Para introduzir as consequências contraintuitivas do infinito na geometria, é elucidativo analisar primeiramente paradoxos em conjuntos enumeráveis. \textcite[p.~135]{wapner2007} apresenta a analogia do \textit{``Hiper-Webster''}\footnote{Derivado do nome \textit{Merriam-Webster}, um dicionário estadunidense.} \ (originalmente proposta por Ian Stewart), um dicionário infinito contendo todas as palavras possíveis formadas pelas 26 letras do alfabeto inglês. Neste dicionário hipotético, as palavras são listadas em ordem alfabética: A, AA, AAA, AAAA, e assim por diante, seguidas eventualmente por AB, ABA, ABAA, etc. O dicionário contém todas as sequências finitas de letras, independentemente de terem significado ou não.
+
+% A propriedade paradoxal deste conjunto é revelada quando tentamos decompor o \textit{Hiper-Webster} em 26 volumes separados, organizados pela letra inicial de cada palavra. O Volume A conteria todas as palavras começando com 'A', o Volume B todas as que começam com 'B', e assim sucessivamente.
+
+% \input{./dados/figuras/hiperwebster.tex}
+
+% Se tomarmos apenas o Volume A e removermos a primeira letra ('A') de cada palavra nele contida, o resultado é surpreendente: a lista de palavras restante é idêntica ao conteúdo do \textit{Hiper-Webster} original completo. Por exemplo, a palavra 'AA' torna-se 'A', 'AB' torna-se 'B', recuperando assim todas as sequências possíveis.
+
+% Este processo demonstra que o \textit{Hiper-Webster} possui a propriedade de ser decomponível em 26 cópias de si mesmo. A distinção crucial, no entanto, reside na natureza do infinito envolvido: enquanto o dicionário lida com um infinito enumerável (palavras discretas), o Teorema de Banach-Tarski opera no contínuo (\(\mathbb{R}^3\)). A decomposição da esfera não envolve apenas a remoção de um ``caractere'' \ inicial, mas sim o uso do Axioma da Escolha para particionar o sólido em conjuntos de pontos não mensuráveis, que são então rotacionados para recompor duas esferas sólidas completas.
+
+
+\section{Conceitos Básicos para o Paradoxo de Banach-Tarski}
+\label{sec:conceitos_basicos_banach}
+
+Esta seção define inicialmente os espaços métricos e as isometrias, formalizando os movimentos rígidos no \(\mathbb{R}^3\). Em seguida, introduz a teoria de grupos para analisar a não-comutatividade das rotações espaciais. Por fim, aborda a ação de grupos sobre conjuntos, o conceito de equidecomponibilidade e a existência de conjuntos não-mensuráveis, explicando matematicamente como a quebra da intuição física sobre conservação de volume se sustenta.
+
+\subsection{Espaços Métricos e o Espaço Euclidiano}
+\label{subsec:espacos_metricos}
+
+Para compreender os movimentos rígidos no espaço, é necessário estabelecer um rigor matemático sobre como medimos as distâncias entre pontos. A base geométrica do paradoxo de Banach-Tarski começa com a formalização do conceito de métrica, conforme definido por \textcite{lima2014}.
+
+\begin{definicao}[Métrica]
+    Uma métrica em um conjunto \(M\) é uma função \(d: \ M \times M \to \mathbb{R}\) que satisfaz as seguintes condições para quaisquer \(x,y,z \in M\).
+    \begin{enumerate}
+        \item \(d(x,x) = 0\)
+        \item \(x \neq y \implies d(x,y) > 0\)
+        \item \(d(x,y) = d(y,x)\)
+        \item \(d(x,z) \leq d(x,y) + d(y,x).\)
+    \end{enumerate}
+    Chamamos a imagem de \(d(x,y)\) de ``distância de \(x\) a \(y\).''
+    \label{def:metrica}
+\end{definicao}
+
+\begin{definicao}[Espaço Métrico]
+    Um espaço métrico é um par \((M, d)\), onde \(M\) é um conjunto e \(d\) é uma métrica em \(M\).
+    \label{def:espaco_metrico}
+\end{definicao}
+
+\begin{exemplo}[Métrica Euclidiana em \(\mathbb{R}^3\)]
+    Sejam \(x = (x_1, x_2, x_3)\) e \(y = (y_1, y_2, y_3)\) pontos em \(\R^3\), definimos a métrica euclidiana em \(\R^3\) como
+    \[
+        d(x,y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 - y_3)^2}
+    \]
+    \label{ex:metrica_euclidiana_r3}
+\end{exemplo}
+
+A métrica euclidiana modela a nossa percepção intuitiva de distância física. Com o espaço e a forma de medir distâncias formalizados, o próximo passo é estudar as transformações matemáticas que atuam sobre esse espaço sem distorcer suas dimensões, ou seja, as funções que preservam a distância entre quaisquer dois pontos.
+
+\subsection{Isometrias e Grupos de Transformações}
+\label{subsec:isometrias_grupos}
+
+\begin{definicao}[Isometria]
+    Sejam \(M, N\) espaços métricos. Uma função \(f: \ M \to N \) é uma \textbf{isometria} quando é bijeção e \(d(x,y) = d(f(x), f(y))\), para quaisquer \(x,y \in M.\)
+    \label{def:isometria}
+\end{definicao}
+
+\input{dados/figuras/isometria_vaso.tex}
+
+\input{dados/figuras/nao_isometria_vaso.tex}
+
+Na geometria associada ao paradoxo de Banach-Tarski, o interesse principal reside em como subconjuntos do \(\mathbb{R}^3\) podem ser movidos e reagrupados. Quando restringimos nossa análise aos movimentos rígidos, ou seja, transformações contínuas que preservam a orientação e a distância, refletindo ações fisicamente possíveis, percebemos que todas as isometrias espaciais derivam da combinação de translações e rotações. As definições formais dessas duas operações fundamentais são estabelecidas a seguir, conforme \textcite{zahoor2016}.
+
+\begin{definicao}[Translação]
+    Uma translação em \(\mathbb{R}^3\) é uma isometria de \(\mathbb{R}^3\). Seja \((a,b,c)\) um vetor em \(\mathbb{R}^3\). Então definimos uma translação por \((a,b,c)\) como o mesmo deslocamento vetorial de cada ponto pelo fator \((a,b,c)\).
+    \label{def:translacao}
+\end{definicao}
+
+\figplaceholder{Translação em \(\R^3\)}
+% \input{dados/figuras/translacao_r3.tex}
+
+\begin{definicao}[Rotação]
+    Seja \(\mathcal{L}\) uma reta qualquer em \(\mathbb{R}^3\). Uma rotação de \(\mathbb{R}^3\) em torno da reta \(\mathcal{L}\) é definida como uma isometria na qual todo ponto pertencente a \(\mathcal{L}\) é mapeado em si mesmo e todos os outros pontos sofrem o mesmo deslocamento angular \(\theta\).
+    \label{def:rotacao}
+\end{definicao}
+
+\figplaceholder{Rotação em \(\R^3\)}
+% \input{dados/figuras/rotacao_r3.tex}
+
+As isometrias podem ser compostas, ou seja, executadas em sequência. Para analisar as propriedades matemáticas dessas composições, empregamos a teoria de grupos. O conceito de grupo abstrai a operação de composição de funções e fornece a estrutura algébrica fundamental para explorar as simetrias espaciais \parencite{garcia2014}.
+
+\begin{definicao}[Operação]
+    Uma operação em um conjunto \(A\) é uma função do produto cartesiano \(A \times A\) para \(A\).
+    \label{def:operacao}
+\end{definicao}
+
+
+\begin{exemplo}
+    Inserir exemplos de operações.
+    \label{ex:operacoes}
+\end{exemplo}
+
+\begin{definicao}[Grupo]
+    \label{def:grupo}
+    Um conjunto \(G\) e uma operação
+    \begin{align*}
+        \cdot : \ G \times G & \to G             \\
+        (a,b)                & \mapsto a \cdot b
+    \end{align*}
+    é um grupo se as seguintes condições são satisfeitas:
+    \begin{enumerate}
+        \item A operação é associativa:
+              \[
+                  a \cdot (b \cdot c) = (a \cdot b) \cdot c, \ \forall a,b,c \in G.
+              \]
+        \item Existe um elemento neutro:
+              \[
+                  \exists e \in G \tq e \cdot a = a \cdot e = a, \ \forall a \in G.
+              \]
+        \item Todo elemento possui um inverso:
+              \[
+                  \forall a \in G, \ \exists b \in G \tq a \cdot b = b \cdot a = e.
+              \]
+    \end{enumerate}
+\end{definicao}
+
+\begin{exemplo}
+    Inserir exemplos de grupos.
+    \label{ex:}
+\end{exemplo}
+
+Aplicando os conceitos de teoria de grupos às transformações geométricas previamente definidas, conectamos a álgebra e a geometria do \(\mathbb{R}^3\). Conforme \textcite{garcia2014}, o conjunto de todas as bijeções de um conjunto em si mesmo forma um grupo sob a operação de composição de funções. Uma vez que as isometrias são bijeções e que a composta de duas isometrias, assim como a inversa de uma isometria, continuam sendo isometrias \parencite{lima2014}, conclui-se que o conjunto de todas as isometrias forma um grupo sob a composição. É essa estrutura de grupo, não-abeliano em geral para as rotações espaciais, que gera órbitas de pontos com complexidade suficiente para viabilizar a construção de conjuntos não-mensuráveis.
+
+\begin{exemplo}[Não-comutatividade de Rotações]
+    Para ilustrar que o grupo das isometrias no \(\mathbb{R}^3\) é não-abeliano, basta demonstrar que a operação de composição para rotações espaciais não é comutativa. Sejam \(\rho_x\) uma rotação de \(\frac{\pi}{2}\) radianos em torno do eixo \(x\), e \(\rho_y\) uma rotação de \(\frac{\pi}{2}\) radianos em torno do eixo \(y\).
+
+    Aplicando essas isometrias ao vetor \(\vec{v} = (0, 1, 0)\), analisamos o efeito da ordem de composição. Calculando \(\rho_x \circ \rho_y\), aplicamos primeiro \(\rho_y\), que mantém o vetor inalterado por estar sobre o eixo de rotação: \(\rho_y(0, 1, 0) = (0, 1, 0)\). Em seguida, aplicamos \(\rho_x\), resultando em:
+    \[
+        \rho_x(\rho_y(0, 1, 0)) = \rho_x(0, 1, 0) = (0, 0, 1).
+    \]
+
+    Invertendo a ordem para \(\rho_y \circ \rho_x\), aplicamos primeiro \(\rho_x\), que move o vetor para o eixo \(z\): \(\rho_x(0, 1, 0) = (0, 0, 1)\). A aplicação subsequente de \(\rho_y\) sobre este novo vetor o move para o eixo \(x\):
+    \[
+        \rho_y(\rho_x(0, 1, 0)) = \rho_y(0, 0, 1) = (1, 0, 0).
+    \]
+
+    Como \((0, 0, 1) \neq (1, 0, 0)\), fica provado que \(\rho_x \circ \rho_y \neq \rho_y \circ \rho_x\). A ordem da composição altera o resultado, evidenciando que as rotações espaciais não comutam e, consequentemente, o grupo de isometrias que as contém não é abeliano.
+    \label{ex:rotacoes_nao_comutativas}
+\end{exemplo}
+
+\figplaceholder{não comutação da rotação em \(\R^3\)}
+% \input{dados/figuras/rotacao_nao_comuta.tex}
+
+\subsection{Operação de Grupo e Órbitas}
+\label{subsec:operacao_grupo}
+
+Definição abaixo de \textcite[p.~176]{artin2018} e \textcite[p.~88]{Hungerford1974}
+\begin{definicao}[Operação de Grupo Sobre um Conjunto]
+    \label{def:operacao_grupo}
+    Seja \(G\) um grupo com elemento neutro \(e\), e seja \(X\) um conjunto não vazio. Uma operação do grupo \(G\) sobre o conjunto \(X\) é uma função
+    \begin{align*}
+        G \times X & \to X      \\
+        (g, x)     & \mapsto gx
+    \end{align*}
+    que satisfaz as seguintes condições:
+    \begin{enumerate}
+        \item \(ex = x, \ \forall x \in X\).
+        \item \((g_1 g_2) x = g_1 (g_2 x), \ \forall g_1, g_2 \in G\) e \(\forall x \in X\).
+    \end{enumerate}
+\end{definicao}
+
+Também dizemos que \(G\) age sobre \(X\).
+
+\begin{remark}
+    Quando \(G\) age sobre \(X\), \(g \in G\) e \(A \subseteq X\) escrevemos \(gA\) para denotar o conjunto \(\{ga: a \in A\}\).
+\end{remark}
+
+\begin{exemplo}
+    Inserir exemplos de operação de grupo sobre conjunto
+
+    \label{ex:operacao_grupo_conjunto}
+\end{exemplo}
+
+Uma vez definida a maneira como um grupo opera sobre um conjunto, podemos analisar o comportamento de elementos individuais sob essa ação. O subconjunto formado por todos os pontos que podem ser alcançados a partir de um ponto inicial, aplicando-se todos os elementos do grupo, é denominado órbita.
+
+Definição abaixo de \textcite[p.~89]{Hungerford1974}
+
+\begin{definicao}[Órbita]
+    \label{def:orbita}
+    Seja \(G\) um grupo atuando sobre um conjunto \(X\) e seja \(x \in X\). A órbita de \(x\) sob a ação de \(G\), denotada por \(G_x\), é definida como o conjunto:
+    \[
+        G_x = \{ gx: g \in G \}
+    \]
+\end{definicao}
+
+\begin{exemplo}
+    Inserir exemplos de órbita
+    \label{ex:orbita}
+\end{exemplo}
+
+\figplaceholder{órbita}
+
+A ação de um grupo \(G\) sobre um conjunto \(X\) induz naturalmente uma relação em \(X\), definida por \(x \sim y \iff \exists g \in G \tq y = gx\). A demonstração de que esta é uma relação de equivalência fica a cargo do leitor.
+
+Um resultado fundamental da teoria de conjuntos estabelece que as classes de equivalência\footnote{A classe de equivalência de um elemento \(x\) sob uma relação \(\sim\) em um conjunto \(X\) é o subconjunto de todos os elementos que se relacionam com \(x\), definido formalmente como \([x] = \{ y \in X : y \sim x \}\).} de qualquer relação de equivalência formam uma partição disjunta do espaço sobre o qual estão definidas, cuja demonstração detalhada pode ser encontrada em \textcite[p.~216]{hammack2018}. Como a classe de equivalência de um elemento sob essa relação específica é exatamente a sua órbita, conclui-se que a ação do grupo particiona o conjunto \(X\) em órbitas mutuamente disjuntas.
+
+
+
+\subsection{Equidecomponibilidade sob a Ação de um Grupo}
+\label{subsec:equidecomponibilidade}
+
+Definição de \textcite[p.~25]{tomkowicz2016}
+
+\begin{definicao}[\(G\)-Equidecomponibilidade]
+    Seja \(G\) um grupo que age sobre \(X\) e \(A,B \subseteq X\). Os conjuntos \(A\)  e \(B\) são ditos \(G\)-equidecomponíveis quando \(A\) e \(B\) podem ser particionados em \(n\) conjuntos tal que existam \(g_1, \dots, g_n \in G\) de forma que \(g_iA_i = B_i\) com \(i = 1, \dots, n.\)
+
+    \label{def:g_equidecomponibilidade}
+\end{definicao}
+
+\begin{exemplo}
+    Inserir exemplo de \autoref{def:g_equidecomponibilidade}
+    \label{ex:g_equidecomponibilidade}
+\end{exemplo}
+
+\begin{definicao}[Conjuntos Equidecomponiveis]
+    Dois conjuntos \(A\) e \(B\) são ditos equidecomponíveis quando são \(G\)-equidecomponíveis e \(G\) é um grupo de isometrias. Ou seja, dois conjuntos são equidecomponíveis quando é possível particionar o primeiro em um número finito de pedaços e reposicionar essas partes, exclusivamente através de isometrias, para montar exatamente o segundo conjunto.
+    \label{def:equidecomponiveis}
+\end{definicao}
+
+\begin{exemplo}[Tangram]
+    O caso mais elementar e visual de conjuntos equidecomponíveis é o clássico Tangram. Um quadrado perfeito é decomposto em uma partição finita de sete peças planas (cinco triângulos, um quadrado e um paralelogramo). Através de isometrias simples, especificamente rotações e translações no plano bidimensional, essas mesmas peças podem ser reagrupadas para formar um triângulo retângulo maior, um retângulo ou diversas outras silhuetas.
+
+    \input{dados/figuras/tangram.tex}
+\end{exemplo}
+
+\begin{exemplo}[Teorema de Wallace-Bolyai-Gerwien]
+    Na geometria plana clássica, a equidecomponibilidade entre polígonos é estritamente governada pela equivalência de áreas. O teorema demonstra que quaisquer dois polígonos no plano \(\mathbb{R}^2\) que possuam exatamente a mesma área são sempre equidecomponíveis. É possível, por exemplo, fatiar qualquer triângulo em um número finito de subpolígonos e reordená-los puramente por translação e rotação para preencher de forma exata um quadrado \parencite[p.~90]{wapner2007}.
+\end{exemplo}
+
+\subsection{Medida e Conjuntos Não-Mensuráveis}
+\label{subsec:medida}
+
+\begin{definicao}[Medida]
+    definir medida
+    \label{def:medida}
+\end{definicao}
+
+Definição de \textcite{terra2020}
+
+\begin{definicao}[Medida Finitamente Aditiva]
+    Seja \(A\) um conjunto e \(\mu\) uma medida em \(A\). Dizemos que \(\mu\) é uma medida finitamente aditiva quando a medida de \(A\) é igual a soma das medidas de uma partição finita de \(A\), ou seja:
+
+    \[
+        A_1, \dots, A_n \text{ particionam } A \implies \mu (A) = \sum_{i=1}^{n} \mu (A_i).
+    \]
+
+    \label{def:medida_aditiva}
+\end{definicao}
+
+\begin{proposicao}
+    Provar que se dois conjuntos mensuráveis são equidecomponíveis, então eles possuem estritamente a mesma medida.
+    \label{prop:medida_equidecomponiveis}
+\end{proposicao}
+
+\begin{definicao}[Conjunto Não-Mensurável]
+    Definir a existência de subconjuntos do \(\mathbb{R}^3\) aos quais é impossível atribuir uma medida consistente, rompendo a lei de conservação de volume.
+    \label{def:nao_mensuravel}
+\end{definicao}
+
+\section{O Axioma da Escolha}
+
+Seção sobre o Axioma da Escolha e equivalências
+
+\section{O Paradoxo de Banach-Tarski}
 
 \input{./dados/figuras/paradoxo_banach_tarski.tex}

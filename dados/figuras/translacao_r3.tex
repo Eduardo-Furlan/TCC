@@ -1,0 +1,71 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual de uma translação em \(\mathbb{R}^3\)}
+    \label{fig:translacao_r3}
+
+    \begin{tikzpicture}[
+            scale=1,
+            transform shape,
+            font=\sffamily,
+            >=stealth,
+            x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}
+        ]
+
+        \usetikzlibrary{calc, arrows.meta}
+
+        \def\ColorAxis{\ifbool{darkmode}{gray!50}{black}}
+        \def\ColorCubeA{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+        \def\ColorCubeB{\ifbool{darkmode}{DarkModeRed}{LightModeRed}}
+        \def\ColorVector{\ifbool{darkmode}{DarkModeViolet}{LightModeViolet}}
+
+        \draw[->, \ColorAxis, thick] (0,0,0) -- (5.5,0,0) node[anchor=north east]{\(x\)};
+        \draw[->, \ColorAxis, thick] (0,0,0) -- (0,6.0,0) node[anchor=north west]{\(y\)};
+        \draw[->, \ColorAxis, thick] (0,0,0) -- (0,0,4.5) node[anchor=south]{\(z\)};
+
+        \coordinate (A1) at (0.5, 0.5, 0.5);
+        \coordinate (B1) at (2, 0.5, 0.5);
+        \coordinate (C1) at (2, 2, 0.5);
+        \coordinate (D1) at (0.5, 2, 0.5);
+        \coordinate (E1) at (0.5, 0.5, 2);
+        \coordinate (F1) at (2, 0.5, 2);
+        \coordinate (G1) at (2, 2, 2);
+        \coordinate (H1) at (0.5, 2, 2);
+
+        \coordinate (V) at (0, 4.5, 2);
+
+        \coordinate (A2) at ($(A1) + (V)$);
+        \coordinate (B2) at ($(B1) + (V)$);
+        \coordinate (C2) at ($(C1) + (V)$);
+        \coordinate (D2) at ($(D1) + (V)$);
+        \coordinate (E2) at ($(E1) + (V)$);
+        \coordinate (F2) at ($(F1) + (V)$);
+        \coordinate (G2) at ($(G1) + (V)$);
+        \coordinate (H2) at ($(H1) + (V)$);
+
+        \draw[thick, \ColorCubeA, dashed] (A1) -- (B1) -- (C1) -- (D1) -- cycle;
+        \draw[thick, \ColorCubeA, dashed] (A1) -- (E1);
+        \draw[thick, \ColorCubeA, dashed] (B1) -- (F1);
+        \draw[thick, \ColorCubeA, dashed] (C1) -- (G1);
+        \draw[thick, \ColorCubeA, dashed] (D1) -- (H1);
+        \draw[thick, \ColorCubeA, fill=\ColorCubeA, fill opacity=0.15] (E1) -- (F1) -- (G1) -- (H1) -- cycle;
+        \draw[thick, \ColorCubeA, fill=\ColorCubeA, fill opacity=0.15] (B1) -- (C1) -- (G1) -- (F1) -- cycle;
+        \draw[thick, \ColorCubeA, fill=\ColorCubeA, fill opacity=0.15] (C1) -- (D1) -- (H1) -- (G1) -- cycle;
+
+        \draw[->, >={Latex[length=2.5mm]}, thick, \ColorVector, dashed] (A1) -- (A2);
+        \draw[->, >={Latex[length=2.5mm]}, thick, \ColorVector, dashed] (B1) -- (B2);
+        \draw[->, >={Latex[length=2.5mm]}, thick, \ColorVector, dashed] (E1) -- (E2);
+        \draw[->, >={Latex[length=2.5mm]}, thick, \ColorVector] (G1) -- (G2) node[midway, sloped, above] {\((a,b,c)\)};
+
+        \draw[thick, \ColorCubeB, dashed] (A2) -- (B2) -- (C2) -- (D2) -- cycle;
+        \draw[thick, \ColorCubeB, dashed] (A2) -- (E2);
+        \draw[thick, \ColorCubeB, dashed] (B2) -- (F2);
+        \draw[thick, \ColorCubeB, dashed] (C2) -- (G2);
+        \draw[thick, \ColorCubeB, dashed] (D2) -- (H2);
+        \draw[thick, \ColorCubeB, fill=\ColorCubeB, fill opacity=0.2] (E2) -- (F2) -- (G2) -- (H2) -- cycle;
+        \draw[thick, \ColorCubeB, fill=\ColorCubeB, fill opacity=0.2] (B2) -- (C2) -- (G2) -- (F2) -- cycle;
+        \draw[thick, \ColorCubeB, fill=\ColorCubeB, fill opacity=0.2] (C2) -- (D2) -- (H2) -- (G2) -- cycle;
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

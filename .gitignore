@@ -29,6 +29,7 @@
 *.loq
 *.xdv
 main.bbl-SAVE-ERROR
+*.xmpi
 
 # Output PDF (artefatos de build local)
 *.pdf

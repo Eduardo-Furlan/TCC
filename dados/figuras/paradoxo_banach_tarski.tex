@@ -1,7 +1,7 @@
 \begin{figure}[H]
     \centering
     \caption{O processo do Paradoxo de Banach-Tarski}
-    \label{fig:banach_tarski_vertical}
+    \label{fig:paradoxo_banach_tarski}
 
     \begin{tikzpicture}[
             scale=0.9,
@@ -10,15 +10,11 @@
             >=stealth
         ]
 
-        % Cores Condicionais
         \def\ColorBall{\ifbool{darkmode}{gray!30}{gray!80}}
         \def\ColorA{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
         \def\ColorB{\ifbool{darkmode}{DarkModeViolet}{LightModeViolet}}
         \def\ColorText{\ifbool{darkmode}{DarkModeText}{black}}
 
-        % ==========================================
-        % ETAPA 1: Esfera Original
-        % ==========================================
         \begin{scope}[shift={(0,0)}]
             \shade[ball color=\ColorBall, opacity=0.9] (0,0) circle (1.5);
             \draw[\ColorText, dashed] (1.5,0) arc (0:180:1.5 and 0.4);
@@ -34,13 +30,9 @@
 
         \draw[->, \ColorText, ultra thick] (0, -1.8) -- (0, -2.8);
 
-        % ==========================================
-        % ETAPA 2: Esfera com cortes representativos
-        % ==========================================
         \begin{scope}[shift={(0,-4.5)}]
             \shade[ball color=\ColorBall, opacity=0.9] (0,0) circle (1.5);
 
-            % Linhas de corte simbólicas (representando a decomposição complexa)
             \draw[\ColorText, thick] (-1.2, 0.9) to[out=-45, in=135] (0.5, -1.4);
             \draw[\ColorText, thick] (-0.8, -1.2) to[out=60, in=200] (1.3, 0.7);
             \draw[\ColorText, thick] (0.2, 1.4) to[out=-90, in=180] (1.4, -0.5);
@@ -57,11 +49,7 @@
 
         \draw[->, \ColorText, ultra thick] (0, -6.3) -- (0, -7.3);
 
-        % ==========================================
-        % ETAPA 3: Pedaços separados
-        % ==========================================
         \begin{scope}[shift={(0,-9.5)}]
-            % Subconjuntos tipo "A" (irão formar S1)
             \begin{scope}[shift={(-1.2, 0.8)}]
                 \shade[ball color=\ColorA, opacity=0.8] plot [smooth cycle, tension=0.7] coordinates {(0,0) (0.8,0.2) (1,-0.5) (0.2,-0.8) (-0.4,-0.4)};
                 \node[\ColorText] at (0.3, -0.2) {\(A_1\)};
@@ -77,7 +65,6 @@
                 \node[\ColorText] at (0.4, -0.2) {\(A_3\)};
             \end{scope}
 
-            % Subconjuntos tipo "B" (irão formar S2)
             \begin{scope}[shift={(1.2, -0.8)}]
                 \shade[ball color=\ColorB, opacity=0.8] plot [smooth cycle, tension=0.7] coordinates {(0,0) (0.7,0.4) (1.0,-0.3) (0.4,-0.8)};
                 \node[\ColorText] at (0.5, -0.1) {\(B_1\)};
@@ -94,17 +81,12 @@
             };
         \end{scope}
 
-        % Setas divergentes indicando os movimentos rígidos
         \draw[->, \ColorA, ultra thick, dashed] (-0.5, -11.5) to[out=-135, in=90]
         node[midway, left=0.5cm, align=right] {Isometrias\\(Rotação/Translação)} (-2.5, -13.5);
 
         \draw[->, \ColorB, ultra thick, dashed] (0.5, -11.5) to[out=-45, in=90]
         node[midway, right=0.5cm, align=left] {Isometrias\\(Rotação/Translação)} (2.5, -13.5);
 
-        % ==========================================
-        % ETAPA 4: Duas Cópias Originais
-        % ==========================================
-        % Cópia 1
         \begin{scope}[shift={(-2.5, -15.5)}]
             \shade[ball color=\ColorA, opacity=0.9] (0,0) circle (1.5);
             \draw[\ColorA, dashed] (1.5,0) arc (0:180:1.5 and 0.4);
@@ -115,7 +97,6 @@
             \node[\ColorText, below=1.8cm, align=center] {Cópia 1 \\ \(S_1 \cong S\)};
         \end{scope}
 
-        % Cópia 2
         \begin{scope}[shift={(2.5, -15.5)}]
             \shade[ball color=\ColorB, opacity=0.9] (0,0) circle (1.5);
             \draw[\ColorB, dashed] (1.5,0) arc (0:180:1.5 and 0.4);
@@ -126,7 +107,6 @@
             \node[\ColorText, below=1.8cm, align=center] {Cópia 2 \\ \(S_2 \cong S\)};
         \end{scope}
 
-        % Rótulo final centralizado
         \node[\ColorText, right=4.5cm, align=left] at (0, -15.5) {
             \textbf{4. Reconstrução}\\
             Duas esferas idênticas à original

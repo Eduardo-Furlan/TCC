@@ -1,0 +1,59 @@
+\begin{figure}[H]
+    \centering
+    \caption{Transformação Isométrica}
+    \label{fig:transformacao_isometrica}
+
+    \begin{tikzpicture}[
+            scale=1,
+            transform shape,
+            font=\sffamily,
+            >=stealth
+        ]
+
+        \def\ColorA{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+        \def\ColorB{\ifbool{darkmode}{DarkModeViolet}{LightModeViolet}}
+        \def\ColorText{\ifbool{darkmode}{DarkModeText}{black}}
+
+        \def\blobShape{plot [smooth cycle, tension=0.7] coordinates {(-1.5, -1) (0, -1.5) (1.5, -0.5) (1.2, 1.5) (-1, 1.2)}}
+
+        \begin{scope}[shift={(0,0)}]
+            \fill[\ColorA, opacity=0.15] \blobShape;
+            \draw[thick, \ColorA] \blobShape;
+            \node[\ColorA, font=\Large\bfseries] at (-1.5, 1.8) {\(X\)};
+
+            \coordinate (x1) at (-0.5, 0.5);
+            \coordinate (x2) at (0.5, -0.8);
+
+            \node[circle, fill=\ColorText, inner sep=1.5pt, label={[text=\ColorText]left:\(x_1\)}] (nx1) at (x1) {};
+            \node[circle, fill=\ColorText, inner sep=1.5pt, label={[text=\ColorText]below:\(x_2\)}] (nx2) at (x2) {};
+
+            \draw[<->, \ColorText, dashed, thick] (nx1) -- (nx2) node[midway, left=2pt] {\(d\)};
+        \end{scope}
+
+        \begin{scope}[shift={(6, 1)}, rotate=45]
+            \fill[\ColorB, opacity=0.15] \blobShape;
+            \draw[thick, \ColorB] \blobShape;
+
+            \node[\ColorB, font=\Large\bfseries, rotate=-45] at (1.5, 1.8) {\(Y\)};
+
+            \coordinate (y1) at (-0.5, 0.5);
+            \coordinate (y2) at (0.5, -0.8);
+
+            \node[circle, fill=\ColorText, inner sep=1.5pt, label={[text=\ColorText, rotate=-45]right:\(f(x_1)\)}] (ny1) at (y1) {};
+            \node[circle, fill=\ColorText, inner sep=1.5pt, label={[text=\ColorText, rotate=-45]below:\(f(x_2)\)}] (ny2) at (y2) {};
+
+            \draw[<->, \ColorText, dashed, thick] (ny1) -- (ny2) node[midway, left=2pt, below=2pt, rotate=-45] {\(d\)};
+        \end{scope}
+
+        \draw[->, \ColorText, thick, dotted] (nx1) to[out=45, in=180] (ny1);
+        \draw[->, \ColorText, thick, dotted] (nx2) to[out=0, in=225] (ny2);
+        \node[\ColorText, font=\large] at (3.5, 2.0) {\(f\)};
+
+        \node[\ColorText, align=center] at (3, -2.5) {
+            \(d(x_1, x_2) = d(f(x_1), f(x_2))\)
+        };
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

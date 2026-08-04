@@ -4,26 +4,54 @@
 Os paradoxos reunidos neste apêndice formam uma narrativa histórica
 que parte da Grécia Antiga e culmina na teoria cantoriana, cada um deles revelou uma insuficiência no entendimento vigente do infinito e motivou avanços fundamentais na matemática.
 
-\section{Os Paradoxos de Zenão (c. 450 a.C.)}
+\section{Aquiles e a Tartaruga (c. 450 AEC)}
 
-Apresentar Aquiles e a tartaruga, a flecha em repouso, e a dicotomia. Mostrar que a inquietação com somas infinitas e divisibilidade infinita é anterior à matemática formal em mais de dois milênios.
+O paradoxo de Aquiles e a tartaruga, formulado por Zenão de Eleia com o intuito de defender o monismo de Parmênides \parencite[p.~137]{vlastos1975}, propõe uma corrida entre o mais veloz dos guerreiros gregos e uma tartaruga, à qual é concedida uma vantagem inicial \parencite[p.~9]{salmon2001}. O argumento estabelece que, para ultrapassar o animal, Aquiles deve primeiro atingir o ponto exato de onde a tartaruga partiu, no entanto, durante o tempo que ele leva para percorrer essa distância, ela já terá avançado para uma nova posição. Quando Aquiles alcança essa segunda marca, a tartaruga terá se movido para uma terceira, e assim sucessivamente. Consequentemente, o perseguidor é obrigado a completar uma série infinita de trajetos, o que garante que a tartaruga sempre mantenha uma liderança, levando à conclusão de que o corredor mais rápido nunca alcançará o mais lento \parencite[p.~67]{salmon2001}.
 
+Abordando o problema historicamente, estabelece-se que, para Aquiles alcançar a tartaruga, ele precisa passar por infinitos pontos: entre quaisquer dois pontos do trajeto, existem infinitos outros \parencite[p.~48]{salmon2001}. O argumento induzia à premissa de que a soma de um número infinito de instantes finitos e sequenciais resultaria em um tempo infinito, o que tornaria a ultrapassagem teoricamente inatingível \parencite[p.~49]{salmon2001}.
+
+No entanto, a análise fundamentada na matemática moderna demonstra que a distância percorrida por Aquiles se comporta como uma série geométrica convergente. Se Aquiles der cem metros de vantagem e correr dez vezes mais rápido que a tartaruga, o percurso será a soma da seguinte série:
+
+\[\sum_{n=0}^{\infty} 100 \cdot 10^{-n} = 100 + 10 + 1 + \frac{1}{10} + \frac{1}{100} + \dots \]
+
+A soma desta série convergente tem como resultado exatamente \(111,\overline{1}\) metros, estabelecendo que uma série infinita de termos positivos não resulta necessariamente em uma soma infinita \parencite[p.~68]{salmon2001}.
+
+Apesar de o cálculo demonstrar com exatidão onde o encontro ocorre, a formulação puramente matemática não dissolve por completo a tensão lógica e física do paradoxo. O problema central exige que Aquiles complete o que pode ser descrito como uma ``série infinita de atos'' \parencite[p.~71]{salmon2001}. Esse conceito se dá por meio da noção de ``supertarefas''\footnote{Para o leitor interessado em uma introdução visual e didática sobre as supertarefas, recomenda-se o vídeo de \textcite{vsauce2015}.}: a execução completa de infinitas ações em um intervalo de tempo finito \parencite[p.~89]{salmon2001}. Assim, o foco do debate desloca-se da impossibilidade da ultrapassagem para a própria natureza do movimento contínuo. Embora o cálculo moderno nos forneça as ferramentas precisas para determinar o instante exato da vitória de Aquiles, o paradoxo de Zenão evidencia que acomodar o infinito numericamente não dissolve o mistério de como a realidade física lida com a divisibilidade ilimitada do espaço e do tempo.
 
 \section{O Paradoxo de Galileu (1638)}
 
-Apresentar a bijeção \(n \to n^2\) entre os naturais e os quadrados perfeitos. Contextualizar como o primeiro registro moderno de estranheza com bijeções em conjuntos infinitos. Conectar com a Definição de conjunto infinito do Capítulo 3.
+O Paradoxo de Galileu traz os primeiros sinais da atitude moderna em relação ao infinito atual na matemática, em sua obra \textit{Discorsi e dimostrazioni matematiche intorno a due nuove scienze}\footnote{Discursos Sobre as Duas Novas Ciências.}, publicada originalmente em 1638, Galileu Galilei apresentou uma das primeiras discussões modernas sobre a aparente contradição que surge ao lidarmos com coleções infinitas. Galileu observou que, se considerarmos os números naturais, percebemos que a quantidade de quadrados perfeitos (\(1, 4, 9, 16, \dots\)) é aparentemente muito menor do que a totalidade dos números naturais, já que a maioria dos números não possui uma raiz quadrada inteira \parencite[p.~31]{galilei1914}.
 
+Apesar dessa constatação intuitiva de que o todo deve ser maior do que a parte, Galileu notou que é possível estabelecer uma correspondência exata, termo a termo, entre cada número natural \(n\) e seu respectivo quadrado \(n^2\), sem que nenhum número falte ou sobre em ambos os lados:
+\[ 1 \leftrightarrow 1, \quad 2 \leftrightarrow 4, \quad 3 \leftrightarrow 9, \quad \dots, \quad n \leftrightarrow n^2 \]
+Essa bijeção indica que deve haver tantos quadrados perfeitos quanto há de números naturais \parencite[p.~5]{rucker2019}. Este resultado entrava em conflito direto com a intuição e com o princípio de que o todo é maior que a sua parte. A partir desse impasse, a conclusão de Galileu foi a de que a totalidade dos números é infinita e a totalidade dos quadrados também é infinita, mas que os atributos ``igual'', ``maior'' e ``menor'' são aplicáveis apenas a quantidades finitas, não possuindo sentido quando aplicados ao infinito \parencite[p.~32]{galilei1914}.
 
 \section{O Hotel de Hilbert (1924)}
 
-Apresentar o experimento mental: hotel com infinitos quartos, todos ocupados, que ainda assim acomoda novos hóspedes inclusive infinitos deles. Conectar com a aritmética cardinal do Capítulo 6 (\(ℵ_0 + ℵ_0 = ℵ_0\), etc).
+O experimento mental conhecido como Hotel de Hilbert foi utilizado pelo matemático David Hilbert em suas palestras para ilustrar as propriedades dos conjuntos infinitos \parencite[p.~17]{gamow1988}. O problema demonstra que, ao operar com cardinalidades infinitas, encontram-se características que divergem daquelas habituais na aritmética de quantidades finitas.
 
+A premissa do experimento propõe um hotel com uma quantidade infinita numerável de quartos, todos ocupados \parencite[p.~73]{rucker2019}. Um novo hóspede chega e solicita acomodação. Em um hotel finito, isso seria impossível. No entanto, o gerente do hotel infinito soluciona o problema movendo o hóspede do quarto \(1\) para o quarto \(2\), o do quarto \(2\) para o quarto \(3\) e, de forma geral, o hóspede do quarto \(n\) para o quarto \(n+1\) \parencite[p.~17]{gamow1988}. Com esse procedimento, o quarto \(1\) fica vago e o novo hóspede é acomodado, sem que nenhum dos hóspedes anteriores fique sem alojamento.
+
+O problema avança para uma situação na qual chega uma infinidade de novos hóspedes ao hotel lotado. Para acomodá-los, o gerente move o ocupante do quarto \(1\) para o quarto \(2\), o do quarto \(2\) para o quarto \(4\), o do quarto \(3\) para o quarto \(6\) e, sucessivamente, transfere o ocupante do quarto \(n\) para o quarto \(2n\). Essa operação deixa todos os quartos de número ímpar vagos, permitindo que a infinidade de novos hóspedes ocupe exatamente essas vagas. Em termos de ordenação, a literatura também descreve o hotel com os quartos indexados de \(0\) a \(\omega\), nos quais os primeiros \(\omega\) hóspedes são alocados nos quartos pares e os novos \(\omega\) hóspedes são distribuídos nos quartos ímpares \parencite[p.~75]{rucker2019}.
+
+\input{dados/figuras/apendices/hilbert-1.tex}
 
 \section{O Paradoxo de Cantor (1899)}
 
-Apresentar a contradição: o conjunto de todos os conjuntos teria que ter cardinalidade maior que si mesmo via Teorema de Cantor. Conectar com o Teorema 1 (não existe conjunto de todos os conjuntos) já demonstrado no Capítulo 2.
+O paradoxo de Cantor surge da aplicação do Teorema de Cantor ao conceito de um conjunto universal que contém todos os conjuntos. O Teorema de Cantor demonstra que nenhum conjunto é equinumeroso ao seu conjunto das partes \parencite[p.~132]{enderton1977}. Em outras palavras, para qualquer conjunto \(A\), a cardinalidade de seu conjunto das partes \(\mathcal{P}(A)\) é estritamente maior que a cardinalidade do próprio \(A\).
 
+A contradição é estabelecida ao supormos a existência de um conjunto \(V\) que contenha todos os conjuntos. Se \(V\) é o conjunto de todos os conjuntos, então o conjunto das partes de \(V\), \(\mathcal{P}(V)\), cujos elementos são obrigatoriamente conjuntos, deve ser um subconjunto de \(V\). Consequentemente, a cardinalidade de \(\mathcal{P}(V)\) não poderia exceder a cardinalidade de \(V\). No entanto, de acordo com o Teorema de Cantor, a cardinalidade de \(\mathcal{P}(V)\) deve ser estritamente maior que a de \(V\). Esta é uma contradição direta, indicando que a suposição inicial da existência de \(V\) como um conjunto válido é falsa.
+
+O próprio Georg Cantor reconheceu a gravidade dessa constatação. Ele concluiu que certas coleções, como a coleção de todos os conjuntos, são grandes demais para serem consideradas como um único objeto matemático, denominando-as multiplicidades inconsistentes ou infinitos absolutos \parencite[p.~48]{rucker2019}.
+
+Na teoria axiomática de conjuntos, essa formulação paradoxal é prevenida diretamente pela restrição na formação de conjuntos. Este raciocínio formaliza e conecta-se diretamente com o \autoref{teo:conjunto_universo}, já demonstrado no \autoref{chap:fundamentos_teoria_conjuntos} deste trabalho. A prova rigorosa de que não existe um conjunto ao qual todos os conjuntos pertencem \parencite[p.~22]{enderton1977} elimina a possibilidade de tratar a classe universal \(V\) como um conjunto, invalidando o paradoxo logo em sua premissa.
 
 \section{O Paradoxo de Burali-Forti (1897)}
 
-Apresentar a contradição sobre o conjunto de todos os ordinais: tal conjunto seria ele mesmo um ordinal, e seu sucessor seria simultaneamente maior e não maior que ele. Situar como o primeiro paradoxo formal da teoria dos conjuntos, anterior inclusive ao de Russell. Conectar com os Números Ordinais do Capítulo 7.
+O paradoxo de Burali-Forti detém o marco histórico de ser a primeira contradição formal identificada no interior da teoria dos conjuntos de Cantor. Publicado em 1897 por Cesare Burali-Forti, o problema evidenciou uma falha estrutural profunda na teoria dos números ordinais transfinitos, antecedendo até mesmo a formulação do célebre paradoxo de Russell \parencite[p.~15]{enderton1977}.
+
+A contradição surge ao tentarmos tratar a totalidade dos números ordinais como um conjunto formal. Na formulação de von Neumann, um número ordinal é definido como o conjunto de todos os ordinais estritamente menores que ele \parencite[p.~189]{enderton1977}. Além disso, a classe dos ordinais é bem ordenada pela relação de pertinência (\(\in\)) \parencite[p.~191]{enderton1977}. Se assumirmos a existência de um conjunto \(\Omega\) que contenha todos os números ordinais, esse próprio conjunto herda todas as propriedades que definem um ordinal: ele será um conjunto transitivo e bem ordenado por \(\in\).
+
+Se \(\Omega\) é um ordinal, ele deve possuir um sucessor imediato, denotado por \(\Omega + 1\). Pelas leis da aritmética ordinal, o sucessor de um ordinal é estritamente maior que ele, o que nos leva a concluir que \(\Omega < \Omega + 1\). No entanto, por premissa, \(\Omega\) é o conjunto de \textit{todos} os ordinais, o que obriga que qualquer ordinal, incluindo \(\Omega + 1\), seja um elemento de \(\Omega\) e, portanto, \(\Omega + 1 \leq \Omega\) \parencite[p.~194]{enderton1977}.
+
+Dessa forma, chegamos à contradição de que \(\Omega + 1\) é simultaneamente maior que \(\Omega\), e não maior que \(\Omega\). A resolução moderna deste paradoxo na teoria de Zermelo-Fraenkel segue o mesmo princípio adotado para o paradoxo de Cantor: a coleção de todos os números ordinais é ``grande demais'' para ser admitida como um conjunto, consistindo, em vez disso, em uma classe própria.

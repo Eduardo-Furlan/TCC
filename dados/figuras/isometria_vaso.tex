@@ -1,0 +1,61 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual de transformações isométricas}
+    \label{fig:isometria_vaso}
+
+    \begin{tikzpicture}[
+            scale=0.7,
+            transform shape,
+            font=\sffamily,
+            >=stealth
+        ]
+
+        \def\ColorArrow{\ifbool{darkmode}{gray!30}{gray!50}}
+        \def\ColorText{\ifbool{darkmode}{white}{black}}
+        \def\ColorVaseBody{\ifbool{darkmode}{gray!60}{gray!40}}
+        \def\ColorVaseBorder{\ifbool{darkmode}{gray!20}{gray!70}}
+
+        \def\drawvase{
+            \fill[\ColorVaseBody]
+            (-0.6, 1.2) -- (0.6, 1.2)
+            .. controls (0.6, 0.9) and (0.4, 0.8) .. (0.4, 0.6)
+            .. controls (0.4, 0.3) and (0.9, 0.2) .. (0.9, -0.5)
+            .. controls (0.9, -1.1) and (0.5, -1.4) .. (0.4, -1.5)
+            -- (-0.4, -1.5)
+            .. controls (-0.5, -1.4) and (-0.9, -1.1) .. (-0.9, -0.5)
+            .. controls (-0.9, 0.2) and (-0.4, 0.3) .. (-0.4, 0.6)
+            .. controls (-0.4, 0.8) and (-0.6, 0.9) .. (-0.6, 1.2)
+            -- cycle;
+            \draw[thick, \ColorVaseBorder]
+            (-0.6, 1.2) -- (0.6, 1.2)
+            .. controls (0.6, 0.9) and (0.4, 0.8) .. (0.4, 0.6)
+            .. controls (0.4, 0.3) and (0.9, 0.2) .. (0.9, -0.5)
+            .. controls (0.9, -1.1) and (0.5, -1.4) .. (0.4, -1.5)
+            -- (-0.4, -1.5)
+            .. controls (-0.5, -1.4) and (-0.9, -1.1) .. (-0.9, -0.5)
+            .. controls (-0.9, 0.2) and (-0.4, 0.3) .. (-0.4, 0.6)
+            .. controls (-0.4, 0.8) and (-0.6, 0.9) .. (-0.6, 1.2)
+            -- cycle;
+            \draw[thick, \ColorVaseBorder] (-0.6, 1.2) to[out=-20, in=200] (0.6, 1.2);
+            \draw[thick, \ColorVaseBorder] (-0.4, 0.6) to[out=-20, in=200] (0.4, 0.6);
+        }
+
+        \begin{scope}[xshift=0cm, yshift=0cm]
+            \drawvase
+        \end{scope}
+
+        \draw[->, ultra thick, \ColorArrow] (1.2, 0.5) -- (4.8, 2.5);
+        \draw[->, ultra thick, \ColorArrow] (1.2, -0.5) -- (4.8, -2.5);
+
+        \begin{scope}[xshift=6cm, yshift=3cm, rotate=25]
+            \drawvase
+        \end{scope}
+
+        \begin{scope}[xshift=6cm, yshift=-3cm, rotate=-25]
+            \drawvase
+        \end{scope}
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026), baseado em \textcite[p.~80]{wapner2007}.}
+\end{figure}
