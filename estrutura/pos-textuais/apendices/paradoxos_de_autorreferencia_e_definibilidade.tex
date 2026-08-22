@@ -1,61 +1,72 @@
 \chapter{Paradoxos de Autorreferência e Definibilidade}
 \label{chap:apendiceAutorreferenciaDefinibilidade}
 
-Uma linha une todos os paradoxos deste apêndice: a autorreferência. Quando uma linguagem ou sistema é expressivo o suficiente para falar sobre si mesmo, surgem inevitavelmente afirmações que subvertem sua própria lógica. Veremos que a mesma técnica da diagonal utilizada por Cantor para provar a não enumerabilidade de \(\mathbb{R}\) no \autoref{chap:infinitos} reaparece, sob diferentes formas, em cada um dos paradoxos a seguir.
+Este apêndice explora os paradoxos decorrentes da autorreferência e dos limites da definibilidade. Historicamente, a presunção de que qualquer conceito descritível pela linguagem natural ou matemática poderia ser tratado como um objeto lógico consistente levou a severas crises fundacionais. Quando uma estrutura, seja ela uma coleção de conjuntos, uma linguagem semântica ou um sistema axiomático, adquire a capacidade de fazer referência a si mesma ou de operar sobre suas próprias regras de formação, ela frequentemente abre margem para contradições que expõem as fronteiras do que pode ser estritamente formalizado.
 
-\section{O Barbeiro de Russell (versão popular)}
+Ao longo das próximas seções, traçaremos uma linha evolutiva desses fenômenos. Iniciaremos com a formulação intuitiva do Paradoxo do Barbeiro, que serve como porta de entrada analógica para compreender a falha estrutural na versão formal do Paradoxo de Russell, descoberta responsável por forçar a reestruturação completa da teoria dos conjuntos no início do século XX. Em seguida, avançaremos para os paradoxos de Richard e Berry, que evidenciam as armadilhas inerentes à tentativa de definir infinitos elementos matemáticos valendo-se das restrições de uma linguagem finita.
 
-Apresentar a versão informal: o barbeiro que barbeia exatamente quem
-não se barbeia. Usar como porta de entrada acessível antes da versão
-formal, alinhado com o objetivo declarado de escrever para graduandos.
+O capítulo se encerra com a aplicação mais rigorosa e impactante dessa estrutura conceitual: o Primeiro Teorema da Incompletude de Gödel. Veremos como Gödel instrumentalizou a autorreferência de maneira estritamente controlada através da aritmetização da sintaxe. Demonstraremos, de forma informal, que sistemas formais consistentes sempre abrigarão verdades matemáticas que escapam à sua própria capacidade de demonstração.
 
+\section{O Paradoxo de Russel (versão popular); ou O Paradoxo do Barbeiro}
+
+O Paradoxo do Barbeiro é uma ilustração informal da estrutura lógica do Paradoxo de Russell. O cenário propõe uma cidade com apenas um barbeiro e uma regra estrita: o barbeiro barbeia todos os homens da cidade que não se barbeiam, e apenas esses.
+
+A contradição é exposta ao se fazer a pergunta: o barbeiro barbeia a si mesmo?
+Se ele se barbeia, ele viola a regra, pois deve barbear apenas aqueles que não se barbeiam. Por outro lado, se ele não se barbeia, ele se enquadra no grupo de homens que não se barbeiam, o que o obriga a ser barbeado pelo barbeiro, ou seja, por si mesmo.
+
+\input{dados/figuras/apendices/barbeiro.tex}
+
+A premissa não possui solução, demonstrando que tal barbeiro e tal regra não podem existir. A impossibilidade lógica surge da autorreferência criada quando a condição definidora é aplicada ao seu próprio agente. Esta é a mesma dicotomia estrutural presente no argumento da diagonal de Cantor. Na versão formal do paradoxo aplicada à teoria dos conjuntos, a ação de ``barbear'' é substituída pela relação de pertinência (\(\in\)), e a coleção de homens é substituída pelo conjunto de todos os conjuntos que não pertencem a si mesmos.
 
 \section{O Paradoxo de Russell (versão formal, 1901)}
+\label{sec:apendiceRusselFormal}
 
-Retomar o conjunto \(B = \{x : x \not\in x\}\) já apresentado no Capítulo 2,
-agora sob a perspectiva histórica e suas consequências para os
-fundamentos da matemática. Discutir a resposta de Zermelo via
-Axioma de Separação (Axioma 6 do trabalho).
+Conforme introduzido no \autoref{chap:fundamentos_teoria_conjuntos}, a formação irrestrita de conjuntos baseada em qualquer propriedade arbitrária conduz a sérios problemas lógicos. O exemplo clássico e mais devastador desse fenômeno é o Paradoxo de Russell, descoberto por Bertrand Russell em 1901 \cite[p.~15]{enderton1977}.
+
+Considere a coleção de todos os conjuntos que não são membros de si mesmos, definida por \( B = \{x : x \notin x\} \). A contradição acontece ao perguntarmos se \( B \) pertence a si mesmo. Se assumirmos que \( B \in B \), então, pela propriedade definidora do conjunto, concluímos que \( B \notin B \). Inversamente, se assumirmos que \( B \notin B \), ele satisfaz a condição para pertencer à coleção, logo \( B \in B \). Ambas as suposições levam a uma contradição lógica: \( B \in B \Leftrightarrow B \notin B \) \cite[p.~6]{enderton1977}.
+
+Historicamente, esse paradoxo teve um impacto enorme nos fundamentos da matemática. Ele foi comunicado por Russell a Gottlob Frege em uma carta de 1902. O paradoxo demonstrou que a premissa intuitiva de que toda e qualquer condição lógica determina um conjunto válido era fundamentalmente inconsistente.
+
+As consequências dessa descoberta forçaram a reestruturação completa da teoria dos conjuntos. Para evitar a contradição, a matemática moderna, através da axiomatização de ZF, abandonou tal premissa. Em seu lugar, adotou-se os Axiomas de Subconjunto (ou \textit{Aussonderung}, veja o \autoref{ax:subconjunto}), que restringe a construção de subconjuntos apenas a elementos que já pertencem a um conjunto previamente existente, alterando a definição para \( B = \{x \in A \mid x \notin x\} \). Dessa forma, a mesma lógica que antes gerava um paradoxo agora apenas demonstra o Teorema de que \( B \notin A \), provando que não existe um ``conjunto de todos os conjuntos'' \cite[p.~22]{enderton1977}.
+
+A crise fundacional deflagrada pelo paradoxo de 1901 também impulsionou o desenvolvimento de abordagens alternativas rigorosas. Entre elas, destaca-se a hierarquia da Teoria dos Tipos, desenvolvida pelo próprio Russell e Whitehead na obra \textit{Principia Mathematica} \cite{russell1910}, e a consolidação da distinção estrita entre ``conjuntos'' (que podem pertencer a outras coleções) e ``classes próprias'' (coleções grandes demais para serem elementos de outras, como a coleção de todos os conjuntos), formalizada nas axiomatizações de von Neumann, Bernays e Gödel \cite[p.~15]{enderton1977}.
 
 
 \section{O Paradoxo de Richard (1905)}
 
-Apresentar a construção de Richard: lista de todas as descrições finitas
-de números reais em língua francesa, seguida de diagonalização.
-Conectar explicitamente com o Argumento da Diagonal do Capítulo 4.
+O paradoxo foi apresentado  por Jules Richard em 1905 como uma carta ao editor da \textit{Revue générale des sciences pures et appliquées}, demonstrando que contradições na teoria dos conjuntos podem surgir sem sequer recorrer à teoria dos números ordinais \parencite[p.~142]{heijenoort1967}.
+
+A construção de Richard baseia-se em gerar todas as permutações possíveis (com repetição) das 26 letras do alfabeto, organizando-as inicialmente pelo número de caracteres (dois, três, quatro, etc.) e, em seguida, em ordem alfabética. Como tudo o que pode ser escrito com um número finito de palavras consiste em permutações de letras, qualquer definição formulada de maneira finita constará nesse conjunto. Ao remover todas as permutações que não consistem em definições matemáticas válidas, obtém-se um conjunto enumerável e ordenado \(E\), composto exclusivamente por todos os números que podem ser definidos por uma quantidade finita de palavras, indexados sequencialmente como \(u_1, u_2, u_3, \dots\).
+
+A contradição é estabelecida ao se aplicar uma diagonalização sobre esse conjunto \(E\). Richard define um número \(N\) cuja parte inteira é \(0\) e cuja \(n\)-ésima casa decimal é calculada a partir do dígito \(p\) presente na \(n\)-ésima casa decimal do \(n\)-ésimo número de \(E\). A regra estipula que o novo dígito será \(p + 1\) se \(p\) for diferente de \(8\) ou \(9\), e será \(1\) caso contrário. Devido a essa construção, \(N\) difere de cada número do conjunto \(E\) em pelo menos uma casa decimal, garantindo que \(N\) não pertence a \(E\).
+
+\input{dados/figuras/apendices/richard.tex}
+
+O paradoxo se consolida no fato de que a própria regra descrita no parágrafo anterior para gerar o número \(N\) consiste em uma coleção finita de letras\footnote{Aqui estou assumindo que o caractere ``espaço'' faz parte desse conjunto de letras, apesar de na carta original Richard não mencionar isso, e dizer apenas \emph{``Let us write all permutations of the twenty-six letters of the French alphabet [...]''}.}. Sendo uma definição formulada de forma finita, o número \(N\) deveria obrigatoriamente aparecer no conjunto \(E\), o que contraria o fato de que \(N\) difere de todos os elementos da lista.
+
+O próprio autor ofereceu uma solução para a contradição no mesmo texto: a frase que define \(N\) faz referência ao conjunto \(E\) na sua formulação. Contudo, na posição em que a referida frase aparece enumerada no conjunto de permutações, o conjunto \(E\) ainda não está totalmente definido. Por depender do próprio conjunto que está sendo formado, a sentença não possui significado válido naquela etapa da construção e, portanto, deve ser descartada.
 
 
-\section{O Paradoxo de Berry (1906)}
+\section{O Paradoxo de Berry (1908)}
 
-Apresentar: "o menor inteiro positivo que não pode ser descrito com
-menos de quinze palavras", frase com 14 palavras.
-Conectar com o Exemplo do conjunto A (p. 7 do trabalho), do qual
-este paradoxo é uma versão simplificada e ainda mais direta.
-Mencionar a formalização moderna via complexidade de Kolmogorov.
+O paradoxo de Berry, publicado formalmente por Bertrand Russell em 1908 e creditado por ele a G. G. Berry \parencite[p.~150]{heijenoort1967}, ilustra as contradições semânticas decorrentes da autorreferência e das limitações da linguagem \parencite[p.~93]{rucker2019}. A formulação original de Russell aborda a nomeação de números inteiros na língua inglesa.
 
+Como o número de sílabas necessárias para nomear inteiros finitos tende a crescer à medida que os números aumentam, e dado que apenas uma quantidade finita de nomes pode ser formada com um número finito de sílabas, devem existir inteiros cujos nomes exigem pelo menos dezenove sílabas. Dentre estes, obrigatoriamente existe um que é o menor de todos.
 
-\section{O Paradoxo de Grelling-Nelson (1908)}
+Considere a seguinte frase em inglês utilizada para descrever este número: ``the least integer not nameable in fewer than nineteen syllables''\footnote{O menor inteiro não nomeável com menos de dezenove sílabas.}. Esta frase denota um número inteiro definido (o número 111.777). A contradição ocorre ao analisarmos a própria expressão: ela é um nome composto por exatamente dezoito sílabas. Assim, o menor inteiro que não pode ser nomeado com menos de dezenove sílabas acabou de ser nomeado em dezoito sílabas.
 
-Apresentar adjetivos autológicos e heterológicos.
-Mostrar que o problema da autorreferência não é exclusivo da teoria
-dos conjuntos, mas emerge em qualquer sistema suficientemente expressivo.
-
-\section{O Paradoxo de Curry (1942)}
-
-Apresentar a sentença autorreferente \(C_Q\) que, sem uso de negação,
-deriva qualquer proposição \(Q\) arbitrária via \textit{modus ponens}.
-Conectar com o Axioma de Separação (Axioma~6): mostrar que a
-variante conjuntista do paradoxo, \(C_Q = \{x \mid x \in x
-\rightarrow Q\}\), é bloqueada pela exigência de separar a partir
-de um conjunto preexistente. Discutir o fenômeno de explosão
-lógica (\textit{ex contradictione quodlibet}) e contrastar com
-Russell: enquanto Russell exige negação, Curry exige apenas
-implicação, tornando o colapso lógico ainda mais geral.
+Este paradoxo é uma versão simplificada e ainda mais direta do problema proposto por \textcite{enderton1977}, abordado na \autoref{sec:axiomas_conjuntos}. Naquele contexto, O problema era o conjunto de todos os inteiros positivos definíveis em uma linha de texto. Como existe um limite de caracteres possíveis em uma linha, o conjunto de definições em uma linha é finito, garantindo a existência do ``menor número inteiro positivo que não é definível em uma linha de texto''. A contradição é evidente: essa própria proposição atua como uma definição exata, contida em uma linha, para o número em questão. A estrutura lógica de ambas as formulações é idêntica, utiliza-se uma restrição finita do meio de comunicação para delimitar um conjunto e, em seguida, emprega-se a própria estipulação para violar a restrição.
 
 \section{O Teorema da Incompletude de Gödel (1931)}
 
-Apresentar como o mesmo método diagonal de Cantor é usado para
-construir uma afirmação que diz ``esta afirmação não é demonstrável''.
-Enfatizar a conexão técnica com o Capítulo 4: diagonalização como
-ferramenta unificadora. Tratar com cuidado a distinção entre
-paradoxo e teorema.
+O trabalho de Kurt Gödel em 1931 estabeleceu limites fundamentais para o que pode ser provado na matemática. Até então, o objetivo de muitos matemáticos era construir um sistema formal completo e consistente, capaz de provar mecanicamente todas as verdades matemáticas. Para entender como Gödel demonstrou a impossibilidade disso, primeiramente é necessário compreender sua abordagem de forma intuitiva.
+
+\textcite[p.~68]{nagel2001} explicam que Gödel introduziu um método, hoje conhecido como ``Numeração de Gödel'', que associa um número único a cada símbolo, fórmula e sequência de fórmulas dentro de um sistema formal. Essa técnica de mapeamento permitiu que a metamatemática, que é o estudo das regras e propriedades do próprio sistema, fosse traduzida em propriedades puramente aritméticas. Dessa forma, o sistema ganhou a capacidade de ``falar'' sobre si mesmo por meio de números.
+
+Para que uma fórmula pudesse se referir a si mesma de forma estritamente rigorosa, Gödel não usou paradoxos de linguagem, mas sim um truque aritmético de substituição. \textcite[p.~89]{nagel2001} detalham esse mecanismo: Gödel definiu uma função matemática que denotamos por \(\mathrm{sub}(x, 17, x)\). O número 17 é o número de Gödel da variável numérica \(y\). A função \(\mathrm{sub}\) pega uma fórmula cujo número de Gödel é \(x\) e substitui todas as ocorrências da variável \(y\) dentro dessa fórmula pelo próprio número \(x\). Ou seja, o número que identifica a fórmula é inserido dentro dela mesma. É esse processo mecânico de substituição que garante a capacidade de criar sentenças autorreferenciais na aritmética sem gerar paradoxos.
+
+Utilizando essa função, Gödel construiu sua famosa sentença. Ele começou com uma fórmula que dizia, formalmente: ``A fórmula cujo número de Gödel é \(\mathrm{sub}(y, 17, y)\) não é demonstrável'' \parencite[p.~96]{nagel2001}. Essa expressão, por ser uma fórmula válida do sistema, possui um número de Gödel próprio, que chamaremos de \(n\). O passo final foi substituir a variável \(y\) dessa fórmula pelo seu próprio número \(n\). O resultado dessa substituição é uma nova sentença, que chamaremos de \(G\).
+
+O número de Gödel dessa nova sentença \(G\) é, por definição da função de substituição, o valor de \(\mathrm{sub}(n, 17, n)\). Contudo, o que a sentença \(G\) afirma? Ao ler seu significado, ela diz exatamente: ``A fórmula cujo número de Gödel é \(\mathrm{sub}(n, 17, n)\) não é demonstrável'' \parencite[p.~97]{nagel2001}. Como \(\mathrm{sub}(n, 17, n)\) é exatamente o código numérico da própria sentença \(G\), a fórmula está afirmando, ``Eu não sou demonstrável no sistema''.
+
+O Primeiro Teorema da Incompletude demonstra o impacto dessa sentença. Se o sistema for consistente, ou seja, livre de contradições lógicas, a sentença \(G\) não pode ser provada. Se fosse provada, o sistema estaria provando algo que afirma ser indemonstrável, o que é uma contradição. Logo, \(G\) é uma sentença verdadeira (pois diz que não pode ser provada, e realmente não pode), mas que escapa das regras de demonstração do sistema. Em notação formal, sendo \(F\) o sistema axiomático, temos que a sentença \(G\) não pode ser demonstrada a partir dos axiomas de \(F\), o que é denotado por \(\neg(F \vdash G)\). Da mesma forma, sua negação também não pode ser demonstrada, ou seja, \(\neg(F \vdash \neg G)\). A sentença \(G\) é, portanto, formalmente indecidível.

@@ -35,6 +35,7 @@ main.bbl-SAVE-ERROR
 *.pdf
 exemplo.bib
 mudancas.txt
+*SAVE-ERROR
 
 # Editor
 .vscode/

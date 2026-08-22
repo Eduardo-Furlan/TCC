@@ -1,0 +1,76 @@
+\begin{figure}[H]
+    \centering
+    \caption{Processo de diagonalização no Paradoxo de Richard}
+    \label{fig:paradoxo_richard}
+
+    \begin{tikzpicture}[
+            scale=0.8,
+            transform shape,
+            font=\sffamily,
+            >=stealth
+        ]
+
+        \def\ColorDiag{\ifbool{darkmode}{DarkModeRed}{LightModeRed}}
+        \def\ColorNew{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+        \def\ColorText{\ifbool{darkmode}{DarkModeText}{black}}
+
+        \draw[line width=18pt, \ColorDiag, opacity=0.2, line cap=round] (0.5, 0) -- (3.5, -2.4);
+
+        \node[\ColorText, anchor=east] at (-0.2, 0) {\(u_1 = 0,\)};
+        \node[\ColorDiag, font=\bfseries] at (0.5, 0) {3};
+        \node[\ColorText] at (1.5, 0) {\(1\)};
+        \node[\ColorText] at (2.5, 0) {\(4\)};
+        \node[\ColorText] at (3.5, 0) {\(1\)};
+        \node[\ColorText] at (4.5, 0) {\(\dots\)};
+
+        \node[\ColorText, anchor=east] at (-0.2, -0.8) {\(u_2 = 0,\)};
+        \node[\ColorText] at (0.5, -0.8) {\(2\)};
+        \node[\ColorDiag, font=\bfseries] at (1.5, -0.8) {7};
+        \node[\ColorText] at (2.5, -0.8) {\(1\)};
+        \node[\ColorText] at (3.5, -0.8) {\(8\)};
+        \node[\ColorText] at (4.5, -0.8) {\(\dots\)};
+
+        \node[\ColorText, anchor=east] at (-0.2, -1.6) {\(u_3 = 0,\)};
+        \node[\ColorText] at (0.5, -1.6) {\(1\)};
+        \node[\ColorText] at (1.5, -1.6) {\(4\)};
+        \node[\ColorDiag, font=\bfseries] at (2.5, -1.6) {1};
+        \node[\ColorText] at (3.5, -1.6) {\(4\)};
+        \node[\ColorText] at (4.5, -1.6) {\(\dots\)};
+
+        \node[\ColorText, anchor=east] at (-0.2, -2.4) {\(u_4 = 0,\)};
+        \node[\ColorText] at (0.5, -2.4) {\(5\)};
+        \node[\ColorText] at (1.5, -2.4) {\(7\)};
+        \node[\ColorText] at (2.5, -2.4) {\(7\)};
+        \node[\ColorDiag, font=\bfseries] at (3.5, -2.4) {2};
+        \node[\ColorText] at (4.5, -2.4) {\(\dots\)};
+
+        \node[\ColorText, anchor=east] at (-0.2, -3.2) {\(\vdots\)};
+        \node[\ColorText] at (0.5, -3.2) {\(\vdots\)};
+        \node[\ColorText] at (1.5, -3.2) {\(\vdots\)};
+        \node[\ColorText] at (2.5, -3.2) {\(\vdots\)};
+        \node[\ColorText] at (3.5, -3.2) {\(\vdots\)};
+        \node[\ColorText] at (4.5, -3.2) {\(\ddots\)};
+
+        \node[\ColorDiag, anchor=east, font=\bfseries] at (-0.2, -4.5) {Diagonal:};
+        \node[\ColorDiag, font=\bfseries] (e1) at (0.5, -4.5) {3};
+        \node[\ColorDiag, font=\bfseries] (e2) at (1.5, -4.5) {7};
+        \node[\ColorDiag, font=\bfseries] (e3) at (2.5, -4.5) {1};
+        \node[\ColorDiag, font=\bfseries] (e4) at (3.5, -4.5) {2};
+        \node[\ColorDiag, font=\bfseries] at (4.5, -4.5) {\dots};
+
+        \node[\ColorNew, anchor=east, font=\bfseries] at (-0.2, -6.0) {\(N = 0,\)};
+        \node[\ColorNew, font=\bfseries] (n1) at (0.5, -6.0) {4};
+        \node[\ColorNew, font=\bfseries] (n2) at (1.5, -6.0) {8};
+        \node[\ColorNew, font=\bfseries] (n3) at (2.5, -6.0) {2};
+        \node[\ColorNew, font=\bfseries] (n4) at (3.5, -6.0) {3};
+        \node[\ColorNew, font=\bfseries] at (4.5, -6.0) {\dots};
+
+        \draw[->, \ColorText, thick, dashed] (e1) -- (n1) node[midway, right, font=\footnotesize] {\(+1\)};
+        \draw[->, \ColorText, thick, dashed] (e2) -- (n2) node[midway, right, font=\footnotesize] {\(+1\)};
+        \draw[->, \ColorText, thick, dashed] (e3) -- (n3) node[midway, right, font=\footnotesize] {\(+1\)};
+        \draw[->, \ColorText, thick, dashed] (e4) -- (n4) node[midway, right, font=\footnotesize] {\(+1\)};
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

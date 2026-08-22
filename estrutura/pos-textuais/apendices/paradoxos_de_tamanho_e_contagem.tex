@@ -1,12 +1,19 @@
 \chapter{Paradoxos de Tamanho e Contagem}
 \label{chap:apendiceTamanhoContagem}
 
-Os paradoxos reunidos neste apêndice formam uma narrativa histórica
-que parte da Grécia Antiga e culmina na teoria cantoriana, cada um deles revelou uma insuficiência no entendimento vigente do infinito e motivou avanços fundamentais na matemática.
+Este apêndice explora os paradoxos envolvendo a magnitude, a contagem e a natureza do infinito. A intuição humana estabelece premissas aparentemente inabaláveis, como a noção de que o todo é maior do que qualquer uma de suas partes, ou que a conclusão de infinitos passos requereria uma eternidade. Contudo, quando a lógica e a matemática formal atuam sobre a mensuração do infinito, essas certezas colapsam.
+
+Nas seções a seguir, traçaremos a evolução histórica da nossa compreensão estrutural do infinito. Iniciaremos na Antiguidade Clássica com o Paradoxo de Aquiles e a Tartaruga, formulado por Zenão, que desafia a divisibilidade contínua do espaço e do tempo e expõe a tensão filosófica da execução de ``supertarefas''. Então examinaremos o Paradoxo de Galileu, a primeira observação sistemática de que, ao lidarmos com infinitudes, é possível estabelecer uma correspondência exata entre o todo e uma de suas partes próprias. O Conjunto de Cantor ilustra como um conjunto infinito construído iterativamente pode reter a cardinalidade do contínuo e, simultaneamente, atingir medida nula.
+
+Então, veremos os paradoxos de Cantor e Burali-Forti. Diferentemente das contradições de Zenão e Galileu, posteriormente resolvidas por ferramentas modernas, estes dois paradoxos expuseram problemas estruturais insuperáveis da própria teoria dos conjuntos, justificando a necessidade de se separar matematicamente os ``conjuntos'' das ``classes próprias''.
+
+Por fim, analisaremos o Hotel de Hilbert e a Lâmpada de Thomson. O Hotel de Hilbert cristaliza, de forma lúdica e rigorosa, a aritmética peculiar dos conjuntos infinitos enumeráveis, demonstrando como operações de soma e multiplicação operam sob cardinalidades transfinitas. A Lâmpada de Thomson retoma as supertarefas para questionar os limites lógicos da convergência temporal aplicada a uma sequência de estados discretos oscilantes.
 
 \section{Aquiles e a Tartaruga (c. 450 AEC)}
+\label{sec:aquiles_tartaruga}
 
 O paradoxo de Aquiles e a tartaruga, formulado por Zenão de Eleia com o intuito de defender o monismo de Parmênides \parencite[p.~137]{vlastos1975}, propõe uma corrida entre o mais veloz dos guerreiros gregos e uma tartaruga, à qual é concedida uma vantagem inicial \parencite[p.~9]{salmon2001}. O argumento estabelece que, para ultrapassar o animal, Aquiles deve primeiro atingir o ponto exato de onde a tartaruga partiu, no entanto, durante o tempo que ele leva para percorrer essa distância, ela já terá avançado para uma nova posição. Quando Aquiles alcança essa segunda marca, a tartaruga terá se movido para uma terceira, e assim sucessivamente. Consequentemente, o perseguidor é obrigado a completar uma série infinita de trajetos, o que garante que a tartaruga sempre mantenha uma liderança, levando à conclusão de que o corredor mais rápido nunca alcançará o mais lento \parencite[p.~67]{salmon2001}.
+
 
 Abordando o problema historicamente, estabelece-se que, para Aquiles alcançar a tartaruga, ele precisa passar por infinitos pontos: entre quaisquer dois pontos do trajeto, existem infinitos outros \parencite[p.~48]{salmon2001}. O argumento induzia à premissa de que a soma de um número infinito de instantes finitos e sequenciais resultaria em um tempo infinito, o que tornaria a ultrapassagem teoricamente inatingível \parencite[p.~49]{salmon2001}.
 
@@ -16,25 +23,84 @@ No entanto, a análise fundamentada na matemática moderna demonstra que a dist�
 
 A soma desta série convergente tem como resultado exatamente \(111,\overline{1}\) metros, estabelecendo que uma série infinita de termos positivos não resulta necessariamente em uma soma infinita \parencite[p.~68]{salmon2001}.
 
-Apesar de o cálculo demonstrar com exatidão onde o encontro ocorre, a formulação puramente matemática não dissolve por completo a tensão lógica e física do paradoxo. O problema central exige que Aquiles complete o que pode ser descrito como uma ``série infinita de atos'' \parencite[p.~71]{salmon2001}. Esse conceito se dá por meio da noção de ``supertarefas''\footnote{Para o leitor interessado em uma introdução visual e didática sobre as supertarefas, recomenda-se o vídeo de \textcite{vsauce2015}.}: a execução completa de infinitas ações em um intervalo de tempo finito \parencite[p.~89]{salmon2001}. Assim, o foco do debate desloca-se da impossibilidade da ultrapassagem para a própria natureza do movimento contínuo. Embora o cálculo moderno nos forneça as ferramentas precisas para determinar o instante exato da vitória de Aquiles, o paradoxo de Zenão evidencia que acomodar o infinito numericamente não dissolve o mistério de como a realidade física lida com a divisibilidade ilimitada do espaço e do tempo.
+Apesar de o cálculo demonstrar com exatidão onde o encontro ocorre, a formulação puramente matemática não dissolve por completo a tensão lógica e física do paradoxo. O problema central exige que Aquiles complete o que pode ser descrito como uma ``série infinita de atos'' \parencite[p.~71]{salmon2001}. Esse conceito se dá por meio da noção de ``supertarefas''\footnote{Para o leitor interessado em uma introdução visual e didática sobre as supertarefas, recomenda-se o vídeo de \textcite{vsauce2015}.} (veja \autoref{sec:lampada_thomson}). Assim, o foco do debate desloca-se da impossibilidade da ultrapassagem para a própria natureza do movimento contínuo. Embora o cálculo moderno nos forneça as ferramentas precisas para determinar o instante exato da vitória de Aquiles, o paradoxo de Zenão evidencia que acomodar o infinito numericamente não dissolve o mistério de como a realidade física lida com a divisibilidade ilimitada do espaço e do tempo.
 
 \section{O Paradoxo de Galileu (1638)}
 
 O Paradoxo de Galileu traz os primeiros sinais da atitude moderna em relação ao infinito atual na matemática, em sua obra \textit{Discorsi e dimostrazioni matematiche intorno a due nuove scienze}\footnote{Discursos Sobre as Duas Novas Ciências.}, publicada originalmente em 1638, Galileu Galilei apresentou uma das primeiras discussões modernas sobre a aparente contradição que surge ao lidarmos com coleções infinitas. Galileu observou que, se considerarmos os números naturais, percebemos que a quantidade de quadrados perfeitos (\(1, 4, 9, 16, \dots\)) é aparentemente muito menor do que a totalidade dos números naturais, já que a maioria dos números não possui uma raiz quadrada inteira \parencite[p.~31]{galilei1914}.
 
-Apesar dessa constatação intuitiva de que o todo deve ser maior do que a parte, Galileu notou que é possível estabelecer uma correspondência exata, termo a termo, entre cada número natural \(n\) e seu respectivo quadrado \(n^2\), sem que nenhum número falte ou sobre em ambos os lados:
-\[ 1 \leftrightarrow 1, \quad 2 \leftrightarrow 4, \quad 3 \leftrightarrow 9, \quad \dots, \quad n \leftrightarrow n^2 \]
+Apesar dessa constatação intuitiva de que o todo deve ser maior do que a parte\footnote{\textcite[p.~99]{euclides2009}}, Galileu notou que é possível estabelecer uma correspondência exata, termo a termo, entre cada número natural \(n\) e seu respectivo quadrado \(n^2\), sem que nenhum número falte ou sobre em ambos os lados:
+
+\input{dados/figuras/apendices/galileu.tex}
+
 Essa bijeção indica que deve haver tantos quadrados perfeitos quanto há de números naturais \parencite[p.~5]{rucker2019}. Este resultado entrava em conflito direto com a intuição e com o princípio de que o todo é maior que a sua parte. A partir desse impasse, a conclusão de Galileu foi a de que a totalidade dos números é infinita e a totalidade dos quadrados também é infinita, mas que os atributos ``igual'', ``maior'' e ``menor'' são aplicáveis apenas a quantidades finitas, não possuindo sentido quando aplicados ao infinito \parencite[p.~32]{galilei1914}.
 
-\section{O Hotel de Hilbert (1924)}
+\section{O Conjunto de Cantor (1883)}
 
-O experimento mental conhecido como Hotel de Hilbert foi utilizado pelo matemático David Hilbert em suas palestras para ilustrar as propriedades dos conjuntos infinitos \parencite[p.~17]{gamow1988}. O problema demonstra que, ao operar com cardinalidades infinitas, encontram-se características que divergem daquelas habituais na aritmética de quantidades finitas.
+O conjunto de Cantor, introduzido pelo matemático Georg Cantor em 1883, é um dos exemplos fundamentais da topologia e da teoria da medida. Ele demonstra rigorosamente como intuições geométricas básicas podem falhar no escopo do infinito, evidenciando que um subconjunto da reta real pode possuir a mesma quantidade de elementos que todo o intervalo contínuo, mas não possuir comprimento.
 
-A premissa do experimento propõe um hotel com uma quantidade infinita numerável de quartos, todos ocupados \parencite[p.~73]{rucker2019}. Um novo hóspede chega e solicita acomodação. Em um hotel finito, isso seria impossível. No entanto, o gerente do hotel infinito soluciona o problema movendo o hóspede do quarto \(1\) para o quarto \(2\), o do quarto \(2\) para o quarto \(3\) e, de forma geral, o hóspede do quarto \(n\) para o quarto \(n+1\) \parencite[p.~17]{gamow1988}. Com esse procedimento, o quarto \(1\) fica vago e o novo hóspede é acomodado, sem que nenhum dos hóspedes anteriores fique sem alojamento.
+A construção do conjunto é feita por meio de um processo iterativo de remoção. Partimos do intervalo fechado
+\[
+    C_0 = [0,1]
+\]
+e, em cada etapa, removemos de cada intervalo restante o seu terço central aberto. Assim, a primeira iteração resulta em
+\[
+    C_1 = \left[0,\frac{1}{3}\right] \cup \left[\frac{2}{3},1\right],
+\]
+e a segunda em
+\[
+    C_2 = \left[0,\frac{1}{9}\right] \cup \left[\frac{2}{9},\frac{1}{3}\right] \cup \left[\frac{2}{3},\frac{7}{9}\right] \cup \left[\frac{8}{9},1\right].
+\]
+Prosseguindo com esse processo indefinidamente, o conjunto de Cantor é definido como a interseção de todas essas etapas \cite[p.~46]{royden2022}:
+\[
+    C = \bigcap_{n=0}^{\infty} C_n.
+\]
 
-O problema avança para uma situação na qual chega uma infinidade de novos hóspedes ao hotel lotado. Para acomodá-los, o gerente move o ocupante do quarto \(1\) para o quarto \(2\), o do quarto \(2\) para o quarto \(4\), o do quarto \(3\) para o quarto \(6\) e, sucessivamente, transfere o ocupante do quarto \(n\) para o quarto \(2n\). Essa operação deixa todos os quartos de número ímpar vagos, permitindo que a infinidade de novos hóspedes ocupe exatamente essas vagas. Em termos de ordenação, a literatura também descreve o hotel com os quartos indexados de \(0\) a \(\omega\), nos quais os primeiros \(\omega\) hóspedes são alocados nos quartos pares e os novos \(\omega\) hóspedes são distribuídos nos quartos ímpares \parencite[p.~75]{rucker2019}.
+\input{dados/figuras/apendices/conjunto_de_cantor.tex}
 
-\input{dados/figuras/apendices/hilbert-1.tex}
+Para determinar o comprimento do conjunto de Cantor, calculamos o comprimento total que foi removido do intervalo original. Em cada etapa \(n\), são removidos \(2^{n-1}\) intervalos, cada um de comprimento \(3^{-n}\). Portanto, a soma dos comprimentos de todos os intervalos removidos forma uma série geométrica:
+\[
+    \sum_{n=1}^{\infty} 2^{n-1} 3^{-n} = \frac{1}{2} \sum_{n=1}^{\infty} \left(\frac{2}{3}\right)^n = 1.
+\]
+Consequentemente, a medida de Lebesgue do conjunto resultante é o comprimento inicial do intervalo menos o comprimento total removido:
+\[
+    m(C) = 1 - 1 = 0.
+\]
+Assim, embora o conjunto de Cantor seja infinito e possua uma estrutura extremamente rica, sua medida de Lebesgue é nula \cite[p.~47]{royden2022}.
+
+Apesar de não possuir comprimento, o conjunto de Cantor não é enumerável. Uma forma de compreender intuitivamente a cardinalidade do conjunto de Cantor é pensá-lo como o conjunto das representações ternárias (na base 3) de todos os \(x \in [0, 1] \subset \mathbb{R}\) que podem ser expressas utilizando \textit{apenas} os dígitos \(0\) e \(2\) \parencite{amWhy2012}. Demonstra-se que o conjunto \(C\) é igual a:
+\[
+    C = \left\{ \sum_{n=1}^{\infty} \frac{a_n}{3^n} : a_n \in \{0, 2\} \right\}
+\]
+Isto é, trata-se do conjunto de todas as expansões ternárias de \(x \in [0, 1] \subset \mathbb{R}\) que consistem unicamente em zeros e dois . Por exemplo: \(0.0\overline{0}_{\text{base } 3} = 0 \in C\), \(0.2\overline{2}_{\text{base } 3} = 1 \in C\), \(0.2020202020202\dots_{\text{base } 3} \in C\), etc. .
+
+O conjunto de todos esses \(x\) é não enumerável. Para demonstrar isso de forma minuciosa, analisamos a construção dessas sequências passo a passo:
+\begin{itemize}
+    \item Qualquer elemento do conjunto é formado por uma sequência infinita de dígitos \(\{a_n\}\).
+    \item Para cada posição \(n \in \mathbb{N}\), existem exatamente duas escolhas possíveis para qualquer \(a_n\) dado: \(0\) ou \(2\) .
+    \item Sendo assim, o número total de sequências distintas consistindo apenas de zeros e dois é dado por \(2^{|\mathbb{N}|}\) .
+\end{itemize}
+
+Uma vez que existem incontáveis (não enumeráveis) sequências distintas \(\{a_n\} \in \{0, 2\}^{\mathbb{N}}\), existem também incontáveis séries da forma \(\sum \frac{a_n}{3^n}\), onde cada uma representa um \textit{único ponto} no conjunto de Cantor . Portanto, existem incontáveis pontos no Conjunto de Cantor . Sendo \(2^{|\mathbb{N}|} = 2^{\aleph_0} = \mathfrak{c}\) (a cardinalidade do contínuo), fica provado que o conjunto possui a mesma cardinalidade que o intervalo real.
+
+Temos, portanto,
+\[
+    |C| = \mathfrak{c},
+    \qquad
+    m(C) = 0.
+\]
+
+O conjunto é definido por um procedimento iterativo de supressão e, apesar disso, retém a cardinalidade do contínuo enquanto atinge medida nula. Fica provado, portanto, que medida e cardinalidade são naturezas matemáticas distintas: uma cardinalidade máxima (não-enumerável) não implica de forma alguma uma medida positiva.
+
+\section{O Paradoxo de Burali-Forti (1897)}
+
+O paradoxo de Burali-Forti detém o marco histórico de ser a primeira contradição formal identificada no interior da teoria dos conjuntos de Cantor. Publicado em 1897 por Cesare Burali-Forti, o problema evidenciou uma falha estrutural profunda na teoria dos números ordinais transfinitos, antecedendo até mesmo a formulação do paradoxo de Russell \parencite[p.~15]{enderton1977}.
+
+A contradição surge ao tentarmos tratar a totalidade dos números ordinais como um conjunto formal. Na formulação de von Neumann, um número ordinal é definido como o conjunto de todos os ordinais estritamente menores que ele \parencite[p.~189]{enderton1977}. Além disso, a classe dos ordinais é bem ordenada pela relação de pertinência (\(\in\)) \parencite[p.~191]{enderton1977}. Se assumirmos a existência de um conjunto \(\Omega\) que contenha todos os números ordinais, esse próprio conjunto herda todas as propriedades que definem um ordinal: ele será um conjunto transitivo e bem ordenado por \(\in\).
+
+Se \(\Omega\) é um ordinal, ele deve possuir um sucessor imediato, denotado por \(\Omega + 1\). Pelas leis da aritmética ordinal, o sucessor de um ordinal é estritamente maior que ele, o que nos leva a concluir que \(\Omega < \Omega + 1\). No entanto, por premissa, \(\Omega\) é o conjunto de \textit{todos} os ordinais, o que obriga que qualquer ordinal, incluindo \(\Omega + 1\), seja um elemento de \(\Omega\) e, portanto, \(\Omega + 1 \leq \Omega\) \parencite[p.~194]{enderton1977}.
+
+Dessa forma, chegamos à contradição de que \(\Omega + 1\) é simultaneamente maior que \(\Omega\), e não maior que \(\Omega\). A resolução moderna deste paradoxo na teoria de Zermelo-Fraenkel segue o mesmo princípio adotado para o paradoxo de Cantor: a coleção de todos os números ordinais é ``grande demais'' para ser admitida como um conjunto, consistindo, em vez disso, em uma classe própria.
 
 \section{O Paradoxo de Cantor (1899)}
 
@@ -46,12 +112,29 @@ O próprio Georg Cantor reconheceu a gravidade dessa constatação. Ele concluiu
 
 Na teoria axiomática de conjuntos, essa formulação paradoxal é prevenida diretamente pela restrição na formação de conjuntos. Este raciocínio formaliza e conecta-se diretamente com o \autoref{teo:conjunto_universo}, já demonstrado no \autoref{chap:fundamentos_teoria_conjuntos} deste trabalho. A prova rigorosa de que não existe um conjunto ao qual todos os conjuntos pertencem \parencite[p.~22]{enderton1977} elimina a possibilidade de tratar a classe universal \(V\) como um conjunto, invalidando o paradoxo logo em sua premissa.
 
-\section{O Paradoxo de Burali-Forti (1897)}
+\section{O Hotel de Hilbert (1924)}
 
-O paradoxo de Burali-Forti detém o marco histórico de ser a primeira contradição formal identificada no interior da teoria dos conjuntos de Cantor. Publicado em 1897 por Cesare Burali-Forti, o problema evidenciou uma falha estrutural profunda na teoria dos números ordinais transfinitos, antecedendo até mesmo a formulação do célebre paradoxo de Russell \parencite[p.~15]{enderton1977}.
+O experimento mental conhecido como Hotel de Hilbert foi utilizado pelo matemático David Hilbert em suas palestras para ilustrar as propriedades dos conjuntos infinitos \parencite[p.~17]{gamow1988}. O problema demonstra que, ao operar com cardinalidades infinitas, encontram-se características que divergem daquelas habituais na aritmética de quantidades finitas.
 
-A contradição surge ao tentarmos tratar a totalidade dos números ordinais como um conjunto formal. Na formulação de von Neumann, um número ordinal é definido como o conjunto de todos os ordinais estritamente menores que ele \parencite[p.~189]{enderton1977}. Além disso, a classe dos ordinais é bem ordenada pela relação de pertinência (\(\in\)) \parencite[p.~191]{enderton1977}. Se assumirmos a existência de um conjunto \(\Omega\) que contenha todos os números ordinais, esse próprio conjunto herda todas as propriedades que definem um ordinal: ele será um conjunto transitivo e bem ordenado por \(\in\).
+A premissa do experimento propõe um hotel com uma quantidade infinita numerável de quartos, todos ocupados \parencite[p.~73]{rucker2019}. Um novo hóspede chega e solicita acomodação. Em um hotel finito, isso seria impossível. No entanto, o gerente do hotel infinito soluciona o problema movendo o hóspede do quarto \(1\) para o quarto \(2\), o do quarto \(2\) para o quarto \(3\) e, de forma geral, o hóspede do quarto \(n\) para o quarto \(n+1\) \parencite[p.~17]{gamow1988}. Com esse procedimento, o quarto \(1\) fica vago e o novo hóspede é acomodado, sem que nenhum dos hóspedes anteriores fique sem alojamento.
 
-Se \(\Omega\) é um ordinal, ele deve possuir um sucessor imediato, denotado por \(\Omega + 1\). Pelas leis da aritmética ordinal, o sucessor de um ordinal é estritamente maior que ele, o que nos leva a concluir que \(\Omega < \Omega + 1\). No entanto, por premissa, \(\Omega\) é o conjunto de \textit{todos} os ordinais, o que obriga que qualquer ordinal, incluindo \(\Omega + 1\), seja um elemento de \(\Omega\) e, portanto, \(\Omega + 1 \leq \Omega\) \parencite[p.~194]{enderton1977}.
+O problema avança para uma situação na qual chega uma infinidade de novos hóspedes ao hotel lotado. Para acomodá-los, o gerente move o ocupante do quarto \(1\) para o quarto \(2\), o do quarto \(2\) para o quarto \(4\), o do quarto \(3\) para o quarto \(6\) e, sucessivamente, transfere o ocupante do quarto \(n\) para o quarto \(2n\). Essa operação deixa todos os quartos de número ímpar vagos, permitindo que a infinidade de novos hóspedes ocupe exatamente essas vagas. Em termos de ordenação, a literatura também descreve o hotel com os quartos indexados de \(0\) a \(\omega\), nos quais os primeiros \(\omega\) hóspedes são alocados nos quartos pares e os novos \(\omega\) hóspedes são distribuídos nos quartos ímpares \parencite[p.~75]{rucker2019}.
 
-Dessa forma, chegamos à contradição de que \(\Omega + 1\) é simultaneamente maior que \(\Omega\), e não maior que \(\Omega\). A resolução moderna deste paradoxo na teoria de Zermelo-Fraenkel segue o mesmo princípio adotado para o paradoxo de Cantor: a coleção de todos os números ordinais é ``grande demais'' para ser admitida como um conjunto, consistindo, em vez disso, em uma classe própria.
+\input{dados/figuras/apendices/hilbert-1.tex}
+
+\section{A Lâmpada de Thomson (1954)}
+\label{sec:lampada_thomson}
+
+O paradoxo da Lâmpada de Thomson, formulado por James F. Thomson em 1954, constitui um dos primeiros exemplos de ``supertarefas'': processos que exigem a execução de uma infinidade de ações sequenciais em um intervalo de tempo estritamente finito. O experimento mental atua como um contraponto direto às resoluções matemáticas dos paradoxos de Zenão (veja \autoref{sec:aquiles_tartaruga}), questionando se a convergência numérica do tempo é suficiente para garantir a coerência lógica do estado final de um sistema físico.
+
+O cenário delineado por Thomson propõe uma lâmpada que inicialmente se encontra desligada. Um mecanismo acende a lâmpada após decorrido exatamente meio minuto (\(t = 1/2\)). Em seguida, após mais um quarto de minuto, ela é apagada (\(t = 3/4\)). O processo se repete ininterruptamente: a lâmpada é acesa novamente no oitavo de minuto seguinte (\(t = 7/8\)), e assim sucessivamente \parencite[p.~5]{thomson1954}.
+
+\input{dados/figuras/apendices/lampada_de_thomson.tex}
+
+Dessa forma, o intervalo de tempo entre cada alternância de estado é sistematicamente reduzido à metade em relação ao passo anterior. A duração total do processo é descrita pela soma de uma série geométrica convergente:
+\[
+    \sum_{n=1}^{\infty} \frac{1}{2^n} = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \dots = 1
+\]
+O cálculo demonstra rigorosamente que toda a infinidade de operações de ligar e desligar é concluída no exato instante \(t = 1\) minuto. O impasse lógico se revela, então, na provocação central levantada por Thomson: qual é o estado da lâmpada no exato instante \(t=1\)? \parencite[p.~6]{thomson1954}.
+
+Ao contrário do movimento de Aquiles, cuja série contínua de posições converge para uma localização espacial e temporal inambígua (o instante da ultrapassagem), a sequência de estados da lâmpada, que alterna discretamente entre ligada e desligada, não converge para nenhum valor. O problema estrutural do paradoxo não reside na validade do limite temporal, que é irrefutável, mas sim na premissa equivocada de tentar transferir a convergência dos instantes de tempo para uma sequência de estados que oscila divergente e indefinidamente.

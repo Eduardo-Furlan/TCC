@@ -1,0 +1,88 @@
+\begin{figure}[H]
+    \centering
+    \caption{Representação visual da Lâmpada de Thomson}
+    \label{fig:lampada_thomson_sequencia}
+
+    \begin{tikzpicture}[
+            scale=1.1,
+            transform shape,
+            font=\sffamily,
+            >=stealth
+        ]
+
+        \usetikzlibrary{calc}
+
+        \def\ColorAxis{\ifbool{darkmode}{gray!50}{black}}
+        \def\ColorText{\ifbool{darkmode}{white}{black}}
+
+        \def\drawbulb#1#2#3{
+            \begin{scope}[shift={(#1, 0.2)}, scale=#2]
+                \def\ColorBase{\ifbool{darkmode}{gray!40}{gray!60}}
+                \def\ColorBaseBot{\ifbool{darkmode}{gray!60}{gray!80}}
+                \def\ColorGlassOffLine{\ifbool{darkmode}{gray!40}{gray!60}}
+                \def\ColorGlassOffFill{\ifbool{darkmode}{gray!70}{gray!10}}
+                \def\ColorGlassOnLine{\ifbool{darkmode}{yellow!70}{yellow!90!orange}}
+                \def\ColorGlassOnFill{\ifbool{darkmode}{yellow!30}{yellow!20}}
+                \def\ColorRays{\ifbool{darkmode}{yellow!80}{yellow!90!orange}}
+
+                \ifnum#3=1
+                    \fill[\ColorGlassOnFill] (0, 0.7) circle (0.4);
+                    \fill[\ColorGlassOnFill] (-0.2, 0.3) -- (0.2, 0.3) -- (0.35, 0.5) -- (-0.35, 0.5) -- cycle;
+
+                    \draw[thick, \ColorGlassOnLine] (-0.2, 0.3)
+                    .. controls (-0.2, 0.5) and (-0.4, 0.45) .. (-0.4, 0.7)
+                    arc (180:0:0.4)
+                    .. controls (0.4, 0.45) and (0.2, 0.5) .. (0.2, 0.3);
+
+                    \draw[\ColorGlassOnLine] (-0.1, 0.3) -- (-0.15, 0.6) -- (0.15, 0.6) -- (0.1, 0.3);
+
+                    \foreach \a in {0, 45, 90, 135, 180} {
+                            \draw[thick, \ColorRays, shift={(0,0.7)}] (\a:0.45) -- (\a:0.75);
+                        }
+                \else
+                    \fill[\ColorGlassOffFill] (0, 0.7) circle (0.4);
+                    \fill[\ColorGlassOffFill] (-0.2, 0.3) -- (0.2, 0.3) -- (0.35, 0.5) -- (-0.35, 0.5) -- cycle;
+
+                    \draw[thick, \ColorGlassOffLine] (-0.2, 0.3)
+                    .. controls (-0.2, 0.5) and (-0.4, 0.45) .. (-0.4, 0.7)
+                    arc (180:0:0.4)
+                    .. controls (0.4, 0.45) and (0.2, 0.5) .. (0.2, 0.3);
+
+                    \draw[\ColorGlassOffLine] (-0.1, 0.3) -- (-0.15, 0.6) -- (0.15, 0.6) -- (0.1, 0.3);
+                \fi
+
+                \fill[\ColorBase] (-0.2, 0.1) rectangle (0.2, 0.3);
+                \fill[\ColorBaseBot] (-0.1, 0) rectangle (0.1, 0.1);
+                \draw[thick, \ColorBaseBot] (-0.2, 0.1) rectangle (0.2, 0.3);
+            \end{scope}
+        }
+
+        \draw[->, \ColorAxis, thick] (-0.5, 0) -- (13.5, 0) node[right] {\(t\)};
+
+        \foreach \x in {0, 4, 7, 9, 10.4, 11.3} {
+                \draw[dashed, \ColorAxis, opacity=0.5] (\x, 0) -- (\x, 2.5);
+            }
+        \draw[dashed, \ColorAxis, thick] (12.5, 0) -- (12.5, 2.5);
+
+        \draw[thick, \ColorAxis] (0, 0.1) -- (0, -0.1) node[below, \ColorText] {\(0\)};
+        \draw[thick, \ColorAxis] (4, 0.1) -- (4, -0.1) node[below, \ColorText] {\(\frac{1}{2}\)};
+        \draw[thick, \ColorAxis] (7, 0.1) -- (7, -0.1) node[below, \ColorText] {\(\frac{3}{4}\)};
+        \draw[thick, \ColorAxis] (9, 0.1) -- (9, -0.1) node[below=0.3cm, \ColorText] {\(\frac{7}{8}\)};
+        \draw[thick, \ColorAxis] (10.4, 0.1) -- (10.4, -0.1) node[below, \ColorText] {\(\frac{15}{16}\)};
+        \draw[thick, \ColorAxis] (12.5, 0.1) -- (12.5, -0.1) node[below, \ColorText] {\(1\)};
+
+        \node[below, \ColorText] at (11.5, -0.1) {\(\dots\)};
+
+        \drawbulb{2.0}{1.2}{0}
+        \drawbulb{5.5}{1.0}{1}
+        \drawbulb{8.0}{0.8}{0}
+        \drawbulb{9.7}{0.6}{1}
+        \drawbulb{10.85}{0.4}{0}
+        \drawbulb{11.9}{0.25}{1}
+
+        \node[text=\ColorText, font=\Huge\bfseries] at (12.5, 1.2) {?};
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}

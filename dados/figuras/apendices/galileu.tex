@@ -1,0 +1,48 @@
+\begin{figure}[H]
+    \centering
+    \caption{Correspondência biunívoca no Paradoxo de Galileu}
+    \label{fig:paradoxo_galileu}
+
+    \begin{tikzpicture}[
+            scale=1,
+            transform shape,
+            font=\sffamily,
+            >=stealth
+        ]
+
+        \def\ColorLink{\ifbool{darkmode}{DarkModeLink}{LightModeLink}}
+        \def\ColorText{\ifbool{darkmode}{DarkModeText}{black}}
+
+        % Rótulos das linhas
+        \node[\ColorText, font=\bfseries, anchor=east] at (0, 1.5) {Naturais (\(\mathbb{N}\)):};
+        \node[\ColorText, font=\bfseries, anchor=east] at (0, 0) {Quadrados perfeitos:};
+
+        % Elementos da linha de cima (Naturais)
+        \node[\ColorText] (n1) at (1.5, 1.5) {\(1\)};
+        \node[\ColorText] (n2) at (3.0, 1.5) {\(2\)};
+        \node[\ColorText] (n3) at (4.5, 1.5) {\(3\)};
+        \node[\ColorText] (n4) at (6.0, 1.5) {\(4\)};
+        \node[\ColorText] (ndots1) at (7.5, 1.5) {\(\dots\)};
+        \node[\ColorText] (nn) at (9.0, 1.5) {\(n\)};
+        \node[\ColorText] (ndots2) at (10.5, 1.5) {\(\dots\)};
+
+        % Elementos da linha de baixo (Quadrados)
+        \node[\ColorText] (q1) at (1.5, 0) {\(1\)};
+        \node[\ColorText] (q2) at (3.0, 0) {\(4\)};
+        \node[\ColorText] (q3) at (4.5, 0) {\(9\)};
+        \node[\ColorText] (q4) at (6.0, 0) {\(16\)};
+        \node[\ColorText] (qdots1) at (7.5, 0) {\(\dots\)};
+        \node[\ColorText] (qn) at (9.0, 0) {\(n^2\)};
+        \node[\ColorText] (qdots2) at (10.5, 0) {\(\dots\)};
+
+        % Setas de mapeamento
+        \draw[<->, \ColorLink, thick, dashed] (n1) -- (q1);
+        \draw[<->, \ColorLink, thick, dashed] (n2) -- (q2);
+        \draw[<->, \ColorLink, thick, dashed] (n3) -- (q3);
+        \draw[<->, \ColorLink, thick, dashed] (n4) -- (q4);
+        \draw[<->, \ColorLink, thick, dashed] (nn) -- (qn);
+
+    \end{tikzpicture}
+
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}
