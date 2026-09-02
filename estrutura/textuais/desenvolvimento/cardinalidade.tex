@@ -207,6 +207,49 @@ Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \
     \end{enumerate}
 \end{proof}
 
+\begin{teorema}[Teorema de Cantor]\index{Teorema!de Cantor}
+    Para todo conjunto \(X\), tem-se
+    \[
+        |X| < |\PP(X)|
+    \]
+    \label{teo:cantor_ordem_estrita}
+\end{teorema}
+
+\begin{proof}
+    Para provar que \(|X| < |\PP(X)|\), precisamos mostrar que \(|X| \leq |\PP(X)|\) e que não existe qualquer bijeção entre \(X\) e \(\PP(X)\).
+
+    Primeiramente, consideramos a função \(g: X \to \PP(X)\) definida por \(g(x) = \{x\}\) para todo \(x \in X\). Se \(g(x) = g(y)\), temos \(\{x\} = \{y\}\), o que pelo Axioma da Extensão implica \(x = y\). Logo, \(g\) é injetora, o que estabelece que \(|X| \leq |\PP(X)|\).
+
+    Resta demonstrar que não pode existir uma função sobrejetora de \(X\) em \(\PP(X)\) (o que impossibilita a existência de qualquer bijeção). Suponha, por absurdo, que exista uma função sobrejetora \(f: X \to \PP(X)\).
+
+    Pelo Esquema de Axiomas da Separação (\autoref{ax:subconjunto}), podemos construir o subconjunto diagonal:
+    \[
+        D = \{x \in X : x \notin f(x)\}.
+    \]
+    Como \(D \subseteq X\), temos que \(D \in \PP(X)\). Sendo \(f\) sobrejetora por hipótese, deve existir algum elemento \(d \in X\) cuja imagem por \(f\) seja exatamente o conjunto \(D\), isto é, \(f(d) = D\).
+
+    Analisamos agora se o elemento \(d\) pertence ou não ao conjunto \(D\):
+    \begin{itemize}
+        \item Se \(d \in D\), pela definição de \(D\), decorre que \(d \notin f(d)\). Como \(f(d) = D\), segue que \(d \notin D\), uma contradição.
+        \item Se \(d \notin D\), como \(f(d) = D\), temos \(d \notin f(d)\). Mas, pela definição do conjunto \(D\), qualquer elemento \(x \in X\) que satisfaça \(x \notin f(x)\) deve pertencer a \(D\). Logo, \(d \in D\), novamente uma contradição.
+    \end{itemize}
+    Em ambos os casos chegamos a uma contradição lógica da forma \(d \in D \iff d \notin D\). Portanto, a suposição de que \(f\) é sobrejetora é falsa.
+
+    Conclui-se que não existe função sobrejetora (e logo nenhuma bijeção) de \(X\) em \(\PP(X)\). Como \(|X| \leq |\PP(X)|\) e \(|X| \neq |\PP(X)|\), segue pela \autoref{def:ordem_estrita_cardinal} que \(|X| < |\PP(X)|\).
+\end{proof}
+
+\begin{corolario}[Inexistência de cardinal máximo]
+    Não existe um conjunto com cardinalidade máxima. Em particular, a sequência iterada do conjunto das partes
+    \[
+        |X| < |\PP(X)| < |\PP(\PP(X))| < \dots
+    \]
+    estabelece uma hierarquia infinita de cardinalidades estritamente crescentes.
+    \label{cor:cadeia_infinita_cardinais}
+\end{corolario}
+
+\begin{proof}
+    Suponha, por absurdo, que exista um conjunto \(M\) com cardinalidade máxima no universo dos conjuntos, isto é, tal que \(|Y| \leq |M|\) para todo conjunto \(Y\). Tomando \(Y = \PP(M)\), teríamos \(|\PP(M)| \leq |M|\). Contudo, pelo Teorema de Cantor (\autoref{teo:cantor_ordem_estrita}), temos \(|M| < |\PP(M)|\), o que implica \(|M| \leq |\PP(M)|\) e \(|M| \neq |\PP(M)|\). Pela antissimetria (\autoref{cor:leq_cardinal_antissimetrico}), \(|M| \leq |\PP(M)|\) e \(|\PP(M)| \leq |M| \implies |M| = |\PP(M)|\), uma contradição. Portanto, nenhum conjunto possui cardinalidade máxima.
+\end{proof}
 
 \section{Conjuntos finitos}\index{Conjuntos!finitos}
 \label{sec:conjuntos_finitos}
