@@ -163,6 +163,37 @@ A reflexividade e a transitividade mostram que a relação \(\leq\) possui uma e
 
 Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \(\leq\) entre cardinalidades está completamente caracterizada. O \autoref{cor:leq_cardinal_antissimetrico} é exatamente o teorema que acabamos de provar, e a \autoref{prop:leq_cardinal_ordem} segue imediatamente da combinação da reflexividade, transitividade e da antissimetria. Suas demonstrações formais são diretas e ficam, portanto, a cargo do leitor como exercício de verificação. Uma vez estabelecida essa hierarquia entre tamanhos de conjuntos, podemos aplicá-la com segurança aos conjuntos finitos para fundamentar rigorosamente a noção de ``quantidade de elementos''. Na próxima seção, mostraremos que a cardinalidade de um conjunto finito determina um único número natural, o que torna a contagem uma operação bem definida. Além disso, provaremos que subconjuntos próprios de conjuntos finitos possuem cardinalidade estritamente menor que a do conjunto original.
 
+\begin{definicao}[\(<\) entre cardinalidades]\index{Ordem!estrita entre cardinais}\index{Cardinalidade!ordem estrita}
+    Sejam \(A\) e \(B\) conjuntos. Dizemos que a cardinalidade de \(A\) é
+    \emph{estritamente menor} que a cardinalidade de \(B\), denotado por
+    \[
+        |A| < |B|,
+    \]
+    se \(|A| \leq |B|\) e \(|A| \neq |B|\). Em termos funcionais, isso equivale a dizer que existe uma função injetora \(f: A \to B\), mas não existe qualquer função bijetora entre \(A\) e \(B\).
+    \label{def:ordem_estrita_cardinal}
+\end{definicao}
+
+\begin{proposicao}[Propriedades da ordem estrita]
+    A relação \(<\) entre cardinalidades satisfaz as seguintes propriedades:
+    \begin{enumerate}
+        \item \textbf{Irreflexividade:} Para qualquer conjunto \(A\), \(|A| \not< |A|\);
+        \item \textbf{Assimetria:} Se \(|A| < |B|\), então \(|B| \not< |A|\);
+        \item \textbf{Transitividade:} Se \(|A| < |B|\) e \(|B| < |C|\), então \(|A| < |C|\).
+    \end{enumerate}
+    \label{prop:ordem_estrita_propriedades}
+\end{proposicao}
+
+\begin{proof}
+    Demonstramos cada uma das propriedades separadamente:
+    \begin{enumerate}
+        \item \textbf{Irreflexividade:} Pela \autoref{prop:leq_cardinal_reflexiva_transitiva}, temos sempre \(|A| \leq |A|\), pois a função identidade \(i_A: A \to A\) é uma bijeção (e, portanto, \(|A| = |A|\)). Pela \autoref{def:ordem_estrita_cardinal}, para que tivéssemos \(|A| < |A|\), seria necessária a condição \(|A| \neq |A|\), o que é falso. Logo, \(|A| \not< |A|\).
+
+        \item \textbf{Assimetria:} Suponhamos, por absurdo, que existam conjuntos \(A\) e \(B\) tais que \(|A| < |B|\) e \(|B| < |A|\). Pela definição de ordem estrita, isso implicaria simultaneamente que \(|A| \leq |B|\) e \(|B| \leq |A|\). Pelo Teorema de Schröder--Bernstein (\autoref{cor:leq_cardinal_antissimetrico}), obtemos \(|A| = |B|\). No entanto, a própria hipótese \(|A| < |B|\) exige que \(|A| \neq |B|\), gerando uma contradição. Portanto, se \(|A| < |B|\), então \(|B| \not< |A|\).
+
+        \item \textbf{Transitividade:} Sejam \(A, B, C\) conjuntos tais que \(|A| < |B|\) e \(|B| < |C|\). Por definição, existem injeções \(f: A \to B\) e \(g: B \to C\), com \(|A| \neq |B|\) e \(|B| \neq |C|\). A função composta \(g \circ f: A \to C\) é uma injeção, o que nos garante que \(|A| \leq |C|\). Resta provar que \(|A| \neq |C|\). Suponha, por absurdo, que \(|A| = |C|\). Então existe uma bijeção \(h: C \to A\), de modo que \(|C| \leq |A|\). Pela transitividade da ordem fraca aplicada a \(|B| \leq |C|\) e \(|C| \leq |A|\), decorre que \(|B| \leq |A|\). Uma vez que já temos \(|A| \leq |B|\), o Teorema de Schröder--Bernstein impõe \(|A| = |B|\), contradizendo a premissa de que \(|A| < |B|\). Conclui-se, portanto, que \(|A| \neq |C|\) e, consequentemente, \(|A| < |C|\).
+    \end{enumerate}
+\end{proof}
+
 
 \section{Conjuntos finitos}\index{Conjuntos!finitos}
 \label{sec:conjuntos_finitos}
