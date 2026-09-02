@@ -251,6 +251,105 @@ Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \
     Suponha, por absurdo, que exista um conjunto \(M\) com cardinalidade máxima no universo dos conjuntos, isto é, tal que \(|Y| \leq |M|\) para todo conjunto \(Y\). Tomando \(Y = \PP(M)\), teríamos \(|\PP(M)| \leq |M|\). Contudo, pelo Teorema de Cantor (\autoref{teo:cantor_ordem_estrita}), temos \(|M| < |\PP(M)|\), o que implica \(|M| \leq |\PP(M)|\) e \(|M| \neq |\PP(M)|\). Pela antissimetria (\autoref{cor:leq_cardinal_antissimetrico}), \(|M| \leq |\PP(M)|\) e \(|\PP(M)| \leq |M| \implies |M| = |\PP(M)|\), uma contradição. Portanto, nenhum conjunto possui cardinalidade máxima.
 \end{proof}
 
+Além da hierarquia de ordem estrita dada pelo Teorema de Cantor, a comparação de cardinalidades permite introduzir operações aritméticas entre cardinais arbitrários. A mais fundamental dessas operações é a soma cardinal, que formaliza a noção intuitiva de agregar as quantidades de elementos de dois conjuntos disjuntos.
+
+\begin{definicao}[Soma de Cardinais]\index{Soma cardinal!definicao@definição}\index{Cardinalidade!soma de cardinais}
+    Sejam \(A\) e \(B\) conjuntos disjuntos. A soma das cardinalidades \(|A|\) e \(|B|\), denotada por \(|A| + |B|\), é a cardinalidade da união de \(A\) e \(B\):
+    \[
+        |A| + |B| = |A \cup B|.
+    \]
+    Quando \(A\) e \(B\) não forem disjuntos, toma-se a união de suas cópias canônicas disjuntas, definindo
+    \[
+        |A| + |B| = |(A \times \{0\}) \cup (B \times \{1\})|.
+    \]
+    \label{def:soma_cardinal}
+\end{definicao}
+
+Para que essa operação sobre cardinais seja consistente, deve-se assegurar que a soma independe dos representantes escolhidos para as classes de equinumerosidade.
+
+\begin{lema}[Boa Definição da Soma Cardinal]
+    A operação de soma cardinal é bem definida. Isto é, se \(|A| = |A'|\) e \(|B| = |B'|\), com \(A \cap B = \varnothing\) e \(A' \cap B' = \varnothing\), então
+    \[
+        |A \cup B| = |A' \cup B'|.
+    \]
+    \label{lem:soma_cardinal_bem_definida}
+\end{lema}
+
+\begin{proof}
+    Como \(|A| = |A'|\) e \(|B| = |B'|\), existem funções bijetoras \(f: A \to A'\) e \(g: B \to B'\). Definimos a função \(h: A \cup B \to A' \cup B'\) por
+    \[
+        h(x) =
+        \begin{cases}
+            f(x), & \text{se } x \in A, \\
+            g(x), & \text{se } x \in B.
+        \end{cases}
+    \]
+    Como \(A \cap B = \varnothing\), cada elemento de \(A \cup B\) pertence a exatamente um dos conjuntos \(A\) ou \(B\), de modo que a função \(h\) está bem definida.
+
+    Para demonstrar que \(h\) é injetora, sejam \(x_1, x_2 \in A \cup B\) tais que \(h(x_1) = h(x_2)\). Temos três casos a considerar:
+    \begin{enumerate}
+        \item Se \(x_1, x_2 \in A\), então \(f(x_1) = f(x_2)\). Como \(f\) é injetora, segue que \(x_1 = x_2\).
+        \item Se \(x_1, x_2 \in B\), então \(g(x_1) = g(x_2)\). Como \(g\) é injetora, segue que \(x_1 = x_2\).
+        \item Se \(x_1 \in A\) e \(x_2 \in B\), então \(h(x_1) = f(x_1) \in A'\) e \(h(x_2) = g(x_2) \in B'\). Como \(A' \cap B' = \varnothing\), é impossível que \(f(x_1) = g(x_2)\). O caso \(x_1 \in B\) e \(x_2 \in A\) é análogo.
+    \end{enumerate}
+    Portanto, \(h(x_1) = h(x_2) \implies x_1 = x_2\), o que prova que \(h\) é injetora.
+
+    Para demonstrar a sobrejetividade, seja \(y \in A' \cup B'\). Se \(y \in A'\), como \(f\) é sobrejetora, existe \(x \in A\) tal que \(f(x) = y\), logo \(h(x) = y\). Se \(y \in B'\), como \(g\) é sobrejetora, existe \(x \in B\) tal que \(g(x) = y\), logo \(h(x) = y\). Em ambos os casos, encontramos \(x \in A \cup B\) tal que \(h(x) = y\), provando que \(h\) é sobrejetora.
+
+    Sendo \(h\) bijetora, concluímos que \(|A \cup B| = |A' \cup B'|\).
+\end{proof}
+
+A soma cardinal estende para conjuntos arbitrários as propriedades algébricas usuais da adição:
+
+\begin{proposicao}[Propriedades da Soma Cardinal]
+    Para quaisquer conjuntos \(A\), \(B\), \(C\) e \(D\), a adição cardinal satisfaz:
+    \begin{enumerate}
+        \item \textbf{Comutatividade:} \(|A| + |B| = |B| + |A|\);
+        \item \textbf{Associatividade:} \((|A| + |B|) + |C| = |A| + (|B| + |C|)\);
+        \item \textbf{Elemento Neutro:} \(|A| + 0 = |A|\), onde \(0 = |\varnothing|\);
+        \item \textbf{Monotonicidade:} Se \(|A| \leq |B|\) e \(|C| \leq |D|\), então \(|A| + |C| \leq |B| + |D|\).
+    \end{enumerate}
+    \label{prop:propriedades_adicao_cardinal}
+\end{proposicao}
+
+\begin{proof}
+    Podemos assumir, sem perda de generalidade (tomando cópias disjuntas caso necessário), que os conjuntos envolvidos são dois a dois disjuntos.
+    \begin{enumerate}
+        \item \textbf{Comutatividade:} Sejam \(A\) e \(B\) conjuntos disjuntos. Pela comutatividade da operação de união de conjuntos, temos que \(A \cup B = B \cup A\). A função identidade \(i: A \cup B \to B \cup A\) dada por \(i(x) = x\) é trivialmente uma bijeção. Logo,
+              \[
+                  |A| + |B| = |A \cup B| = |B \cup A| = |B| + |A|.
+              \]
+
+        \item \textbf{Associatividade:} Sejam \(A, B, C\) conjuntos mutuamente disjuntos. Pela associatividade da união de conjuntos, temos \((A \cup B) \cup C = A \cup (B \cup C)\). A aplicação identidade fornece uma bijeção entre esses conjuntos, donde
+              \[
+                  (|A| + |B|) + |C| = |(A \cup B) \cup C| = |A \cup (B \cup C)| = |A| + (|B| + |C|).
+              \]
+
+        \item \textbf{Elemento Neutro:} Como \(A \cap \varnothing = \varnothing\) e \(A \cup \varnothing = A\), a função identidade \(i: A \cup \varnothing \to A\) é uma bijeção. Portanto,
+              \[
+                  |A| + 0 = |A| + |\varnothing| = |A \cup \varnothing| = |A|.
+              \]
+
+        \item \textbf{Monotonicidade:} Sejam \(A, B, C, D\) conjuntos tais que \(|A| \leq |B|\) e \(|C| \leq |D|\). Assumindo \(A \cap C = \varnothing\) e \(B \cap D = \varnothing\), existem injeções \(f: A \to B\) e \(g: C \to D\). Definimos \(h: A \cup C \to B \cup D\) por:
+              \[
+                  h(x) =
+                  \begin{cases}
+                      f(x), & \text{se } x \in A, \\
+                      g(x), & \text{se } x \in C.
+                  \end{cases}
+              \]
+              Como \(A \cap C = \varnothing\), \(h\) é uma função bem definida. Para verificar a injetividade, sejam \(x_1, x_2 \in A \cup C\) com \(h(x_1) = h(x_2)\):
+              \begin{itemize}
+                  \item Se \(x_1, x_2 \in A\), então \(f(x_1) = f(x_2) \implies x_1 = x_2\) (pela injetividade de \(f\));
+                  \item Se \(x_1, x_2 \in C\), então \(g(x_1) = g(x_2) \implies x_1 = x_2\) (pela injetividade de \(g\));
+                  \item Se \(x_1 \in A\) e \(x_2 \in C\), então \(h(x_1) = f(x_1) \in B\) e \(h(x_2) = g(x_2) \in D\). Sendo \(B \cap D = \varnothing\), não pode ocorrer \(f(x_1) = g(x_2)\).
+              \end{itemize}
+              Logo, \(h\) é injetora, o que estabelece que \(|A \cup C| \leq |B \cup D|\), isto é, \(|A| + |C| \leq |B| + |D|\).
+    \end{enumerate}
+\end{proof}
+
+Com as noções gerais de equivalência, ordem estrita e adição cardinal devidamente estabelecidas para quaisquer conjuntos, podemos agora iniciar a investigação sistemática das classes fundamentais de conjuntos. A primeira seção deste capítulo dedica-se aos conjuntos finitos, nos quais a aritmética cardinal se identifica com as operações aritméticas elementares sobre os números naturais.
+
 \section{Conjuntos finitos}\index{Conjuntos!finitos}
 \label{sec:conjuntos_finitos}
 A noção de finitude constitui o ponto de partida natural para a construção concreta da cardinalidade. Intuitivamente, um conjunto é finito quando seus elementos podem ser enumerados completamente, de modo que cada um deles corresponda a uma posição em um segmento inicial dos números naturais.
