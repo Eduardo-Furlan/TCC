@@ -348,7 +348,78 @@ A soma cardinal estende para conjuntos arbitrários as propriedades algébricas 
     \end{enumerate}
 \end{proof}
 
-Com as noções gerais de equivalência, ordem estrita e adição cardinal devidamente estabelecidas para quaisquer conjuntos, podemos agora iniciar a investigação sistemática das classes fundamentais de conjuntos. A primeira seção deste capítulo dedica-se aos conjuntos finitos, nos quais a aritmética cardinal se identifica com as operações aritméticas elementares sobre os números naturais.
+De forma análoga à soma, a operação de multiplicação aritmética estende-se naturalmente à teoria dos cardinais por meio do produto cartesiano de conjuntos.
+
+\begin{definicao}[Produto de Cardinais]\index{Produto cardinal}\index{Produto cardinal!definicao@definição}\index{Cardinalidade!produto de cardinais}
+    Sejam \(A\) e \(B\) conjuntos arbitrários. O produto das cardinalidades \(|A|\) e \(|B|\), denotado por \(|A| \cdot |B|\) (ou simplesmente \(|A||B|\)), é definido pela cardinalidade do produto cartesiano \(A \times B\):
+    \[
+        |A| \cdot |B| = |A \times B|.
+    \]
+    \label{def:produto_cardinal}
+\end{definicao}
+
+Assim como na adição, a consistência da multiplicação requer a independência dos representantes de cada cardinalidade.
+
+\begin{lema}[Boa Definição do Produto Cardinal]
+    A operação de produto cardinal é bem definida. Isto é, se \(|A| = |A'|\) e \(|B| = |B'|\), então
+    \[
+        |A \times B| = |A' \times B'|.
+    \]
+    \label{lem:produto_cardinal_bem_definido}
+\end{lema}
+
+\begin{proof}
+    Como \(|A| = |A'|\) e \(|B| = |B'|\), existem funções bijetoras \(f: A \to A'\) e \(g: B \to B'\). Definimos a aplicação produto \(h: A \times B \to A' \times B'\) por
+    \[
+        h(a, b) = (f(a), g(b))
+    \]
+    para todo \((a, b) \in A \times B\).
+
+    Para demonstrar que \(h\) é injetora, sejam \((a_1, b_1), (a_2, b_2) \in A \times B\) tais que \(h(a_1, b_1) = h(a_2, b_2)\). Então \((f(a_1), g(b_1)) = (f(a_2), g(b_2))\), o que implica \(f(a_1) = f(a_2)\) e \(g(b_1) = g(b_2)\). Pela injetividade de \(f\) e \(g\), decorre que \(a_1 = a_2\) e \(b_1 = b_2\), logo \((a_1, b_1) = (a_2, b_2)\).
+
+    Para a sobrejetividade, dado \((a', b') \in A' \times B'\), a sobrejetividade de \(f\) e \(g\) garante a existência de \(a \in A\) e \(b \in B\) tais que \(f(a) = a'\) e \(g(b) = b'\). Assim, \(h(a, b) = (f(a), g(b)) = (a', b')\).
+
+    Portanto, \(h\) é uma bijeção, estabelecendo que \(|A \times B| = |A' \times B'|\).
+\end{proof}
+
+O produto cardinal preserva a estrutura algébrica clássica da multiplicação e articula-se com a adição através da distributividade:
+
+\begin{proposicao}[Propriedades do Produto Cardinal]
+    Para quaisquer conjuntos \(A\), \(B\) e \(C\), o produto cardinal satisfaz:
+    \begin{enumerate}
+        \item \textbf{Comutatividade:} \(|A| \cdot |B| = |B| \cdot |A|\);
+        \item \textbf{Associatividade:} \((|A| \cdot |B|) \cdot |C| = |A| \cdot (|B| \cdot |C|)\);
+        \item \textbf{Elemento Neutro:} \(|A| \cdot 1 = |A|\), onde \(1 = |\{\varnothing\}|\);
+        \item \textbf{Elemento Nulo:} \(|A| \cdot 0 = 0\), onde \(0 = |\varnothing|\);
+        \item \textbf{Distributividade:} \(|A| \cdot (|B| + |C|) = (|A| \cdot |B|) + (|A| \cdot |C|)\);
+        \item \textbf{Monotonicidade:} Se \(|A| \leq |B|\) e \(|C| \leq |D|\), então \(|A| \cdot |C| \leq |B| \cdot |D|\).
+    \end{enumerate}
+    \label{prop:propriedades_produto_cardinal}
+\end{proposicao}
+
+\begin{proof}
+    Apresentamos as demonstrações dos casos estruturais, ficando as propriedades com construções de bijeções análogas às da \autoref{prop:propriedades_adicao_cardinal} a cargo do leitor como exercício.
+    \begin{enumerate}
+        \item \textbf{Comutatividade e Associatividade:} Seguem das bijeções canônicas \((a, b) \mapsto (b, a)\) entre \(A \times B\) e \(B \times A\), e \(((a, b), c) \mapsto (a, (b, c))\) entre \((A \times B) \times C\) e \(A \times (B \times C)\).
+
+        \item \textbf{Elemento Neutro:} Fixando um conjunto unitário \(1 = \{\varnothing\}\), a projeção \(\pi_1: A \times \{\varnothing\} \to A\) dada por \(\pi_1(a, \varnothing) = a\) é uma bijeção imediata, de modo que \(|A| \cdot 1 = |A \times \{\varnothing\}| = |A|\).
+
+        \item \textbf{Elemento Nulo:} Como o produto cartesiano \(A \times \varnothing\) não possui pares ordenados por vacuidade (não existe elemento em \(\varnothing\) para formar a segunda coordenada), temos \(A \times \varnothing = \varnothing\). Consequentemente, \(|A| \cdot 0 = |A \times \varnothing| = |\varnothing| = 0\).
+
+        \item \textbf{Distributividade:} Suponhamos, sem perda de generalidade, que \(B\) e \(C\) são disjuntos (\(B \cap C = \varnothing\)), de modo que \(|B| + |C| = |B \cup C|\). A aplicação \(h: A \times (B \cup C) \to (A \times B) \cup (A \times C)\) definida por \(h(a, x) = (a, x)\) é uma bijeção canônica, pois expressa a distributividade clássica do produto cartesiano sobre a união:
+              \[
+                  A \times (B \cup C) = (A \times B) \cup (A \times C).
+              \]
+              Como \((A \times B) \cap (A \times C) = A \times (B \cap C) = A \times \varnothing = \varnothing\), os conjuntos \(A \times B\) e \(A \times C\) são disjuntos, donde
+              \[
+                  |A| \cdot (|B| + |C|) = |A \times (B \cup C)| = |(A \times B) \cup (A \times C)| = (|A| \cdot |B|) + (|A| \cdot |C|).
+              \]
+
+        \item \textbf{Monotonicidade:} Dadas injeções \(f: A \to B\) e \(g: C \to D\), a aplicação \(h: A \times C \to B \times D\) definida por \(h(a, c) = (f(a), g(c))\) é injetora pela injetividade de cada componente, o que estabelece \(|A| \cdot |C| \leq |B| \cdot |D|\).
+    \end{enumerate}
+\end{proof}
+
+Com as noções gerais de equivalência, ordem estrita e as operações aritméticas de adição e produto cardinal devidamente estabelecidas para conjuntos arbitrários, podemos agora iniciar a investigação sistemática das classes fundamentais de conjuntos. A primeira seção deste capítulo dedica-se aos conjuntos finitos, nos quais a aritmética cardinal coincide rigorosamente com as operações aritméticas elementares sobre os números naturais.
 
 \section{Conjuntos finitos}\index{Conjuntos!finitos}
 \label{sec:conjuntos_finitos}
