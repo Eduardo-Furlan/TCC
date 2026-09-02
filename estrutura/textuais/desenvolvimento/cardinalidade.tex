@@ -194,6 +194,19 @@ Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \
     \end{enumerate}
 \end{proof}
 
+\begin{lema}[Caracterização por inexistência de injeção reversa]
+    Sejam \(A\) e \(B\) conjuntos. \(|A| < |B|\) se, e somente se, existe uma injeção \(f: A \to B\) e não existe função injetora de \(B\) em \(A\).
+    \label{lem:caracterizacao_ordem_estrita_sem_injecao}
+\end{lema}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[\((\implies)\)] Suponha que \(|A| < |B|\). Pela \autoref{def:ordem_estrita_cardinal}, temos \(|A| \leq |B|\) e \(|A| \neq |B|\). A condição \(|A| \leq |B|\) garante a existência de uma função injetora \(f: A \to B\). Resta mostrar que não existe função injetora de \(B\) em \(A\). Suponha, por absurdo, que exista uma função injetora \(g: B \to A\). Então teríamos \(|B| \leq |A|\). Como já temos \(|A| \leq |B|\), o Teorema de Schröder--Bernstein garante a existência de uma bijeção entre \(A\) e \(B\), donde \(|A| = |B|\). Isso contradiz a hipótese de que \(|A| \neq |B|\). Logo, não existe qualquer função injetora de \(B\) em \(A\).
+
+        \item[\((\impliedby)\)] Suponha que existe uma função injetora \(f: A \to B\) e que não existe qualquer função injetora de \(B\) em \(A\). Da existência de \(f\) decorre diretamente que \(|A| \leq |B|\). Resta provar que \(|A| \neq |B|\). Suponha, por absurdo, que \(|A| = |B|\). Então existe uma bijeção \(h: A \to B\). Sendo \(h\) bijetora, sua inversa \(h^{-1}: B \to A\) existe e é também uma bijeção (em particular, uma função injetora de \(B\) em \(A\)). Isso contradiz a hipótese inicial de que não existe função injetora de \(B\) em \(A\). Portanto, devemos ter \(|A| \neq |B|\), o que conclui que \(|A| < |B|\).
+    \end{enumerate}
+\end{proof}
+
 
 \section{Conjuntos finitos}\index{Conjuntos!finitos}
 \label{sec:conjuntos_finitos}
