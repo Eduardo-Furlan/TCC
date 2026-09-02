@@ -19,6 +19,7 @@
 
 \setmainfont{TeX Gyre Pagella}
 \setmathfont{XITS Math}
+\setmathfont{Garamond-Math}[range=\in]
 
 % Substituto para \bm (bold-math do antigo pacote bm):
 %   use \symbf{x} para itálico-negrito ou \mathbf{x} para reto-negrito.
@@ -86,6 +87,7 @@
 \usepackage{etoolbox}           % já carregado em main.tex; aqui por clareza
 \usepackage{csquotes}
 \usepackage[normalem]{ulem}     % sublinhado no sumário (\uline); normalem preserva \emph
+\usepackage{xfrac}              % frações diagoinais inline
 
 % Algoritmos
 \usepackage[algoruled, portuguese]{algorithm2e}
@@ -219,6 +221,7 @@
 \newcommand{\dom}{\text{dom}}
 \newcommand{\im} {\text{im}}
 \newcommand{\fld}{\text{fld}}
+\renewcommand{\mod}{\text{mod }}
 
 % 5. Outros
 \newcommand{\teref}[2]{\hyperref[#1]{#2}}

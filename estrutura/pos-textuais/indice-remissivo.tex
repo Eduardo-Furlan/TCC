@@ -1,0 +1,30 @@
+%!TEX root = ../../main.tex
+% ============================================================
+% estrutura/pos-textuais/indice-remissivo.tex
+%
+% Índice remissivo (NBR 6034), último elemento pós-textual.
+%
+% \printindex lê main.ind (gerado pelo makeindex) e o insere
+% dentro do ambiente `theindex`. A classe abntex2 (via memoir)
+% já cuida de tudo sozinha dentro de `theindex`:
+%   • título "ÍNDICE REMISSIVO" no estilo de capítulo ABNT
+%     (\indexname traduzido em configuracoes/utfpr-setup.tex)
+%   • entrada automática no sumário
+%   • layout em duas colunas (padrão de índice remissivo)
+% Não envolva \printindex em multicols/twocolumn manualmente:
+% o ambiente já faz \twocolumn internamente, e aninhar seria
+% redundante (e provavelmente quebraria o layout de página).
+%
+% Fluxo de compilação necessário para o índice aparecer:
+%   1. lualatex main        → gera main.idx (a partir dos \index{})
+%   2. makeindex main.idx   → gera main.ind (lista ordenada)
+%   3. lualatex main        → lê main.ind e imprime o índice
+%   4. lualatex main        → resolve sumário/referências cruzadas
+% No CI (.github/workflows/latex-release.yml) isso é automático:
+% latexmk (latexmk_use_lualatex: true) detecta o .idx e chama o
+% makeindex sozinho a cada build. Localmente, use `latexmk -lualatex
+% main.tex` pelo mesmo motivo — rodar `lualatex main.tex` sozinho
+% NÃO atualiza o índice.
+% ============================================================
+
+\printindex

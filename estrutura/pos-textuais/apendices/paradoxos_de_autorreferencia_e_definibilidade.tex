@@ -7,7 +7,7 @@ Ao longo das próximas seções, traçaremos uma linha evolutiva desses fenômen
 
 O capítulo se encerra com a aplicação mais rigorosa e impactante dessa estrutura conceitual: o Primeiro Teorema da Incompletude de Gödel. Veremos como Gödel instrumentalizou a autorreferência de maneira estritamente controlada através da aritmetização da sintaxe. Demonstraremos, de forma informal, que sistemas formais consistentes sempre abrigarão verdades matemáticas que escapam à sua própria capacidade de demonstração.
 
-\section{O Paradoxo de Russel (versão popular); ou O Paradoxo do Barbeiro}
+\section{O Paradoxo de Russell (versão popular); ou O Paradoxo do Barbeiro}\index{Paradoxo!de Russell}\index{Paradoxo!do Barbeiro}
 
 O Paradoxo do Barbeiro é uma ilustração informal da estrutura lógica do Paradoxo de Russell. O cenário propõe uma cidade com apenas um barbeiro e uma regra estrita: o barbeiro barbeia todos os homens da cidade que não se barbeiam, e apenas esses.
 
@@ -18,7 +18,7 @@ Se ele se barbeia, ele viola a regra, pois deve barbear apenas aqueles que não 
 
 A premissa não possui solução, demonstrando que tal barbeiro e tal regra não podem existir. A impossibilidade lógica surge da autorreferência criada quando a condição definidora é aplicada ao seu próprio agente. Esta é a mesma dicotomia estrutural presente no argumento da diagonal de Cantor. Na versão formal do paradoxo aplicada à teoria dos conjuntos, a ação de ``barbear'' é substituída pela relação de pertinência (\(\in\)), e a coleção de homens é substituída pelo conjunto de todos os conjuntos que não pertencem a si mesmos.
 
-\section{O Paradoxo de Russell (versão formal, 1901)}
+\section{O Paradoxo de Russell (versão formal, 1901)}\index{Paradoxo!de Russell!versao formal@versão formal}
 \label{sec:apendiceRusselFormal}
 
 Conforme introduzido no \autoref{chap:fundamentos_teoria_conjuntos}, a formação irrestrita de conjuntos baseada em qualquer propriedade arbitrária conduz a sérios problemas lógicos. O exemplo clássico e mais devastador desse fenômeno é o Paradoxo de Russell, descoberto por Bertrand Russell em 1901 \cite[p.~15]{enderton1977}.
@@ -27,12 +27,12 @@ Considere a coleção de todos os conjuntos que não são membros de si mesmos, 
 
 Historicamente, esse paradoxo teve um impacto enorme nos fundamentos da matemática. Ele foi comunicado por Russell a Gottlob Frege em uma carta de 1902. O paradoxo demonstrou que a premissa intuitiva de que toda e qualquer condição lógica determina um conjunto válido era fundamentalmente inconsistente.
 
-As consequências dessa descoberta forçaram a reestruturação completa da teoria dos conjuntos. Para evitar a contradição, a matemática moderna, através da axiomatização de ZF, abandonou tal premissa. Em seu lugar, adotou-se os Axiomas de Subconjunto (ou \textit{Aussonderung}, veja o \autoref{ax:subconjunto}), que restringe a construção de subconjuntos apenas a elementos que já pertencem a um conjunto previamente existente, alterando a definição para \( B = \{x \in A \mid x \notin x\} \). Dessa forma, a mesma lógica que antes gerava um paradoxo agora apenas demonstra o Teorema de que \( B \notin A \), provando que não existe um ``conjunto de todos os conjuntos'' \cite[p.~22]{enderton1977}.
+As consequências dessa descoberta forçaram a reestruturação completa da teoria dos conjuntos. Para evitar a contradição, a matemática moderna, através da axiomatização de ZF, abandonou tal premissa. Em seu lugar, adotou-se os Axiomas de Subconjunto (ou \textit{Aussonderung}, veja o \autoref{ax:subconjunto}), que restringe a construção de subconjuntos apenas a elementos que já pertencem a um conjunto previamente existente, alterando a definição para \( B = \{x \in A \mid x \notin x\} \). Dessa forma, a mesma lógica que antes gerava um paradoxo agora apenas demonstra a proposição de que \( B \notin A \), provando que não existe um ``conjunto de todos os conjuntos'' \cite[p.~22]{enderton1977}.
 
-A crise fundacional deflagrada pelo paradoxo de 1901 também impulsionou o desenvolvimento de abordagens alternativas rigorosas. Entre elas, destaca-se a hierarquia da Teoria dos Tipos, desenvolvida pelo próprio Russell e Whitehead na obra \textit{Principia Mathematica} \cite{russell1910}, e a consolidação da distinção estrita entre ``conjuntos'' (que podem pertencer a outras coleções) e ``classes próprias'' (coleções grandes demais para serem elementos de outras, como a coleção de todos os conjuntos), formalizada nas axiomatizações de von Neumann, Bernays e Gödel \cite[p.~15]{enderton1977}.
+A crise fundacional deflagrada pelo paradoxo de 1901 também impulsionou o desenvolvimento de abordagens alternativas rigorosas. Entre elas, destaca-se a hierarquia da Teoria dos Tipos, desenvolvida pelo próprio Russell e Whitehead na obra \textit{Principia Mathematica} \cite{russell1910}, e a consolidação da distinção estrita entre ``conjuntos'' (que podem pertencer a outras coleções) e ``classes próprias''\index{Classes proprias@Classes próprias} (coleções grandes demais para serem elementos de outras, como a coleção de todos os conjuntos), formalizada nas axiomatizações de von Neumann, Bernays e Gödel \cite[p.~15]{enderton1977}.
 
 
-\section{O Paradoxo de Richard (1905)}
+\section{O Paradoxo de Richard (1905)}\index{Paradoxo!de Richard}
 
 O paradoxo foi apresentado  por Jules Richard em 1905 como uma carta ao editor da \textit{Revue générale des sciences pures et appliquées}, demonstrando que contradições na teoria dos conjuntos podem surgir sem sequer recorrer à teoria dos números ordinais \parencite[p.~142]{heijenoort1967}.
 
@@ -47,7 +47,7 @@ O paradoxo se consolida no fato de que a própria regra descrita no parágrafo a
 O próprio autor ofereceu uma solução para a contradição no mesmo texto: a frase que define \(N\) faz referência ao conjunto \(E\) na sua formulação. Contudo, na posição em que a referida frase aparece enumerada no conjunto de permutações, o conjunto \(E\) ainda não está totalmente definido. Por depender do próprio conjunto que está sendo formado, a sentença não possui significado válido naquela etapa da construção e, portanto, deve ser descartada.
 
 
-\section{O Paradoxo de Berry (1908)}
+\section{O Paradoxo de Berry (1908)}\index{Paradoxo!de Berry}
 
 O paradoxo de Berry, publicado formalmente por Bertrand Russell em 1908 e creditado por ele a G. G. Berry \parencite[p.~150]{heijenoort1967}, ilustra as contradições semânticas decorrentes da autorreferência e das limitações da linguagem \parencite[p.~93]{rucker2019}. A formulação original de Russell aborda a nomeação de números inteiros na língua inglesa.
 
@@ -57,11 +57,11 @@ Considere a seguinte frase em inglês utilizada para descrever este número: ``t
 
 Este paradoxo é uma versão simplificada e ainda mais direta do problema proposto por \textcite{enderton1977}, abordado na \autoref{sec:axiomas_conjuntos}. Naquele contexto, O problema era o conjunto de todos os inteiros positivos definíveis em uma linha de texto. Como existe um limite de caracteres possíveis em uma linha, o conjunto de definições em uma linha é finito, garantindo a existência do ``menor número inteiro positivo que não é definível em uma linha de texto''. A contradição é evidente: essa própria proposição atua como uma definição exata, contida em uma linha, para o número em questão. A estrutura lógica de ambas as formulações é idêntica, utiliza-se uma restrição finita do meio de comunicação para delimitar um conjunto e, em seguida, emprega-se a própria estipulação para violar a restrição.
 
-\section{O Teorema da Incompletude de Gödel (1931)}
+\section{O Teorema da Incompletude de Gödel (1931)}\index{Teorema!da Incompletude de Gödel}\index{Godel@Gödel!teorema da incompletude de}
 
 O trabalho de Kurt Gödel em 1931 estabeleceu limites fundamentais para o que pode ser provado na matemática. Até então, o objetivo de muitos matemáticos era construir um sistema formal completo e consistente, capaz de provar mecanicamente todas as verdades matemáticas. Para entender como Gödel demonstrou a impossibilidade disso, primeiramente é necessário compreender sua abordagem de forma intuitiva.
 
-\textcite[p.~68]{nagel2001} explicam que Gödel introduziu um método, hoje conhecido como ``Numeração de Gödel'', que associa um número único a cada símbolo, fórmula e sequência de fórmulas dentro de um sistema formal. Essa técnica de mapeamento permitiu que a metamatemática, que é o estudo das regras e propriedades do próprio sistema, fosse traduzida em propriedades puramente aritméticas. Dessa forma, o sistema ganhou a capacidade de ``falar'' sobre si mesmo por meio de números.
+\textcite[p.~68]{nagel2001} explicam que Gödel introduziu um método, hoje conhecido como ``Numeração de Gödel''\index{Numeracao de Godel@Numeração de Gödel}, que associa um número único a cada símbolo, fórmula e sequência de fórmulas dentro de um sistema formal. Essa técnica de mapeamento permitiu que a metamatemática, que é o estudo das regras e propriedades do próprio sistema, fosse traduzida em propriedades puramente aritméticas. Dessa forma, o sistema ganhou a capacidade de ``falar'' sobre si mesmo por meio de números.
 
 Para que uma fórmula pudesse se referir a si mesma de forma estritamente rigorosa, Gödel não usou paradoxos de linguagem, mas sim um truque aritmético de substituição. \textcite[p.~89]{nagel2001} detalham esse mecanismo: Gödel definiu uma função matemática que denotamos por \(\mathrm{sub}(x, 17, x)\). O número 17 é o número de Gödel da variável numérica \(y\). A função \(\mathrm{sub}\) pega uma fórmula cujo número de Gödel é \(x\) e substitui todas as ocorrências da variável \(y\) dentro dessa fórmula pelo próprio número \(x\). Ou seja, o número que identifica a fórmula é inserido dentro dela mesma. É esse processo mecânico de substituição que garante a capacidade de criar sentenças autorreferenciais na aritmética sem gerar paradoxos.
 
