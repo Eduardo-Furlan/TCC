@@ -1,77 +1,351 @@
 %!TEX root = main.tex
 
-\chapter{O CONCEITO DE CARDINALIDADE}
+\chapter{O CONCEITO DE CARDINALIDADE}\index{Cardinalidade}
 \label{chap:cardinalidade}
 
-A partir das definições elementares de conjunto, este capítulo formaliza o conceito intuitivo de tamanho. Serão discutidas as definições rigorosas de conjuntos finitos e infinitos, contrastando as abordagens de autores clássicos como \textcite{halmos2014} e \textcite{lima2006}. Além disso, estabelecem-se os critérios matemáticos para comparar a magnitude de dois conjuntos através da análise de funções injetoras e bijetoras, fundamentando a noção de equipotência.
+A noção de tamanho de um conjunto é familiar quando consideramos coleções finitas: podemos dizer, por exemplo, que um conjunto possui três elementos, independentemente da natureza desses elementos. Para formalizar essa ideia e estendê-la a conjuntos infinitos, é necessário substituir a contagem direta dos elementos por uma noção de correspondência entre conjuntos.
 
-\section{Conjuntos finitos}
+A ideia fundamental é comparar dois conjuntos por meio de funções. Dizemos que dois conjuntos possuem a mesma cardinalidade quando existe uma bijeção entre eles, isto é, quando seus elementos podem ser colocados em correspondência um a um. Além disso, podemos comparar conjuntos de tamanhos diferentes por meio de funções injetoras: uma injeção de um conjunto em outro pode ser interpretada como a possibilidade de ``acomodar'' todos os elementos do primeiro no segundo sem repetir posições.
+
+Nesta perspectiva, a cardinalidade não depende da natureza dos elementos de um conjunto, mas apenas da forma como seus elementos podem ser relacionados aos elementos de outros conjuntos. Essa abstração permite tratar de maneira uniforme tanto os conjuntos finitos quanto os infinitos, embora, como veremos ao longo deste capítulo, o comportamento da cardinalidade nos dois casos seja substancialmente diferente.
+
+Informalmente, podemos compreender a \emph{cardinalidade} de um conjunto \(X\), denotada por \(|X|\), como uma medida de sua ``grandeza'' ou quantidade de elementos, associada à sua classe de equivalência por bijeções. Uma definição rigorosa de \emph{número cardinal} como um objeto específico dentro da teoria axiomática dos conjuntos requer a teoria dos \emph{números ordinais}, tópico que será abordado em capítulos posteriores. Por essa razão, neste momento trataremos a cardinalidade primariamente por meio da relação de comparação direta entre pares de conjuntos, dispensando provisoriamente a construção prévia dos cardinais como entidades matemáticas isoladas.
+
+\begin{definicao}[Equinumerosidade]\index{Equinumerosidade}\index{Cardinalidade!equinumerosidade}
+    Dois conjuntos \(A\) e \(B\) são ditos \emph{equinumerosos}, denotado por
+    \[
+        |A| = |B|,
+    \]
+    se e somente se existe uma função bijetora \(f:A\to B\).
+    \label{def:equinumerosidade}
+\end{definicao}
+
+A equinumerosidade formaliza a ideia de que dois conjuntos possuem a mesma quantidade de elementos. De fato, uma bijeção estabelece uma correspondência um a um entre os elementos dos dois conjuntos, de modo que nenhum elemento de qualquer dos conjuntos fica sem correspondente e nenhum elemento é associado a mais de um elemento do outro conjunto.
+
+Quando dois conjuntos não são equinumerosos, ainda podemos perguntar se um deles pode ser comparado ao outro em termos de tamanho. Para isso, basta exigir uma correspondência que não permita que dois elementos distintos do primeiro conjunto sejam associados ao mesmo elemento do segundo.
+
+\begin{definicao}[\(\leq\) entre cardinalidades]\index{Cardinalidade!comparacao de@comparação de}\index{Ordem!parcial entre cardinais}
+    Sejam \(A\) e \(B\) conjuntos. Dizemos que a cardinalidade de \(A\) é
+    menor ou igual à cardinalidade de \(B\), denotado por
+    \[
+        |A| \leq |B|,
+    \]
+    se existe uma função injetora \(f:A\to B\).
+    \label{def:leq_cardinal}
+\end{definicao}
+
+A relação \(\leq\) entre cardinalidades permite comparar conjuntos mesmo quando não existe uma bijeção entre eles. Além disso, ela satisfaz as propriedades básicas esperadas de uma relação de ordem.
+
+\begin{proposicao}[Reflexividade e Transitividade da Comparação Cardinal]
+    A relação \(\leq\) entre cardinalidades é reflexiva e transitiva.
+    \label{prop:leq_cardinal_reflexiva_transitiva}
+\end{proposicao}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Reflexividade: Precisamos provar que para qualquer conjunto \(A\), \(|A| \leq |A|\). Ou seja, precisamos encontrar uma injeção \(A \to A\), o que pode ser facilmente feito pela função identidade \(i(x)\), que é trivialmente injetora, pois se \(i(x) = i(y)\) segue da própria definição de \(i\) que \(x = y\), logo \(|A| \leq |A|\).
+        \item Transitividade: Precisamos provar que, se \(|A| \leq |B|\) e \(|B| \leq |C|\), então \(|A| \leq |C|\). Temos, por hipótese, que existe uma injeção \(f: A \to B\) e uma injeção \(g: B \to C\). Considere então a função \(h: A \to C\) definida por \(h = g \circ f\), ou seja, \(h(x) = g(f(x))\). Podemos então facilmente verificar a injetividade de \(h\):
+              \begin{align*}
+                  h(x) = h(y) & \implies g(f(x)) = g(f(y)) \\
+                              & \implies f(x) = f(y)       \\
+                              & \implies x = y
+              \end{align*}
+              Logo, como \(h\) é injetora, \(|A| \leq |C|.\)
+    \end{enumerate}
+\end{proof}
+
+A reflexividade e a transitividade mostram que a relação \(\leq\) possui uma estrutura de pré-ordem. Para obter uma verdadeira relação de ordem, resta estabelecer a antissimetria. O resultado fundamental que permite fazê-lo é o Teorema de Schröder--Bernstein.
+
+\begin{teorema}[Schröder--Bernstein]\index{Teorema!de Schroder@de Schröder--Bernstein}
+    Sejam \(A\) e \(B\) conjuntos. Se existem funções injetoras
+    \(f:A\to B\) e \(g:B\to A\), então existe uma bijeção \(h:A\to B\).
+    \label{teo:schroder_bernstein}
+\end{teorema}
+
+\begin{proof}
+    A demonstração que segue é uma adaptação da apresentada por
+    \textcite[p.~89]{halmos2014}.
+
+
+    Podemos supor, sem perda de generalidade, que \(X\) e \(Y\) são disjuntos (caso contrário, substituímos \(X\) por \(X \times \{0\}\) e \(Y\) por \(Y \times \{1\}\))\footnote{A substituição de \(X\) por \(X \times \{0\}\) e de \(Y\) por \(Y \times \{1\}\) é um artifício técnico apenas para garantir que os conjuntos sejam disjuntos, evitando ambiguidades na definição das linhagens (um mesmo elemento não poderá ser confundido como elemento de \(X\) e de \(Y\) simultaneamente). As funções injetoras correspondentes são definidas naturalmente por \(f^*(x,0) = (f(x),1)\) e \(g^*(y,1) = (g(y),0)\). A segunda coordenada (o rótulo \(0\) ou \(1\)) é uma constante que não introduz qualquer operação adicional ou complexidade. A prova construída para as cópias \(X^*\) e \(Y^*\) produz uma bijeção \(h^*: X^* \to Y^*\), e a bijeção original \(h: X \to Y\) é obtida simplesmente apagando os rótulos, \(h(x) = y \iff h^*(x,0) = (y,1)\). Portanto, a suposição de que \(X\) e \(Y\) são disjuntos não acarreta perda de generalidade.}.
+
+    Dizemos que \(x \in X\) é o \textit{pai} de \(f(x) \in Y\), e que \(y \in Y\) é o \textit{pai} de \(g(y) \in X\). Assim, cada elemento gera uma sequência infinita de descendentes:
+    \[
+        x \mapsto f(x) \mapsto g(f(x)) \mapsto f(g(f(x))) \mapsto \cdots
+    \]
+    Da mesma forma, a ancestralidade de um elemento é obtida aplicando \(g^{-1}\) (quando definido) ou \(f^{-1}\) (quando definido).
+
+    Um elemento de \(X\) não tem pai (é órfão) se, e somente se, pertence a \(X - g(Y)\).
+    Um elemento de \(Y\) não tem pai se, e somente se, pertence a \(Y - f(X)\).
+
+    Particionamos \(X\) em três partes:
+    \begin{enumerate}
+        \item \(X_X\): elementos de \(X\) cuja linhagem origina-se em \(X - g(Y)\) (órfãos de \(X\));
+        \item \(X_Y\): elementos de \(X\) cuja linhagem origina-se em \(Y - f(X)\) (órfãos de \(Y\));
+        \item \(X_\infty\): elementos de \(X\) cuja linhagem não possui ancestral sem pai (regressão infinita).
+    \end{enumerate}
+    Analogamente, particionamos \(Y\) em \(Y_X\), \(Y_Y\) e \(Y_\infty\).
+
+    Para exemplificar a demonstração, tomemos \(X = [0,1]\), \(Y = [0,2)\), \(f(x) = x\) e \(g(y) = y/2\). Aqui,
+    \[
+        X - g(Y) = [0,1] - [0,1) = \{1\}, \qquad
+        Y - f(X) = [0,2) - [0,1] = (1,2).
+    \]
+    Traçando as linhagens:
+    \begin{enumerate}
+        \item O órfão \(1 \in X\) gera em \(X\) os números \(1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \dots\). Logo,
+              \[
+                  X_X = \left\{ \frac{1}{2^n} \;\middle|\; n \in \mathbb{Z}_{\ge 0} \right\}.
+              \]
+        \item O número \(0 \in X\) possui a linhagem \(0 \mapsto 0 \mapsto 0 \mapsto \cdots\), sem começo. Logo,
+              \[
+                  X_\infty = \{0\}.
+              \]
+        \item Todos os outros elementos de \((0,1)\), como \(\frac{3}{4}\), \(\frac{2}{3}\), \(\frac{7}{8}\), etc., são descendentes de algum órfão de \(Y\) (por exemplo, \(\frac{3}{4}\) é filho de \(g^{-1}(\frac{3}{4}) = \frac{3}{2} \in (1,2)\)). Portanto,
+              \[
+                  X_Y = (0,1) - X_X.
+              \]
+    \end{enumerate}
+    Em \(Y\), temos:
+    \[
+        Y_X = \left\{ \frac{1}{2^n} \;\middle|\; n \in \mathbb{Z}_{\ge 0} \right\}, \qquad
+        Y_\infty = \{0\}, \qquad
+        Y_Y = (0,2) - Y_X.
+    \]
+    A injetividade de \(f\) e \(g\) garante que as árvores genealógicas de órfãos distintos nunca se cruzam.
+
+    Podemos agora construir uma bijeção de \(X \to Y\).
+
+    \begin{enumerate}
+        \item \textbf{Origem em \(X\):} Se \(x \in X_X\), então \(f(x) \in Y_X\). A restrição
+              \[
+                  f|_{X_X}: X_X \to Y_X
+              \]
+              é uma bijeção, pois \(f\) é injetora e, por construção, \(f(X_X) = Y_X\).
+
+        \item \textbf{Origem em \(Y\):} Se \(x \in X_Y\), então \(x\) é descendente de um órfão de \(Y\). Logo, \(x\) possui um único pai em \(Y\), \(g^{-1}(x)\). A restrição
+              \[
+                  g^{-1}|_{X_Y}: X_Y \to Y_Y
+              \]
+              é uma bijeção. De fato, \(g^{-1}\) existe em \(X_Y\) (pois \(X_Y \subset g(Y)\)) e é injetora, além disso, sua imagem é exatamente \(Y_Y\).
+
+        \item \textbf{Linhagem infinita:} Se \(x \in X_\infty\), sua linhagem é infinita:
+              \[
+                  \cdots \xrightarrow{g} x_{-1} \xrightarrow{f} y_{-1} \xrightarrow{g} x_0 \xrightarrow{f} y_0 \xrightarrow{g} x_1 \xrightarrow{f} y_1 \xrightarrow{g} \cdots
+              \]
+              Nesse caso, a restrição \(f|_{X_\infty}: X_\infty \to Y_\infty\) dada por \(f(x_i) = y_i\) é uma bijeção, pois cobre todos os \(y_i\) exatamente uma vez.
+              Alternativamente, poderíamos usar \(g^{-1}|_{X_\infty}\), que seria dada por \(g^{-1}(x_{i+1}) = y_i\). Como a cadeia é bi-infinita, esse deslocamento não altera a bijeção: ambos os mapeamentos são válidos e cobrem todo o \(Y_\infty\). Optamos por usar \(f\), mas \(g^{-1}\) funcionaria igualmente bem.
+    \end{enumerate}
+
+    Finalmente, definimos \(h: X \to Y\) por
+    \[
+        h(x) =
+        \begin{cases}
+            f(x),      & \text{se } x \in X_X \cup X_\infty, \\[4pt]
+            g^{-1}(x), & \text{se } x \in X_Y.
+        \end{cases}
+    \]
+    Como \(X = X_X \cup X_Y \cup X_\infty\) é uma união disjunta e as três restrições acima são bijeções com imagens respectivamente \(Y_X\), \(Y_Y\) e \(Y_\infty\), que também particionam \(Y\), concluímos que \(h\) é uma bijeção entre \(X\) e \(Y\). Portanto, existe uma correspondência biunívoca entre os conjuntos, como queríamos demonstrar.
+\end{proof}
+
+\begin{corolario}[Antissimetria da Ordem Cardinal]
+    Se \(|A|\leq |B|\) e \(|B|\leq |A|\), então
+    \[
+        |A|=|B|.
+    \]
+    \label{cor:leq_cardinal_antissimetrico}
+\end{corolario}
+
+\begin{proposicao}
+    A relação \(\leq\) entre cardinalidades é uma relação de ordem.
+    \label{prop:leq_cardinal_ordem}
+\end{proposicao}
+
+Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \(\leq\) entre cardinalidades está completamente caracterizada. O \autoref{cor:leq_cardinal_antissimetrico} é exatamente o teorema que acabamos de provar, e a \autoref{prop:leq_cardinal_ordem} segue imediatamente da combinação da reflexividade, transitividade e da antissimetria. Suas demonstrações formais são diretas e ficam, portanto, a cargo do leitor como exercício de verificação. Uma vez estabelecida essa hierarquia entre tamanhos de conjuntos, podemos aplicá-la com segurança aos conjuntos finitos para fundamentar rigorosamente a noção de ``quantidade de elementos''. Na próxima seção, mostraremos que a cardinalidade de um conjunto finito determina um único número natural, o que torna a contagem uma operação bem definida. Além disso, provaremos que subconjuntos próprios de conjuntos finitos possuem cardinalidade estritamente menor que a do conjunto original.
+
+
+\section{Conjuntos finitos}\index{Conjuntos!finitos}
 \label{sec:conjuntos_finitos}
+A noção de finitude constitui o ponto de partida natural para a construção concreta da cardinalidade. Intuitivamente, um conjunto é finito quando seus elementos podem ser enumerados completamente, de modo que cada um deles corresponda a uma posição em um segmento inicial dos números naturais.
 
-A noção intuitiva de tamanho de um conjunto é formalizada matematicamente pelo conceito de cardinalidade. \textcite[p.~3]{lima2006} define um conjunto \(X\) como \textbf{finito} quando \(X\) é vazio, ou existem um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\) onde \(I_n = \{p \in \mathbb{N}: p \leq n \}\). Já \textcite[p.~53]{halmos2014} define um conjunto finito como um conjunto equivalente a um número\footnote{Na Teoria de Conjuntos números são conjuntos. \(0 = \varnothing, 1 = \{\varnothing\}, n = \{0,1,2,\dots,n-1\}.\)} natural, onde equivalência significa uma bijeção. Uma propriedade fundamental dos conjuntos finitos é que não existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
+\begin{definicao}[Conjunto finito]
+    Um conjunto \(X\) é dito \emph{finito} se \(X=\varnothing\) ou existe
+    \(n\in\mathbb{N}\) e uma bijeção
+    \[
+        f:I_n\to X,
+        \qquad
+        I_n=\{p\in\mathbb{N}:p\leq n\}.
+    \]
+    \label{def:conjunto_finito}
+\end{definicao}
+
+A definição acima, apresentada por \textcite[p.~3]{lima2006}, é equivalente à caracterização de
+\textcite[p.~53]{halmos2014}, segundo a qual um conjunto finito é um conjunto
+equinumeroso a um número natural. De fato, existe uma bijeção natural entre
+\(I_n\) e o conjunto que representa o número natural \(n\), dada pela regra
+\(k\mapsto k-1\).\footnote{Na Teoria de Conjuntos, números são conjuntos.
+    \(0=\varnothing\), \(1=\{\varnothing\}\), \(n=\{0,1,2,\dots,n-1\}\).
+    \label{fn:definicao_numero_halmos}}
 
 \begin{exemplo}
-    O conjunto \(X = \{\text{primeiro}, \text{segundo}, \text{terceiro}\}\) é finito. Para verificar basta encontrar um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\), de fato, tome \(n = 3\), e \(f: \ \{1,2,3\} \to X\) tal que
-
-    \begin{align*}
-         & f(1) \longleftrightarrow \text{primeiro} \\
-         & f(2) \longleftrightarrow \text{segundo}  \\
-         & f(3) \longleftrightarrow \text{terceiro} \\
-    \end{align*}
-
+    O conjunto
+    \[
+        X=\{\text{primeiro},\text{segundo},\text{terceiro}\}
+    \]
+    é finito. Basta tomar \(n=3\), de modo que
+    \(I_3=\{1,2,3\}\), e definir a bijeção
+    \(f:I_3\to X\) por
+    \[
+        f(1)=\text{primeiro},\qquad
+        f(2)=\text{segundo},\qquad
+        f(3)=\text{terceiro}.
+    \]
     \label{ex:finito-elon}
 \end{exemplo}
 
 \begin{exemplo}
-    Utilizando a definição de \textcite{halmos2014}, considere o conjunto das vogais \(V = \{a, e, i, o, u\}\). Este conjunto é finito, pois é equivalente ao número natural \(5\) (que, como conjunto, é \(5 = \{0, 1, 2, 3, 4\}\)). A bijeção \(g: 5 \to V\) é dada por:
-    \begin{align*}
-         & g(0) \longleftrightarrow a \\
-         & g(1) \longleftrightarrow e \\
-         & g(2) \longleftrightarrow i \\
-         & g(3) \longleftrightarrow o \\
-         & g(4) \longleftrightarrow u \\
-    \end{align*}
+    Considere o conjunto das vogais
+    \[
+        V=\{a,e,i,o,u\}.
+    \]
+    Pela caracterização de \textcite{halmos2014}, o conjunto \(V\) é finito
+    pois é equinumeroso ao número natural \(5\). Uma bijeção
+    \(g:5\to V\) pode ser dada por
+    \[
+        g(0)=a,\qquad
+        g(1)=e,\qquad
+        g(2)=i,\qquad
+        g(3)=o,\qquad
+        g(4)=u.
+    \]
     \label{ex:finito-halmos}
 \end{exemplo}
 
-\section{Conjuntos infinitos}
+\subsection{Cardinalidade dos conjuntos finitos}
+\label{subsec:cardinalidade_conjuntos_finitos}
+
+Uma vez caracterizados os conjuntos finitos, podemos associar-lhes precisamente um número natural que representa sua quantidade de elementos. O próximo resultado garante que essa associação é bem definida: dois números naturais equinumerosos devem necessariamente ser iguais.
+
+\begin{proposicao}
+    Sejam \(m,n\in\mathbb{N}\). Se \(|m| = |n|\), então \(m=n\).
+\end{proposicao}
+
+\begin{proof}
+    Provaremos por indução sobre \(m\). Adotamos a definição de \textcite{halmos2014} para os números naturais.
+
+    \textbf{Base: \(m = 0\).} Suponhamos que \(|0| = |n|\). Como \(0 = \varnothing\), se \(n \neq 0\), então \(n\) possui pelo menos um elemento. Nesse caso, não pode existir uma bijeção entre o conjunto vazio e um conjunto não vazio. Logo, \(n = 0\), o que prova o caso base.
+
+    \textbf{Passo indutivo.}
+    Suponhamos agora que a afirmação seja válida para um dado \(m \in \mathbb{N}\).
+    Seja \(n \in \mathbb{N}\) tal que
+    \[
+        |m+1| = |n|.
+    \]
+
+    Como \(m+1 \neq \varnothing\), o conjunto \(n\) também não pode ser vazio.
+    Portanto, existe \(k \in \mathbb{N}\) tal que
+    \[
+        n = k+1.
+    \]
+
+    Seja \(f: m+1 \to k+1\) uma bijeção.
+    Considere o elemento
+    \[
+        a = f^{-1}(k) \in m+1,
+    \]
+    ou seja, \(a\) é o único elemento de \(m+1\) que é levado por \(f\) no número \(k\).
+
+    A restrição de \(f\) ao conjunto \((m+1) - \{a\}\) é uma bijeção entre \((m+1) - \{a\}\) e \((k+1) - \{k\} = k\).
+    Em símbolos:
+    \[
+        f|_{(m+1) - \{a\}}: (m+1) - \{a\} \to k.
+    \]
+
+    Sendo \(m+1 = m \cup \{m\}\), definimos uma bijeção
+    \[
+        \phi: m \to (m+1) - \{a\}
+    \]
+    da seguinte forma: se \(a = m\), definimos \(\phi(x) = x\) para todo \(x \in m\). Se \(a \neq m\), logo \(a \in m\), e definimos \(\phi(x) = x\) para todo \(x \in m - \{a\}\), com \(\phi(a) = m\).
+
+    Desse modo, a composição
+    \[
+        f|_{(m+1) - \{a\}} \circ \phi: m \to k
+    \]
+    é uma bijeção.
+    Logo, temos que
+    \[
+        |m| = |k|.
+    \]
+
+    Pela hipótese de indução, concluímos que
+    \[
+        m = k.
+    \]
+
+    Consequentemente,
+    \[
+        m+1 = m \cup \{m\} = k \cup \{k\} = k+1 = n,
+    \]
+    o que encerra a indução e demonstra a proposição.
+\end{proof}
+
+Como consequência, cada conjunto finito possui um único número natural que representa sua cardinalidade.
+
+\subsection{Propriedades sob operações de conjuntos}
+\label{subsec:propriedades_operacoes_finitos}
+
+Teoremas que garantem a preservação da finitude sob operações fundamentais. Inclui as demonstrações rigorosas de que subconjuntos de conjuntos finitos são finitos, e de que a união, intersecção, conjunto das partes e o produto cartesiano de conjuntos finitos resultam em conjuntos finitos. Referências: \cite{enderton1977}.
+
+\subsection{O Princípio das Casas de Pombos}
+\label{subsec:principio_casas_pombos}
+
+Formalização do Princípio de Dirichlet. Demonstra-se que não existe função injetora de um conjunto finito para um de seus subconjuntos próprios, uma propriedade que separa estruturalmente os conjuntos finitos dos infinitos no contexto da definição de Dedekind. Referências: \cite{halmos2014}, \cite{suppes1972}.
+
+\section{Conjuntos infinitos}\index{Conjuntos!infinitos}
 \label{sec:conjuntos_infinitos}
+
+Nesta seção, será apresentada a definição formal de conjuntos infinitos, servindo de transição entre a cardinalidade finita da seção 3.1 e as multiplicidades de infinitos que serão exploradas a partir do Capítulo 4. O objetivo é estabelecer o rigor necessário para lidar com coleções ilimitadas dentro da teoria dos conjuntos de Zermelo-Fraenkel. Referências: \cite{halmos2014}, \cite{enderton1977}.
 
 Um conjunto é dito \textbf{infinito} quando não é finito. De forma equivalente, um conjunto é infinito se, e somente se, existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
 
-Para qualquer conjunto \(X\) escrevemos a cardinalidade de \(X\) como \(|X|\). Dados dois conjuntos \(X\) e \(Y\) dizemos que \(|X| \leq |Y|\) quando existe uma função injetiva de \(X\) em \(Y\). Dizemos que \(|X| = |Y|\) quando existe uma bijeção entre \(X\) e \(Y\)
-\section{Conjuntos finitos}
-\label{sec:conjuntos_finitos}
+\subsection{A definição de Dedekind e a não-finitude}
+\label{subsec:definicao_dedekind}
 
-A noção intuitiva de tamanho de um conjunto é formalizada matematicamente pelo conceito de cardinalidade. \textcite[p.~3]{lima2006} define um conjunto \(X\) como \textbf{finito} quando \(X\) é vazio, ou existem um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\) onde \(I_n = \{p \in \mathbb{N}: p \leq n \}\). Já \textcite[p.~53]{halmos2014} define um conjunto finito como um conjunto equivalente a um número\footnote{Na Teoria de Conjuntos números são conjuntos. \(0 = \varnothing, 1 = \{\varnothing\}, n = \{0,1,2,\dots,n-1\}.\)} natural, onde equivalência significa uma bijeção. Uma propriedade fundamental dos conjuntos finitos é que não existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
+Apresentação e comparação formal das abordagens para definir um conjunto infinito. Será demonstrada a infinitude de Dedekind, caracterizada por conjuntos que admitem bijeção com um de seus subconjuntos próprios, e discutida sua equivalência com a definição padrão de conjuntos não-finitos.
 
-\begin{exemplo}
-    O conjunto \(X = \{\text{primeiro}, \text{segundo}, \text{terceiro}\}\) é finito. Para verificar basta encontrar um \(n \in \mathbb{N}\) e uma bijeção \(f: \ I_n \to X\), de fato, tome \(n = 3\), e \(f: \ \{1,2,3\} \to X\) tal que
+\subsection{Conjuntos enumeráveis e o Aleph-zero}
+\label{subsec:enumeraveis_aleph_zero}
 
-    \begin{align*}
-         & f(1) \longleftrightarrow \text{primeiro} \\
-         & f(2) \longleftrightarrow \text{segundo}  \\
-         & f(3) \longleftrightarrow \text{terceiro} \\
-    \end{align*}
+Introdução aos conjuntos equinumerosos ao conjunto dos números naturais, formalizando o conceito de enumerabilidade e apresentando a notação \(\aleph_0\). Serão demonstrados casos de conjuntos aparentemente maiores que possuem a mesma cardinalidade, como \(\symbb{Z}\) e \(\symbb{Q}\), antecipando as reflexões sobre o contínuo no Capítulo 5.
 
-    \label{ex:finito-elon}
-\end{exemplo}
+\subsection{Operações e propriedades elementares}
+\label{subsec:operacoes_infinitos}
 
-\begin{exemplo}
-    Utilizando a definição de \textcite{halmos2014}, considere o conjunto das vogais \(V = \{a, e, i, o, u\}\). Este conjunto é finito, pois é equivalente ao número natural \(5\) (que, como conjunto, é \(5 = \{0, 1, 2, 3, 4\}\)). A bijeção \(g: 5 \to V\) é dada por:
-    \begin{align*}
-         & g(0) \longleftrightarrow a \\
-         & g(1) \longleftrightarrow e \\
-         & g(2) \longleftrightarrow i \\
-         & g(3) \longleftrightarrow o \\
-         & g(4) \longleftrightarrow u \\
-    \end{align*}
-    \label{ex:finito-halmos}
-\end{exemplo}
+Teoremas fundamentais sobre conjuntos infinitos e enumeráveis, incluindo a prova de que a união enumerável de conjuntos enumeráveis resulta em um conjunto enumerável, e como a absorção de subconjuntos finitos não altera a cardinalidade infinita. Referências: \cite{suppes1972}, \cite{enderton1977}.
 
-\section{Conjuntos infinitos}
-\label{sec:conjuntos_infinitos}
+\subsection{Subconjuntos de conjuntos enumeráveis}
+\label{subsec:subconjuntos_enumeraveis}
 
-Um conjunto é dito \textbf{infinito} quando não é finito. De forma equivalente, um conjunto é infinito se, e somente se, existe uma bijeção entre o conjunto e um de seus subconjuntos próprios.
+Nesta seção, serão estudadas propriedades da enumerabilidade que permitem transferir a cardinalidade \(\aleph_0\) para diferentes construções de conjuntos. Será demonstrado que todo subconjunto de um conjunto enumerável é finito ou enumerável, e que a união de um conjunto finito de conjuntos enumeráveis é enumerável. Esses resultados fornecerão as ferramentas necessárias para os exemplos de conjuntos enumeráveis desenvolvidos no Capítulo 4. Referências:
+\cite{suppes1972}, \cite{enderton1977}.
 
-Para qualquer conjunto \(X\) escrevemos a cardinalidade de \(X\) como \(|X|\). Dados dois conjuntos \(X\) e \(Y\) dizemos que \(|X| \leq |Y|\) quando existe uma função injetiva de \(X\) em \(Y\). Dizemos que \(|X| = |Y|\) quando existe uma bijeção entre \(X\) e \(Y\).
+\begin{proposicao}[Subconjunto de Conjunto Enumerável]
+    Todo subconjunto de um conjunto enumerável é finito ou enumerável.
+\end{proposicao}
+
+\begin{proposicao}[Produto Cartesiano de Conjuntos Enumeráveis]
+    Se \(A\) e \(B\) são conjuntos enumeráveis, então \(A\times B\) é enumerável.
+\end{proposicao}
+
+\subsection{Cardinalidade de conjuntos infinitos e absorção finita}
+\label{subsec:absorcao_finita}
+
+Uma característica fundamental dos conjuntos infinitos é que a adição de uma quantidade finita de elementos não altera sua cardinalidade. Nesta seção, será formalizada essa propriedade e apresentada a ideia de que conjuntos infinitos podem ser equinumerosos a subconjuntos próprios. O resultado será utilizado como uma primeira ilustração das diferenças entre a aritmética finita e o comportamento dos cardinais infinitos. Referências: \cite{halmos2014},
+\cite{enderton1977}.
+
+\begin{proposicao}[Absorção de Subconjuntos Finitos por Conjuntos Infinitos]
+    Se \(A\) é infinito e \(F\) é finito, então
+    \[
+        |A\cup F|=|A|.
+    \]
+\end{proposicao}
