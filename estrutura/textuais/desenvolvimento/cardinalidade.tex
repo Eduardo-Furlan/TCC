@@ -90,86 +90,85 @@ A reflexividade e a transitividade mostram que a relação \(\leq\) possui uma e
     A demonstração que segue é uma adaptação da apresentada por
     \textcite[p.~89]{halmos2014}.
 
+    Podemos supor, sem perda de generalidade, que \(A\) e \(B\) são disjuntos (caso contrário, substituímos \(A\) por \(A \times \{0\}\) e \(B\) por \(B \times \{1\}\))\footnote{A substituição de \(A\) por \(A \times \{0\}\) e de \(B\) por \(B \times \{1\}\) é um artifício técnico apenas para garantir que os conjuntos sejam disjuntos, evitando ambiguidades na definição das linhagens (um mesmo elemento não poderá ser confundido como elemento de \(A\) e de \(B\) simultaneamente). As funções injetoras correspondentes são definidas naturalmente por \(f^*(a,0) = (f(a),1)\) e \(g^*(b,1) = (g(b),0)\). A segunda coordenada (o rótulo \(0\) ou \(1\)) é uma constante que não introduz qualquer operação adicional ou complexidade. A prova construída para as cópias \(A^*\) e \(B^*\) produz uma bijeção \(h^*: A^* \to B^*\), e a bijeção original \(h: A \to B\) é obtida simplesmente apagando os rótulos, \(h(a) = b \iff h^*(a,0) = (b,1)\). Portanto, a suposição de que \(A\) e \(B\) são disjuntos não acarreta perda de generalidade.}.
 
-    Podemos supor, sem perda de generalidade, que \(X\) e \(Y\) são disjuntos (caso contrário, substituímos \(X\) por \(X \times \{0\}\) e \(Y\) por \(Y \times \{1\}\))\footnote{A substituição de \(X\) por \(X \times \{0\}\) e de \(Y\) por \(Y \times \{1\}\) é um artifício técnico apenas para garantir que os conjuntos sejam disjuntos, evitando ambiguidades na definição das linhagens (um mesmo elemento não poderá ser confundido como elemento de \(X\) e de \(Y\) simultaneamente). As funções injetoras correspondentes são definidas naturalmente por \(f^*(x,0) = (f(x),1)\) e \(g^*(y,1) = (g(y),0)\). A segunda coordenada (o rótulo \(0\) ou \(1\)) é uma constante que não introduz qualquer operação adicional ou complexidade. A prova construída para as cópias \(X^*\) e \(Y^*\) produz uma bijeção \(h^*: X^* \to Y^*\), e a bijeção original \(h: X \to Y\) é obtida simplesmente apagando os rótulos, \(h(x) = y \iff h^*(x,0) = (y,1)\). Portanto, a suposição de que \(X\) e \(Y\) são disjuntos não acarreta perda de generalidade.}.
-
-    Dizemos que \(x \in X\) é o \textit{pai} de \(f(x) \in Y\), e que \(y \in Y\) é o \textit{pai} de \(g(y) \in X\). Assim, cada elemento gera uma sequência infinita de descendentes:
+    Dizemos que \(a \in A\) é o \textit{pai} de \(f(a) \in B\), e que \(b \in B\) é o \textit{pai} de \(g(b) \in A\). Assim, cada elemento gera uma sequência infinita de descendentes:
     \[
-        x \mapsto f(x) \mapsto g(f(x)) \mapsto f(g(f(x))) \mapsto \cdots
+        a \mapsto f(a) \mapsto g(f(a)) \mapsto f(g(f(a))) \mapsto \cdots
     \]
     Da mesma forma, a ancestralidade de um elemento é obtida aplicando \(g^{-1}\) (quando definido) ou \(f^{-1}\) (quando definido).
 
-    Um elemento de \(X\) não tem pai (é órfão) se, e somente se, pertence a \(X - g(Y)\).
-    Um elemento de \(Y\) não tem pai se, e somente se, pertence a \(Y - f(X)\).
+    Um elemento de \(A\) não tem pai (é órfão) se, e somente se, pertence a \(A - g(B)\).
+    Um elemento de \(B\) não tem pai se, e somente se, pertence a \(B - f(A)\).
 
-    Particionamos \(X\) em três partes:
+    Particionamos \(A\) em três partes:
     \begin{enumerate}
-        \item \(X_X\): elementos de \(X\) cuja linhagem origina-se em \(X - g(Y)\) (órfãos de \(X\));
-        \item \(X_Y\): elementos de \(X\) cuja linhagem origina-se em \(Y - f(X)\) (órfãos de \(Y\));
-        \item \(X_\infty\): elementos de \(X\) cuja linhagem não possui ancestral sem pai (regressão infinita).
+        \item \(A_A\): elementos de \(A\) cuja linhagem origina-se em \(A - g(B)\) (órfãos de \(A\));
+        \item \(A_B\): elementos de \(A\) cuja linhagem origina-se em \(B - f(A)\) (órfãos de \(B\));
+        \item \(A_\infty\): elementos de \(A\) cuja linhagem não possui ancestral sem pai (regressão infinita).
     \end{enumerate}
-    Analogamente, particionamos \(Y\) em \(Y_X\), \(Y_Y\) e \(Y_\infty\).
+    Analogamente, particionamos \(B\) em \(B_A\), \(B_B\) e \(B_\infty\).
 
-    Para exemplificar a demonstração, tomemos \(X = [0,1]\), \(Y = [0,2)\), \(f(x) = x\) e \(g(y) = y/2\). Aqui,
+    Para exemplificar a demonstração, tomemos \(A = [0,1]\), \(B = [0,2)\), \(f(x) = x\) e \(g(y) = y/2\). Aqui,
     \[
-        X - g(Y) = [0,1] - [0,1) = \{1\}, \qquad
-        Y - f(X) = [0,2) - [0,1] = (1,2).
+        A - g(B) = [0,1] - [0,1) = \{1\}, \qquad
+        B - f(A) = [0,2) - [0,1] = (1,2).
     \]
     Traçando as linhagens:
     \begin{enumerate}
-        \item O órfão \(1 \in X\) gera em \(X\) os números \(1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \dots\). Logo,
+        \item O órfão \(1 \in A\) gera em \(A\) os números \(1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \dots\). Logo,
               \[
-                  X_X = \left\{ \frac{1}{2^n} \;\middle|\; n \in \mathbb{Z}_{\ge 0} \right\}.
+                  A_A = \left\{ \frac{1}{2^n} \;\middle|\; n \in \mathbb{Z}_{\ge 0} \right\}.
               \]
-        \item O número \(0 \in X\) possui a linhagem \(0 \mapsto 0 \mapsto 0 \mapsto \cdots\), sem começo. Logo,
+        \item O número \(0 \in A\) possui a linhagem \(0 \mapsto 0 \mapsto 0 \mapsto \cdots\), sem começo. Logo,
               \[
-                  X_\infty = \{0\}.
+                  A_\infty = \{0\}.
               \]
-        \item Todos os outros elementos de \((0,1)\), como \(\frac{3}{4}\), \(\frac{2}{3}\), \(\frac{7}{8}\), etc., são descendentes de algum órfão de \(Y\) (por exemplo, \(\frac{3}{4}\) é filho de \(g^{-1}(\frac{3}{4}) = \frac{3}{2} \in (1,2)\)). Portanto,
+        \item Todos os outros elementos de \((0,1)\), como \(\frac{3}{4}\), \(\frac{2}{3}\), \(\frac{7}{8}\), etc., são descendentes de algum órfão de \(B\) (por exemplo, \(\frac{3}{4}\) é filho de \(g^{-1}(\frac{3}{4}) = \frac{3}{2} \in (1,2)\)). Portanto,
               \[
-                  X_Y = (0,1) - X_X.
+                  A_B = (0,1) - A_A.
               \]
     \end{enumerate}
-    Em \(Y\), temos:
+    Em \(B\), temos:
     \[
-        Y_X = \left\{ \frac{1}{2^n} \;\middle|\; n \in \mathbb{Z}_{\ge 0} \right\}, \qquad
-        Y_\infty = \{0\}, \qquad
-        Y_Y = (0,2) - Y_X.
+        B_A = \left\{ \frac{1}{2^n} \;\middle|\; n \in \mathbb{Z}_{\ge 0} \right\}, \qquad
+        B_\infty = \{0\}, \qquad
+        B_B = (0,2) - B_A.
     \]
     A injetividade de \(f\) e \(g\) garante que as árvores genealógicas de órfãos distintos nunca se cruzam.
 
-    Podemos agora construir uma bijeção de \(X \to Y\).
+    Podemos agora construir uma bijeção de \(A \to B\).
 
     \begin{enumerate}
-        \item \textbf{Origem em \(X\):} Se \(x \in X_X\), então \(f(x) \in Y_X\). A restrição
+        \item \textbf{Origem em \(A\):} Se \(a \in A_A\), então \(f(a) \in B_A\). A restrição
               \[
-                  f|_{X_X}: X_X \to Y_X
+                  f|_{A_A}: A_A \to B_A
               \]
-              é uma bijeção, pois \(f\) é injetora e, por construção, \(f(X_X) = Y_X\).
+              é uma bijeção, pois \(f\) é injetora e, por construção, \(f(A_A) = B_A\).
 
-        \item \textbf{Origem em \(Y\):} Se \(x \in X_Y\), então \(x\) é descendente de um órfão de \(Y\). Logo, \(x\) possui um único pai em \(Y\), \(g^{-1}(x)\). A restrição
+        \item \textbf{Origem em \(B\):} Se \(a \in A_B\), então \(a\) é descendente de um órfão de \(B\). Logo, \(a\) possui um único pai em \(B\), \(g^{-1}(a)\). A restrição
               \[
-                  g^{-1}|_{X_Y}: X_Y \to Y_Y
+                  g^{-1}|_{A_B}: A_B \to B_B
               \]
-              é uma bijeção. De fato, \(g^{-1}\) existe em \(X_Y\) (pois \(X_Y \subset g(Y)\)) e é injetora, além disso, sua imagem é exatamente \(Y_Y\).
+              é uma bijeção. De fato, \(g^{-1}\) existe em \(A_B\) (pois \(A_B \subset g(B)\)) e é injetora, além disso, sua imagem é exatamente \(B_B\).
 
-        \item \textbf{Linhagem infinita:} Se \(x \in X_\infty\), sua linhagem é infinita:
+        \item \textbf{Linhagem infinita:} Se \(a \in A_\infty\), sua linhagem é infinita:
               \[
-                  \cdots \xrightarrow{g} x_{-1} \xrightarrow{f} y_{-1} \xrightarrow{g} x_0 \xrightarrow{f} y_0 \xrightarrow{g} x_1 \xrightarrow{f} y_1 \xrightarrow{g} \cdots
+                  \cdots \xrightarrow{g} a_{-1} \xrightarrow{f} b_{-1} \xrightarrow{g} a_0 \xrightarrow{f} b_0 \xrightarrow{g} a_1 \xrightarrow{f} b_1 \xrightarrow{g} \cdots
               \]
-              Nesse caso, a restrição \(f|_{X_\infty}: X_\infty \to Y_\infty\) dada por \(f(x_i) = y_i\) é uma bijeção, pois cobre todos os \(y_i\) exatamente uma vez.
-              Alternativamente, poderíamos usar \(g^{-1}|_{X_\infty}\), que seria dada por \(g^{-1}(x_{i+1}) = y_i\). Como a cadeia é bi-infinita, esse deslocamento não altera a bijeção: ambos os mapeamentos são válidos e cobrem todo o \(Y_\infty\). Optamos por usar \(f\), mas \(g^{-1}\) funcionaria igualmente bem.
+              Nesse caso, a restrição \(f|_{A_\infty}: A_\infty \to B_\infty\) dada por \(f(a_i) = b_i\) é uma bijeção, pois cobre todos os \(b_i\) exatamente uma vez.
+              Alternativamente, poderíamos usar \(g^{-1}|_{A_\infty}\), que seria dada por \(g^{-1}(a_{i+1}) = b_i\). Como a cadeia é bi-infinita, esse deslocamento não altera a bijeção: ambos os mapeamentos são válidos e cobrem todo o \(B_\infty\). Optamos por usar \(f\), mas \(g^{-1}\) funcionaria igualmente bem.
     \end{enumerate}
 
-    Finalmente, definimos \(h: X \to Y\) por
+    Finalmente, definimos \(h: A \to B\) por
     \[
-        h(x) =
+        h(a) =
         \begin{cases}
-            f(x),      & \text{se } x \in X_X \cup X_\infty, \\[4pt]
-            g^{-1}(x), & \text{se } x \in X_Y.
+            f(a),      & \text{se } a \in A_A \cup A_\infty, \\[4pt]
+            g^{-1}(a), & \text{se } a \in A_B.
         \end{cases}
     \]
-    Como \(X = X_X \cup X_Y \cup X_\infty\) é uma união disjunta e as três restrições acima são bijeções com imagens respectivamente \(Y_X\), \(Y_Y\) e \(Y_\infty\), que também particionam \(Y\), concluímos que \(h\) é uma bijeção entre \(X\) e \(Y\). Portanto, existe uma correspondência biunívoca entre os conjuntos, como queríamos demonstrar.
+    Como \(A = A_A \cup A_B \cup A_\infty\) é uma união disjunta e as três restrições acima são bijeções com imagens respectivamente \(B_A\), \(B_B\) e \(B_\infty\), que também particionam \(B\), concluímos que \(h\) é uma bijeção entre \(A\) e \(B\). Portanto, existe uma correspondência biunívoca entre os conjuntos, como queríamos demonstrar.
 \end{proof}
 
 \begin{corolario}[Antissimetria da Ordem Cardinal]
@@ -354,7 +353,6 @@ Para que essa operação sobre cardinais seja consistente, deve-se assegurar que
 A soma cardinal estende para conjuntos arbitrários as propriedades algébricas usuais da adição:
 
 \begin{proposicao}[Propriedades da Soma Cardinal]
-    \label{prop:potencia_partes_funcao_caracteristica}
     \label{prop:propriedades_adicao_cardinal}
     Para quaisquer conjuntos \(A\), \(B\), \(C\) e \(D\), a adição cardinal satisfaz:
     \begin{enumerate}
@@ -401,6 +399,39 @@ A soma cardinal estende para conjuntos arbitrários as propriedades algébricas 
     \end{enumerate}
 \end{proof}
 
+Quando os conjuntos \(A\) e \(B\) não são mutuamente disjuntos, a cardinalidade de sua união ordinária não coincide necessariamente com a soma \(|A| + |B|\), uma vez que os elementos da interseção seriam contabilizados duplamente na definição de cópias disjuntas. Contudo, a cardinalidade da união é sempre limitada superiormente pela soma de seus termos:
+
+\begin{proposicao}[Subaditividade da Cardinalidade na União]\index{Subaditividade cardinal}\index{União!cardinalidade da}
+    \label{prop:subaditividade_cardinal}
+    Para quaisquer conjuntos \(A\) e \(B\), tem-se:
+    \[
+        |A \cup B| \leq |A| + |B|.
+    \]
+\end{proposicao}
+
+\begin{proof}
+    Pela \autoref{def:soma_cardinal}, a soma \(|A| + |B|\) é dada pela cardinalidade da união de suas cópias disjuntas, isto é, \(|A| + |B| = |(A \times \{0\}) \cup (B \times \{1\})|\). Para demonstrar que \(|A \cup B| \leq |A| + |B|\), basta construir uma função injetora
+    \[
+        h: A \cup B \to (A \times \{0\}) \cup (B \times \{1\}).
+    \]
+    Definimos \(h\) associando cada elemento à sua cópia no primeiro termo caso pertença a \(A\), e à sua cópia no segundo termo caso contrário:
+    \[
+        h(x) =
+        \begin{cases}
+            (x, 0), & \text{se } x \in A,     \\
+            (x, 1), & \text{se } x \in B - A.
+        \end{cases}
+    \]
+    Como \(A\) e \(B - A\) são disjuntos e sua união é exatamente \(A \cup B\), a função \(h\) está bem definida.
+
+    Para verificar a injetividade, sejam \(x_1, x_2 \in A \cup B\) tais que \(h(x_1) = h(x_2)\):
+    \begin{itemize}
+        \item Se a imagem possui segunda coordenada \(0\), decorre da definição de \(h\) que \(x_1, x_2 \in A\) e \((x_1, 0) = (x_2, 0)\), donde \(x_1 = x_2\).
+        \item Se a imagem possui segunda coordenada \(1\), decorre que \(x_1, x_2 \in B - A\) e \((x_1, 1) = (x_2, 1)\), donde \(x_1 = x_2\).
+    \end{itemize}
+    Como as imagens nos dois ramos pertencem a conjuntos disjuntos, não pode ocorrer igualdade entre elementos de ramos distintos. Logo, \(h\) é injetora, estabelecendo que \(|A \cup B| \leq |(A \times \{0\}) \cup (B \times \{1\})| = |A| + |B|\).
+\end{proof}
+
 De forma análoga à soma, a operação de multiplicação aritmética estende-se naturalmente à teoria dos cardinais por meio do produto cartesiano de conjuntos.
 
 \begin{definicao}[Produto de Cardinais]\index{Produto cardinal}\index{Produto cardinal!definicao@definição}\index{Cardinalidade!produto de cardinais}
@@ -414,6 +445,7 @@ De forma análoga à soma, a operação de multiplicação aritmética estende-s
 Assim como na adição, a consistência da multiplicação requer a independência dos representantes de cada cardinalidade.
 
 \begin{lema}[Boa Definição do Produto Cardinal]
+    \label{lem:produto_cardinal_bem_definido}
     A operação de produto cardinal é bem definida. Isto é, se \(|A| = |A'|\) e \(|B| = |B'|\), então
     \[
         |A \times B| = |A' \times B'|.
@@ -513,7 +545,7 @@ A consistência da exponenciação exige que a cardinalidade de \(B^A\) independ
     \[
         \Psi(g) = \psi^{-1} \circ g \circ \phi^{-1}
     \]
-    para toda função \(g \in (B')^{A'}\) (ou seja, \(f=g: A' \to B'\)).
+    para toda função \(g \in (B')^{A'}\) (ou seja, \(g: A' \to B'\)).
 
     Resta verificar que \(\Psi\) é a inversa bilateral de \(\Phi\). Com efeito, para qualquer \(f \in B^A\), temos:
     \begin{align*}
@@ -582,6 +614,22 @@ Uma das conexões mais profundas da teoria dos conjuntos axiomática une a expon
     \end{enumerate}
     Assim, \(\Theta\) é uma bijeção entre \(\PP(A)\) e \(2^A\), o que prova que \(|\PP(A)| = |2^A| = 2^{|A|}\).
 \end{proof}
+
+\begin{exemplo}[Correspondência entre Subconjuntos e Funções Binárias]
+    \label{ex:partes_funcoes_binarias}
+    Para visualizar intuitivamente por que \(|\PP(A)| = |2^A|\), considere o conjunto finito \(A = \{a, b, c\}\). Formar um subconjunto \(S \subseteq A\) equivale a tomar uma decisão binária independente para cada elemento:
+    \begin{itemize}
+        \item Atribuímos \(1\) se o elemento é incluído em \(S\);
+        \item Atribuímos \(0\) se o elemento é excluído de \(S\).
+    \end{itemize}
+    Dessa forma, cada subconjunto de \(A\) corresponde a uma única função de \(A\) em \(\{0, 1\}\). Por exemplo:
+    \begin{itemize}
+        \item O conjunto vazio \(\varnothing\) corresponde à função que envia todos os elementos para \(0\): \(f(a) = 0\), \(f(b) = 0\) e \(f(c) = 0\);
+        \item O subconjunto \(\{a, c\}\) corresponde à função \(f\) com \(f(a) = 1\), \(f(b) = 0\) e \(f(c) = 1\);
+        \item O próprio conjunto \(A\) corresponde à função que envia todos os elementos para \(1\): \(f(a) = 1\), \(f(b) = 1\) e \(f(c) = 1\).
+    \end{itemize}
+    Como para cada um dos \(3\) elementos temos exatamente \(2\) escolhas possíveis, existem ao todo \(2 \cdot 2 \cdot 2 = 2^3 = 8\) funções distintas, correspondendo precisamente aos \(8\) subconjuntos de \(\PP(A)\). A demonstração formal da proposição apenas estende essa correspondência unívoca para quando \(A\) for um conjunto arbitrário, inclusive infinito.
+\end{exemplo}
 
 Essa identificação entre o conjunto das partes e o conjunto de funções com contradomínio binário fundamenta a notação clássica da aritmética transfinita. Em particular, para o conjunto dos números naturais \(\N\), cuja cardinalidade denotaremos por \(\aleph_0\) na \autoref{subsec:enumeraveis_aleph_zero}, a cardinalidade do conjunto de suas partes é representada exponencialmente por
 \[
@@ -779,7 +827,23 @@ A exponenciação cardinal satisfaz ainda as leis clássicas das potências:
     \end{enumerate}
 \end{proof}
 
-Com as noções gerais de equivalência, ordem estrita e as três operações aritméticas fundamentais (adição, multiplicação e exponenciação cardinal) devidamente estabelecidas para conjuntos arbitrários, podemos agora iniciar a investigação sistemática das classes fundamentais de conjuntos. A primeira seção deste capítulo dedica-se aos conjuntos finitos, nos quais toda essa álgebra cardinal coincide rigorosamente com as propriedades aritméticas usuais dos números naturais.
+Com as noções gerais de equivalência, ordem estrita e as três operações aritméticas fundamentais (adição, multiplicação e exponenciação cardinal) devidamente estabelecidas para conjuntos arbitrários, o universo dos conjuntos pode ser classificado a partir de sua comparabilidade com o conjunto dos números naturais \(\N\).
+
+\begin{definicao}[Conjunto Enumerável]\index{Conjuntos!enumeráveis}\index{Enumerabilidade}
+    \label{def:conjunto_enumeravel_geral}
+    Um conjunto \(X\) é dito \emph{enumerável} se
+    \[
+        |X| \leq |\N|,
+    \]
+    isto é, se existe uma função injetora \(f: X \to \N\). Caso contrário, dizemos que \(X\) é \emph{não enumerável}.
+\end{definicao}
+
+A condição \(|X| \leq |\N|\) divide naturalmente os conjuntos enumeráveis em duas classes fundamentais:
+\begin{enumerate}
+    \item Se \(|X| < |\N|\), a listagem de seus elementos esgota-se antes de esgotar todos os números naturais. O conjunto é denominado \textbf{finito}.
+    \item Se \(|X| = |\N|\), existe uma bijeção entre \(X\) e \(\N\), dizemos então que \(X\) é \textbf{infinito enumerável}.
+\end{enumerate}
+Nas seções seguintes, investigaremos detalhadamente cada uma dessas duas categorias e as estruturas matemáticas singulares que as caracterizam.
 
 \section{Conjuntos finitos}\index{Conjuntos!finitos}
 \label{sec:conjuntos_finitos}
