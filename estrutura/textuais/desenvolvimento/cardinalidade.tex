@@ -22,6 +22,30 @@ Informalmente, podemos compreender a \emph{cardinalidade} de um conjunto \(X\), 
 
 A equinumerosidade formaliza a ideia de que dois conjuntos possuem a mesma quantidade de elementos. De fato, uma bijeção estabelece uma correspondência um a um entre os elementos dos dois conjuntos, de modo que nenhum elemento de qualquer dos conjuntos fica sem correspondente e nenhum elemento é associado a mais de um elemento do outro conjunto.
 
+\begin{proposicao}[Caracterização de Bijeções por Inversa Bilateral]
+    \label{prop:caracterizacao_bijecao_inversa}
+    Sejam \(X\) e \(Y\) conjuntos e \(f: X \to Y\) uma função. A função \(f\) é uma bijeção se, e somente se, existe uma função \(g: Y \to X\) tal que
+    \[
+        g \circ f = \operatorname{id}_X \qquad \e \qquad f \circ g = \operatorname{id}_Y.
+    \]
+    Nesse caso, a função \(g\) é única e denominada a \emph{função inversa} de \(f\), denotada por \(f^{-1}\).
+\end{proposicao}
+
+\begin{proof}
+    \((\implies)\) Suponha que \(f\) seja bijetora. Sendo \(f\) sobrejetora, para cada \(y \in Y\) existe pelo menos um \(x \in X\) tal que \(f(x) = y\). Como \(f\) é também injetora, esse elemento \(x\) é único. Podemos portanto definir uma função \(g: Y \to X\) pondo \(g(y) = x\), onde \(f(x) = y\). Por definição imediata, para todo \(x \in X\), \(g(f(x)) = x\), donde \(g \circ f = \operatorname{id}_X\). De modo análogo, para todo \(y \in Y\), \(f(g(y)) = f(x) = y\), donde \(f \circ g = \operatorname{id}_Y\).
+
+    \((\impliedby)\) Suponha que exista \(g: Y \to X\) satisfazendo \(g \circ f = \operatorname{id}_X\) e \(f \circ g = \operatorname{id}_Y\).
+    Para verificar a injetividade de \(f\), sejam \(x_1, x_2 \in X\) tais que \(f(x_1) = f(x_2)\). Aplicando \(g\) a ambos os membros, obtemos:
+    \[
+        g(f(x_1)) = g(f(x_2)) \implies (g \circ f)(x_1) = (g \circ f)(x_2) \implies \operatorname{id}_X(x_1) = \operatorname{id}_X(x_2) \implies x_1 = x_2.
+    \]
+    Logo, \(f\) é injetora. Para a sobrejetividade, seja \(y \in Y\) qualquer. Tomando \(x = g(y) \in X\), temos:
+    \[
+        f(x) = f(g(y)) = (f \circ g)(y) = \operatorname{id}_Y(y) = y.
+    \]
+    Assim, todo elemento de \(Y\) possui pré-imagem em \(X\), de modo que \(f\) é sobrejetora. Sendo injetora e sobrejetora, \(f\) é uma bijeção.
+\end{proof}
+
 Quando dois conjuntos não são equinumerosos, ainda podemos perguntar se um deles pode ser comparado ao outro em termos de tamanho. Para isso, basta exigir uma correspondência que não permita que dois elementos distintos do primeiro conjunto sejam associados ao mesmo elemento do segundo.
 
 \begin{definicao}[Relação \(\leq\) entre cardinalidades]\index{Cardinalidade!comparacao de@comparação de}\index{Ordem!parcial entre cardinais}
@@ -445,10 +469,43 @@ A consistência da exponenciação exige que a cardinalidade de \(B^A\) independ
 \end{lema}
 
 \begin{proof}
-    % A demonstrar:
-    % Dadas as bijeções \phi: A' -> A e \psi: B -> B', define-se \Phi: B^A -> (B')^{A'} por
-    % \Phi(f) = \psi \circ f \circ \phi.
-    % A aplicação inversa é \Psi(g) = \psi^{-1} \circ g \circ \phi^{-1}, garantindo a bijetividade de \Phi.
+    Como \(|A| = |A'|\) e \(|B| = |B'|\), existem funções bijetoras \(\phi: A' \to A\) e \(\psi: B \to B'\). Com base nessas bijeções, definimos a aplicação
+    \[
+        \Phi: B^A \to (B')^{A'}
+    \]
+    que a cada função \(f \in B^A\) (isto é, \(f: A \to B\)) associa a função \(\Phi(f): A' \to B'\) dada pela composição:
+    \[
+        \Phi(f) = \psi \circ f \circ \phi.
+    \]
+
+    De modo inteiramente análogo, consideramos as funções inversas \(\phi^{-1}: A \to A'\) e \(\psi^{-1}: B' \to B\), que são também bijetoras, e definimos a aplicação
+    \[
+        \Psi: (B')^{A'} \to B^A
+    \]
+    por
+    \[
+        \Psi(g) = \psi^{-1} \circ g \circ \phi^{-1}
+    \]
+    para toda função \(g \in (B')^{A'}\) (ou seja, \(f=g: A' \to B'\)).
+
+    Resta verificar que \(\Psi\) é a inversa bilateral de \(\Phi\). Com efeito, para qualquer \(f \in B^A\), temos:
+    \begin{align*}
+        (\Psi \circ \Phi)(f) & = \Psi(\Phi(f))                                               \\
+                             & = \psi^{-1} \circ (\psi \circ f \circ \phi) \circ \phi^{-1}   \\
+                             & = (\psi^{-1} \circ \psi) \circ f \circ (\phi \circ \phi^{-1}) \\
+                             & = \operatorname{id}_B \circ f \circ \operatorname{id}_A       \\
+                             & = f.
+    \end{align*}
+    Analogamente, para qualquer \(g \in (B')^{A'}\), obtém-se:
+    \begin{align*}
+        (\Phi \circ \Psi)(g) & = \Phi(\Psi(g))                                               \\
+                             & = \psi \circ (\psi^{-1} \circ g \circ \phi^{-1}) \circ \phi   \\
+                             & = (\psi \circ \psi^{-1}) \circ g \circ (\phi^{-1} \circ \phi) \\
+                             & = \operatorname{id}_{B'} \circ g \circ \operatorname{id}_{A'} \\
+                             & = g.
+    \end{align*}
+
+    Portanto, \(\Psi \circ \Phi = \operatorname{id}_{B^A}\) e \(\Phi \circ \Psi = \operatorname{id}_{(B')^{A'}}\). Pela \autoref{prop:caracterizacao_bijecao_inversa}, segue-se que \(\Phi\) é uma bijeção entre \(B^A\) e \((B')^{A'}\). Consequentemente, \(|B^A| = |(B')^{A'}|\), provando que a exponenciação cardinal independe da escolha particular dos conjuntos representantes.
 \end{proof}
 
 Uma das conexões mais profundas da teoria dos conjuntos axiomática une a exponenciação de base \(2\) ao conjunto das partes, permitindo reinterpretar o Teorema de Cantor sob forma puramente algébrica.
@@ -458,23 +515,56 @@ Uma das conexões mais profundas da teoria dos conjuntos axiomática une a expon
     \[
         2^{|A|} = |\PP(A)|,
     \]
-    onde \(2 = |\{0, 1\}|\). Em particular, o Teorema de Cantor (\autoref{teo:cantor_ordem_estrita}) pode ser expresso como
+    onde \(2 = |\{0, 1\}|\). Em particular, o Teorema de Cantor pode ser expresso como
     \[
         |A| < 2^{|A|}.
     \]
 \end{proposicao}
 
 \begin{proof}
-    % A demonstrar:
-    % Para cada subconjunto S \sub A, associa-se sua função característica \chi_S: A -> {0, 1},
-    % dada por \chi_S(x) = 1 se x \in S e \chi_S(x) = 0 se x \notin S.
-    % A aplicação S |-> \chi_S de \PP(A) em {0, 1}^A é uma bijeção canônica.
+    Fixemos o conjunto \(2 = \{0, 1\}\). Por definição de exponenciação cardinal, \(2^{|A|} = |2^A|\), onde \(2^A\) é o conjunto de todas as funções com domínio \(A\) e contradomínio \(\{0, 1\}\). Resta, portanto, estabelecer a existência de uma bijeção entre o conjunto das partes \(\PP(A)\) e o conjunto de funções \(2^A\).
+
+    Para cada subconjunto \(S \subseteq A\), definimos sua \textbf{função característica} \(\chi_S: A \to \{0, 1\}\) por
+    \[
+        \chi_S(x) =
+        \begin{cases}
+            1, & \text{se } x \in S,    \\
+            0, & \text{se } x \notin S.
+        \end{cases}
+    \]
+    Consideramos a aplicação \(\Theta: \PP(A) \to 2^A\) dada por \(\Theta(S) = \chi_S\) para todo \(S \in \PP(A)\).
+
+    Reciprocamente, para cada função \(f \in 2^A\), definimos o subconjunto de \(A\) cujos elementos possuem imagem igual a \(1\):
+    \[
+        \Omega(f) = f^{-1}(\{1\}) = \{x \in A : f(x) = 1\}.
+    \]
+    Isso define uma aplicação \(\Omega: 2^A \to \PP(A)\).
+
+    Verifiquemos que \(\Omega\) é a inversa de \(\Theta\):
+    \begin{enumerate}
+        \item Para qualquer \(S \in \PP(A)\), temos:
+              \[
+                  \Omega(\Theta(S)) = \Omega(\chi_S) = \{x \in A : \chi_S(x) = 1\} = S.
+              \]
+              Logo, \(\Omega \circ \Theta = \operatorname{id}_{\PP(A)}\).
+        \item Para qualquer \(f \in 2^A\) e qualquer elemento \(x \in A\), se \(f(x) = 1\), então \(x \in \Omega(f)\), donde \(\chi_{\Omega(f)}(x) = 1 = f(x)\); se \(f(x) = 0\), então \(x \notin \Omega(f)\), donde \(\chi_{\Omega(f)}(x) = 0 = f(x)\). Como as funções coincidem em todos os pontos de \(A\), temos \(\chi_{\Omega(f)} = f\), isto é:
+              \[
+                  \Theta(\Omega(f)) = \Theta(f^{-1}(\{1\})) = \chi_{\Omega(f)} = f.
+              \]
+              Logo, \(\Theta \circ \Omega = \operatorname{id}_{2^A}\).
+    \end{enumerate}
+    Assim, \(\Theta\) é uma bijeção entre \(\PP(A)\) e \(2^A\), o que prova que \(|\PP(A)| = |2^A| = 2^{|A|}\).
 \end{proof}
+
+Essa identificação entre o conjunto das partes e o conjunto de funções com contradomínio binário fundamenta a notação clássica da aritmética transfinita. Em particular, para o conjunto dos números naturais \(\N\), cuja cardinalidade denotaremos por \(\aleph_0\) na \autoref{subsec:enumeraveis_aleph_zero}, a cardinalidade do conjunto de suas partes é representada exponencialmente por
+\[
+    |\PP(\N)| = 2^{|\N|} = 2^{\aleph_0}.
+\]
+Como veremos adiante, esse cardinal coincide com a cardinalidade do contínuo dos números reais, \(\mathfrak{c} = |\R|\), e desempenha papel central tanto no método da diagonal de Cantor quanto na formulação da Hipótese do Contínuo.
 
 A exponenciação cardinal satisfaz ainda as leis clássicas das potências:
 
 \begin{proposicao}[Propriedades da Exponenciação Cardinal]
-    \label{prop:unicidade_cardinalidade_naturais}
     \label{prop:propriedades_exponenciacao_cardinal}
     Para quaisquer conjuntos \(A\), \(B\) e \(C\), a exponenciação cardinal satisfaz:
     \begin{enumerate}
@@ -483,17 +573,183 @@ A exponenciação cardinal satisfaz ainda as leis clássicas das potências:
         \item \((|A|^{|B|})^{|C|} = |A|^{|B| \cdot |C|}\);
         \item \(|A|^1 = |A|\) e \(|A|^0 = 1\), onde \(1 = |\{\varnothing\}|\) e \(0 = |\varnothing|\);
         \item \(1^{|A|} = 1\) e \(0^{|A|} = 0\) (para todo \(A \neq \varnothing\));
-        \item \textbf{Monotonicidade:} Se \(|A| \leq |B|\) e \(|C| \leq |D|\) (com \(B \neq \varnothing\)), então \(|A|^{|C|} \leq |B|^{|D|}\).
+        \item Se \(|A| \leq |B|\) e \(|C| \leq |D|\) (com \(B \neq \varnothing\)), então \(|A|^{|C|} \leq |B|^{|D|}\).
     \end{enumerate}
 \end{proposicao}
 
 \begin{proof}
-    % A demonstrar:
-    % 1. Para B, C disjuntos, f: B U C -> A é unicamente determinada pelo par (f|_B, f|_C) em A^B x A^C.
-    % 2. Uma função f: C -> A x B corresponde canonicamente ao par de funções (\pi_1 \circ f, \pi_2 \circ f) em A^C x B^C.
-    % 3. Currying / Exponenciação: bijeção canônica entre (A^B)^C e A^(B x C) dada por f(c)(b) = g(b, c).
-    % 4 e 5. Casos de domínios unitários e vazios: A^\varnothing = {\varnothing} (função vazia), logo |A|^0 = 1.
-    % 6. Dadas injeções f: A -> B e g: C -> D (com retração r: D -> C se B != \varnothing), a extensão induz injeção em A^C -> B^D.
+    Demonstramos cada uma das propriedades exibindo explicitamente as correspondências bijetoras e injetoras canônicas entre os conjuntos associados:
+    \begin{enumerate}
+        \item \textbf{Multiplicação de potências de mesma base:} Pela boa definição da adição cardinal, podemos assumir sem perda de generalidade que \(B\) e \(C\) são disjuntos, de modo que \(|B| + |C| = |B \cup C|\). Queremos provar que \(|A^{B \cup C}| = |A^B \times A^C|\).
+
+              Para cada função \(f \in A^{B \cup C}\), consideramos suas restrições \(f|_B \in A^B\) e \(f|_C \in A^C\), definindo a aplicação
+              \[
+                  \Phi: A^{B \cup C} \to A^B \times A^C, \qquad \Phi(f) = (f|_B, f|_C).
+              \]
+              Reciprocamente, dado qualquer par \((g, h) \in A^B \times A^C\), como \(B \cap C = \varnothing\), a função união \(g \cup h: B \cup C \to A\) dada por
+              \[
+                  (g \cup h)(x) =
+                  \begin{cases}
+                      g(x), & \text{se } x \in B, \\
+                      h(x), & \text{se } x \in C,
+                  \end{cases}
+              \]
+              está univocamente determinada e pertence a \(A^{B \cup C}\). Definimos então \(\Psi: A^B \times A^C \to A^{B \cup C}\) por \(\Psi(g, h) = g \cup h\).
+
+              Verificamos explicitamente que \(\Psi\) é a inversa bilateral de \(\Phi\):
+              \begin{itemize}
+                  \item Para toda função \(f \in A^{B \cup C}\), temos:
+                        \[
+                            \Psi(\Phi(f)) = \Psi(f|_B, f|_C) = (f|_B) \cup (f|_C).
+                        \]
+                        Como todo elemento \(x \in B \cup C\) pertence exclusivamente a \(B\) ou a \(C\), se \(x \in B\) temos \(((f|_B) \cup (f|_C))(x) = f|_B(x) = f(x)\), e se \(x \in C\) temos \(((f|_B) \cup (f|_C))(x) = f|_C(x) = f(x)\). Logo, \((f|_B) \cup (f|_C) = f\), o que estabelece que
+                        \[
+                            \Psi(\Phi(f)) = f \implies \Psi \circ \Phi = \operatorname{id}_{A^{B \cup C}}.
+                        \]
+                  \item Para todo par \((g, h) \in A^B \times A^C\), temos:
+                        \[
+                            \Phi(\Psi(g, h)) = \Phi(g \cup h) = \left((g \cup h)|_B, \; (g \cup h)|_C\right).
+                        \]
+                        Pela própria definição de \(g \cup h\), para todo \(b \in B\) tem-se \((g \cup h)|_B(b) = (g \cup h)(b) = g(b)\), logo \((g \cup h)|_B = g\). De modo análogo, para todo \(c \in C\) tem-se \((g \cup h)|_C(c) = (g \cup h)(c) = h(c)\), logo \((g \cup h)|_C = h\). Portanto:
+                        \[
+                            \Phi(\Psi(g, h)) = (g, h) \implies \Phi \circ \Psi = \operatorname{id}_{A^B \times A^C}.
+                        \]
+              \end{itemize}
+              Pela \autoref{prop:caracterizacao_bijecao_inversa}, segue-se que \(\Phi\) é uma bijeção, estabelecendo que \(|A^{B \cup C}| = |A^B \times A^C|\), isto é, \(|A|^{|B| + |C|} = |A|^{|B|} \cdot |A|^{|C|}\).
+
+        \item \textbf{Potência de um produto cardinal:} Queremos demonstrar que \(|(A \times B)^C| = |A^C \times B^C|\). Denotemos por \(\pi_1: A \times B \to A\) e \(\pi_2: A \times B \to B\) as projeções canônicas nos fatores.
+
+              Dada uma função \(f \in (A \times B)^C\), cada valor \(f(c)\) é um par ordenado \((a_c, b_c)\). Definimos as funções componentes \(f_1 = \pi_1 \circ f \in A^C\) e \(f_2 = \pi_2 \circ f \in B^C\), estabelecendo a aplicação
+              \[
+                  \Phi: (A \times B)^C \to A^C \times B^C, \qquad \Phi(f) = (f_1, \; f_2).
+              \]
+              Inversamente, dado um par de funções \((g, h) \in A^C \times B^C\), definimos a aplicação \(\Psi: A^C \times B^C \to (A \times B)^C\) pondo, para cada \(c \in C\):
+              \[
+                  (\Psi(g, h))(c) = (g(c), \; h(c)).
+              \]
+
+              Verificamos explicitamente as composições bilaterais entre \(\Phi\) e \(\Psi\):
+              \begin{itemize}
+                  \item Para toda função \(f \in (A \times B)^C\) e qualquer \(c \in C\), como \(f(c) = (\pi_1(f(c)), \pi_2(f(c)))\), temos:
+                        \begin{align*}
+                            (\Psi(\Phi(f)))(c) & = (\Psi(\pi_1 \circ f, \; \pi_2 \circ f))(c)  \\
+                                               & = ((\pi_1 \circ f)(c), \; (\pi_2 \circ f)(c)) \\
+                                               & = (\pi_1(f(c)), \; \pi_2(f(c)))               \\
+                                               & = f(c).
+                        \end{align*}
+                        Como a igualdade é válida para todo \(c \in C\), segue que \(\Psi(\Phi(f)) = f\), isto é, \(\Psi \circ \Phi = \operatorname{id}_{(A \times B)^C}\).
+                  \item Para todo par de funções \((g, h) \in A^C \times B^C\), a aplicação \(\Phi\) produz:
+                        \[
+                            \Phi(\Psi(g, h)) = (\pi_1 \circ \Psi(g, h), \; \pi_2 \circ \Psi(g, h)).
+                        \]
+                        Avaliando a primeira coordenada em cada \(c \in C\), temos:
+                        \[
+                            (\pi_1 \circ \Psi(g, h))(c) = \pi_1((\Psi(g, h))(c)) = \pi_1(g(c), h(c)) = g(c),
+                        \]
+                        o que implica \(\pi_1 \circ \Psi(g, h) = g\). De modo idêntico, para a segunda coordenada:
+                        \[
+                            (\pi_2 \circ \Psi(g, h))(c) = \pi_2((\Psi(g, h))(c)) = \pi_2(g(c), h(c)) = h(c),
+                        \]
+                        o que implica \(\pi_2 \circ \Psi(g, h) = h\). Consequentemente:
+                        \[
+                            \Phi(\Psi(g, h)) = (g, h) \implies \Phi \circ \Psi = \operatorname{id}_{A^C \times B^C}.
+                        \]
+              \end{itemize}
+              Pela \autoref{prop:caracterizacao_bijecao_inversa}, \(\Phi\) é uma bijeção, demonstrando que \(|(A \times B)^C| = |A^C \times B^C|\), ou seja, \((|A| \cdot |B|)^{|C|} = |A|^{|C|} \cdot |B|^{|C|}\).
+
+        \item \textbf{Potência de potência:} Queremos provar que \(|(A^B)^C| = |A^{B \times C}|\).
+              Para cada função \(f \in (A^B)^C\), note que \(f: C \to A^B\), de modo que para cada \(c \in C\), o valor \(f(c)\) é uma função de \(B\) em \(A\). Definimos a aplicação
+              \[
+                  \Phi: (A^B)^C \to A^{B \times C}
+              \]
+              que a cada \(f \in (A^B)^C\) associa a função \(\Phi(f): B \times C \to A\) dada pela avaliação pontual:
+              \[
+                  (\Phi(f))(b, c) = (f(c))(b)
+              \]
+              para todo \((b, c) \in B \times C\).
+
+              Reciprocamente, para cada função \(g \in A^{B \times C}\), definimos a aplicação
+              \[
+                  \Psi: A^{B \times C} \to (A^B)^C
+              \]
+              que a cada \(g\) associa a função \(\Psi(g): C \to A^B\) cujo valor em cada \(c \in C\) é a função parcial \((\Psi(g))(c): B \to A\) definida por
+              \[
+                  ((\Psi(g))(c))(b) = g(b, c)
+              \]
+              para todo \(b \in B\).
+
+              Verificamos explicitamente que \(\Psi\) é a inversa bilateral de \(\Phi\):
+              \begin{itemize}
+                  \item Para toda função \(f \in (A^B)^C\), queremos mostrar que \(\Psi(\Phi(f)) = f\). Como ambas são funções com domínio \(C\) e contradomínio \(A^B\), basta provar que \((\Psi(\Phi(f)))(c) = f(c)\) para todo \(c \in C\). Por sua vez, como \(f(c)\) e \((\Psi(\Phi(f)))(c)\) são funções de \(B\) em \(A\), avaliamos em um elemento arbitrário \(b \in B\):
+                        \[
+                            ((\Psi(\Phi(f)))(c))(b) = (\Phi(f))(b, c) = (f(c))(b).
+                        \]
+                        Como a igualdade é válida para todo \(b \in B\), temos \((\Psi(\Phi(f)))(c) = f(c)\). E como isso vale para todo \(c \in C\), conclui-se que:
+                        \[
+                            \Psi(\Phi(f)) = f \implies \Psi \circ \Phi = \operatorname{id}_{(A^B)^C}.
+                        \]
+                  \item Para toda função \(g \in A^{B \times C}\), queremos provar que \(\Phi(\Psi(g)) = g\). Ambas são funções de \(B \times C\) em \(A\). Avaliando em um par arbitrário \((b, c) \in B \times C\), obtemos:
+                        \[
+                            (\Phi(\Psi(g)))(b, c) = ((\Psi(g))(c))(b) = g(b, c).
+                        \]
+                        Como a igualdade é verificada para todo \((b, c) \in B \times C\), segue que:
+                        \[
+                            \Phi(\Psi(g)) = g \implies \Phi \circ \Psi = \operatorname{id}_{A^{B \times C}}.
+                        \]
+              \end{itemize}
+              Pela \autoref{prop:caracterizacao_bijecao_inversa}, a aplicação \(\Phi\) é uma bijeção entre os conjuntos de funções, demonstrando que \(|(A^B)^C| = |A^{B \times C}|\), isto é, \((|A|^{|B|})^{|C|} = |A|^{|B| \cdot |C|}\).
+
+        \item \textbf{Expoente unitário e expoente nulo:}
+              Fixemos o conjunto unitário \(1 = \{\varnothing\}\). A aplicação que a cada função \(f \in A^{\{\varnothing\}}\) associa o único elemento de sua imagem \(f(\varnothing) \in A\) é trivialmente uma bijeção, donde \(|A|^1 = |A^{\{\varnothing\}}| = |A|\).
+              Por outro lado, fixando o conjunto vazio \(0 = \varnothing\), lembramos que uma função com domínio vazio é um conjunto de pares ordenados contido em \(\varnothing \times A = \varnothing\). O único subconjunto de \(\varnothing\) é o próprio conjunto vazio \(\varnothing\), que satisfaz vacuamente a definição de função. Logo, para qualquer conjunto \(A\) (inclusive quando \(A = \varnothing\)), existe exatamente uma única função de domínio vazio: a função vazia. Portanto, \(A^\varnothing = \{\varnothing\}\), donde segue que \(|A|^0 = |A^\varnothing| = |\{\varnothing\}| = 1\). Em particular, na aritmética cardinal tem-se \(0^0 = |\varnothing^\varnothing| = 1\), sem qualquer ambiguidade.
+
+        \item \textbf{Base unitária e base nula:}
+              Se a base é unitária \(1 = \{\varnothing\}\), para qualquer conjunto \(C\), a única função possível de \(C\) em \(\{\varnothing\}\) é a função constante \(f(c) = \varnothing\) para todo \(c \in C\). Logo, \(1^{|C|} = |\{\varnothing\}^C| = |\{f\}| = 1\).
+              Se a base é vazia e o domínio \(A\) é não vazio (\(A \neq \varnothing\)), nenhum elemento de \(A\) pode receber uma imagem em \(\varnothing\). Consequentemente, inexiste qualquer função de \(A\) em \(\varnothing\), donde \(\varnothing^A = \varnothing\) e \(0^{|A|} = |\varnothing^A| = |\varnothing| = 0\).
+
+        \item \textbf{Monotonicidade:} Sejam \(f: A \to B\) e \(g: C \to D\) funções injetoras, com \(B \neq \varnothing\).
+              Se \(C = \varnothing\), decorre do item anterior que \(|A|^{|C|} = |A|^0 = 1\). Sendo \(B \neq \varnothing\), existe ao menos um elemento \(b \in B\), o que assegura que a função constante \(h(y) = b\) para todo \(y \in D\) pertence a \(B^D\), de modo que \(|B|^{|D|} \geq 1\). Logo, \(|A|^{|C|} \leq |B|^{|D|}\) verifica-se imediatamente.
+
+              Suponhamos agora que \(C \neq \varnothing\). Nosso objetivo é construir uma função injetora \(\Gamma: A^C \to B^D\), o que garantirá que \(|A^C| \leq |B^D|\). Como \(B\) e \(C\) são não vazios por hipótese, podemos fixar dois elementos de referência: um ponto arbitrário \(c_0 \in C\) e um ponto arbitrário \(b_0 \in B\).
+
+              A função injetora \(g: C \to D\) estabelece uma bijeção entre \(C\) e sua imagem \(g(C) \subseteq D\). Consequentemente, para cada elemento \(y \in g(C)\), existe um único \(x \in C\) tal que \(g(x) = y\), permitindo definir a função inversa restrita \(g^{-1}: g(C) \to C\). Para estender essa correspondência a todos os elementos de \(D\) (inclusive aqueles que eventualmente não pertençam a \(g(C)\)), definimos a \textbf{retração} \(r: D \to C\) por:
+              \[
+                  r(y) =
+                  \begin{cases}
+                      g^{-1}(y), & \text{se } y \in g(C),    \\
+                      c_0,       & \text{se } y \notin g(C).
+                  \end{cases}
+              \]
+              Note que, para todo \(x \in C\), tem-se \(g(x) \in g(C)\), de modo que \(r(g(x)) = g^{-1}(g(x)) = x\), o que assegura a identidade fundamental:
+              \[
+                  r \circ g = \operatorname{id}_C.
+              \]
+
+              Com base nessa retração e na injeção \(f: A \to B\), associamos a cada função \(u \in A^C\) uma extensão \(\Gamma(u): D \to B\) definida em duas partes:
+              \[
+                  (\Gamma(u))(y) =
+                  \begin{cases}
+                      f(u(r(y))), & \text{se } y \in g(C),    \\
+                      b_0,        & \text{se } y \notin g(C).
+                  \end{cases}
+              \]
+              Ou seja, sobre a cópia embutida \(g(C)\), a função \(\Gamma(u)\) aplica a regra original \(u\) (após recuperar o elemento correspondente em \(C\) via \(r\)) e transporta o resultado para \(B\) por meio de \(f\); fora de \(g(C)\), atribui-se o valor constante \(b_0 \in B\) para assegurar que \(\Gamma(u)\) esteja completamente definida em todo o domínio \(D\).
+
+              Resta demonstrar que a aplicação funcional \(\Gamma: A^C \to B^D\) é injetora. Sejam \(u_1, u_2 \in A^C\) tais que \(\Gamma(u_1) = \Gamma(u_2)\). Por definição de igualdade de funções, isso significa que \((\Gamma(u_1))(y) = (\Gamma(u_2))(y)\) para todo \(y \in D\).
+              Em particular, restringindo a avaliação aos elementos da imagem \(g(C)\), para qualquer \(x \in C\) fixado, consideramos o ponto \(y = g(x) \in g(C)\):
+              \begin{align*}
+                  (\Gamma(u_1))(g(x)) = (\Gamma(u_2))(g(x)) & \implies f(u_1(r(g(x)))) = f(u_2(r(g(x)))) \\
+                                                            & \implies f(u_1(x)) = f(u_2(x)),
+              \end{align*}
+              onde usamos o fato de que \(r(g(x)) = x\). Uma vez que a função \(f: A \to B\) é injetora por hipótese, a igualdade \(f(u_1(x)) = f(u_2(x))\) acarreta necessariamente:
+              \[
+                  u_1(x) = u_2(x).
+              \]
+              Como essa igualdade é verificada para todo \(x \in C\), decorre que \(u_1 = u_2\). Isso demonstra que \(\Gamma\) é uma injeção de \(A^C\) em \(B^D\), estabelecendo que \(|A^C| \leq |B^D|\), isto é:
+              \[
+                  |A|^{|C|} \leq |B|^{|D|}.
+              \]
+    \end{enumerate}
 \end{proof}
 
 Com as noções gerais de equivalência, ordem estrita e as três operações aritméticas fundamentais (adição, multiplicação e exponenciação cardinal) devidamente estabelecidas para conjuntos arbitrários, podemos agora iniciar a investigação sistemática das classes fundamentais de conjuntos. A primeira seção deste capítulo dedica-se aos conjuntos finitos, nos quais toda essa álgebra cardinal coincide rigorosamente com as propriedades aritméticas usuais dos números naturais.
@@ -561,6 +817,7 @@ equinumeroso a um número natural. De fato, existe uma bijeção natural entre
 Uma vez caracterizados os conjuntos finitos, podemos associar-lhes precisamente um número natural que representa sua quantidade de elementos. O próximo resultado garante que essa associação é bem definida: dois números naturais equinumerosos devem necessariamente ser iguais.
 
 \begin{proposicao}[Unicidade da Cardinalidade em \(\N\)]
+    \label{prop:unicidade_cardinalidade_naturais}
     Sejam \(m,n\in\mathbb{N}\). Se \(|m| = |n|\), então \(m=n\).
 \end{proposicao}
 
