@@ -1,12 +1,144 @@
 %!TEX root = main.tex
 
-\chapter{A DESCOBERTA DOS INFINITOS}
+\chapter{A DESCOBERTA DOS INFINITOS}\index{Infinito!historia@história do}
 \label{chap:infinitos}
 
-Com as ferramentas de comparação cardinal estabelecidas, este capítulo explora a revolucionária descoberta de Georg Cantor: a existência de diferentes tamanhos de infinito. Investigam-se as propriedades dos conjuntos enumeráveis, demonstrando resultados contraintuitivos sobre os inteiros e racionais, e apresenta-se o célebre Argumento da Diagonal. Este método permite provar a não enumerabilidade dos números reais, revelando um universo de infinitos além da contagem natural.
+A constituição do infinito como objeto legítimo da investigação matemática representa uma das mais profundas revoluções conceituais na história da matemática. Se durante mais de dois milênios a tradição filosófica e matemática hegemônica, inaugurada na Grécia Antiga por Aristóteles, rejeitou categoricamente a consideração da totalidade infinita em ato em favor de um horizonte meramente potencial e inacabado, o final do século XIX testemunhou a ruptura definitiva com essa concepção. Guiado pelas investigações fundamentais de Georg Cantor sobre a convergência de séries trigonométricas e a topologia da reta real, o infinito deixou de ser uma barreira inultrapassável para se converter em uma escala estruturada de grandezas transfinitas distintas.
 
-A aplicação do critério de bijeção em conjuntos infinitos levou à descoberta de que nem todos os infinitos são do mesmo tamanho.
+O objetivo deste capítulo é traçar a trajetória epistemológica e histórica que culminou nessa descoberta. Partindo das intuições embrionárias e das resistências ao infinito atual, examinamos a transição promovida pelas correspondências entre Cantor e Dedekind, a publicação inaugural de 1874 que demonstrou a não enumerabilidade do contínuo, a posterior consagração do Método da Diagonal em 1891 e, por fim, as intensas controvérsias ontológicas que dividiram a comunidade matemática na virada para o século XX.
 
-Um conjunto é dito \textbf{enumerável} se for finito ou se existir uma bijeção com o conjunto dos números naturais. A cardinalidade dos conjuntos enumeráveis infinitos é o menor número cardinal infinito, denotamos por \(\aleph_0\) (Aleph 0 ou Aleph Nulo). De forma surpreendente, conjuntos que parecem maiores que \(\mathbb{N}\), como o conjunto dos inteiros \((\mathbb{Z})\) e o dos racionais (\(\mathbb{Q}\)), também são enumeráveis.
+\section{O infinito pré-cantoriano}\index{Infinito!potencial}\index{Infinito!atual}\index{Aristóteles}
+\label{sec:infinito_tradicao_historica}
 
-Cantor provou que o conjunto dos números reais \(\mathbb{R}\) não é enumerável. A prova clássica utiliza o método da diagonalização \parencite[p.~429]{bertato2023}, que constrói um número real que não pode estar em nenhuma lista pré-definida de reais, mostrando assim que nenhuma enumeração de \(\mathbb{R}\) pode ser completa. A cardinalidade dos números reais é chamada de ``\textbf{cardinalidade do contínuo}'' \ e denotada por \(\mathfrak{c}\).
+A reflexão sobre a natureza do ilimitado remonta aos primórdios da filosofia pré-socrática. Em face dos paradoxos de Zenão de Eleia sobre a divisibilidade do espaço e do tempo, Aristóteles, no Livro III de seu tratado \emph{Física}, estabeleceu uma distinção conceitual rigorosa que delineou a matemática por mais de dois milênios: a separação entre o \textbf{infinito potencial} e o \textbf{infinito atual} \parencite[p.~54]{maor1991}.
+
+Para Aristóteles, o infinito existe exclusivamente em potência, manifestando-se como um processo aberto de acréscimo ou de divisão sucessiva que jamais se completa. Nenhum conjunto ou grandeza poderia ser concebido como uma totalidade infinita simultaneamente dada e realizada. Essa postura restringia o infinito ao domínio da potencialidade: uma sucessão de passos que pode prosseguir indefinidamente, sem que a coleção de todos os passos jamais subsista em ato \parencite[p.~55]{maor1991}.
+
+Essa idéia aristotélica foi endossada de maneira quase unânime pelos pensadores medievais e modernos. Galileu Galilei confrontou-se com a bijeção entre os números naturais e os quadrados perfeitos (\(n \leftrightarrow n^2\)), recuando diante do conflito com o axioma euclidiano de que o todo supera a parte e concluindo que as noções de igualdade e comparação não se aplicariam a grandezas infinitas (conforme detalhado na \autoref{sec:paradoxo_galileu}).
+
+A mesma prudência metodológica foi reiterada por Friedrich Gauss. Em carta endereçada ao astrônomo Heinrich Schumacher em 1831, Gauss protestava categoricamente contra o uso do infinito como uma grandeza consumada:
+\begin{citacao}
+    Mas, no que diz respeito à sua demonstração, protesto sobretudo contra a utilização de uma quantidade infinita como se fosse uma quantidade completa, o que na matemática nunca é permitido. O infinito é apenas uma forma de falar, na qual se fala propriamente de limites. \parencite[p.~120, tradução própria]{dauben1990}
+\end{citacao}
+
+O primeiro rompimento sistemático e consciente com esse consenso milenar ocorreu com o matemático, teólogo e filósofo tcheco Bernard Bolzano. Em sua obra póstuma \emph{Paradoxien des Unendlichen} (\emph{Paradoxos do Infinito}), publicada em 1851, Bolzano defendeu abertamente a legitimidade conceitual do infinito atual. Mais do que isso, Bolzano reconheceu que a possibilidade de uma coleção infinita ser posta em correspondência biunívoca com uma parte própria não configurava um absurdo ou contradição lógica, mas sim a propriedade distintiva fundamental das totalidades infinitas \parencite[p.~423]{bertato2023}. Contudo, como observa \textcite[p.~124]{dauben1990}, Bolzano ainda não havia desenvolvido as noções formais de potência e cardinalidade para além da mera bijeção, definindo o infinito a partir do finito. Essas reflexões aplainaram o terreno para a axiomatização que Dedekind e Cantor realizariam nas décadas seguintes, culminando na definição formal de infinitude de Dedekind tratada no \autoref{chap:cardinalidade}.
+
+\section{As origens do pensamento cantoriano}
+\label{sec:origens_pensamento_cantoriano}
+
+As origens da teoria dos conjuntos transfinitos surgiram de problemas concretos da análise matemática, especialmente sobre a representação única de funções por séries trigonométricas estudada por Eduard Heine \parencite[p.~30]{dauben1990}.
+
+Esse estudo levou Cantor a refletir sobre a estrutura da reta real. Enquanto os números racionais \(\Q\) compartilham com os números naturais \(\N\) a propriedade de serem enumeráveis, formando uma coleção discreta que pode ser organizada em sequência, a reta contínua \(\R\) parecia intuitivamente muito mais densa e complexa.
+
+Em 29 de novembro de 1873, Cantor escreveu a Dedekind formulando a pergunta que daria início à comparação entre conjuntos infinitos:
+\begin{citacao}
+    Considere a coleção de todos os números inteiros positivos \(n\) e denote-a por \((n)\); então pense na coleção de todos os números reais \(x\) e denote-a por \((x)\); a questão é simplesmente se é possível estabelecer uma correspondência entre \((n)\) e \((x)\) tal que cada elemento de um conjunto corresponda a um, e apenas um, elemento do outro. À primeira vista, pode-se dizer que não, não é possível, pois \((n)\) consiste em partes discretas enquanto \((x)\) forma um contínuo; contudo, essa objeção não leva a nada e, embora eu tenda a acreditar que \((n)\) e \((x)\) não permitem tal correspondência única, não consigo encontrar a razão, e embora eu atribua grande importância a isso, a razão pode ser muito simples. \parencite[p.~50, tradução própria]{dauben1990}
+\end{citacao}
+
+Inicialmente, Dedekind respondeu que não sabia solucionar a questão. Poucos dias depois, em 7 de dezembro de 1873, Cantor enviou uma nova carta a Dedekind com a primeira demonstração de que tal bijeção não existe, estabelecendo que o conjunto dos números reais não é enumerável \parencite[p.~51]{dauben1990}.
+
+\section{O artigo de 1874}\index{Numeros@Números!algébricos}\index{Numeros@Números!transcendentes}
+\label{sec:artigo_1874}
+
+A descoberta de dezembro de 1873 resultou em uma publicação no \emph{Crelle's Journal} em 1874 \parencite[p.~51]{dauben1990}.
+
+Como observa \textcite[p.~51]{dauben1990}, o resultado central que estabeleceu a não enumerabilidade de \(\R\) foi apresentado no artigo de maneira curiosa: Cantor introduziu a prova afirmando tratar-se apenas de uma aplicação do fato de o conjunto \(\symbb{A}\) de todos os números algébricos reais ser enumerável. Essa aplicação servia para fornecer uma nova confirmação do teorema demonstrado por Joseph Liouville em 1844, segundo o qual em qualquer intervalo real dado existem infinitos números transcendentes (isto é, números reais não algébricos). Uma vez que \(\symbb{A}\) é enumerável e \(\R\) não é, decorre imediatamente a existência de números não algébricos em qualquer intervalo.
+
+A demonstração de que \(\R\) não é enumerável foi conduzida por contradição. Supondo que os números reais pudessem ser enumerados, eles poderiam ser dispostos em uma sequência indexada pelos números naturais \(\N\):
+\begin{equation}
+    \omega_1, \omega_2, \omega_3, \dots, \omega_n, \dots
+    \label{eq:sequencia_reais_1874}
+\end{equation}
+
+Cantor argumentou então que, dado qualquer intervalo aberto \((\alpha, \beta) \subset \R\) com \(\alpha < \beta\), é sempre possível determinar pelo menos um número real \(\eta\) pertencente a \((\alpha, \beta)\) que não conste na listagem \eqref{eq:sequencia_reais_1874}.
+
+Para encontrar esse número, Cantor escolheu os dois primeiros termos da sequência \eqref{eq:sequencia_reais_1874} que caíssem estritamente no interior de \((\alpha, \beta)\). Designando o menor deles por \(\alpha'\) e o maior por \(\beta'\), formou-se um novo intervalo \((\alpha', \beta') \subset (\alpha, \beta)\). Procedendo indutivamente dessa forma, obteve-se uma cadeia de intervalos encaixados:
+\[
+    (\alpha, \beta) \supset (\alpha', \beta') \supset (\alpha'', \beta'') \supset \dots \supset (\alpha^{(n)}, \beta^{(n)}) \supset \dots
+\]
+onde \(\alpha^{(n)}\) e \(\beta^{(n)}\) são sempre os dois primeiros elementos da sequência original que pertencem ao intervalo precedente \((\alpha^{(n-1)}, \beta^{(n-1)})\) \parencite[p.~51]{dauben1990}.
+
+Surgem então duas possibilidades para essa construção:
+\begin{enumerate}
+    \item \textbf{O número de intervalos construídos é finito:} Nesse caso, o processo é interrompido em algum intervalo \((\alpha^{(k)}, \beta^{(k)})\) que contém no máximo um único elemento da sequência original (pois caso ouvessem dois, o processo não teria sido interrompido). Qualquer outro número real \(\eta\) escolhido no interior desse intervalo que não seja esse único termo presente não pertencerá à sequência, obtendo-se o número desejado.
+    \item \textbf{O número de intervalos é infinito:} Como a sequência de extremidades inferiores \(\alpha, \alpha', \alpha'', \dots\) é estritamente crescente e limitada superiormente por \(\beta\), ela possui um limite superior \(\alpha^\infty\). De modo análogo, a sequência de extremidades superiores \(\beta, \beta', \beta'', \dots\) é estritamente decrescente e limitada inferiormente por \(\alpha\), convergindo para um limite inferior \(\beta^\infty\), com \(\alpha^\infty \leq \beta^\infty\) \parencite[p.~51]{dauben1990}.
+\end{enumerate}
+
+Na segunda hipótese, analisam-se duas alternativas:
+\begin{itemize}
+    \item Se \(\alpha^\infty < \beta^\infty\), considere qualquer número real \(\eta\) pertencente ao intervalo aberto \((\alpha^\infty, \beta^\infty)\). Como \(\alpha^{(n)} < \alpha^\infty < \eta < \beta^\infty < \beta^{(n)}\) para todo \(n\), o número \(\eta\) permanece estritamente no interior de todos os intervalos encaixados. Caso \(\eta\) constasse na listagem original como algum termo \(\omega_p\), de índice finito fixo, ele teria sido eventualmente selecionado como uma extremidade \(\alpha^{(k)}\) ou \(\beta^{(k)}\) após um número finito de etapas, sendo assim excluído do interior dos intervalos seguintes. Como \(\eta\) permanece no interior de todos os intervalos, conclui-se que \(\eta\) não pode pertencer à sequência \eqref{eq:sequencia_reais_1874}.
+    \item Se \(\alpha^\infty = \beta^\infty = \eta\), Cantor argumentou que esse número \(\eta\) também não poderia estar na sequência \eqref{eq:sequencia_reais_1874}. De fato, se \(\eta = \omega_p\) para algum índice \(p\), o termo \(\omega_p\) seria excluído de todos os intervalos encaixados a partir de um índice suficientemente grande na construção, já que em cada etapa os dois primeiros elementos da lista que caem no intervalo são posicionados como as extremidades do intervalo seguinte. No entanto, por construção, \(\eta\) deve pertencer a todos os intervalos \((\alpha^{(n)}, \beta^{(n)})\), gerando uma contradição \parencite[p.~51]{dauben1990}.
+\end{itemize}
+
+Dessa forma, fica estabelecido que nenhuma lista enumerável pode esgotar o conjunto dos números reais, provando a não enumerabilidade de \(\R\). Essa conclusão representou uma mudança no próprio pensamento de Cantor. Como relata \textcite[p.~53]{dauben1990}, em menos de uma semana sua postura em relação ao problema sofreu uma transformação radical: se antes hesitava e considerava o assunto como uma curiosidade de pouco interesse prático, de repente percebeu o surgimento de sistemas conceituais inteiramente novos na matemática. Para além de uma mera alternativa à prova de Liouville sobre a existência de números transcendentes, o resultado de 1874 estabeleceu, pela primeira vez de maneira quantitativa e precisa, a distinção cardinal entre uma coleção enumerável e o contínuo.
+
+\section{O Método da Diagonal de 1891}\index{Metodo da Diagonal@Método da Diagonal}\index{Teorema de Cantor!origem historica@origem histórica}
+\label{sec:metodo_diagonal_1891}
+
+Embora a demonstração de 1874 fosse rigorosa, ela apoiava-se fortemente nas propriedades analíticas e topológicas da reta real e na teoria dos números irracionais. Como o próprio Cantor declarou na abertura de seu artigo de 1891, seu objetivo era apresentar uma demonstração ``muito mais simples [...] que não depende da consideração dos números irracionais'' \parencite[p.~434]{bertato2023}, buscando um método puramente combinatório e de validade mais geral \parencite[p.~165]{dauben1990}.
+
+Essa formulação foi exposta no artigo \emph{``Ueber eine elementare Frage der Mannigfaltigkeitslehre''} (\emph{Sobre uma questão elementar na teoria dos agregados}), apresentado em 1891 na sessão inaugural da recém-fundada Sociedade Matemática Alemã (\emph{Deutsche Mathematiker-Vereinigung}), da qual Cantor fora o primeiro presidente \parencite[p.~159]{dauben1990}.
+
+Na apresentação de 1891, Cantor introduziu o Método da Diagonal. Considerando duas entidades simbólicas distintas, que chamou de \(m\) e \(w\) (que podem ser interpretadas como os dígitos \(0\) e \(1\)), Cantor considerou o conjunto \(M\) de todas as sequências infinitas formadas por esses dois caracteres:
+\[
+    E = (x_1, x_2, x_3, \dots, x_n, \dots), \qquad \text{onde } x_n \in \{m, w\}.
+\]
+
+Para provar que o conjunto \(M\) não pode ser colocado em bijeção com o conjunto dos números naturais \(\N\), Cantor supôs por absurdo a existência de uma enumeração exaustiva de elementos de \(M\):
+\begin{align*}
+    E_1    & = (a_{1,1}, \; a_{1,2}, \; a_{1,3}, \; \dots, \; a_{1,n}, \; \dots) \\
+    E_2    & = (a_{2,1}, \; a_{2,2}, \; a_{2,3}, \; \dots, \; a_{2,n}, \; \dots) \\
+    E_3    & = (a_{3,1}, \; a_{3,2}, \; a_{3,3}, \; \dots, \; a_{3,n}, \; \dots) \\
+    \vdots & \qquad \vdots                                                       \\
+    E_n    & = (a_{n,1}, \; a_{n,2}, \; a_{n,3}, \; \dots, \; a_{n,n}, \; \dots) \\
+    \vdots & \qquad \vdots
+\end{align*}
+
+Em seguida, construiu uma nova sequência diagonal \(E_0 = (d_1, d_2, d_3, \dots, d_n, \dots)\) definindo cada coordenada \(d_n\) como a ``negação'' do elemento diagonal correspondente \(a_{n,n}\):
+\[
+    d_n =
+    \begin{cases}
+        w, & \text{se } a_{n,n} = m, \\
+        m, & \text{se } a_{n,n} = w.
+    \end{cases}
+\]
+
+É evidente que \(E_0\) é uma sequência perfeitamente válida pertencente ao conjunto \(M\). Contudo, \(E_0\) não pode ser igual a \(E_1\) (pois diferem na 1ª coordenada: \(d_1 \neq a_{1,1}\)), não pode ser igual a \(E_2\) (pois diferem na 2ª coordenada: \(d_2 \neq a_{2,2}\)), e, de modo geral, não pode coincidir com \(E_n\) para nenhum \(n \in \N\), visto que diferem na \(n\)-ésima coordenada:
+\[
+    d_n \neq a_{n,n}.
+\]
+Portanto, \(E_0\) não está presente na lista, refutando a hipótese de sobrejetividade e provando que \(M = \{m, w\}^{\N}\) é não enumerável.
+
+O impacto do artigo de 1891 não se limitou à elegância da diagonalização binária. Cantor observou que a essência do argumento diagonal não dependia do alfabeto \(\{m, w\}\), mas podia ser estendida para demonstrar que as potências dos conjuntos não possuem um valor máximo: dado qualquer conjunto \(L\), é sempre possível construir outro conjunto \(M\) de potência estritamente maior \parencites[p.~166]{dauben1990}[p.~431]{bertato2023}. Esse resultado que é formulado modernamente como
+\[
+    |X| < |\PP(X)|.
+\]
+e foi formalizado e demonstrado no \autoref{teo:cantor_ordem_estrita} e no \autoref{cor:cadeia_infinita_cardinais} do \autoref{chap:cardinalidade}, estabeleceu a existência de uma hierarquia infinita e inesgotável de ordens de infinito:
+\[
+    \aleph_0 < 2^{\aleph_0} < 2^{2^{\aleph_0}} < 2^{2^{2^{\aleph_0}}} < \dots
+\]
+derrubando para sempre a concepção de que o infinito seria um estágio único e indivisível.
+
+\section{A recepção da teoria de Cantor}
+\label{sec:recepcao_controversias}
+
+A introdução dos números transfinitos desencadeou intensos debates na comunidade científica, a resistência à teoria de Cantor decorreu primariamente de profundas divergências filosóficas acerca da natureza dos objetos matemáticos e da legitimidade do infinito atual.
+
+O principal opositor das ideias cantorianas foi Leopold Kronecker, que havia sido professor do próprio Cantor \parencite[p.~65]{maor1991}. Figura de enorme prestígio institucional, Kronecker adotava uma postura estritamente conservadora que rejeitava qualquer conceito que não pudesse ser diretamente construído a partir dos números naturais, sendo ele o autor da frase:
+\begin{quote}
+    \textit{``Deus criou os números inteiros; todo o resto é obra do homem''}
+\end{quote}
+Kronecker sustentava que uma entidade matemática só poderia ser considerada legítima se fosse passível de determinação algorítmica em um número finito de passos. Para ele, as totalidades infinitas em ato de Cantor não passavam de construções ilegítimas e perigosas, tendo chegado a atacar publicamente seu ex-aluno como um ``corruptor da juventude'' e charlatão científico \parencite[p.~1]{dauben1990}.
+
+A forte influência de Kronecker na comunidade acadêmica e editorial alemã acarretou em obstáculos constantes para Cantor. No âmbito das publicações, a oposição de Kronecker atrasou deliberadamente a aceitação de artigos cruciais de Cantor no \emph{Journal de Crelle} \parencite[p.~165]{dauben1990}. No plano profissional, o controle institucional do grupo de Berlim, do qual Kronecker era uma das figuras mais dominantes, inviabilizou qualquer possibilidade de Cantor deixar o isolamento da Universidade de Halle para assumir uma posição de prestígio em Berlim ou Göttingen \parencite[p.~163]{dauben1990}. Esse isolamento acadêmico prolongado, agravado pela hostilidade dos matemáticos tradicionais, contribuiu severamente para as frequentes crises depressivas que acometeram Cantor. Conforme observa \textcite[p.~65]{maor1991}, há fortes indícios de que os ataques de Kronecker não eram puramente acadêmicos, carregando traços de ressentimento em relação ao antigo pupilo cuja originalidade e renome internacional subitamente começavam a ofuscá-lo.
+
+No início do século XX, críticas semelhantes foram formuladas pelo eminente matemático francês Henri Poincaré. Poincaré declarou perante a comunidade acadêmica que a teoria dos conjuntos era uma ``uma grave enfermidade matemática, uma doença patológica perversa que um dia seria curada'' \parencite[p.~1]{dauben1990}.
+
+Contudo, a potência formal da teoria dos conjuntos atraíram o apoio entusiasmado da nova geração de algebristas, analistas e lógicos. Além da correspondência e amizade de Dedekind, Cantor encontrou em David Hilbert seu mais brilhante e vigoroso defensor. Em sua conferência sobre o infinito (\emph{Über das Unendliche}), proferida em 1925, Hilbert declarou\footcite[p.~64]{maor1991}:
+\begin{quote}
+    \textit{``Ninguém nos expulsará do paraíso que Cantor criou para nós.''}
+\end{quote}
+
+A superação das primeiras inconsistências da formulação original, como os paradoxos de Russell e de Burali-Forti, discutidos no \autoref{chap:apendiceAutorreferenciaDefinibilidade}, exigiu a reconstrução da teoria dos conjuntos sobre bases puramente axiomáticas. Esse esforço de formalização culminou no sistema axiomático de Zermelo-Fraenkel, introduzido inicialmente por Ernst Zermelo em 1908 e refinado por Adolf Fraenkel e Thoralf Skolem na década de 1920, cuja estrutura lógica e conceitual é apresentada no \autoref{chap:fundamentos_teoria_conjuntos}.
+
+Consolidada a legitimidade do infinito atual e a escala dos números transfinitos, ergueu-se o problema que atormentaria Cantor pelo restante de sua vida: a determinação da posição exata da cardinalidade do contínuo \(\mathfrak{c} = 2^{\aleph_0}\) na hierarquia dos Alephs. A Hipótese do Contínuo, que postula a identidade \(2^{\aleph_0} = \aleph_1\), isto é, a inexistência de cardinalidades intermediárias entre o enumerável e o contínuo, foi colocada por Hilbert como o primeiro de sua lista de 23 problemas para o século XX em 1900 \parencite[p.~247]{dauben1990}. Sua demonstração de independência lógica em relação aos axiomas de Zermelo-Fraenkel, estabelecida pelos trabalhos de Kurt Gödel e Paul Cohen \parencite[p.~268]{dauben1990}.

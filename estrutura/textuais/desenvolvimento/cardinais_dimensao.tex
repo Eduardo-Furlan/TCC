@@ -15,14 +15,14 @@ Um dos resultados mais contraintuitivos da Teoria dos Conjuntos é a independên
 Um resultado central na aritmética dos cardinais infinitos diz respeito à união de uma família de conjuntos. Consideremos uma família $\{A_\alpha\}_{\alpha < \aleph_n}, \text{ com } n \in \N$, indexada por $\aleph_n$, onde cada conjunto $A_\alpha$ possui cardinalidade igual a $\aleph_n$. O teorema estabelece que a cardinalidade da união $\bigcup_{\alpha < \aleph_n} A_\alpha$ é exatamente $\aleph_n$. Para fundamentar tal afirmação, demonstraremos um resultado mais profundo e generalista: para qualquer cardinal infinito $\kappa$, vale a igualdade $\kappa \cdot \kappa = \kappa$. Provar que o produto cartesiano de um conjunto infinito por ele mesmo não altera sua magnitude (idempotência multiplicativa) é a condição suficiente para garantir que a união de $\kappa$ conjuntos de tamanho $\kappa$ permaneça com tamanho $\kappa$.
 
 \begin{teorema}[Idempotência da Multiplicação de Cardinais Infinitos]
-    Para todo cardinal infinito $\kappa$, vale a igualdade $\kappa \cdot \kappa = \kappa$.
     \label{teo:kappa_quadrado}
+    Para todo cardinal infinito $\kappa$, vale a igualdade $\kappa \cdot \kappa = \kappa$.
 \end{teorema}
 
 \begin{corolario}[União de $\aleph_n$ Conjuntos]
+    \label{cor:uniao_alephn}
     Seja $\{A_\alpha\}_{\alpha < \aleph_n} \com n \in \N$ uma família de conjuntos indexada por $\aleph_n$, tal que $|A_\alpha| = \aleph_n$ para todo $\alpha < \aleph_n$. Então, a cardinalidade da união é:
     \[
     \left| \bigcup_{\alpha < \aleph_n} A_\alpha \right| = \aleph_n.
     \]
-    \label{cor:uniao_alephn}
 \end{corolario}

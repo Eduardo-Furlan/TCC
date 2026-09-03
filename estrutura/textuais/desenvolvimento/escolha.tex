@@ -14,6 +14,7 @@ O Axioma da Escolha é independente dos demais axiomas da teoria ZF, mas é esse
 % \end{axioma}
 
 % \begin{definicao}[Cadeia]
+    \label{def:metrica}
 %     Um conjunto \(A\) é chamado de cadeia se, e somente se para cada \(B\) e \(C\) em \(A\), \(B \subseteq C\) ou \(C \subseteq B\).
 %     \label{def:cadeia}
 % \end{definicao}
@@ -33,6 +34,7 @@ O Axioma da Escolha é independente dos demais axiomas da teoria ZF, mas é esse
 % Muitas pessoas acreditam que qualquer escolha infinita necessita do Axioma da Escolha, no entanto, isso está errado, é possível fazer escolhas infinitas sem necessitar do Axioma da Escolha:
 
 % \begin{exemplo}[Sapatos e Meias]
+    \label{ex:}
 %     A analogia de Bertrand Russell ilustra a essência do Axioma da Escolha. Se você possui uma coleção infinita de pares de sapatos, pode formar um novo conjunto escolhendo um sapato de cada par através de uma regra explícita: escolha sempre o sapato esquerdo. Como a regra é construtiva, o axioma não é necessário.
 
 %     Por outro lado, se você possui uma coleção infinita de pares de meias idênticas, não há meia esquerda ou direita. Sem uma propriedade que distinga os elementos dentro de cada par, é impossível formular uma regra matemática para a seleção. O Axioma da Escolha é a ferramenta que garante a existência desse conjunto resultante, mesmo sem uma regra construtiva.
@@ -71,20 +73,19 @@ Para compreender os movimentos rígidos no espaço, é necessário estabelecer u
         \item \(d(x,z) \leq d(x,y) + d(y,x).\)
     \end{enumerate}
     Chamamos a imagem de \(d(x,y)\) de ``distância de \(x\) a \(y\).''
-    \label{def:metrica}
 \end{definicao}
 
 \begin{definicao}[Espaço Métrico]
-    Um espaço métrico é um par \((M, d)\), onde \(M\) é um conjunto e \(d\) é uma métrica em \(M\).
     \label{def:espaco_metrico}
+    Um espaço métrico é um par \((M, d)\), onde \(M\) é um conjunto e \(d\) é uma métrica em \(M\).
 \end{definicao}
 
 \begin{exemplo}[Métrica Euclidiana em \(\mathbb{R}^3\)]
+    \label{ex:metrica_euclidiana_r3}
     Sejam \(x = (x_1, x_2, x_3)\) e \(y = (y_1, y_2, y_3)\) pontos em \(\R^3\), definimos a métrica euclidiana em \(\R^3\) como
     \[
         d(x,y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 - y_3)^2}
     \]
-    \label{ex:metrica_euclidiana_r3}
 \end{exemplo}
 
 A métrica euclidiana modela a nossa percepção intuitiva de distância física. Com o espaço e a forma de medir distâncias formalizados, o próximo passo é estudar as transformações matemáticas que atuam sobre esse espaço sem distorcer suas dimensões, ou seja, as funções que preservam a distância entre quaisquer dois pontos.
@@ -93,8 +94,8 @@ A métrica euclidiana modela a nossa percepção intuitiva de distância física
 \label{subsec:isometrias_grupos}
 
 \begin{definicao}[Isometria]
-    Sejam \(M, N\) espaços métricos. Uma função \(f: \ M \to N \) é uma \textbf{isometria} quando é bijeção e \(d(x,y) = d(f(x), f(y))\), para quaisquer \(x,y \in M.\)
     \label{def:isometria}
+    Sejam \(M, N\) espaços métricos. Uma função \(f: \ M \to N \) é uma \textbf{isometria} quando é bijeção e \(d(x,y) = d(f(x), f(y))\), para quaisquer \(x,y \in M.\)
 \end{definicao}
 
 \input{dados/figuras/isometria_vaso.tex}
@@ -104,16 +105,16 @@ A métrica euclidiana modela a nossa percepção intuitiva de distância física
 Na geometria associada ao paradoxo de Banach-Tarski, o interesse principal reside em como subconjuntos do \(\mathbb{R}^3\) podem ser movidos e reagrupados. Quando restringimos nossa análise aos movimentos rígidos, ou seja, transformações contínuas que preservam a orientação e a distância, refletindo ações fisicamente possíveis, percebemos que todas as isometrias espaciais derivam da combinação de translações e rotações. As definições formais dessas duas operações fundamentais são estabelecidas a seguir, conforme \textcite{zahoor2016}.
 
 \begin{definicao}[Translação]
-    Uma translação em \(\mathbb{R}^3\) é uma isometria de \(\mathbb{R}^3\). Seja \((a,b,c)\) um vetor em \(\mathbb{R}^3\). Então definimos uma translação por \((a,b,c)\) como o mesmo deslocamento vetorial de cada ponto pelo fator \((a,b,c)\).
     \label{def:translacao}
+    Uma translação em \(\mathbb{R}^3\) é uma isometria de \(\mathbb{R}^3\). Seja \((a,b,c)\) um vetor em \(\mathbb{R}^3\). Então definimos uma translação por \((a,b,c)\) como o mesmo deslocamento vetorial de cada ponto pelo fator \((a,b,c)\).
 \end{definicao}
 
 \figplaceholder{Translação em \(\R^3\)}
 % \input{dados/figuras/translacao_r3.tex}
 
 \begin{definicao}[Rotação]
-    Seja \(\mathcal{L}\) uma reta qualquer em \(\mathbb{R}^3\). Uma rotação de \(\mathbb{R}^3\) em torno da reta \(\mathcal{L}\) é definida como uma isometria na qual todo ponto pertencente a \(\mathcal{L}\) é mapeado em si mesmo e todos os outros pontos sofrem o mesmo deslocamento angular \(\theta\).
     \label{def:rotacao}
+    Seja \(\mathcal{L}\) uma reta qualquer em \(\mathbb{R}^3\). Uma rotação de \(\mathbb{R}^3\) em torno da reta \(\mathcal{L}\) é definida como uma isometria na qual todo ponto pertencente a \(\mathcal{L}\) é mapeado em si mesmo e todos os outros pontos sofrem o mesmo deslocamento angular \(\theta\).
 \end{definicao}
 
 \figplaceholder{Rotação em \(\R^3\)}
@@ -122,17 +123,18 @@ Na geometria associada ao paradoxo de Banach-Tarski, o interesse principal resid
 As isometrias podem ser compostas, ou seja, executadas em sequência. Para analisar as propriedades matemáticas dessas composições, empregamos a teoria de grupos. O conceito de grupo abstrai a operação de composição de funções e fornece a estrutura algébrica fundamental para explorar as simetrias espaciais \parencite{garcia2014}.
 
 \begin{definicao}[Operação]
-    Uma operação em um conjunto \(A\) é uma função do produto cartesiano \(A \times A\) para \(A\).
     \label{def:operacao}
+    Uma operação em um conjunto \(A\) é uma função do produto cartesiano \(A \times A\) para \(A\).
 \end{definicao}
 
 
 \begin{exemplo}
-    Inserir exemplos de operações.
     \label{ex:operacoes}
+    Inserir exemplos de operações.
 \end{exemplo}
 
 \begin{definicao}[Grupo]
+    \label{def:g_equidecomponibilidade}
     \label{def:grupo}
     Um conjunto \(G\) e uma operação
     \begin{align*}
@@ -158,12 +160,12 @@ As isometrias podem ser compostas, ou seja, executadas em sequência. Para anali
 
 \begin{exemplo}
     Inserir exemplos de grupos.
-    \label{ex:}
 \end{exemplo}
 
 Aplicando os conceitos de teoria de grupos às transformações geométricas previamente definidas, conectamos a álgebra e a geometria do \(\mathbb{R}^3\). Conforme \textcite{garcia2014}, o conjunto de todas as bijeções de um conjunto em si mesmo forma um grupo sob a operação de composição de funções. Uma vez que as isometrias são bijeções e que a composta de duas isometrias, assim como a inversa de uma isometria, continuam sendo isometrias \parencite{lima2014}, conclui-se que o conjunto de todas as isometrias forma um grupo sob a composição. É essa estrutura de grupo, não-abeliano em geral para as rotações espaciais, que gera órbitas de pontos com complexidade suficiente para viabilizar a construção de conjuntos não-mensuráveis.
 
 \begin{exemplo}[Não-comutatividade de Rotações]
+    \label{ex:rotacoes_nao_comutativas}
     Para ilustrar que o grupo das isometrias no \(\mathbb{R}^3\) é não-abeliano, basta demonstrar que a operação de composição para rotações espaciais não é comutativa. Sejam \(\rho_x\) uma rotação de \(\frac{\pi}{2}\) radianos em torno do eixo \(x\), e \(\rho_y\) uma rotação de \(\frac{\pi}{2}\) radianos em torno do eixo \(y\).
 
     Aplicando essas isometrias ao vetor \(\vec{v} = (0, 1, 0)\), analisamos o efeito da ordem de composição. Calculando \(\rho_x \circ \rho_y\), aplicamos primeiro \(\rho_y\), que mantém o vetor inalterado por estar sobre o eixo de rotação: \(\rho_y(0, 1, 0) = (0, 1, 0)\). Em seguida, aplicamos \(\rho_x\), resultando em:
@@ -177,7 +179,6 @@ Aplicando os conceitos de teoria de grupos às transformações geométricas pre
     \]
 
     Como \((0, 0, 1) \neq (1, 0, 0)\), fica provado que \(\rho_x \circ \rho_y \neq \rho_y \circ \rho_x\). A ordem da composição altera o resultado, evidenciando que as rotações espaciais não comutam e, consequentemente, o grupo de isometrias que as contém não é abeliano.
-    \label{ex:rotacoes_nao_comutativas}
 \end{exemplo}
 
 \figplaceholder{não comutação da rotação em \(\R^3\)}
@@ -208,9 +209,9 @@ Também dizemos que \(G\) age sobre \(X\).
 \end{remark}
 
 \begin{exemplo}
+    \label{ex:operacao_grupo_conjunto}
     Inserir exemplos de operação de grupo sobre conjunto
 
-    \label{ex:operacao_grupo_conjunto}
 \end{exemplo}
 
 Uma vez definida a maneira como um grupo opera sobre um conjunto, podemos analisar o comportamento de elementos individuais sob essa ação. O subconjunto formado por todos os pontos que podem ser alcançados a partir de um ponto inicial, aplicando-se todos os elementos do grupo, é denominado órbita.
@@ -226,8 +227,8 @@ Definição abaixo de \textcite[p.~89]{Hungerford1974}
 \end{definicao}
 
 \begin{exemplo}
-    Inserir exemplos de órbita
     \label{ex:orbita}
+    Inserir exemplos de órbita
 \end{exemplo}
 
 \figplaceholder{órbita}
@@ -246,17 +247,16 @@ Definição de \textcite[p.~25]{tomkowicz2016}
 \begin{definicao}[\(G\)-Equidecomponibilidade]
     Seja \(G\) um grupo que age sobre \(X\) e \(A,B \subseteq X\). Os conjuntos \(A\)  e \(B\) são ditos \(G\)-equidecomponíveis quando \(A\) e \(B\) podem ser particionados em \(n\) conjuntos tal que existam \(g_1, \dots, g_n \in G\) de forma que \(g_iA_i = B_i\) com \(i = 1, \dots, n.\)
 
-    \label{def:g_equidecomponibilidade}
 \end{definicao}
 
 \begin{exemplo}
-    Inserir exemplo de \autoref{def:g_equidecomponibilidade}
     \label{ex:g_equidecomponibilidade}
+    Inserir exemplo de \autoref{def:g_equidecomponibilidade}
 \end{exemplo}
 
 \begin{definicao}[Conjuntos Equidecomponiveis]
-    Dois conjuntos \(A\) e \(B\) são ditos equidecomponíveis quando são \(G\)-equidecomponíveis e \(G\) é um grupo de isometrias. Ou seja, dois conjuntos são equidecomponíveis quando é possível particionar o primeiro em um número finito de pedaços e reposicionar essas partes, exclusivamente através de isometrias, para montar exatamente o segundo conjunto.
     \label{def:equidecomponiveis}
+    Dois conjuntos \(A\) e \(B\) são ditos equidecomponíveis quando são \(G\)-equidecomponíveis e \(G\) é um grupo de isometrias. Ou seja, dois conjuntos são equidecomponíveis quando é possível particionar o primeiro em um número finito de pedaços e reposicionar essas partes, exclusivamente através de isometrias, para montar exatamente o segundo conjunto.
 \end{definicao}
 
 \begin{exemplo}[Tangram]
@@ -273,30 +273,30 @@ Definição de \textcite[p.~25]{tomkowicz2016}
 \label{subsec:medida}
 
 \begin{definicao}[Medida]
-    definir medida
     \label{def:medida}
+    definir medida
 \end{definicao}
 
 Definição de \textcite{terra2020}
 
 \begin{definicao}[Medida Finitamente Aditiva]
+    \label{def:medida_aditiva}
     Seja \(A\) um conjunto e \(\mu\) uma medida em \(A\). Dizemos que \(\mu\) é uma medida finitamente aditiva quando a medida de \(A\) é igual a soma das medidas de uma partição finita de \(A\), ou seja:
 
     \[
         A_1, \dots, A_n \text{ particionam } A \implies \mu (A) = \sum_{i=1}^{n} \mu (A_i).
     \]
 
-    \label{def:medida_aditiva}
 \end{definicao}
 
 \begin{proposicao}
-    Provar que se dois conjuntos mensuráveis são equidecomponíveis, então eles possuem estritamente a mesma medida.
     \label{prop:medida_equidecomponiveis}
+    Provar que se dois conjuntos mensuráveis são equidecomponíveis, então eles possuem estritamente a mesma medida.
 \end{proposicao}
 
 \begin{definicao}[Conjunto Não-Mensurável]
-    Definir a existência de subconjuntos do \(\mathbb{R}^3\) aos quais é impossível atribuir uma medida consistente, rompendo a lei de conservação de volume.
     \label{def:nao_mensuravel}
+    Definir a existência de subconjuntos do \(\mathbb{R}^3\) aos quais é impossível atribuir uma medida consistente, rompendo a lei de conservação de volume.
 \end{definicao}
 
 \section{O Axioma da Escolha}

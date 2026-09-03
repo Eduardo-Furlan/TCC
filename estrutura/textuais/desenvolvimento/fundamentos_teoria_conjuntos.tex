@@ -11,21 +11,22 @@ Neste capítulo, estabelecem-se as bases formais sobre as quais todo o trabalho 
 A base de toda a matemática moderna pode ser construída sobre o conceito de ``conjunto''  (que também chamaremos de ``coleção'', ou ``família''). \textcite{enderton1977} menciona os axiomas a seguir.
 
 \begin{axioma}[Axioma da Extensão]\index{Axioma!da Extensão}
+    \label{ax:extensao}
     Dois conjuntos são iguais se, e somente se, ambos possuem os mesmos elementos.
     \[
         \forall A \forall B \left(\forall x(x \in A \iff x \in B) \implies A = B \right)
     \]
-    \label{ax:extensao}
 \end{axioma}
 
 \begin{definicao}[Subconjunto]\index{Subconjunto}
-    Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\), dizemos que \(A\) é um subconjunto de \(B\), \(A\) está contido em \(B\), ou que \(B\) contém \(A\), e escrevemos \(A \subseteq B\) e \(B \supseteq A\), respectivamente.
     \label{def:subconjunto}
+    Se \(A\) e \(B\) são conjuntos e todo elemento de \(A\) está em \(B\), dizemos que \(A\) é um subconjunto de \(B\), \(A\) está contido em \(B\), ou que \(B\) contém \(A\), e escrevemos \(A \subseteq B\) e \(B \supseteq A\), respectivamente.
 \end{definicao}
 
 \input{dados/figuras/subconjunto.tex}
 
 \begin{exemplo}[Biblioteca de Babel]
+    \label{ex:ordem_elementos_dupla_inclusao}
     Considere \(\mathscr{L}\) como o conjunto imagem\footnote{Note que, rigorosamente, o conceito de ``Imagem''  de uma função será definido apenas na \autoref{sec:relacoes_funcoes}. Entretanto, conceitos ainda não definidos podem ser utilizados nos exemplos para fins didáticos e intuitivos.} do algoritmo da \textit{Library of Babel}, desenvolvido por \textcite{basile2015}.
     Visto que este algoritmo gera todas as permutações possíveis de livros com 1312000 caracteres, definimos o subconjunto \(\mathscr{D} \subseteq \mathscr{L}\) contendo os livros que descrevem a realidade.
 
@@ -35,8 +36,8 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 \end{exemplo}
 
 \begin{definicao}[Igualdade de Conjuntos]\index{Conjunto!igualdade de}
-    \[A = B \iff A \subseteq B \text{ e } B \subseteq A.\]
     \label{def:igualdade_conjuntos}
+    \[A = B \iff A \subseteq B \text{ e } B \subseteq A.\]
 \end{definicao}
 
 \input{dados/figuras/igualdade_conjuntos.tex}
@@ -48,17 +49,16 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
         \item \textbf{\(B \subseteq A\):} Todo elemento de \(B\) está em \(A\), visto que \(2 \in A\) e \(1 \in A\).
     \end{itemize}
     Como ambas as inclusões são verdadeiras, concluímos por definição que \(A = B\). Isso também ilustra que a ordem dos elementos não altera o conjunto.
-    \label{ex:ordem_elementos_dupla_inclusao}
 \end{exemplo}
 
 \begin{exemplo}[Igualdade Trivial do Conjunto Vazio]
-    Seja \(A\) o conjunto formado pelas soluções naturais da equação \(x + 1 = 0\) e \(B\) o conjunto formado pelas soluções reais da equação \(x = x + 1\). Como não existe número natural que satisfaça a primeira equação, temos \(A = \varnothing\). Da mesma forma, não há número real que satisfaça a segunda equação, resultando em \(B = \varnothing\). Como ambos não possuem elementos, a dupla inclusão é satisfeita (de forma vacua), logo \(A = B\).
     \label{ex:igualdade_trivial_vazio}
+    Seja \(A\) o conjunto formado pelas soluções naturais da equação \(x + 1 = 0\) e \(B\) o conjunto formado pelas soluções reais da equação \(x = x + 1\). Como não existe número natural que satisfaça a primeira equação, temos \(A = \varnothing\). Da mesma forma, não há número real que satisfaça a segunda equação, resultando em \(B = \varnothing\). Como ambos não possuem elementos, a dupla inclusão é satisfeita (de forma vacua), logo \(A = B\).
 \end{exemplo}
 
 \begin{exemplo}[Distinção de Conjuntos com Vazio Aninhado]
-    Considere os seguintes três conjuntos: \(\varnothing\), \(\{\varnothing\}\) e \(\{\{\varnothing\}\}\). Nenhum par formado por eles é igual, isto é, eles são conjuntos dois a dois distintos. A demonstração deste fato é deixada como exercício para o leitor.
     \label{ex:distincao_vazios_aninhados}
+    Considere os seguintes três conjuntos: \(\varnothing\), \(\{\varnothing\}\) e \(\{\{\varnothing\}\}\). Nenhum par formado por eles é igual, isto é, eles são conjuntos dois a dois distintos. A demonstração deste fato é deixada como exercício para o leitor.
 \end{exemplo}
 
 % \vspace{1em}
@@ -79,11 +79,12 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 % Portanto, os três conjuntos são distintos dois a dois.
 
 \begin{definicao}[Subconjunto Próprio]\index{Subconjunto!próprio}
-    Quando temos \(A \subseteq B\) e \(A \neq B\) escrevemos \(A \subsetneq B\) e dizemos que \(A\) é um subconjunto próprio de \(B\).
     \label{def:subconjunto_proprio}
+    Quando temos \(A \subseteq B\) e \(A \neq B\) escrevemos \(A \subsetneq B\) e dizemos que \(A\) é um subconjunto próprio de \(B\).
 \end{definicao}
 
 \begin{exemplo}[Números Surreais e Jogos]
+    \label{ex:construcao_subconjunto_propriedade}
     Em sua obra \emph{On Numbers and Games}, \textcite{conway2001} define a classe de ``Jogos'' construídos recursivamente a partir do conjunto vazio.
     Um jogo \( G \) é definido por dois conjuntos de jogos anteriores, \( G = \{ L \mid R \} \), representando as opções do jogador da Esquerda e da Direita.
 
@@ -119,12 +120,12 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 \end{exemplo}
 
 \begin{definicao}[Notação de Construção de Conjuntos]\index{Notacao@Notação de construção de conjuntos}
+    \label{def:notacao_construcao}
     Seja \(A\) um conjunto e \(\varphi (x)\) uma fórmula\footnote{Neste contexto, uma ``fórmula'' \ (ou condição) refere-se a uma sentença bem formada na linguagem da lógica de primeira ordem da teoria dos conjuntos (que inclui os símbolos lógicos \(\in\), \(=\), \&, ou, \(\neg\), \(\to\), \(\forall\), \(\exists\)). Informalmente, \(\varphi (x)\) é qualquer afirmação matemática sobre a variável \(x\) que pode ser julgada como verdadeira ou falsa para cada elemento do conjunto \(A\).} ou condição sobre \(x\). O conjunto formado por todos os elementos de \(A\) que satisfazem \(\varphi (x)\) é denotado por
     \[
         \{x \in A : \varphi (x)\}.
     \]
     Esta notação define o subconjunto de \(A\) cujos membros tornam a condição \(\varphi (x)\) verdadeira.
-    \label{def:notacao_construcao}
 \end{definicao}
 
 \begin{remark}
@@ -136,15 +137,14 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
     \[
         B = \{x \in A : x \text{ é ímpar}\} = \{1, 3, 5\}.
     \]
-    \label{ex:construcao_subconjunto_propriedade}
 \end{exemplo}
 
 \begin{exemplo}[Construção do Conjunto Vazio por Contradição]
+    \label{ex:construcao_vazio_contradicao}
     Dado qualquer conjunto \(A\), podemos usar uma condição lógica que é sempre falsa, como \(x \neq x\), para construir um subconjunto sem elementos. O conjunto resultante é o conjunto vazio:
     \[
         \varnothing = \{x \in A : x \neq x\}.
     \]
-    \label{ex:construcao_vazio_contradicao}
 \end{exemplo}
 
 \begin{exemplo}[Corte de Dedekind]
@@ -200,48 +200,48 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 \end{enumerate}
 
 \begin{axioma}[Axioma do Vazio]\index{Axioma!do Vazio}
+    \label{ax:vazio}
     Existe um conjunto que não contém elementos.
     \[
         \exists A \forall x (x \notin A).
     \]
-    \label{ax:vazio}
 \end{axioma}
 
 \begin{definicao}[Conjunto Vazio]\index{Conjunto!vazio}
-    \(\varnothing\) é o conjunto que não contém elementos.
     \label{def:vazio}
+    \(\varnothing\) é o conjunto que não contém elementos.
 \end{definicao}
 
 \begin{axioma}[Axioma do Par]\index{Axioma!do Par}
+    \label{ax:par}
     Para quaisquer dois conjuntos \(x\) e \(y\), existe um conjunto contendo apenas \(x\) e \(y\).
 
-    \label{ax:par}
 \end{axioma}
 
 \begin{definicao}[Conjunto Par]\index{Conjunto!par}
-    Para quaisquer conjuntos \(u\) e \(v\), o conjunto par \(\{u,v\}\) é o conjunto cujos únicos elementos são \(u\) e \(v\).
     \label{def:conjunto_par}
+    Para quaisquer conjuntos \(u\) e \(v\), o conjunto par \(\{u,v\}\) é o conjunto cujos únicos elementos são \(u\) e \(v\).
 \end{definicao}
 
 \begin{definicao}[\emph{Singleton}; Conjunto Unitário]\index{Singleton@\emph{Singleton}}\index{Conjunto!unitário}
+    \label{def:singleton}
     Para evitar a necessidade de um ``Axioma do \emph{Singleton}'' que diz ``Para qualquer conjunto \(x\) existe um conjunto cujo único elemento é \(x\)''  definimos o conjunto contendo apenas \(x\) como o conjunto
     \[
         \{x\} = \{x,x\}
     \]
-    \label{def:singleton}
 \end{definicao}
 
 \begin{axioma}[Axioma da União]\index{Axioma!da União}
+    \label{ax:uniao}
     Para qualquer conjunto \(A\), existe um conjunto \(B\) no qual seus elementos são exatamente os elementos dos elementos de \(A\).
     \[
         \forall x \left(x \in B \iff (\exists b \in A) x \in b \right).
     \]
-    \label{ax:uniao}
 \end{axioma}
 
 \begin{definicao}[União Finita de Conjuntos]\index{Uniao@União!finita}
-    Para quaisquer conjuntos \(A\) e \(B\), a união de \(A\) e \(B\) é o conjunto \(A \cup B\) cujos elementos são aqueles que pertencem a \(A\) ou a \(B\) (ou a ambos).
     \label{def:uniao_finita}
+    Para quaisquer conjuntos \(A\) e \(B\), a união de \(A\) e \(B\) é o conjunto \(A \cup B\) cujos elementos são aqueles que pertencem a \(A\) ou a \(B\) (ou a ambos).
 \end{definicao}
 
 \input{dados/figuras/uniao_finita.tex}
@@ -262,6 +262,8 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 \end{exemplo}
 
 \begin{definicao}[Conjuntos Finitos]
+    \label{def:conjunto_das_partes}
+    \label{def:conjuntos_finitos}
     Dados quaisquer \(x_1, x_2, x_3\) nós definimos
     \[
         \{x_1, x_2, x_3\} = \{x_1, x_2\} \cup \{x_3\}.
@@ -270,20 +272,18 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
     \[
         \{x_1, \dots, x_n\} = \{x_1, \dots, x_{n-1}\} \cup \{x_n\}.
     \]
-    \label{def:conjuntos_finitos}
 \end{definicao}
 
 \begin{axioma}[Axioma da Potência]\index{Axioma!da Potência}
+    \label{ax:potencia}
     Para qualquer conjunto \(A\), existe um conjunto no qual seus membros são exatamente os subconjuntos de \(A\).
     \[
         \forall A \exists B \forall x (x \in B \iff x \subseteq A).
     \]
-    \label{ax:potencia}
 \end{axioma}
 
 \begin{definicao}[Conjunto das Partes]\index{Conjunto!das partes}
     Para qualquer conjunto \(A\), o conjunto das partes de \(A\), denotado por \(\PP (A)\), é o conjunto cujos elementos são exatamente os subconjuntos de \(A\).
-    \label{def:conjunto_das_partes}
 \end{definicao}
 
 \begin{exemplo}[\(\mathcal{P}(\{1,2,3\})\)]
@@ -301,8 +301,8 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 \end{exemplo}
 
 \begin{proposicao}[Monotonicidade do Conjunto das Partes]
-    Sejam \(B\) e \(C\) conjuntos. Se \(B \subseteq C\), então \(\PP(B) \subseteq \PP(C)\).
     \label{prop:powerset_contido}
+    Sejam \(B\) e \(C\) conjuntos. Se \(B \subseteq C\), então \(\PP(B) \subseteq \PP(C)\).
 \end{proposicao}
 
 \begin{proof}
@@ -318,8 +318,8 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 \end{proof}
 
 \begin{proposicao}[Inclusão de Partes Implica Inclusão de Conjuntos]
-    Sejam \(B\) e \(C\) conjuntos. Se \(\PP(B) \subseteq \PP(C)\), então \(B \subseteq C\).
     \label{prop:reciproca_powerset_contido}
+    Sejam \(B\) e \(C\) conjuntos. Se \(\PP(B) \subseteq \PP(C)\), então \(B \subseteq C\).
 \end{proposicao}
 
 \begin{proof}
@@ -339,8 +339,8 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 \end{proof}
 
 \begin{proposicao}[Injetividade da Operação de Partes]
-    \(\PP(A) = \PP(B)\) se, e somente se, \(A = B\).
     \label{prop:igualdade_partes_implica_igualdade_conjuntos}
+    \(\PP(A) = \PP(B)\) se, e somente se, \(A = B\).
 \end{proposicao}
 
 \begin{proof}
@@ -362,8 +362,8 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 \end{proof}
 
 \begin{proposicao}
-    Sejam \(x, y \in B\). Então \(\{\{x\}, \{x,y\}\} \in \PP(\PP(B))\).
     \label{prop:par_ordenado_elemento_ppb}
+    Sejam \(x, y \in B\). Então \(\{\{x\}, \{x,y\}\} \in \PP(\PP(B))\).
 \end{proposicao}
 
 \begin{proof}
@@ -383,11 +383,11 @@ A base de toda a matemática moderna pode ser construída sobre o conceito de ``
 \end{proof}
 
 \begin{axioma}[Axiomas de Subconjunto]\index{Axioma!de Subconjunto}
+    \label{ax:subconjunto}
     Para cada fórmula \(\varphi\) que não contenha o símbolo \(B\), a seguinte sentença é um axioma:
     \[
         \forall t_1 \dots \forall t_k \forall c \exists B \forall x (x \in B \iff x \in c \e \varphi(x,t_1,\dots,t_k)).
     \]
-    \label{ax:subconjunto}
 \end{axioma}
 
 \input{dados/figuras/axiomas_subconjunto.tex}
@@ -409,11 +409,11 @@ Assim, a notação de construção de conjuntos que definimos anteriormente:
 é, na verdade, a representação simbólica do conjunto \(B\) cuja existência é garantida por este axioma.
 
 \begin{definicao}[Interseção Finita de Conjuntos]\index{Interseccao@Interseção!finita}
+    \label{def:intersecao_finita}
     Para quaisquer conjuntos \(A\) e \(B\), a interseção de \(A\) e \(B\) é o conjunto \(A \cap B\) cujos elementos são aqueles que pertencem a \(A\) e a \(B\) simultaneamente.
     \[
         A \cap B = \{x\in A: x \in B\}
     \]
-    \label{def:intersecao_finita}
 \end{definicao}
 
 \input{dados/figuras/intersecao_finita.tex}
@@ -427,11 +427,11 @@ Assim, a notação de construção de conjuntos que definimos anteriormente:
 \end{exemplo}
 
 \begin{definicao}[Complemento Relativo; Diferença]
+    \label{def:complemento_relativo}
     Para quaisquer conjuntos \(A\) e \(B\), o complementar relativo de \(B\) em \(A\) (também chamado de diferença de conjuntos) é o conjunto \(A - B\) formado pelos elementos que pertencem a \(A\), mas não pertencem a \(B\).
     \[
         A - B = \{x \in A : x \notin B\}
     \]
-    \label{def:complemento_relativo}
 \end{definicao}
 
 \input{dados/figuras/complemento_relativo.tex}
@@ -453,11 +453,11 @@ Assim, a notação de construção de conjuntos que definimos anteriormente:
 \end{exemplo}
 
 \begin{teorema}[Inexistência do Conjunto Universo]
+    \label{teo:conjunto_universo}
     Não existe um conjunto ao qual todo conjunto pertença
     \[
         \nexists A \forall x (x \in A).
     \]
-    \label{teo:conjunto_universo}
 \end{teorema}
 
 \begin{proof}
@@ -481,11 +481,11 @@ Assim, a notação de construção de conjuntos que definimos anteriormente:
 \end{proof}
 
 \begin{definicao}[União de Conjuntos]
+    \label{def:uniao}
     Seja \(A\) um conjunto. A união de \(A\), denotada por \(\bigcup A\), é o conjunto formado por todos os elementos que pertencem a pelo menos um dos elementos de \(A\). Simbolicamente:
     \[
         \bigcup A = \{x : (\exists b \in A) \, x \in b\}.
     \]
-    \label{def:uniao}
 \end{definicao}
 
 \begin{remark}
@@ -517,11 +517,11 @@ Assim, a notação de construção de conjuntos que definimos anteriormente:
 \end{exemplo}
 
 \begin{definicao}[Interseção Arbitrária de Conjuntos]
+    \label{def:intersecao_arbitraria}
     Definimos a interseção \(\bigcap A\) de um conjunto não vazio de conjuntos \(A\) como
     \[
         x \in \bigcap A \iff x \text{ é elemento de todo membro de } A.
     \]
-    \label{def:intersecao_arbitraria}
 \end{definicao}
 
 \input{dados/figuras/intersecao_infinita.tex}
@@ -535,11 +535,11 @@ Assim, a notação de construção de conjuntos que definimos anteriormente:
 \end{exemplo}
 
 \begin{teorema}[Existência e Unicidade da Interseção Arbitrária]
+    \label{teo:intersecao_unica}
     Para qualquer conjunto não vazio \(A\), existe um único conjunto \(B\) t.q. para qualquer \(x\),
     \[
         x \in B \iff x \text{ é elemento de todos os membros de } A.
     \]
-    \label{teo:intersecao_unica}
 \end{teorema}
 
 \begin{proof}
@@ -557,8 +557,8 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \]
 
 \begin{proposicao}[Inclusão de Elementos na União da Família]
-    Se \( b \in A \), então \( b \subseteq \bigcup A \).
     \label{prop:elemento_contido_uniao}
+    Se \( b \in A \), então \( b \subseteq \bigcup A \).
 \end{proposicao}
 
 \begin{proof}
@@ -566,8 +566,8 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}
-    Se \( \{\{x\}, \{x, y\}\} \in A \), então \( \{x, y\} \in \bigcup A \), \( x \in \bigcup\bigcup A \) e \( y \in \bigcup\bigcup A \).
     \label{prop:ordenado_elemento_par_uniao}
+    Se \( \{\{x\}, \{x, y\}\} \in A \), então \( \{x, y\} \in \bigcup A \), \( x \in \bigcup\bigcup A \) e \( y \in \bigcup\bigcup A \).
 \end{proposicao}
 
 \begin{proof}
@@ -579,8 +579,8 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}
-    Seja \( S = \{\{a\}, \{a, b\}\} \). Então \( \bigcup\bigcap S = a \) e \( \bigcap\bigcup S = a \cap b \).
     \label{prop:par_cupcap_capcup}
+    Seja \( S = \{\{a\}, \{a, b\}\} \). Então \( \bigcup\bigcap S = a \) e \( \bigcap\bigcup S = a \cap b \).
 \end{proposicao}
 
 \begin{proof}
@@ -603,11 +603,11 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}[União de Família de Subconjuntos]
+    \label{prop:uniao_familia_subconjunto}
     Se todo membro de \(\mathcal{A}\) é um subconjunto de \(B\), então \(\bigcup \mathcal{A} \subseteq B\)
     \[
         (a \in \AA \implies a \sub B) \implies \bigcup \AA \sub B.
     \]
-    \label{prop:uniao_familia_subconjunto}
 \end{proposicao}
 
 \begin{proof}
@@ -620,8 +620,8 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}[União do Conjunto das Partes]
-    Para todo conjunto \(A\), tem-se que \(\bigcup \PP(A) = A\).
     \label{prop:uniao_partes_identidade}
+    Para todo conjunto \(A\), tem-se que \(\bigcup \PP(A) = A\).
 \end{proposicao}
 
 \begin{proof}
@@ -635,8 +635,8 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}[Inclusão de um Conjunto nas Partes de sua União]
-    Para todo conjunto \(A\), vale a inclusão \(A \subseteq \PP(\bigcup A)\). A igualdade \(A = \PP(\bigcup A)\) ocorre se, e somente se, existe um conjunto \(B\) tal que \(A = \PP(B)\) (ou seja, se \(A\) é um conjunto das partes).
     \label{prop:inclusao_A_partes_uniao}
+    Para todo conjunto \(A\), vale a inclusão \(A \subseteq \PP(\bigcup A)\). A igualdade \(A = \PP(\bigcup A)\) ocorre se, e somente se, existe um conjunto \(B\) tal que \(A = \PP(B)\) (ou seja, se \(A\) é um conjunto das partes).
 \end{proposicao}
 
 \begin{proof}
@@ -652,8 +652,8 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}[Interseção de Conjuntos das Partes]
-    Para quaisquer conjuntos \(A\) e \(B\), \(\PP(A) \cap \PP(B) = \PP(A \cap B)\).
     \label{prop:intersecao_partes}
+    Para quaisquer conjuntos \(A\) e \(B\), \(\PP(A) \cap \PP(B) = \PP(A \cap B)\).
 \end{proposicao}
 
 \begin{proof}
@@ -671,8 +671,8 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}[União de Conjuntos das Partes]
-    Para quaisquer conjuntos \(A\) e \(B\), vale a inclusão \(\PP(A) \cup \PP(B) \subseteq \PP(A \cup B)\). A igualdade ocorre se, e somente se, \(A \subseteq B\) ou \(B \subseteq A\).
     \label{prop:uniao_partes_inclusao}
+    Para quaisquer conjuntos \(A\) e \(B\), vale a inclusão \(\PP(A) \cup \PP(B) \subseteq \PP(A \cup B)\). A igualdade ocorre se, e somente se, \(A \subseteq B\) ou \(B \subseteq A\).
 \end{proposicao}
 
 \begin{proof}
@@ -687,8 +687,8 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}[Inexistência do Conjunto de Todos os Singletons]
-    Não existe um conjunto ao qual pertença todo \textit{singleton} (ou seja, todo conjunto da forma \(\{x\}\)).
     \label{prop:inexistencia_conjunto_unitarios}
+    Não existe um conjunto ao qual pertença todo \textit{singleton} (ou seja, todo conjunto da forma \(\{x\}\)).
 \end{proposicao}
 
 \begin{proof}
@@ -704,8 +704,8 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}
-    Se \(a \in B\), então \(\PP(a) \in \PP(\PP(\bigcup B))\).
     \label{prop:inclusao_partes_duplo}
+    Se \(a \in B\), então \(\PP(a) \in \PP(\PP(\bigcup B))\).
 \end{proposicao}
 
 \begin{proof}
@@ -721,13 +721,13 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{proof}
 
 \begin{proposicao}[Não-Associatividade da Diferença de Conjuntos]
-    A diferença de conjuntos não é associativa. Isto é, existem conjuntos \(A\), \(B\) e \(C\) tais que \(A - (B - C) \neq (A - B) - C\).
     \label{prop:diferenca_nao_associativa}
+    A diferença de conjuntos não é associativa. Isto é, existem conjuntos \(A\), \(B\) e \(C\) tais que \(A - (B - C) \neq (A - B) - C\).
 \end{proposicao}
 
 \begin{definicao}[Diferença Simétrica]
-    A diferença simétrica \(A + B\) dos conjuntos \(A\) e \(B\) é o conjunto definido por \((A - B) \cup (B - A)\).
     \label{def:diferenca_simetrica}
+    A diferença simétrica \(A + B\) dos conjuntos \(A\) e \(B\) é o conjunto definido por \((A - B) \cup (B - A)\).
 \end{definicao}
 
 \input{dados/figuras/diferenca_simetrica.tex}
@@ -743,18 +743,19 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
 \end{exemplo}
 
 \begin{proposicao}[Distributividade da Interseção sobre a Diferença Simétrica]
+    \label{prop:distributividade_simetrica}
     Para quaisquer conjuntos \(A\), \(B\) e \(C\), a interseção é distributiva em relação à diferença simétrica:
     \[ A \cap (B + C) = (A \cap B) + (A \cap C) \]
-    \label{prop:distributividade_simetrica}
 \end{proposicao}
 
 \begin{proposicao}[Associatividade da Diferença Simétrica]
+    \label{prop:associatividade_simetrica}
     Para quaisquer conjuntos \(A\), \(B\) e \(C\), a diferença simétrica é associativa:
     \[ A + (B + C) = (A + B) + C \]
-    \label{prop:associatividade_simetrica}
 \end{proposicao}
 
 \begin{proposicao}[Caracterizações Equivalentes da Inclusão]
+    \label{prop:condicoes_equivalentes_inclusao}
     Para quaisquer conjuntos \(A\) e \(B\), as seguintes quatro condições são equivalentes:
     \begin{enumerate}
         \item[(a)] \(A \subseteq B\);
@@ -762,75 +763,74 @@ O \autoref{teo:intersecao_unica} serve para definirmos \(\bigcap A\) como sendo 
         \item[(c)] \(A \cup B = B\);
         \item[(d)] \(A \cap B = A\).
     \end{enumerate}
-    \label{prop:condicoes_equivalentes_inclusao}
 \end{proposicao}
 
 \begin{proposicao}[Unicidade por União e Interseção]
-    Sejam \(A\), \(B\) e \(C\) conjuntos tais que \(A \cup B = A \cup C\) e \(A \cap B = A \cap C\). Então, \(B = C\).
     \label{prop:unicidade_por_uniao_e_intersecao}
+    Sejam \(A\), \(B\) e \(C\) conjuntos tais que \(A \cup B = A \cup C\) e \(A \cap B = A \cap C\). Então, \(B = C\).
 \end{proposicao}
 
 \begin{proposicao}[União da União de Famílias]
+    \label{prop:uniao_da_uniao_de_familias}
     Para quaisquer famílias de conjuntos \(A\) e \(B\), tem-se que:
     \[ \bigcup(A \cup B) = \bigcup A \cup \bigcup B \]
-    \label{prop:uniao_da_uniao_de_familias}
 \end{proposicao}
 
 \begin{proposicao}[Interseção da União de Famílias]
+    \label{prop:intersecao_da_uniao_de_familias}
     Se \(A\) e \(B\) são famílias não vazias de conjuntos, então:
     \[ \bigcap(A \cup B) = \bigcap A \cap \bigcap B \]
-    \label{prop:intersecao_da_uniao_de_familias}
 \end{proposicao}
 
 \begin{proposicao}[Distributividade da União sobre a Interseção de Família]
+    \label{prop:distributiva_uniao_intersecao_familia}
     Se \(\mathscr{B}\) é uma família não vazia de conjuntos, então a união distribui sobre a interseção da seguinte forma:
     \[ A \cup \bigcap \mathscr{B} = \bigcap \{ A \cup X: X \in \mathscr{B} \} \]
-    \label{prop:distributiva_uniao_intersecao_familia}
 \end{proposicao}
 
 \begin{proposicao}
+    \label{prop:partes_intersecao_familia}
     Se \(\mathscr{A}\) é uma família não vazia de conjuntos, então o conjunto das partes da interseção é igual à interseção dos conjuntos das partes:
     \[ \PP(\bigcap \mathscr{A}) = \bigcap \{ \PP(X): X \in \mathscr{A} \} \]
-    \label{prop:partes_intersecao_familia}
 \end{proposicao}
 
 \begin{proposicao}
+    \label{prop:uniao_partes_inclusao_familia}
     Para qualquer família de conjuntos \(\mathscr{A}\), a união dos conjuntos das partes está contida no conjunto das partes da união:
     \[ \bigcup \{ \PP(X): X \in \mathscr{A} \} \subseteq \PP(\bigcup \mathscr{A}) \]
     A igualdade ocorre se, e somente se, \(\bigcup \mathscr{A} \in \mathscr{A}\) (ou seja, existe um conjunto \(M \in \mathscr{A}\) tal que todos os outros membros de \(\mathscr{A}\) são subconjuntos de \(M\)).
-    \label{prop:uniao_partes_inclusao_familia}
 \end{proposicao}
 
 \begin{proposicao}[Distributividade da União com Família Arbitrária]
+    \label{prop:distributiva_uniao_familia_condicao}
     A igualdade
     \[ A \cup \bigcup \mathscr{B} = \bigcup \{ A \cup X: X \in \mathscr{B} \} \]
     é válida se, e somente se, a família \(\mathscr{B}\) não for vazia (ou se \(A\) for vazio). Caso \(\mathscr{B} = \varnothing\) e \(A \neq \varnothing\), a igualdade não se verifica.
-    \label{prop:distributiva_uniao_familia_condicao}
 \end{proposicao}
 
 \hrule
 
 \begin{axioma}[Esquema de Axiomas de Substituição]
+    \label{ax:substituicao}
     Para cada fórmula \(\varphi(x,y)\) que não contenha o símbolo \(B\), a seguinte sentença é um axioma:
     \begin{align*}
         \forall A [(\forall x \in A) \forall y_1 \forall y_2 (\varphi(x, y_1) \e \varphi(x, y_2) \implies y_1 = y_2) \\
                 \implies \exists B \forall y (\exists y \in B \iff (\exists x \in A)\varphi(x, y))].
     \end{align*}
-    \label{ax:substituicao}
 \end{axioma}
 
 \begin{axioma}[Axioma do Infinito]
+    \label{ax:infinito}
     Existe um conjunto indutivo:
     \[ (\exists A)[\varnothing \in A \e (\forall a \in A) a^{+} \in A]. \]
-    \label{ax:infinito}
 \end{axioma}
 
 \begin{axioma}[Axioma da Regularidade]
+    \label{ax:regularidade}
     Todo conjunto não vazio \(A\) possui um membro \(m\) tal que \(m \cap A =\varnothing\):
     \[
         (\forall A \neq \varnothing)(\exists m \in A)m \cap A = \varnothing.
     \]
-    \label{ax:regularidade}
 \end{axioma}
 
 \section{Álgebra de Conjuntos}
@@ -912,19 +912,19 @@ e as propriedades antimonótonas\footnote{Refere-se a operações que não prese
 \label{sec:relacoes_funcoes}
 
 \begin{definicao}[Par Ordenado]
+    \label{def:par_ordenado}
     Definimos o par ordenado \((a,b)\) onde a primeira coordenada de \((a,b)\) é \(a\) e a segunda coordenada de \((a,b)\) é \(b\) como
     \[
         (a,b) = \{\{a\}, \{a,b\}\}.
     \]
-    \label{def:par_ordenado}
 \end{definicao}
 
 \begin{proposicao}
+    \label{prop:par_ordenado}
     Os pares ordenados \((u,v)\) e \((x,y)\) são iguais se, e somente se, \(u=x\) e \(v=y\)
     \[
         (u,v) = (x,y) \iff u = x \text{ e } v = y.
     \]
-    \label{prop:par_ordenado}
 \end{proposicao}
 
 \begin{proof}
@@ -959,21 +959,21 @@ e as propriedades antimonótonas\footnote{Refere-se a operações que não prese
 \end{proof}
 
 \begin{definicao}[Produto Cartesiano]
+    \label{def:produto_cartesiano}
     Sejam \(A\) e \(B\) conjuntos, podemos fazer pares ordenados \((x,y)\) com \(x \in A\) e \(y \in B\). A coleção de todos esses pares é o Produto Cartesiano \(A \times B\) de \(A\) e \(B\):
     \[
         A \times B = \{(x,y): x \in A \e y \in B\}.
     \]
-    \label{def:produto_cartesiano}
 \end{definicao}
 
 \input{dados/figuras/produto_cartesiano.tex}
 
 \begin{proposicao}
+    \label{prop:power_power}
     Se \(x \in C\) e \(y \in C\), então \((x,y) \in \PP(\PP(C))\)
     \[
         (x \in C \e y \in C) \implies (x,y) \in \PP(\PP(C)).
     \]
-    \label{prop:power_power}
 \end{proposicao}
 
 \begin{proof}
@@ -990,11 +990,11 @@ e as propriedades antimonótonas\footnote{Refere-se a operações que não prese
 \end{proof}
 
 \begin{corolario}
+    \label{cor:existencia_par_odernado}
     Para quaisquer conjuntos \(A\) e \(B\), existe um conjunto no qual seus elementos são exatamente os pares ordenados \((x,y)\) com \(x \in A\) e \(y \in B\)
     \[
         \forall A \forall B \exists C \forall z (z \in C \iff \exists x \exists y (x \in A \e y \in B \e z = (x,y))).
     \]
-    \label{cor:existencia_par_odernado}
 \end{corolario}
 
 \begin{proof}
@@ -1010,8 +1010,8 @@ e as propriedades antimonótonas\footnote{Refere-se a operações que não prese
 \end{proof}
 
 \begin{definicao}[Relação]
-    Uma relação \(R\) entre os conjuntos \(A\) e \(B\) é um subconjunto do cartesiano \(A \times B\). Quando \(x \in A\) se relaciona com \(y \in B\), escrevemos \((x,y) \in R\) ou \(xRy\).
     \label{def:relacao}
+    Uma relação \(R\) entre os conjuntos \(A\) e \(B\) é um subconjunto do cartesiano \(A \times B\). Quando \(x \in A\) se relaciona com \(y \in B\), escrevemos \((x,y) \in R\) ou \(xRy\).
 \end{definicao}
 
 \input{dados/figuras/relacao.tex}
@@ -1028,11 +1028,11 @@ e as propriedades antimonótonas\footnote{Refere-se a operações que não prese
 \end{exemplo}
 
 \begin{definicao}[Domínio]
+    \label{def:dominio}
     Nós definimos o domínio de uma relação \(R\) (\(\dom (R)\)) como
     \[
         x \in \dom (R) \iff \exists y \tq xRy.
     \]
-    \label{def:dominio}
 \end{definicao}
 
 \input{dados/figuras/dominio_grafo.tex}
@@ -1051,11 +1051,11 @@ e as propriedades antimonótonas\footnote{Refere-se a operações que não prese
 \end{exemplo}
 
 \begin{definicao}[Imagem]
+    \label{def:imagem}
     Definimos a imagem de uma relação \(R\) (\(\im (R)\)) como
     \[
         x \in \im (R) \iff \exists t \tq tRx.
     \]
-    \label{def:imagem}
 \end{definicao}
 
 \input{dados/figuras/imagem_plano.tex}

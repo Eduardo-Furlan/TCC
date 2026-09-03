@@ -12,33 +12,33 @@ Nesta perspectiva, a cardinalidade não depende da natureza dos elementos de um 
 Informalmente, podemos compreender a \emph{cardinalidade} de um conjunto \(X\), denotada por \(|X|\), como uma medida de sua ``grandeza'' ou quantidade de elementos, associada à sua classe de equivalência por bijeções. Uma definição rigorosa de \emph{número cardinal} como um objeto específico dentro da teoria axiomática dos conjuntos requer a teoria dos \emph{números ordinais}, tópico que será abordado em capítulos posteriores. Por essa razão, neste momento trataremos a cardinalidade primariamente por meio da relação de comparação direta entre pares de conjuntos, dispensando provisoriamente a construção prévia dos cardinais como entidades matemáticas isoladas.
 
 \begin{definicao}[Equinumerosidade]\index{Equinumerosidade}\index{Cardinalidade!equinumerosidade}
+    \label{def:equinumerosidade}
     Dois conjuntos \(A\) e \(B\) são ditos \emph{equinumerosos}, denotado por
     \[
         |A| = |B|,
     \]
     se e somente se existe uma função bijetora \(f:A\to B\).
-    \label{def:equinumerosidade}
 \end{definicao}
 
 A equinumerosidade formaliza a ideia de que dois conjuntos possuem a mesma quantidade de elementos. De fato, uma bijeção estabelece uma correspondência um a um entre os elementos dos dois conjuntos, de modo que nenhum elemento de qualquer dos conjuntos fica sem correspondente e nenhum elemento é associado a mais de um elemento do outro conjunto.
 
 Quando dois conjuntos não são equinumerosos, ainda podemos perguntar se um deles pode ser comparado ao outro em termos de tamanho. Para isso, basta exigir uma correspondência que não permita que dois elementos distintos do primeiro conjunto sejam associados ao mesmo elemento do segundo.
 
-\begin{definicao}[\(\leq\) entre cardinalidades]\index{Cardinalidade!comparacao de@comparação de}\index{Ordem!parcial entre cardinais}
+\begin{definicao}[Relação \(\leq\) entre cardinalidades]\index{Cardinalidade!comparacao de@comparação de}\index{Ordem!parcial entre cardinais}
+    \label{def:leq_cardinal}
     Sejam \(A\) e \(B\) conjuntos. Dizemos que a cardinalidade de \(A\) é
     menor ou igual à cardinalidade de \(B\), denotado por
     \[
         |A| \leq |B|,
     \]
     se existe uma função injetora \(f:A\to B\).
-    \label{def:leq_cardinal}
 \end{definicao}
 
 A relação \(\leq\) entre cardinalidades permite comparar conjuntos mesmo quando não existe uma bijeção entre eles. Além disso, ela satisfaz as propriedades básicas esperadas de uma relação de ordem.
 
 \begin{proposicao}[Reflexividade e Transitividade da Comparação Cardinal]
-    A relação \(\leq\) entre cardinalidades é reflexiva e transitiva.
     \label{prop:leq_cardinal_reflexiva_transitiva}
+    A relação \(\leq\) entre cardinalidades é reflexiva e transitiva.
 \end{proposicao}
 
 \begin{proof}
@@ -57,9 +57,9 @@ A relação \(\leq\) entre cardinalidades permite comparar conjuntos mesmo quand
 A reflexividade e a transitividade mostram que a relação \(\leq\) possui uma estrutura de pré-ordem. Para obter uma verdadeira relação de ordem, resta estabelecer a antissimetria. O resultado fundamental que permite fazê-lo é o Teorema de Schröder--Bernstein.
 
 \begin{teorema}[Schröder--Bernstein]\index{Teorema!de Schroder@de Schröder--Bernstein}
+    \label{teo:schroder_bernstein}
     Sejam \(A\) e \(B\) conjuntos. Se existem funções injetoras
     \(f:A\to B\) e \(g:B\to A\), então existe uma bijeção \(h:A\to B\).
-    \label{teo:schroder_bernstein}
 \end{teorema}
 
 \begin{proof}
@@ -149,38 +149,38 @@ A reflexividade e a transitividade mostram que a relação \(\leq\) possui uma e
 \end{proof}
 
 \begin{corolario}[Antissimetria da Ordem Cardinal]
+    \label{cor:leq_cardinal_antissimetrico}
     Se \(|A|\leq |B|\) e \(|B|\leq |A|\), então
     \[
         |A|=|B|.
     \]
-    \label{cor:leq_cardinal_antissimetrico}
 \end{corolario}
 
 \begin{proposicao}
-    A relação \(\leq\) entre cardinalidades é uma relação de ordem.
     \label{prop:leq_cardinal_ordem}
+    A relação \(\leq\) entre cardinalidades é uma relação de ordem.
 \end{proposicao}
 
 Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \(\leq\) entre cardinalidades está completamente caracterizada. O \autoref{cor:leq_cardinal_antissimetrico} é exatamente o teorema que acabamos de provar, e a \autoref{prop:leq_cardinal_ordem} segue imediatamente da combinação da reflexividade, transitividade e da antissimetria. Suas demonstrações formais são diretas e ficam, portanto, a cargo do leitor como exercício de verificação. Uma vez estabelecida essa hierarquia entre tamanhos de conjuntos, podemos aplicá-la com segurança aos conjuntos finitos para fundamentar rigorosamente a noção de ``quantidade de elementos''. Na próxima seção, mostraremos que a cardinalidade de um conjunto finito determina um único número natural, o que torna a contagem uma operação bem definida. Além disso, provaremos que subconjuntos próprios de conjuntos finitos possuem cardinalidade estritamente menor que a do conjunto original.
 
-\begin{definicao}[\(<\) entre cardinalidades]\index{Ordem!estrita entre cardinais}\index{Cardinalidade!ordem estrita}
+\begin{definicao}[Relação \(<\) entre cardinalidades]\index{Ordem!estrita entre cardinais}\index{Cardinalidade!ordem estrita}
+    \label{def:ordem_estrita_cardinal}
     Sejam \(A\) e \(B\) conjuntos. Dizemos que a cardinalidade de \(A\) é
     \emph{estritamente menor} que a cardinalidade de \(B\), denotado por
     \[
         |A| < |B|,
     \]
     se \(|A| \leq |B|\) e \(|A| \neq |B|\). Em termos funcionais, isso equivale a dizer que existe uma função injetora \(f: A \to B\), mas não existe qualquer função bijetora entre \(A\) e \(B\).
-    \label{def:ordem_estrita_cardinal}
 \end{definicao}
 
 \begin{proposicao}[Propriedades da ordem estrita]
+    \label{prop:ordem_estrita_propriedades}
     A relação \(<\) entre cardinalidades satisfaz as seguintes propriedades:
     \begin{enumerate}
         \item \textbf{Irreflexividade:} Para qualquer conjunto \(A\), \(|A| \not< |A|\);
         \item \textbf{Assimetria:} Se \(|A| < |B|\), então \(|B| \not< |A|\);
         \item \textbf{Transitividade:} Se \(|A| < |B|\) e \(|B| < |C|\), então \(|A| < |C|\).
     \end{enumerate}
-    \label{prop:ordem_estrita_propriedades}
 \end{proposicao}
 
 \begin{proof}
@@ -195,8 +195,9 @@ Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \
 \end{proof}
 
 \begin{lema}[Caracterização por inexistência de injeção reversa]
-    Sejam \(A\) e \(B\) conjuntos. \(|A| < |B|\) se, e somente se, existe uma injeção \(f: A \to B\) e não existe função injetora de \(B\) em \(A\).
+    \label{lem:produto_cardinal_bem_definido}
     \label{lem:caracterizacao_ordem_estrita_sem_injecao}
+    Sejam \(A\) e \(B\) conjuntos. \(|A| < |B|\) se, e somente se, existe uma injeção \(f: A \to B\) e não existe função injetora de \(B\) em \(A\).
 \end{lema}
 
 \begin{proof}
@@ -208,11 +209,11 @@ Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \
 \end{proof}
 
 \begin{teorema}[Teorema de Cantor]\index{Teorema!de Cantor}
+    \label{teo:cantor_ordem_estrita}
     Para todo conjunto \(X\), tem-se
     \[
         |X| < |\PP(X)|
     \]
-    \label{teo:cantor_ordem_estrita}
 \end{teorema}
 
 \begin{proof}
@@ -239,12 +240,12 @@ Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \
 \end{proof}
 
 \begin{corolario}[Inexistência de cardinal máximo]
+    \label{cor:cadeia_infinita_cardinais}
     Não existe um conjunto com cardinalidade máxima. Em particular, a sequência iterada do conjunto das partes
     \[
         |X| < |\PP(X)| < |\PP(\PP(X))| < \dots
     \]
     estabelece uma hierarquia infinita de cardinalidades estritamente crescentes.
-    \label{cor:cadeia_infinita_cardinais}
 \end{corolario}
 
 \begin{proof}
@@ -254,6 +255,7 @@ Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \
 Além da hierarquia de ordem estrita dada pelo Teorema de Cantor, a comparação de cardinalidades permite introduzir operações aritméticas entre cardinais arbitrários. A mais fundamental dessas operações é a soma cardinal, que formaliza a noção intuitiva de agregar as quantidades de elementos de dois conjuntos disjuntos.
 
 \begin{definicao}[Soma de Cardinais]\index{Soma cardinal!definicao@definição}\index{Cardinalidade!soma de cardinais}
+    \label{def:soma_cardinal}
     Sejam \(A\) e \(B\) conjuntos disjuntos. A soma das cardinalidades \(|A|\) e \(|B|\), denotada por \(|A| + |B|\), é a cardinalidade da união de \(A\) e \(B\):
     \[
         |A| + |B| = |A \cup B|.
@@ -262,17 +264,16 @@ Além da hierarquia de ordem estrita dada pelo Teorema de Cantor, a comparação
     \[
         |A| + |B| = |(A \times \{0\}) \cup (B \times \{1\})|.
     \]
-    \label{def:soma_cardinal}
 \end{definicao}
 
 Para que essa operação sobre cardinais seja consistente, deve-se assegurar que a soma independe dos representantes escolhidos para as classes de equinumerosidade.
 
 \begin{lema}[Boa Definição da Soma Cardinal]
+    \label{lem:soma_cardinal_bem_definida}
     A operação de soma cardinal é bem definida. Isto é, se \(|A| = |A'|\) e \(|B| = |B'|\), com \(A \cap B = \varnothing\) e \(A' \cap B' = \varnothing\), então
     \[
         |A \cup B| = |A' \cup B'|.
     \]
-    \label{lem:soma_cardinal_bem_definida}
 \end{lema}
 
 \begin{proof}
@@ -302,6 +303,8 @@ Para que essa operação sobre cardinais seja consistente, deve-se assegurar que
 A soma cardinal estende para conjuntos arbitrários as propriedades algébricas usuais da adição:
 
 \begin{proposicao}[Propriedades da Soma Cardinal]
+    \label{prop:potencia_partes_funcao_caracteristica}
+    \label{prop:propriedades_adicao_cardinal}
     Para quaisquer conjuntos \(A\), \(B\), \(C\) e \(D\), a adição cardinal satisfaz:
     \begin{enumerate}
         \item \textbf{Comutatividade:} \(|A| + |B| = |B| + |A|\);
@@ -309,7 +312,6 @@ A soma cardinal estende para conjuntos arbitrários as propriedades algébricas 
         \item \textbf{Elemento Neutro:} \(|A| + 0 = |A|\), onde \(0 = |\varnothing|\);
         \item \textbf{Monotonicidade:} Se \(|A| \leq |B|\) e \(|C| \leq |D|\), então \(|A| + |C| \leq |B| + |D|\).
     \end{enumerate}
-    \label{prop:propriedades_adicao_cardinal}
 \end{proposicao}
 
 \begin{proof}
@@ -351,11 +353,11 @@ A soma cardinal estende para conjuntos arbitrários as propriedades algébricas 
 De forma análoga à soma, a operação de multiplicação aritmética estende-se naturalmente à teoria dos cardinais por meio do produto cartesiano de conjuntos.
 
 \begin{definicao}[Produto de Cardinais]\index{Produto cardinal}\index{Produto cardinal!definicao@definição}\index{Cardinalidade!produto de cardinais}
+    \label{def:produto_cardinal}
     Sejam \(A\) e \(B\) conjuntos arbitrários. O produto das cardinalidades \(|A|\) e \(|B|\), denotado por \(|A| \cdot |B|\) (ou simplesmente \(|A||B|\)), é definido pela cardinalidade do produto cartesiano \(A \times B\):
     \[
         |A| \cdot |B| = |A \times B|.
     \]
-    \label{def:produto_cardinal}
 \end{definicao}
 
 Assim como na adição, a consistência da multiplicação requer a independência dos representantes de cada cardinalidade.
@@ -365,7 +367,6 @@ Assim como na adição, a consistência da multiplicação requer a independênc
     \[
         |A \times B| = |A' \times B'|.
     \]
-    \label{lem:produto_cardinal_bem_definido}
 \end{lema}
 
 \begin{proof}
@@ -385,6 +386,7 @@ Assim como na adição, a consistência da multiplicação requer a independênc
 O produto cardinal preserva a estrutura algébrica clássica da multiplicação e articula-se com a adição através da distributividade:
 
 \begin{proposicao}[Propriedades do Produto Cardinal]
+    \label{prop:propriedades_produto_cardinal}
     Para quaisquer conjuntos \(A\), \(B\) e \(C\), o produto cardinal satisfaz:
     \begin{enumerate}
         \item \textbf{Comutatividade:} \(|A| \cdot |B| = |B| \cdot |A|\);
@@ -394,7 +396,6 @@ O produto cardinal preserva a estrutura algébrica clássica da multiplicação 
         \item \textbf{Distributividade:} \(|A| \cdot (|B| + |C|) = (|A| \cdot |B|) + (|A| \cdot |C|)\);
         \item \textbf{Monotonicidade:} Se \(|A| \leq |B|\) e \(|C| \leq |D|\), então \(|A| \cdot |C| \leq |B| \cdot |D|\).
     \end{enumerate}
-    \label{prop:propriedades_produto_cardinal}
 \end{proposicao}
 
 \begin{proof}
@@ -419,13 +420,90 @@ O produto cardinal preserva a estrutura algébrica clássica da multiplicação 
     \end{enumerate}
 \end{proof}
 
-Com as noções gerais de equivalência, ordem estrita e as operações aritméticas de adição e produto cardinal devidamente estabelecidas para conjuntos arbitrários, podemos agora iniciar a investigação sistemática das classes fundamentais de conjuntos. A primeira seção deste capítulo dedica-se aos conjuntos finitos, nos quais a aritmética cardinal coincide rigorosamente com as operações aritméticas elementares sobre os números naturais.
+Completando a tríade das operações aritméticas fundamentais, a exponenciação cardinal estende a potenciação usual por meio do conjunto de todas as funções entre dois conjuntos.
+
+\begin{definicao}[Exponenciação de Cardinais]\index{Exponenciacao cardinal@Exponenciação cardinal}\index{Exponenciacao cardinal!definicao@definição}\index{Cardinalidade!exponenciacao de cardinais@exponenciação de cardinais}
+    \label{def:exponenciacao_cardinal}
+    Sejam \(A\) e \(B\) conjuntos arbitrários. Denotamos por \(B^A\) o conjunto de todas as funções com domínio \(A\) e contradomínio \(B\):
+    \[
+        B^A = \{f \mid f: A \to B\}.
+    \]
+    A exponenciação cardinal \(|B|^{|A|}\) é definida como a cardinalidade do conjunto de funções \(B^A\):
+    \[
+        |B|^{|A|} = |B^A|.
+    \]
+\end{definicao}
+
+A consistência da exponenciação exige que a cardinalidade de \(B^A\) independa da escolha particular dos representantes de \(|A|\) e \(|B|\).
+
+\begin{lema}[Boa Definição da Exponenciação Cardinal]
+    \label{lem:exponenciacao_cardinal_bem_definida}
+    A operação de exponenciação cardinal é bem definida. Isto é, se \(|A| = |A'|\) e \(|B| = |B'|\), então
+    \[
+        |B^A| = |(B')^{A'}|.
+    \]
+\end{lema}
+
+\begin{proof}
+    % A demonstrar:
+    % Dadas as bijeções \phi: A' -> A e \psi: B -> B', define-se \Phi: B^A -> (B')^{A'} por
+    % \Phi(f) = \psi \circ f \circ \phi.
+    % A aplicação inversa é \Psi(g) = \psi^{-1} \circ g \circ \phi^{-1}, garantindo a bijetividade de \Phi.
+\end{proof}
+
+Uma das conexões mais profundas da teoria dos conjuntos axiomática une a exponenciação de base \(2\) ao conjunto das partes, permitindo reinterpretar o Teorema de Cantor sob forma puramente algébrica.
+
+\begin{proposicao}[Identificação do Conjunto das Partes com Funções Características]
+    Para todo conjunto \(A\), tem-se
+    \[
+        2^{|A|} = |\PP(A)|,
+    \]
+    onde \(2 = |\{0, 1\}|\). Em particular, o Teorema de Cantor (\autoref{teo:cantor_ordem_estrita}) pode ser expresso como
+    \[
+        |A| < 2^{|A|}.
+    \]
+\end{proposicao}
+
+\begin{proof}
+    % A demonstrar:
+    % Para cada subconjunto S \sub A, associa-se sua função característica \chi_S: A -> {0, 1},
+    % dada por \chi_S(x) = 1 se x \in S e \chi_S(x) = 0 se x \notin S.
+    % A aplicação S |-> \chi_S de \PP(A) em {0, 1}^A é uma bijeção canônica.
+\end{proof}
+
+A exponenciação cardinal satisfaz ainda as leis clássicas das potências:
+
+\begin{proposicao}[Propriedades da Exponenciação Cardinal]
+    \label{prop:unicidade_cardinalidade_naturais}
+    \label{prop:propriedades_exponenciacao_cardinal}
+    Para quaisquer conjuntos \(A\), \(B\) e \(C\), a exponenciação cardinal satisfaz:
+    \begin{enumerate}
+        \item \(|A|^{|B| + |C|} = |A|^{|B|} \cdot |A|^{|C|}\);
+        \item \((|A| \cdot |B|)^{|C|} = |A|^{|C|} \cdot |B|^{|C|}\);
+        \item \((|A|^{|B|})^{|C|} = |A|^{|B| \cdot |C|}\);
+        \item \(|A|^1 = |A|\) e \(|A|^0 = 1\), onde \(1 = |\{\varnothing\}|\) e \(0 = |\varnothing|\);
+        \item \(1^{|A|} = 1\) e \(0^{|A|} = 0\) (para todo \(A \neq \varnothing\));
+        \item \textbf{Monotonicidade:} Se \(|A| \leq |B|\) e \(|C| \leq |D|\) (com \(B \neq \varnothing\)), então \(|A|^{|C|} \leq |B|^{|D|}\).
+    \end{enumerate}
+\end{proposicao}
+
+\begin{proof}
+    % A demonstrar:
+    % 1. Para B, C disjuntos, f: B U C -> A é unicamente determinada pelo par (f|_B, f|_C) em A^B x A^C.
+    % 2. Uma função f: C -> A x B corresponde canonicamente ao par de funções (\pi_1 \circ f, \pi_2 \circ f) em A^C x B^C.
+    % 3. Currying / Exponenciação: bijeção canônica entre (A^B)^C e A^(B x C) dada por f(c)(b) = g(b, c).
+    % 4 e 5. Casos de domínios unitários e vazios: A^\varnothing = {\varnothing} (função vazia), logo |A|^0 = 1.
+    % 6. Dadas injeções f: A -> B e g: C -> D (com retração r: D -> C se B != \varnothing), a extensão induz injeção em A^C -> B^D.
+\end{proof}
+
+Com as noções gerais de equivalência, ordem estrita e as três operações aritméticas fundamentais (adição, multiplicação e exponenciação cardinal) devidamente estabelecidas para conjuntos arbitrários, podemos agora iniciar a investigação sistemática das classes fundamentais de conjuntos. A primeira seção deste capítulo dedica-se aos conjuntos finitos, nos quais toda essa álgebra cardinal coincide rigorosamente com as propriedades aritméticas usuais dos números naturais.
 
 \section{Conjuntos finitos}\index{Conjuntos!finitos}
 \label{sec:conjuntos_finitos}
 A noção de finitude constitui o ponto de partida natural para a construção concreta da cardinalidade. Intuitivamente, um conjunto é finito quando seus elementos podem ser enumerados completamente, de modo que cada um deles corresponda a uma posição em um segmento inicial dos números naturais.
 
 \begin{definicao}[Conjunto finito]
+    \label{def:conjunto_finito}
     Um conjunto \(X\) é dito \emph{finito} se \(X=\varnothing\) ou existe
     \(n\in\mathbb{N}\) e uma bijeção
     \[
@@ -433,7 +511,6 @@ A noção de finitude constitui o ponto de partida natural para a construção c
         \qquad
         I_n=\{p\in\mathbb{N}:p\leq n\}.
     \]
-    \label{def:conjunto_finito}
 \end{definicao}
 
 A definição acima, apresentada por \textcite[p.~3]{lima2006}, é equivalente à caracterização de
@@ -445,6 +522,7 @@ equinumeroso a um número natural. De fato, existe uma bijeção natural entre
     \label{fn:definicao_numero_halmos}}
 
 \begin{exemplo}
+    \label{ex:finito-elon}
     O conjunto
     \[
         X=\{\text{primeiro},\text{segundo},\text{terceiro}\}
@@ -457,10 +535,10 @@ equinumeroso a um número natural. De fato, existe uma bijeção natural entre
         f(2)=\text{segundo},\qquad
         f(3)=\text{terceiro}.
     \]
-    \label{ex:finito-elon}
 \end{exemplo}
 
 \begin{exemplo}
+    \label{ex:finito-halmos}
     Considere o conjunto das vogais
     \[
         V=\{a,e,i,o,u\}.
@@ -475,7 +553,6 @@ equinumeroso a um número natural. De fato, existe uma bijeção natural entre
         g(3)=o,\qquad
         g(4)=u.
     \]
-    \label{ex:finito-halmos}
 \end{exemplo}
 
 \subsection{Cardinalidade dos conjuntos finitos}
@@ -483,7 +560,7 @@ equinumeroso a um número natural. De fato, existe uma bijeção natural entre
 
 Uma vez caracterizados os conjuntos finitos, podemos associar-lhes precisamente um número natural que representa sua quantidade de elementos. O próximo resultado garante que essa associação é bem definida: dois números naturais equinumerosos devem necessariamente ser iguais.
 
-\begin{proposicao}
+\begin{proposicao}[Unicidade da Cardinalidade em \(\N\)]
     Sejam \(m,n\in\mathbb{N}\). Se \(|m| = |n|\), então \(m=n\).
 \end{proposicao}
 
@@ -587,10 +664,12 @@ Nesta seção, serão estudadas propriedades da enumerabilidade que permitem tra
 \cite{suppes1972}, \cite{enderton1977}.
 
 \begin{proposicao}[Subconjunto de Conjunto Enumerável]
+    \label{prop:subconjunto_enumeravel}
     Todo subconjunto de um conjunto enumerável é finito ou enumerável.
 \end{proposicao}
 
 \begin{proposicao}[Produto Cartesiano de Conjuntos Enumeráveis]
+    \label{prop:produto_cartesiano_enumeravel}
     Se \(A\) e \(B\) são conjuntos enumeráveis, então \(A\times B\) é enumerável.
 \end{proposicao}
 
@@ -601,6 +680,7 @@ Uma característica fundamental dos conjuntos infinitos é que a adição de uma
 \cite{enderton1977}.
 
 \begin{proposicao}[Absorção de Subconjuntos Finitos por Conjuntos Infinitos]
+    \label{prop:absorcao_finito_infinito}
     Se \(A\) é infinito e \(F\) é finito, então
     \[
         |A\cup F|=|A|.

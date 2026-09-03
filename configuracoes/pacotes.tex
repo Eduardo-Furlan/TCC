@@ -130,14 +130,23 @@
 
 % ── Teoremas (thmtools) ──────────────────────────────────────
 
-\declaretheorem[style=plain,      name=Teorema   ]{teorema}
-\declaretheorem[style=plain,      name=Axioma    ]{axioma}
-\declaretheorem[style=plain,      name=Lema      ]{lema}
-\declaretheorem[style=plain,      name=Corol\'ario]{corolario}
-\declaretheorem[style=plain,      name=Proposi\c{c}\~ao]{proposicao}
-\declaretheorem[style=definition, name=Defini\c{c}\~ao]{definicao}
-\declaretheorem[style=definition, name=Exemplo   ]{exemplo}
+\declaretheorem[style=plain,      name=Teorema,         Refname=Teorema   ]{teorema}
+\declaretheorem[style=plain,      name=Axioma,          Refname=Axioma    ]{axioma}
+\declaretheorem[style=plain,      name=Lema,            Refname=Lema      ]{lema}
+\declaretheorem[style=plain,      name=Corol\'ario,     Refname=Corol\'ario]{corolario}
+\declaretheorem[style=plain,      name=Proposi\c{c}\~ao, Refname=Proposi\c{c}\~ao]{proposicao}
+\declaretheorem[style=definition, name=Defini\c{c}\~ao, Refname=Defini\c{c}\~ao]{definicao}
+\declaretheorem[style=definition, name=Exemplo,         Refname=Exemplo   ]{exemplo}
 \declaretheorem[style=remark,     name=Nota, numbered=no]{remark}
+
+% Rótulos para o \autoref do hyperref
+\providecommand{\teoremaautorefname}{Teorema}
+\providecommand{\axiomaautorefname}{Axioma}
+\providecommand{\lemaautorefname}{Lema}
+\providecommand{\corolarioautorefname}{Corol\'ario}
+\providecommand{\proposicaoautorefname}{Proposi\c{c}\~ao}
+\providecommand{\definicaoautorefname}{Defini\c{c}\~ao}
+\providecommand{\exemploautorefname}{Exemplo}
 
 \renewcommand{\proofname}{Demonstra\c{c}\~ao}
 

@@ -24,8 +24,8 @@
     \setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}%
 }
 
-% ── Equações numeradas sequencialmente (sem prefixo de cap.) ─
-\AtBeginDocument{\counterwithout{equation}{chapter}}
+% ── Equações numeradas por capítulo e seção (ex: 4.3.1) ────────
+\AtBeginDocument{\counterwithin{equation}{section}}
 
 % ── Notas de rodapé: numeração contínua ─────────────────────
 \AtBeginDocument{\counterwithout{footnote}{chapter}}
@@ -146,7 +146,7 @@
 \makeatletter
 \let\UTFPR@old@l@subsubsection\l@subsubsection
 \renewcommand*{\l@subsubsection}[2]{%
-  \UTFPR@old@l@subsubsection{\uline{#1}}{#2}%
+    \UTFPR@old@l@subsubsection{\uline{#1}}{#2}%
 }
 \makeatother
 
