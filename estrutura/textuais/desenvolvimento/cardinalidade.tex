@@ -185,7 +185,35 @@ A reflexividade e a transitividade mostram que a relação \(\leq\) possui uma e
     A relação \(\leq\) entre cardinalidades é uma relação de ordem.
 \end{proposicao}
 
-Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \(\leq\) entre cardinalidades está completamente caracterizada. O \autoref{cor:leq_cardinal_antissimetrico} é exatamente o teorema que acabamos de provar, e a \autoref{prop:leq_cardinal_ordem} segue imediatamente da combinação da reflexividade, transitividade e da antissimetria. Suas demonstrações formais são diretas e ficam, portanto, a cargo do leitor como exercício de verificação. Uma vez estabelecida essa hierarquia entre tamanhos de conjuntos, podemos aplicá-la com segurança aos conjuntos finitos para fundamentar rigorosamente a noção de ``quantidade de elementos''. Na próxima seção, mostraremos que a cardinalidade de um conjunto finito determina um único número natural, o que torna a contagem uma operação bem definida. Além disso, provaremos que subconjuntos próprios de conjuntos finitos possuem cardinalidade estritamente menor que a do conjunto original.
+Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \(\leq\) entre cardinalidades está completamente caracterizada. O \autoref{cor:leq_cardinal_antissimetrico} é exatamente o teorema que acabamos de provar, e a \autoref{prop:leq_cardinal_ordem} segue imediatamente da combinação da reflexividade, transitividade e da antissimetria. Suas demonstrações formais são diretas e ficam, portanto, a cargo do leitor como exercício de verificação.
+
+Além da caracterização via injeções, a intuição sugere que a relação \(|B| \leq |A|\) também poderia ser expressa dizendo que os elementos de \(A\) são suficientes para cobrir inteiramente o conjunto \(B\) por meio de uma sobrejeção.
+
+\begin{proposicao}[Existência de Sobrejeção a Partir de Injeção]
+    \label{prop:injecao_implica_sobrejecao}
+    Sejam \(A\) e \(B\) conjuntos, com \(B \neq \varnothing\). Se \(|B| \leq |A|\), então existe uma função sobrejetora \(g: A \to B\).
+\end{proposicao}
+
+\begin{proof}
+    Como \(B \neq \varnothing\), podemos fixar um elemento arbitrário \(b_0 \in B\).
+    Sendo a função \(f: B \to A\) injetora por hipótese, ela define uma bijeção entre \(B\) e sua imagem \(f(B) \subseteq A\). Consequentemente, para cada elemento \(y \in f(B)\), existe um único \(x \in B\) tal que \(f(x) = y\), permitindo considerar a aplicação inversa \(f^{-1}: f(B) \to B\).
+
+    Definimos então a função \(g: A \to B\) por:
+    \[
+        g(y) =
+        \begin{cases}
+            f^{-1}(y), & \text{se } y \in f(B),    \\
+            b_0,       & \text{se } y \notin f(B).
+        \end{cases}
+    \]
+    Para verificar que \(g\) é sobrejetora, seja \(b \in B\) um elemento qualquer. Tomando \(y = f(b) \in A\), é claro que \(y \in f(B)\). Portanto, pela definição de \(g\), temos:
+    \[
+        g(y) = g(f(b)) = f^{-1}(f(b)) = b.
+    \]
+    Assim, todo elemento de \(B\) possui uma pré-imagem em \(A\) sob \(g\), provando que \(g\) é uma sobrejeção.
+\end{proof}
+
+A implicação recíproca ``se existe uma sobrejeção \(g: A \to B\), então existe uma injeção de \(B\) em \(A\)'' também é válida. Para construir uma injeção \(f: B \to A\) a partir de uma sobrejeção arbitrária \(g\), é necessário escolher, para cada \(b \in B\), um único representante no conjunto não vazio \(g^{-1}(\{b\}) \subseteq A\). Quando o conjunto \(B\) é infinito e não dispõe de uma regra de ordenação, tal seleção simultânea requer o Axioma da Escolha, tópico que será investigado formalmente no \autoref{chap:escolha}.
 
 \begin{definicao}[Relação \(<\) entre cardinalidades]\index{Ordem!estrita entre cardinais}\index{Cardinalidade!ordem estrita}
     \label{def:ordem_estrita_cardinal}
@@ -219,7 +247,6 @@ Com a demonstração do \autoref{teo:schroder_bernstein}, a relação de ordem \
 \end{proof}
 
 \begin{lema}[Caracterização por inexistência de injeção reversa]
-    \label{lem:produto_cardinal_bem_definido}
     \label{lem:caracterizacao_ordem_estrita_sem_injecao}
     Sejam \(A\) e \(B\) conjuntos. \(|A| < |B|\) se, e somente se, existe uma injeção \(f: A \to B\) e não existe função injetora de \(B\) em \(A\).
 \end{lema}
